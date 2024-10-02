@@ -67,7 +67,7 @@ class ConfirmRequireLoginDialog extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text('إلغاء'),
+                  child: Text(AText.cancel.tr(context)), //loclaiztion
                 ),
               ),
               SizedBox(width: 12),
