@@ -15,8 +15,8 @@ class RounderBorderCancelButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height?.h,
-      width: width?.w,
+      height: height,
+      width: width,
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
          backgroundColor: Colors.transparent,
@@ -32,7 +32,7 @@ class RounderBorderCancelButton extends StatelessWidget {
         },
         child: myText(
           AText.cancel.tr(context),
-            fontSize: 16,
+            fontSize: 16.sp,
             fontWeight: FontWeight.bold,
             color: ManagerColors.yellowColor
             

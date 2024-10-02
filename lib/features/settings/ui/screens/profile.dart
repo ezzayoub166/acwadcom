@@ -15,61 +15,67 @@ class ProfileScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: buildAppBarWithBackButton(context, isRtl ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CircleAvatar(
-                radius: 50,
-                backgroundImage: AssetImage("assets/images/tow.jpeg")),
-            myText(
-              "Izzdine Atallah",
-              fontSize: 16,
-              color: ManagerColors.kCustomColor,
-              fontWeight: FontWeightEnum.Bold.fontWeight,
-            ),
-            buildSpacerH(5.0),
-            myText(AText.user.tr(context),
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                  radius: 50,
+                  backgroundImage: AssetImage("assets/images/tow.jpeg")),
+              myText(
+                "Izzdine Atallah",
                 fontSize: 16,
+                color: ManagerColors.kCustomColor,
                 fontWeight: FontWeightEnum.Bold.fontWeight,
-                color: ManagerColors.yellowColor),
-            buildSpacerH(10.0),
-            !isEdit
-                ? Column(
-                    children: [
-                      buildDisabledTextField(text: "Izzdin Atallah"),
-                      buildSpacerH(10.0),
-                      buildDisabledTextField(text: "ezzdine484@gmail.com"),
-                      buildSpacerH(10.0),
-                      buildDisabledTextField(text: "972592661915"),
-                    ],
-                  )
-                : Column(
-                    children: [
-                      buildAbleTextField(
-                          text: "Izzdine Atallah",
-                          validator: (value) =>
-                              ManagerValidator.validateEmptyText(
-                                  "Name", "Izzdine Atallah")),
-                      buildSpacerH(10.0),
-                      buildAbleTextField(
-                          text: "ezzdine484@gmail.com",
-                          validator: (value) =>
-                              ManagerValidator.validateEmail(value)),
-                      buildSpacerH(10.0),
-                      buildAbleTextField(
-                          text: "972592661915",
-                          validator: (value) =>
-                              ManagerValidator.validateEmail(value)),
-                              buildSpacerH(10.0),
-                      RoundedButtonWgt(
-                        height: 50.h ,
-                        fontSize: 20,
-                        title: "Save",  onPressed: (){})        
-                    ],
-                  )
-          ],
+              ),
+              buildSpacerH(5.0),
+              myText(AText.user.tr(context),
+                  fontSize: 16,
+                  fontWeight: FontWeightEnum.Bold.fontWeight,
+                  color: ManagerColors.yellowColor),
+              buildSpacerH(10.0),
+              !isEdit
+                  ? Column(
+                      children: [
+                        buildDisabledTextField(text: "Izzdin Atallah"),
+                        buildSpacerH(10.0),
+                        buildDisabledTextField(text: "ezzdine484@gmail.com"),
+                        buildSpacerH(10.0),
+                        buildDisabledTextField(text: "972592661915"),
+                        buildSpacerH(10.0),
+                        RoundedButtonWgt(title: AText.logOut.tr(context ), onPressed: (){
+                           navigateAndFinishNamed(context, Routes.chosenStatusScreen);
+                        })
+                      ],
+                    )
+                  : Column(
+                      children: [
+                        buildAbleTextField(
+                            text: "Izzdine Atallah",
+                            validator: (value) =>
+                                ManagerValidator.validateEmptyText(
+                                    "Name", "Izzdine Atallah")),
+                        buildSpacerH(10.0),
+                        buildAbleTextField(
+                            text: "ezzdine484@gmail.com",
+                            validator: (value) =>
+                                ManagerValidator.validateEmail(value,context)),
+                        buildSpacerH(10.0),
+                        buildAbleTextField(
+                            text: "972592661915",
+                            validator: (value) =>
+                                ManagerValidator.validateEmail(value,context)),
+                                buildSpacerH(10.0),
+                        RoundedButtonWgt(
+                          height: 50.h ,
+                          fontSize: 20,
+                          title: "Save",  onPressed: (){})        
+                      ],
+                    )
+            ],
+          ),
         ),
       ),
     );

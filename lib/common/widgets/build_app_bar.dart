@@ -52,7 +52,7 @@ PreferredSize customAppBar(BuildContext context) {
                   child: svgImage("notification_light", height: 24, width: 24),
                   onTap: () {
                     //TODO / go to list notifcations ...
-                    BlocProvider.of<LocaleCubit>(context).changeLanguage("en");
+                    
                   },
                 ),
               ],

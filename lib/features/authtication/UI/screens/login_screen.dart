@@ -1,40 +1,43 @@
-
-
 import 'package:acwadcom/acwadcom_packges.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({super.key, required this.tYPEUSER});
 
- 
-Widget buildRegisterNewAccount(context) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center, //For horizantol
-    mainAxisSize: MainAxisSize.max,
-    children: [
-            Flexible(
-        child: myText(
-          AText.nohaveAccount.tr(context),
-          textAlign: TextAlign.center,
-          fontSize: 14.sp,
-          color: Colors.white,
-          overflow: TextOverflow.ellipsis, // Avoid overflow
-        ),
-      ),
-            // SizedBox(width: 1), // Add some spacing between the two widgets
-      TextButton(
-        onPressed: () {
-          //TODO: Go to the chosen user or Shop owner
-          navigateNamedTo(context, Routes.chosenStatusScreen);
-        },
-        child: myText(
-          AText.regiserNewAccount.tr(context),
-              color: ManagerColors.yellowColor, fontSize: 16,
-        ),
-      ),
+  final String tYPEUSER;
 
-    ],
-  );
-}
+  Widget buildRegisterNewAccount(context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center, //For horizantol
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        Flexible(
+          child: myText(
+            AText.nohaveAccount.tr(context),
+            textAlign: TextAlign.center,
+            fontSize: 14.sp,
+            color: Colors.white,
+            overflow: TextOverflow.ellipsis, // Avoid overflow
+          ),
+        ),
+        // SizedBox(width: 1), // Add some spacing between the two widgets
+        TextButton(
+          onPressed: () {
+            //TODO: Go to the chosen user or Shop owner
+            if (tYPEUSER == "User") {
+              navigateAndFinishNamed(context, Routes.signUpScreen);
+            } else {
+              navigateAndFinishNamed(context, Routes.registerOwnerStore);
+            }
+          },
+          child: myText(
+            AText.regiserNewAccount.tr(context),
+            color: ManagerColors.yellowColor,
+            fontSize: 16,
+          ),
+        ),
+      ],
+    );
+  }
 
   Widget buildForgetPassButton(BuildContext context) {
     return TextButton(
@@ -49,13 +52,15 @@ Widget buildRegisterNewAccount(context) {
     );
   }
 
-
-
-  Widget buildBlocWidget(BuildContext context){
-    return SingleChildScrollView(
+  Widget buildBlocWidget(BuildContext context, emailController,
+      passwordController, GlobalKey<FormState> formKey) {
+    return Form(
+      key: formKey,
+      child: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: EdgeInsets.only(left: 30,right: 30,bottom: 30,top: 150.h),
+            padding:
+                EdgeInsets.only(left: 30, right: 30, bottom: 30, top: 30),
             child: Column(
               // crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -71,17 +76,20 @@ Widget buildRegisterNewAccount(context) {
                 ),
                 buildSpacerH(20.0),
                 RoundedInputField(
-                  hintText: AText.loginlbl.tr(context),
+                  controller: emailController,
+                  hintText: AText.email.tr(context),
                   validator: (value) {
-                    return ManagerValidator.validateEmail(value);
+                    return ManagerValidator.validateEmail(value,context);
                   },
                 ),
                 buildSpacerH(20.0),
                 RoundedInputField(
+                  controller: passwordController,
                   hintText: AText.yourPassword.tr(context),
                   isSecure: true,
+                  
                   validator: (value) {
-                    return ManagerValidator.validateEmail(value);
+                    return ManagerValidator.validatePassword(value,context);
                   },
                 ),
                 buildSpacerH(11.0),
@@ -91,7 +99,16 @@ Widget buildRegisterNewAccount(context) {
                     fontSize: 18,
                     onPressed: () {
                       //TODO:  make it Login Function ....
-                      navigateNamedTo(context, Routes.bottomTabBarScreen);
+                      if (tYPEUSER == "User") {
+                       
+                        if (formKey.currentState!.validate()) {
+                           navigateAndFinishNamed(
+                            context, Routes.bottomTabBarScreen);
+                        }
+                      } else {
+                        navigateAndFinishNamed(
+                            context, Routes.homeScreenForOwenerStore);
+                      }
                     }),
                 buildRegisterNewAccount(
                   context,
@@ -104,15 +121,39 @@ Widget buildRegisterNewAccount(context) {
             ),
           ),
         ),
-      );
+      ),
+    );
   }
 
-///MARK: Scaffold 
+  ///MARK: Scaffold
   @override
   Widget build(BuildContext context) {
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+
+    GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
     return Scaffold(
+        backgroundColor: ManagerColors.kCustomColor,
+           appBar: AppBar(
       backgroundColor: ManagerColors.kCustomColor,
-      body: buildBlocWidget(context)
-    );
+      elevation: 0, // Make the AppBar blend with the background
+      automaticallyImplyLeading: false, // Remove the default back button
+      actions: [
+        TextButton(
+          onPressed: () {
+            // TODO: Add your "Skip" button logic here
+            // For example: navigate to the home screen
+            navigateAndFinishNamed(context, Routes.bottomTabBarScreen);
+
+          },
+          child:myText(
+            AText.skip.tr(context),
+           color: ManagerColors.yellowColor, fontSize: 16
+          ),
+        ),
+      ],
+    ),
+        body: buildBlocWidget(
+            context, emailController, passwordController, loginFormKey));
   }
 }

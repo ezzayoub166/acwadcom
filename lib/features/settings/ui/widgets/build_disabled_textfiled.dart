@@ -5,7 +5,7 @@ import 'package:acwadcom/acwadcom_packges.dart';
 
 Widget buildDisabledTextField({required String text}){
   return Container(
-            width: 300.h,
+            width: double.infinity,
             child: TextField(
               enabled: false, // لتعطيل TextField
               decoration: InputDecoration(

@@ -4,7 +4,7 @@ AppBar buildAppBarWithBackButton(BuildContext context, bool isRtl , {String titl
     return AppBar(
       centerTitle: true,
       title :  myText(
-            AText.reportProblem.tr(context),
+            title,
             // color: ManagerColors.kCustomColor,
             fontSize: 20,
           ),

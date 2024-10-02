@@ -2,11 +2,15 @@ import 'package:acwadcom/app_localizations.dart';
 import 'package:acwadcom/helpers/constants/colors.dart';
 import 'package:acwadcom/helpers/constants/strings.dart';
 import 'package:acwadcom/helpers/widgets/common/svgImageWgt.dart';
+import 'package:acwadcom/ownerStore/features/home/widgets/custom_pop_dialog_delete.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BuildFeaturedCode extends StatelessWidget {
+
+  final bool isShowRemove  ;
   const BuildFeaturedCode({
+    this.isShowRemove = false,
     super.key,
   });
 
@@ -85,11 +89,26 @@ class BuildFeaturedCode extends StatelessWidget {
               ],
             ),
                                //Favorite button..
-            InkWell(
+            isShowRemove  ?  InkWell(
+              child: svgImage("_icRemove", height: 20, width: 20),
+              onTap: () {
+                showConfirmDeleteDialog(context, "دايدس ");
+              },
+            ) : InkWell(
               child: svgImage("_icFavorites", height: 20, width: 20),
               onTap: () {},
-            ),
+            ) 
           ],
         ));
   }
+
+  // Function to show the dialog
+void showConfirmDeleteDialog(BuildContext context, String codeName) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return ConfirmDeleteDialog(codeName: codeName);
+    },
+  );
+}
 }

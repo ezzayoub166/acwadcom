@@ -1,19 +1,17 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:acwadcom/acwadcom_packges.dart';
-import 'package:acwadcom/features/explore/ui/screens/explpre_screen.dart';
-import 'package:acwadcom/features/home/ui/home_screen.dart';
-import 'package:acwadcom/features/settings/ui/screens/settings.dart';
-import 'package:acwadcom/features/wishlist/ui/wishlist_screen.dart';
-import 'package:acwadcom/ownerStore/features/home/widgets/custom_pop_dialog_require_login.dart';
-class Bottomtabbar extends StatefulWidget {
-  const Bottomtabbar({super.key});
+import 'package:acwadcom/admin/ui/screens/home_screen_admi.dart';
+import 'package:acwadcom/admin/ui/screens/request_screen_admin.dart';
+class BottomtabbarAdmin extends StatefulWidget {
+  const BottomtabbarAdmin({super.key});
+
 
   @override
-  State<Bottomtabbar> createState() => _BottomtabbarState();
+  State<BottomtabbarAdmin> createState() => _BottomtabbarState();
 }
 
-class _BottomtabbarState extends State<Bottomtabbar> {
+class _BottomtabbarState extends State<BottomtabbarAdmin> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -23,22 +21,9 @@ class _BottomtabbarState extends State<Bottomtabbar> {
   }
 
   var screens = [
-
-    HomeScreen(),
-    ExplpreScreen(),
-    WishlistScreen(),
-    SettingsScreen()
+    HomeScreenAdmi(),
+    RequestScreenAdmin()
   ];
-
- // Function to show the dialog
-void showRequireLoginDialog(context) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return ConfirmRequireLoginDialog();
-    },
-  );
-}
 
   @override
   Widget build(BuildContext context) {
@@ -49,20 +34,6 @@ void showRequireLoginDialog(context) {
         body: Center(
           child:screens[_selectedIndex]
         ),
-      floatingActionButton: FloatingActionButton(
-       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-        onPressed: () {
-          // Add your action here
-          // navigateNamedTo(context, Routes.createCodeForUserScreen);
-            showRequireLoginDialog(context);
-        },
-        backgroundColor: ManagerColors.yellowColor,
-        child: const  Icon(Icons.add) // Match your theme color
-        // shape: RoundedRectangleBorder( // Custom shape if needed
-        //   borderRadius: BorderRadius.circular(20), // Adjust for more square shape
-        // ),
-      ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(
           shape: const CircularNotchedRectangle(),
           notchMargin: 10,
@@ -71,10 +42,7 @@ void showRequireLoginDialog(context) {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
                buildNavItem( "assets/images/_ichomefilled.svg", AText.home.tr(context), 0),
-               buildNavItem("assets/images/_icDiscover.svg", AText.explore.tr(context), 1),
-                buildSpacerW(48),
-                buildNavItem("assets/images/_icFavorites.svg", AText.wishlist.tr(context), 2),
-              buildNavItem("assets/images/_icprofile.svg", AText.profile.tr(context), 3),
+               buildNavItem("assets/images/_icTicket.svg", AText.requests.tr(context), 1),
               
              
               

@@ -36,7 +36,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   void _navigateToNextPage() {
     if (_currentPageIndex == 2) {
-      navigateNamedTo(context, Routes.loginScreen);
+      navigateNamedTo(context, Routes.chosenStatusScreen);
     } else {
       _pageController.animateToPage(
         _currentPageIndex + 1,

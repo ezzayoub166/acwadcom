@@ -27,7 +27,7 @@ class AText {
   static const insertYourUserNamlbl = "Enter your username";
   static const confirmPassword =  "Confirm your password";
   static const user = "User";
-  static const shopOwner = "shop owner";
+  static const shopOwner = "Shop owner";
   static const welcom = "Welcom";
   static const search = "Search";
   static const all = "All";
@@ -92,5 +92,19 @@ static const copy = "copy";
   static const enterYourLikeStore = "Enter your store link here.";
   static const choseTheCategory = "Choose the item that suits your store";
   static const exDate = "expiration date";
-
+  static const yourRequestIsBeingReviewed = "Your request is being reviewed.";
+  static const satisfactionMessage = "Your satisfaction is our top priority, and we are grateful for the opportunity to serve you. Thank you for choosing us.";
+  static const goToHome = "Go to home";
+  static const storeName = "Store Name";
+  static const createDiscountCode = "Create discount code";
+  static const storeData = "Store Data";
+  static const deleteStore = "Delete Store";
+  static const detilsDiscount = "Discount Code Details";
+  static const statistics = "Statistics";
+  static const numberOfdiscountcodes = "Number of discount codes";
+  static const discountcode = "Discount codes";
+  static const request = "Request";
+  static const delete = "Delete";
+  static const requests =   "Requests";
+  static const skip = "Skip";
 }

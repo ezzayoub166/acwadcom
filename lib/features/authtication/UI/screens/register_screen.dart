@@ -56,7 +56,7 @@ class RegisterScreen extends StatelessWidget {
               RoundedInputField(
                 hintText: AText.insertYourUserNamlbl.tr(context),
                 validator: (value) {
-                  return ManagerValidator.validateEmail(value);
+                  return ManagerValidator.validateEmail(value,context);
                 },
               ),
               buildSpacerH(20.0),
@@ -72,7 +72,7 @@ class RegisterScreen extends StatelessWidget {
                 hintText: AText.yourPassword.tr(context),
                 isSecure: true,
                 validator: (value) {
-                  return ManagerValidator.validatePassword(value);
+                  return ManagerValidator.validatePassword(value,context);
                 },
               ),
               buildSpacerH(20.0),
@@ -80,7 +80,7 @@ class RegisterScreen extends StatelessWidget {
                 hintText: AText.confirmPassword.tr(context),
                 isSecure: true,
                 validator: (value) {
-                  return ManagerValidator.validatePassword(value);
+                  return ManagerValidator.validatePassword(value,context);
                 },
               ),
               buildSpacerH(40.0),

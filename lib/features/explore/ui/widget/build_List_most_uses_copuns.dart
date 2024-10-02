@@ -143,13 +143,13 @@ class BuildListMostUserCopuns extends StatelessWidget {
             children: [
               //ic Logo..
               Container(
-                height: 42.h,
-                width: 42.w,
+                height: 30,
+                width: 30,
                 padding: EdgeInsets.symmetric(horizontal: 7, vertical: 7),
                 decoration: BoxDecoration(
                     border: Border.all(width: 1, color: Colors.grey.shade200),
-                    borderRadius: BorderRadius.circular(21)),
-                child: myImage("icNike", width: 27.w, height: 12.h),
+                    borderRadius: BorderRadius.circular(15)),
+                child: myImage("icNike"),
               ),
               buildSpacerW(5),
               myText(

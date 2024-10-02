@@ -33,7 +33,7 @@ class _BuildFilterBottomSheetState extends State<BuildFilterBottomSheet> {
     ];
 
     return Container(
-      height: 380.h,
+      height: 380,
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -79,7 +79,7 @@ class _BuildFilterBottomSheetState extends State<BuildFilterBottomSheet> {
   SizedBox buildListCategories(
       List<CategoryModel> arrayOfCategories, BuildContext context) {
     return SizedBox(
-      height: 40.h,
+      height: 40,
       child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemBuilder: (ctx, idx) {

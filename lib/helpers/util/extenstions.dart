@@ -14,9 +14,14 @@ void navigateNamedTo(BuildContext context, String routeName, [Object? arguments]
 }
 void pop(context) => Navigator.pop(context);
 
-void navigateAndFinsh(context, widget) => Navigator.pushAndRemoveUntil(
-    context, MaterialPageRoute(builder: (context) => widget), (route) => false);
-
+void navigateAndFinishNamed(BuildContext context, String routeName, [Object? arguments]) {
+  Navigator.pushNamedAndRemoveUntil(
+    context,
+    routeName,
+    (Route<dynamic> route) => false, // This removes all previous routes from the stack
+    arguments: arguments,
+  );
+}
 
 Future<void> _launchUrl(String url) async {
   final Uri _url = Uri.parse(url);
