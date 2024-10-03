@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "242503319267",
+    "project_id": "acwadcom-8ab26",
+    "storage_bucket": "acwadcom-8ab26.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242503319267:android:4c2cd1f1fed510ab3e4fd6",
+        "android_client_info": {
+          "package_name": "com.example.acwadcom"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEsuC-rOx0AgW5rksnMrMPoN7VdWpjjQo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

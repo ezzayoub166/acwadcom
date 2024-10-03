@@ -124,7 +124,11 @@
   "You need to log in to continue.":"You need to log in to continue.",
   "All Coupons in App":"All Coupons in App",
   "Edit Coupon":"Edit Coupon",
-  "Requests that require approval":"Requests that require approval"
-
+  "Requests that require approval":"Requests that require approval",
+  "Store Link":"Store Link",
+  "Category":"Category",
+"Some Notes":"Some Notes",
+"Accept" : "Accept",
+"reject":"reject"
 
 }

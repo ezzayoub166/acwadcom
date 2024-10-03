@@ -118,5 +118,10 @@
           "You need to log in to continue.":"يجب عليك تسجيل الدخول للمتابعة.",
           "All Coupons in App":"جميع الكوبونات التي في التطبيق",
           "Edit Coupon":"تعديل الكوبون",
-          "Requests that require approval":"الطلبات التي تحتاج إلى موافقة"
+          "Requests that require approval":"الطلبات التي تحتاج إلى موافقة",
+          "Store Link":"رابط المتجر",
+          "Category":"الصنف",
+          "Some Notes":"بعض الملاحظات",
+          "Accept" : "قبول",
+"reject":"رفض"
 }

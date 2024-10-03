@@ -1,5 +1,7 @@
 // import 'package:acwadcom/acwadcom_packges.dart';
 
+import 'package:flutter/foundation.dart';
+
 class AText {
   // final BuildContext context;
 
@@ -36,6 +38,7 @@ class AText {
   static const delivery = "Delivery";
   static const fashion = "Fashion";
   static const categorieslbl = "Categories";
+    static const category = "Category";
   static const discoverOffers = "Discover offers and coupons";
   static const or = "or";
   static const next = "next";
@@ -91,6 +94,7 @@ static const copy = "copy";
   static const reportProblem = "Report a problem";
   static const enterYourLikeStore = "Enter your store link here.";
   static const choseTheCategory = "Choose the item that suits your store";
+  static const linkofWebsite = "Store Link";
   static const exDate = "expiration date";
   static const yourRequestIsBeingReviewed = "Your request is being reviewed.";
   static const satisfactionMessage = "Your satisfaction is our top priority, and we are grateful for the opportunity to serve you. Thank you for choosing us.";
@@ -109,4 +113,7 @@ static const copy = "copy";
   static const skip = "Skip";
 
   static const requestOkay = "Requests that require approval";
+  static const startDate = "Start Date";
+  static const someNotes = "Some Notes";
+  
 }

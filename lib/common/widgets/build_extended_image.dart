@@ -3,12 +3,14 @@ import 'package:extended_image/extended_image.dart';
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:lottie/lottie.dart';
 
-Widget extendedImageWgt(imageUrl , BorderRadius? borderRadius) {
+Widget extendedImageWgt(imageUrl , [double? height , double? width,BorderRadius? borderRadius , ]) {
   if (imageUrl == null || imageUrl.isEmpty) {
     return Lottie.asset(LottieConstnts.emptyImageAnimation);
   }
 
   return ExtendedImage.network(
+    height: height,
+    width: width,
     borderRadius: borderRadius,
     imageUrl,
     cache: true,

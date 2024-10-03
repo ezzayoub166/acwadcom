@@ -1,9 +1,39 @@
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key, required this.tYPEUSER});
 
   final String tYPEUSER;
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // addTestData();
+  }
+
+
+  void addTestData() async {
+  try {
+    
+    await FirebaseFirestore.instance.collection("test").add({
+      "Name": "IOS TEST DONE"
+    });
+    print("Document added successfully!");
+  } catch (e) {
+    print("Error adding document: $e");
+  }
+}
+
+
+
 
   Widget buildRegisterNewAccount(context) {
     return Row(
@@ -23,10 +53,10 @@ class LoginScreen extends StatelessWidget {
         TextButton(
           onPressed: () {
             //TODO: Go to the chosen user or Shop owner
-            if (tYPEUSER == "User") {
-              navigateNamedTo(context, Routes.signUpScreen,tYPEUSER);
+            if (widget.tYPEUSER == "User") {
+              navigateNamedTo(context, Routes.signUpScreen,widget.tYPEUSER);
             } else {
-              navigateNamedTo(context, Routes.registerOwnerStore,tYPEUSER);
+              navigateNamedTo(context, Routes.registerOwnerStore,widget.tYPEUSER);
             }
           },
           child: myText(
@@ -100,7 +130,7 @@ class LoginScreen extends StatelessWidget {
                     fontSize: 18,
                     onPressed: () {
                       //TODO:  make it Login Function ....
-                      if (tYPEUSER == "User") {
+                      if (widget.tYPEUSER == "User") {
                         if (formKey.currentState!.validate()) {
                           if ((emailController.text ==
                                   "adminOwner1000@gmail.com") &&
@@ -131,8 +161,6 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
-
-
 
   ///MARK: Scaffold
   @override

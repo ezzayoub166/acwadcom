@@ -1,4 +1,6 @@
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/common/widgets/build_extended_image.dart';
+import 'package:extended_image/extended_image.dart';
 
 class DiscountCodeDeatilsAdmin extends StatelessWidget {
   const DiscountCodeDeatilsAdmin({super.key});
@@ -23,11 +25,9 @@ class DiscountCodeDeatilsAdmin extends StatelessWidget {
             children: [
               // Store Logo (Top Circle Avatar)
                      ClipOval(
-            child: Image.network(
+            child: extendedImageWgt(
               "https://www.robotbutt.com/wp-content/uploads/2016/02/goodwill-logo.jpg",
-              width: 100,
-              height: 100,
-              fit: BoxFit.contain, // Ensures the image fits within the circle
+              100,100
             ),
           ),
               SizedBox(height: 16),
@@ -43,15 +43,15 @@ class DiscountCodeDeatilsAdmin extends StatelessWidget {
               SizedBox(height: 16),
 
               // Fields (Discount code, Discount Percentage, Website link, etc.)
-              buildInfoField("اسم كود الخصم", "STANDR 20", context),
-              buildInfoField("نسبة الخصم", "خصم 20%", context),
-              buildInfoField("رابط الموقع", "https://mostaql.com/u/Ailee", context),
-              buildInfoField("التصنيف", "أزياء", context),
-              buildInfoField("تاريخ البدأ", "2024-3-30", context),
-              buildInfoField("تاريخ الانتهاء", "2024-3-30", context),
+              buildInfoField(AText.discountcode.tr(context), "STANDR 20", context),
+              buildInfoField(AText.discontrate.tr(context), "خصم 20%", context),
+              buildInfoField(AText.linkofWebsite.tr(context), "https://mostaql.com/u/Ailee", context),
+              buildInfoField(AText.category.tr(context), "أزياء", context),
+              // buildInfoField(AText.stateData.tr(context), "2024-3-30", context),
+              buildInfoField(AText.endDate.tr(context), "2024-3-30", context),
 
               // Notes Section
-              buildNotesField("ملاحظات", "لا يجوز استخدام الفرد مرتين للاستخدام", context),
+              buildNotesField(AText.someNotes.tr(context), "لا يجوز استخدام الفرد مرتين للاستخدام", context),
               
               SizedBox(height: 24),
 
@@ -59,9 +59,9 @@ class DiscountCodeDeatilsAdmin extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  buildActionButton("قبول", Colors.green, context),
+                  buildActionButton("Accept".tr(context), ManagerColors.kCustomColor, context),
                   buildSpacerH(10.0),
-                  buildActionButton("رفض", Colors.red, context),
+                  buildActionButton("reject".tr(context), Colors.red, context),
                 ],
               ),
             ],
