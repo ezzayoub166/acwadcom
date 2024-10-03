@@ -107,4 +107,6 @@ static const copy = "copy";
   static const delete = "Delete";
   static const requests =   "Requests";
   static const skip = "Skip";
+
+  static const requestOkay = "Requests that require approval";
 }

@@ -1,5 +1,11 @@
 // ignore_for_file: prefer_const_constructors, body_might_complete_normally_nullable, unused_local_variable
 
+import 'package:acwadcom/admin/logic/edit_screen/cubit/edit_code_cubit.dart';
+import 'package:acwadcom/admin/ui/screens/discount_code_deatils_admin.dart';
+import 'package:acwadcom/admin/ui/screens/edit_code_screen_admin.dart';
+import 'package:acwadcom/admin/ui/screens/home_screen_admi.dart';
+import 'package:acwadcom/admin/ui/screens/request_screen_admin.dart';
+import 'package:acwadcom/admin/ui/screens/tab_bar_admin.dart';
 import 'package:acwadcom/bottomTabBar.dart';
 import 'package:acwadcom/features/authtication/UI/screens/login_screen.dart';
 import 'package:acwadcom/features/authtication/UI/screens/register_screen.dart';
@@ -30,8 +36,11 @@ class AppRouter {
       case Routes.chosenStatusScreen:
         return MaterialPageRoute(builder: (_) => ChosenStatusScreen());
       case Routes.loginScreen:
-      final tYPEUSER = settings.arguments as String;
-        return MaterialPageRoute(builder: (_) => LoginScreen(tYPEUSER: tYPEUSER,));
+        final tYPEUSER = settings.arguments as String;
+        return MaterialPageRoute(
+            builder: (_) => LoginScreen(
+                  tYPEUSER: tYPEUSER,
+                ));
       case Routes.signUpScreen:
         final selectStatus = settings.arguments as String;
         return MaterialPageRoute(
@@ -56,19 +65,38 @@ class AppRouter {
                 ));
 
       case Routes.storeDeatilsScreen:
-      final store = settings.arguments as StoreModel;
-      return MaterialPageRoute(builder: (context) => StoreDeatilsScreen(store: store,));    
+        final store = settings.arguments as StoreModel;
+        return MaterialPageRoute(
+            builder: (context) => StoreDeatilsScreen(
+                  store: store,
+                ));
       case Routes.revisonResponseScreen:
-      return MaterialPageRoute(builder: (context) => RevisonResponseScreen());      
+        return MaterialPageRoute(builder: (context) => RevisonResponseScreen());
       case Routes.registerOwnerStore:
-      return MaterialPageRoute(builder: (context) => RegisterOwnerStore());
+        return MaterialPageRoute(builder: (context) => RegisterOwnerStore());
       case Routes.homeScreenForOwenerStore:
-      return MaterialPageRoute(builder: (context) => HomeScreenOwner());
+        return MaterialPageRoute(builder: (context) => HomeScreenOwner());
       case Routes.storeOwnerDiscountCodeDetails:
-      return MaterialPageRoute(builder: (context) => StoreOwnerDiscountCodeDetails());
+        return MaterialPageRoute(
+            builder: (context) => StoreOwnerDiscountCodeDetails());
       case Routes.statisticsPage:
-      return MaterialPageRoute(builder: (context) => MerchantStatisticsPage());
-            
+        return MaterialPageRoute(
+            builder: (context) => MerchantStatisticsPage());
+      case Routes.tabBarAdmin:
+        return MaterialPageRoute(builder: (context) => BottomTabBarAdmin());
+      case Routes.homeScreenAdmi:
+        return MaterialPageRoute(builder: (context) => HomeScreenAdmin());
+      case Routes.requestScreenAdmin:
+        return MaterialPageRoute(builder: (context) => RequestScreenAdmin());
+      case Routes.editCodeScreenAdmin:
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => EditCodeCubit(),
+                  child: EditCodeScreenAdmin(),
+                ));
+
+     case Routes.discountCodeDeatilsAdmin:
+     return MaterialPageRoute(builder: (context) => DiscountCodeDeatilsAdmin());           
     }
   }
 }

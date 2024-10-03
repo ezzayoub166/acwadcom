@@ -15,4 +15,9 @@ class Routes {
   static const String homeScreenForOwenerStore = '/HomeScreenForOwenerStore';
   static const String storeOwnerDiscountCodeDetails = '/storeOwnerDiscountCodeDetails';
   static const String statisticsPage = "/merchantStatisticsPage";
+  static const String tabBarAdmin = "/BottomtabbarAdmin";
+  static const String homeScreenAdmi = "/HomeScreenAdmi";
+  static const String requestScreenAdmin = "/RequestScreenAdmin";
+  static const String editCodeScreenAdmin = "/EditCodeScreenAdmin";
+  static const String discountCodeDeatilsAdmin = "/DiscountCodeDeatilsAdmin";
 }

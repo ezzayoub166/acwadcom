@@ -27,7 +27,7 @@
     "The easiest and fastest way to request various vehicle cleaning services to cover all your needs anytime and anywhere": "اسهل واسرع طريقة لطلب خدمات تنظيف المركبات المتنوعة لتغطي كل احتياجاتك في اي وقت واي مكان ",
     "Categories": "الأصناف",
     "All": "الجميع",
-    "Groceries": "البقالات",
+    "Groceries": "المواد الغذائية",
     "Resturnts": "المطاعم",
     "Delivery": "توصيل",
     "Fashion": "أزياء",
@@ -115,5 +115,8 @@
           "Password must contain at least one number.":"يجب أن تحتوي كلمة المرور على رقم واحد على الأقل.",
           "Phone number is required.":"رقم الموبايل مطلوب",
           "Skip":"تخطي",
-          "You need to log in to continue.":"يجب عليك تسجيل الدخول للمتابعة."
+          "You need to log in to continue.":"يجب عليك تسجيل الدخول للمتابعة.",
+          "All Coupons in App":"جميع الكوبونات التي في التطبيق",
+          "Edit Coupon":"تعديل الكوبون",
+          "Requests that require approval":"الطلبات التي تحتاج إلى موافقة"
 }

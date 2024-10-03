@@ -24,9 +24,9 @@ class LoginScreen extends StatelessWidget {
           onPressed: () {
             //TODO: Go to the chosen user or Shop owner
             if (tYPEUSER == "User") {
-              navigateAndFinishNamed(context, Routes.signUpScreen);
+              navigateNamedTo(context, Routes.signUpScreen,tYPEUSER);
             } else {
-              navigateAndFinishNamed(context, Routes.registerOwnerStore);
+              navigateNamedTo(context, Routes.registerOwnerStore,tYPEUSER);
             }
           },
           child: myText(
@@ -52,15 +52,17 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Widget buildBlocWidget(BuildContext context, emailController,
-      passwordController, GlobalKey<FormState> formKey) {
+  Widget buildBlocWidget(
+      BuildContext context,
+      TextEditingController emailController,
+      TextEditingController passwordController,
+      GlobalKey<FormState> formKey) {
     return Form(
       key: formKey,
       child: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding:
-                EdgeInsets.only(left: 30, right: 30, bottom: 30, top: 30),
+            padding: EdgeInsets.only(left: 30, right: 30, bottom: 30, top: 30),
             child: Column(
               // crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -79,7 +81,7 @@ class LoginScreen extends StatelessWidget {
                   controller: emailController,
                   hintText: AText.email.tr(context),
                   validator: (value) {
-                    return ManagerValidator.validateEmail(value,context);
+                    return ManagerValidator.validateEmail(value, context);
                   },
                 ),
                 buildSpacerH(20.0),
@@ -87,9 +89,8 @@ class LoginScreen extends StatelessWidget {
                   controller: passwordController,
                   hintText: AText.yourPassword.tr(context),
                   isSecure: true,
-                  
                   validator: (value) {
-                    return ManagerValidator.validatePassword(value,context);
+                    return ManagerValidator.validatePassword(value, context);
                   },
                 ),
                 buildSpacerH(11.0),
@@ -100,10 +101,16 @@ class LoginScreen extends StatelessWidget {
                     onPressed: () {
                       //TODO:  make it Login Function ....
                       if (tYPEUSER == "User") {
-                       
                         if (formKey.currentState!.validate()) {
-                           navigateAndFinishNamed(
-                            context, Routes.bottomTabBarScreen);
+                          if ((emailController.text ==
+                                  "adminOwner1000@gmail.com") &&
+                              (passwordController.text ==
+                                  "adminOwner1000@gmail.com")) {
+                            navigateAndFinishNamed(context, Routes.tabBarAdmin);
+                          } else {
+                            navigateAndFinishNamed(
+                                context, Routes.bottomTabBarScreen);
+                          }
                         }
                       } else {
                         navigateAndFinishNamed(
@@ -125,34 +132,38 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
+
+
   ///MARK: Scaffold
   @override
   Widget build(BuildContext context) {
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
+    emailController.text = "adminOwner1000@gmail.com";
+    passwordController.text = "adminOwner1000@gmail.com";
+
+
+  
 
     GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
     return Scaffold(
         backgroundColor: ManagerColors.kCustomColor,
-           appBar: AppBar(
-      backgroundColor: ManagerColors.kCustomColor,
-      elevation: 0, // Make the AppBar blend with the background
-      automaticallyImplyLeading: false, // Remove the default back button
-      actions: [
-        TextButton(
-          onPressed: () {
-            // TODO: Add your "Skip" button logic here
-            // For example: navigate to the home screen
-            navigateAndFinishNamed(context, Routes.bottomTabBarScreen);
-
-          },
-          child:myText(
-            AText.skip.tr(context),
-           color: ManagerColors.yellowColor, fontSize: 16
-          ),
+        appBar: AppBar(
+          backgroundColor: ManagerColors.kCustomColor,
+          elevation: 0, // Make the AppBar blend with the background
+          automaticallyImplyLeading: false, // Remove the default back button
+          actions: [
+            TextButton(
+              onPressed: () {
+                // TODO: Add your "Skip" button logic here
+                // For example: navigate to the home screen
+                navigateAndFinishNamed(context, Routes.bottomTabBarScreen);
+              },
+              child: myText(AText.skip.tr(context),
+                  color: ManagerColors.yellowColor, fontSize: 16),
+            ),
+          ],
         ),
-      ],
-    ),
         body: buildBlocWidget(
             context, emailController, passwordController, loginFormKey));
   }

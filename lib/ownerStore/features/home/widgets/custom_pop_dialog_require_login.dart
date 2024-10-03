@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
 
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/helpers/constants/strings.dart';
 
 class ConfirmRequireLoginDialog extends StatelessWidget {
   // final String codeName;
@@ -39,7 +40,7 @@ class ConfirmRequireLoginDialog extends StatelessWidget {
           Column(
             children: [
               myText(
-               "Are you sure you delete the code?".tr(context),
+               "You need to log in to continue.".tr(context),
                 textAlign: TextAlign.center,
                 
                   fontSize: 18,

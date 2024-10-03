@@ -3,15 +3,15 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/admin/ui/screens/home_screen_admi.dart';
 import 'package:acwadcom/admin/ui/screens/request_screen_admin.dart';
-class BottomtabbarAdmin extends StatefulWidget {
-  const BottomtabbarAdmin({super.key});
+class BottomTabBarAdmin extends StatefulWidget {
+  const BottomTabBarAdmin({super.key});
 
 
   @override
-  State<BottomtabbarAdmin> createState() => _BottomtabbarState();
+  State<BottomTabBarAdmin> createState() => _BottomtabbarState();
 }
 
-class _BottomtabbarState extends State<BottomtabbarAdmin> {
+class _BottomtabbarState extends State<BottomTabBarAdmin> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -21,7 +21,7 @@ class _BottomtabbarState extends State<BottomtabbarAdmin> {
   }
 
   var screens = [
-    HomeScreenAdmi(),
+    HomeScreenAdmin(),
     RequestScreenAdmin()
   ];
 
@@ -37,9 +37,9 @@ class _BottomtabbarState extends State<BottomtabbarAdmin> {
         bottomNavigationBar: BottomAppBar(
           shape: const CircularNotchedRectangle(),
           notchMargin: 10,
-          elevation: 5, // Shadow for the BottomAppBar
+          elevation: 10, // Shadow for the BottomAppBar
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
                buildNavItem( "assets/images/_ichomefilled.svg", AText.home.tr(context), 0),
                buildNavItem("assets/images/_icTicket.svg", AText.requests.tr(context), 1),

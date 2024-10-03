@@ -16,7 +16,7 @@ class StoreCard extends StatelessWidget {
         alignment: Alignment.bottomCenter,
         children: [
           Container(
-            height: 150.h,
+            height: 120,
              width: 130.w, // Fixed responsive width
             // width: double.infinity,
             padding: EdgeInsets.all(8.w),
@@ -39,7 +39,7 @@ class StoreCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            top:1,
+            top:10,
             left: 30.w,
             right: 30.w,
             child: CircleAvatar(

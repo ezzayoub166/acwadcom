@@ -121,6 +121,10 @@
   "Password must contain at least one number.":"Password must contain at least one number.",
   "Phone number is required.":"Phone number is required.",
   "Skip":"Skip",
-  "You need to log in to continue.":"You need to log in to continue."
+  "You need to log in to continue.":"You need to log in to continue.",
+  "All Coupons in App":"All Coupons in App",
+  "Edit Coupon":"Edit Coupon",
+  "Requests that require approval":"Requests that require approval"
+
 
 }
