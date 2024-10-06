@@ -1,15 +1,9 @@
 import 'package:acwadcom/acwadcom_packges.dart';
-import 'package:acwadcom/helpers/util/extenstions.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:acwadcom/helpers/services/cachce_services/chache_helper.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:acwadcom/app_localizations.dart';
 import 'package:acwadcom/features/onboarding/ui/widgets/build_item_onBoarding.dart';
-import 'package:acwadcom/helpers/constants/colors.dart';
-import 'package:acwadcom/helpers/constants/strings.dart';
+
 import 'package:acwadcom/helpers/util/device_utils.dart';
-import 'package:acwadcom/helpers/Routing/routes.dart';
-import 'package:acwadcom/helpers/widgets/common/svgImageWgt.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -37,6 +31,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   void _navigateToNextPage() {
     if (_currentPageIndex == 2) {
       navigateNamedTo(context, Routes.chosenStatusScreen);
+      CacheHelper.instance.saveValueWithKey('OpenApp', true);
+
     } else {
       _pageController.animateToPage(
         _currentPageIndex + 1,
@@ -86,7 +82,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             backgroundColor: ManagerColors.yellowColor,
             foregroundColor: Colors.white,
           ),
-          child: myText(AText.next.tr(context) , fontSize: 22 , color: Colors.white),
+          child: myText(AText.next.tr(context) , fontSize: 18 , color: Colors.white),
         ),
       ),
     );

@@ -14,6 +14,9 @@ class ManagerColors {
     static const textColorDarkDouble = Color(0xff5B5959);
     static const lightTextColor = Color(0xffB3B3B3);
     static const lighTextForWishList = Color(0xff535252);
+      // Background colors
+  static const Color light = Color(0xFFF6F6F6);
+  static const Color dark = Color(0xFF272727);
     
 
 

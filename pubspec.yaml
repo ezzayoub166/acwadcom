@@ -27,13 +27,17 @@ dependencies:
   #State Managment
   bloc: ^8.1.4
   flutter_bloc: ^8.1.6
+  freezed: ^2.5.0
+  freezed_annotation: ^2.4.2
 
   #Check Internt
   flutter_offline: ^4.0.0
 
+
   #local Storage 
   get_storage: ^2.1.1
   shared_preferences: ^2.3.2
+  
 
   
   # Product Specific
@@ -58,6 +62,8 @@ dependencies:
   intl: any
   equatable: ^2.0.5
   adoptive_calendar: ^0.1.9
+  json_annotation: ^4.9.0
+  get_it: ^8.0.0
 
 
 
@@ -66,6 +72,7 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^3.0.0
+  build_runner: ^2.4.11
 flutter:
   uses-material-design: true
 

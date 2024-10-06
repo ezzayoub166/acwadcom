@@ -20,4 +20,7 @@ class Routes {
   static const String requestScreenAdmin = "/RequestScreenAdmin";
   static const String editCodeScreenAdmin = "/EditCodeScreenAdmin";
   static const String discountCodeDeatilsAdmin = "/DiscountCodeDeatilsAdmin";
+  static const String verifyEmailScreen = "/VerifyEmailScreen";
+  static const String forgetPassword = "/ForgetPassword";
+  static const String resetPassword = "/ResetPassword";
 }

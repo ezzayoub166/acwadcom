@@ -2,6 +2,8 @@ import 'package:acwadcom/app_localizations.dart';
 import 'package:acwadcom/cubit/locale_cubit.dart';
 import 'package:acwadcom/helpers/Routing/app_router.dart';
 import 'package:acwadcom/helpers/Routing/routes.dart';
+import 'package:acwadcom/helpers/constants/extenstions.dart';
+import 'package:acwadcom/helpers/services/cachce_services/chache_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:acwadcom/helpers/constants/theme.dart';
@@ -13,8 +15,15 @@ class AcwadcomApp extends StatelessWidget {
 
   const AcwadcomApp({super.key, required this.appRouter});
 
+  checkIfLoggedInUser() async {
+    
+
+}
+
   @override
   Widget build(BuildContext context) {
+    isOpenApp =  CacheHelper.instance.getValueWithKey('OpenApp') ?? false;
+
     return ScreenUtilInit(
         designSize: const Size(375, 812),
         minTextAdapt: true,
@@ -47,7 +56,7 @@ class AcwadcomApp extends StatelessWidget {
 // Set the locale you want the app to display messages
 
               debugShowCheckedModeBanner: false,
-              initialRoute: Routes.onBoardingScreen,
+              initialRoute: isOpenApp ? Routes.chosenStatusScreen : Routes.onBoardingScreen,
               onGenerateRoute: appRouter.generateRoute,
             );
            

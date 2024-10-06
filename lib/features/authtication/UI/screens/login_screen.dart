@@ -1,4 +1,6 @@
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/features/authtication/UI/widgets/login_bloc_listener.dart';
+import 'package:acwadcom/features/authtication/logic/login/cubit/login_cubit.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -71,7 +73,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget buildForgetPassButton(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: () {
+        navigateNamedTo(context, Routes.forgetPassword);
+      },
       child: Text(
         AText.forgetPass.tr(context),
         style: Theme.of(context)
@@ -83,18 +87,15 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Widget buildBlocWidget(
-      BuildContext context,
-      TextEditingController emailController,
-      TextEditingController passwordController,
-      GlobalKey<FormState> formKey) {
+      BuildContext context) {
     return Form(
-      key: formKey,
+      key: context.read<LoginCubit>().formKey,
       child: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: EdgeInsets.only(left: 30, right: 30, bottom: 30, top: 30),
+            padding: EdgeInsets.only(left: 30, right: 30, bottom: 30, top:50),
             child: Column(
-              // crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // buildSpacer(10.0),
@@ -108,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 buildSpacerH(20.0),
                 RoundedInputField(
-                  controller: emailController,
+                  controller: context.read<LoginCubit>().emailController,
                   hintText: AText.email.tr(context),
                   validator: (value) {
                     return ManagerValidator.validateEmail(value, context);
@@ -116,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 buildSpacerH(20.0),
                 RoundedInputField(
-                  controller: passwordController,
+                  controller: context.read<LoginCubit>().passwordController,
                   hintText: AText.yourPassword.tr(context),
                   isSecure: true,
                   validator: (value) {
@@ -131,17 +132,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     onPressed: () {
                       //TODO:  make it Login Function ....
                       if (widget.tYPEUSER == "User") {
-                        if (formKey.currentState!.validate()) {
-                          if ((emailController.text ==
-                                  "adminOwner1000@gmail.com") &&
-                              (passwordController.text ==
-                                  "adminOwner1000@gmail.com")) {
-                            navigateAndFinishNamed(context, Routes.tabBarAdmin);
-                          } else {
-                            navigateAndFinishNamed(
-                                context, Routes.bottomTabBarScreen);
-                          }
-                        }
+                        validateThenDoSignup(context);
+                        // if (formKey.currentState!.validate()) {
+                        //   if ((emailController.text ==
+                        //           "adminOwner1000@gmail.com") &&
+                        //       (passwordController.text ==
+                        //           "adminOwner1000@gmail.com")) {
+                        //     navigateAndFinishNamed(context, Routes.tabBarAdmin);
+                        //   } else {
+                        //     navigateAndFinishNamed(
+                        //         context, Routes.bottomTabBarScreen);
+                        //   }
+                        // }
                       } else {
                         navigateAndFinishNamed(
                             context, Routes.homeScreenForOwenerStore);
@@ -153,7 +155,34 @@ class _LoginScreenState extends State<LoginScreen> {
                 buildSpacerH(20.0),
                 const DividerWithText(),
                 buildSpacerH(20.0),
-                buildListOfLoginButtons(context),
+                                    ///Login By Google
+                    RoundedButtonWgt(
+                      backgroundColor: ManagerColors.myWhite,
+                      foregroundColor: Colors.black,
+                      title: "",
+                      onPressed: () async{
+                        await context.read<LoginCubit>().emitLogInByGoogle(context);
+                      },
+                      icon: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            AText.loginByGoogle.tr(context),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(color: Colors.black),
+                          ),
+                          SizedBox(width: 8.w,),
+                          svgImage("google_brand_branding_logo_network_icon",height: 24.h,width:24.w ),
+                            // SvgPicture.asset(
+                            //   "assets/images/google_brand_branding_logo_network_icon.svg"),
+                        ],
+                      ),
+                    ),
+                       const LoginBlocListener()
+
+                // buildListOfLoginButtons(context),
               ],
             ),
           ),
@@ -162,18 +191,20 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
+
+  void validateThenDoSignup(BuildContext context){
+    if(context.read<LoginCubit>().formKey.currentState!.validate()){
+      context.read<LoginCubit>().emitLogIn(context);
+
+    }
+  }
+
   ///MARK: Scaffold
   @override
   Widget build(BuildContext context) {
-    final TextEditingController emailController = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
-    emailController.text = "adminOwner1000@gmail.com";
-    passwordController.text = "adminOwner1000@gmail.com";
 
-
-  
-
-    GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+    // emailController.text = "adminOwner1000@gmail.com";
+    // passwordController.text = "adminOwner1000@gmail.com";
     return Scaffold(
         backgroundColor: ManagerColors.kCustomColor,
         appBar: AppBar(
@@ -192,7 +223,6 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ],
         ),
-        body: buildBlocWidget(
-            context, emailController, passwordController, loginFormKey));
+        body: buildBlocWidget(context));
   }
 }

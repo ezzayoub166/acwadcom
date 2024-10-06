@@ -37,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
       CategoryModel(title: AText.delivery.tr(context), image: "_icDelivery_svgrepo"),
       CategoryModel(title: AText.fashion.tr(context), image: "_icDress"),
     ];
+    
 
     void updatePageIndicator(int index) {
       setState(() {

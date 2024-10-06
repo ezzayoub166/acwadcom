@@ -1,6 +1,6 @@
 {
     "Login": "تسجيل الدخول",
-    "Enter your username": "قم بإدخال اسم المستخدم الخاص بك",
+   "Enter your full Name": "قم بإدخال اسم المستخدم الخاص بك",
     "Welcom": "أهلا بك",
     "home": " الرئيسية",
     "settings": " الإعدادت",
@@ -123,5 +123,11 @@
           "Category":"الصنف",
           "Some Notes":"بعض الملاحظات",
           "Accept" : "قبول",
-"reject":"رفض"
+"reject":"رفض",
+"Mobile Number":"رقم الموبايل",
+"Verify your email address!":"التحقق من عنوان بريدك الإلكتروني!",
+"Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.":"تهانينا! حسابك في انتظارك: قم بتأكيد بريدك الإلكتروني لبدء التسوق والاستمتاع بعالم من الصفقات التي لا مثيل لها والعروض المخصصة.",
+"Logging In":"جاري تسجيل الدخول",
+"We are processing your information...":"...نحن نقوم بمعالجة معلوماتك",
+"Don’t worry sometimes people can forget too, enter your email and we will send you a password reset link.":"لا تقلق، في بعض الأحيان قد ينسى بعض الأشخاص ذلك، أدخل بريدك الإلكتروني وسنرسل لك رابط إعادة تعيين كلمة المرور."
 }

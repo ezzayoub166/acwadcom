@@ -108,7 +108,7 @@ class SettingsScreen extends StatelessWidget {
               trailing: Icon(Icons.arrow_forward_ios, color: Colors.black),
               onTap: () {
                 // Navigate to account settings
-                navigateNamedTo(context, Routes.profileScreen,false);
+                navigateNamedTo(context, Routes.profileScreen);
               },
             ),
           );

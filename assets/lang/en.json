@@ -1,6 +1,6 @@
 {
     "Login": "Login",
-    "Enter your username": "Enter your username",
+   "Enter your full Name": "Enter your full Name",
     "Welcom": "Welcom",
     "home": "Home",
     "settings": "Settings",
@@ -129,6 +129,11 @@
   "Category":"Category",
 "Some Notes":"Some Notes",
 "Accept" : "Accept",
-"reject":"reject"
-
+"reject":"reject",
+"Mobile Number":"Mobile Number",
+"Verify your email address!":"Verify your email address!",
+"Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.":"Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.",
+"Logging In":"Logging In",
+"We are processing your information...":"We are processing your information...",
+"Don’t worry sometimes people can forget too, enter your email and we will send you a password reset link.":"Don’t worry sometimes people can forget too, enter your email and we will send you a password reset link."
 }
