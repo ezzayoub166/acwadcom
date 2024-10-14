@@ -50,11 +50,12 @@ class _ChosenStatusScreenState extends State<ChosenStatusScreen> {
             children: [
               myImage("onBoarding_image_tow",height: 294.h , width: double.infinity),
               RoundedButtonWgt(title: AText.user.tr(context) , onPressed: (){
+                tYPEUSER = "USER";
                 if(isLoggedInUser){
                   navigateAndFinishNamed(context, Routes.bottomTabBarScreen);
 
                 }else{
-                navigateAndFinishNamed(context, Routes.loginScreen , "User");
+                navigateAndFinishNamed(context, Routes.loginScreen , "USER");
 
                 }
               }),
@@ -62,7 +63,8 @@ class _ChosenStatusScreenState extends State<ChosenStatusScreen> {
               RoundedButtonWgt(title: AText.shopOwner.tr(context) , backgroundColor: ManagerColors.whiteBtnBackGround ,foregroundColor: Colors.black , onPressed: (){
                 //TODO:: for Shop owner not complete ...
                 // navigateTo(context, RegisterOwnerStore());
-                 navigateNamedTo(context, Routes.loginScreen , "ShopOwner");
+                tYPEUSER = "STOREOWNER";
+                 navigateNamedTo(context, Routes.loginScreen , "STOREOWNER");
 
 
 

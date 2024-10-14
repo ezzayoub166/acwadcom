@@ -3,8 +3,8 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/explore/data/store_model.dart';
 import 'package:acwadcom/features/explore/ui/widget/build_list_featured_stores.dart';
-import 'package:acwadcom/helpers/constants/lottie.dart';
-import 'package:lottie/lottie.dart';
+import 'package:acwadcom/helpers/constants/extenstions.dart';
+
 
 class WishlistScreen extends StatefulWidget {
   const WishlistScreen({super.key});
@@ -42,13 +42,13 @@ class _WishlistScreenState extends State<WishlistScreen>
     return Scaffold(
       backgroundColor:Colors.white,
       body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: TSizes.defaultSpace,
-          vertical: TSizes.defaultSpace,
+        padding:  EdgeInsets.symmetric(
+          horizontal: TSizes.defaultSpace, 
+          vertical: isLoggedInUser ? TSizes.defaultSpace : 5,
         ),
         child: ListView(
           children: [
-            customAppBar(context),
+            isLoggedInUser ? customAppBar(context) : SizedBox(height: 1,),
             buildSpacerH(10.0),
             ASearchContainer(text: AText.search.tr(context)),
             buildSpacerH(20.0),

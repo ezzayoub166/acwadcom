@@ -1,4 +1,8 @@
 
+import 'dart:convert';
+
+import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/models/user_model.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -67,6 +71,32 @@ class CacheHelper {
       await _instance.saveValueWithKey('OpenApp', onBoarding);
     }
   }
+
+Future<void> savePersonList(UserModel user) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  
+  // Convert the user object to a JSON string
+  String jsonUser = jsonEncode(user.toJson());
+  
+  // Save the JSON string
+  await prefs.setString('user', jsonUser);
+}
+
+// Function to retrieve UserModel from SharedPreferences
+Future<UserModel?> getUser() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+
+  // Check if user data exists in SharedPreferences
+  String? jsonString = prefs.getString('user');
+  if (jsonString != null) {
+    // Convert the JSON string back to UserModel
+    Map<String, dynamic> userMap = jsonDecode(jsonString);
+    return UserModel.fromJson(userMap);
+  }
+
+  // If no data exists, return null
+  return null;
+}
 
   // static Future<bool> saveData(
   //     {required String key, required dynamic value}) async {

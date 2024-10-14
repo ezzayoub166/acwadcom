@@ -69,19 +69,21 @@ class ManagerValidator {
 
     return null;
   }
-  static String? validateURL(String? value , context){
-
- if (value == null || value.isEmpty) {
-      return 'Phone number is required.';
-    }
-
-    bool validURL = Uri.parse(value).isAbsolute;
-    if(validURL = false){
-       return "Please enter a valid link.".tr(context);
-    }
-
-    return null;
+static String? validateURL(String? value, BuildContext context) {
+  if (value == null || value.isEmpty) {
+    return 'Link is required.'.tr(context);
   }
+
+  // A simple regex for validating URLs
+   String pattern = r'(http|https)://[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#-]*[\w@?^=%&amp;/~+#-])?';
+  final urlRegExp = RegExp(pattern);
+
+  if (!urlRegExp.hasMatch(value)) {
+    return "Please enter a valid link.".tr(context);
+  }
+
+  return null;
+}
 
 
   static String? validateNumberOfUser(String value , context){

@@ -24,8 +24,11 @@ class LoginBlocListener extends StatelessWidget {
             TFullScreenLoader.stopLoading(context);
              getIt<AuthenticationRepository>().screenRedirect(context);
             // navigateAndFinishNamed(context, Routes.bottomTabBarScreen);
-            
-            
+          },
+          successForOwner: () {
+            TFullScreenLoader.stopLoading(context);
+            navigateAndFinishNamed(context, Routes.tabBarAdmin);
+
           },
         );
       },

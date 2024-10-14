@@ -1,4 +1,5 @@
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/features/coupons/logic/cubit/create_coupon_cubit_cubit.dart';
 
 class AdditionalTermsCardWidget extends StatelessWidget {
   
@@ -12,7 +13,10 @@ class AdditionalTermsCardWidget extends StatelessWidget {
         border: Border.all(color: Colors.grey.shade300, width: 1), // Border
       ),
       // padding: const EdgeInsets.all(20.0),
-      child: TextField(
+      child: TextFormField(
+        textInputAction: TextInputAction.done,
+        controller: context.read<CreateCouponCubit>().additionalTerms,
+        validator:(value) => ManagerValidator.validateEmptyText("Additional Terms".tr(context), value??""),
         maxLines: null, // Allows the text field to expand vertically
         keyboardType: TextInputType.multiline,
         // textAlign: TextAlign.right, // Align text to the right for Arabic or RTL languages
@@ -24,7 +28,7 @@ class AdditionalTermsCardWidget extends StatelessWidget {
           //   color: Colors.grey.shade700,
           //   fontWeight: FontWeight.bold,
           // ),
-          fillColor: Colors.white, // Background color of the input field
+          // fillColor: Colors.white, // Background color of the input field
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
           enabledBorder: OutlineInputBorder(
@@ -34,6 +38,13 @@ class AdditionalTermsCardWidget extends StatelessWidget {
               width: 0,
             ),
           ),
+           errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30),
+                borderSide: const BorderSide(
+                  color: Colors.transparent, // No border color on error
+                  width: 0,
+                ),
+              ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30), // Circular border
             borderSide: const BorderSide(
@@ -42,10 +53,10 @@ class AdditionalTermsCardWidget extends StatelessWidget {
             ),
           ),
         ),
-        // style: TextStyle(
-        //   fontSize: 18,
-        //   color: Colors.black,
-        // ),
+        style: TextStyle(
+          fontSize: 18,
+          color: Colors.black,
+        ),
       ),
     );
   }

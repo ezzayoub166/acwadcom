@@ -4,6 +4,7 @@ import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/home/ui/widgets/build_discont_slider.dart';
 import 'package:acwadcom/features/home/ui/widgets/build_tow_bottns_for_filter.dart';
 import 'package:acwadcom/features/home/ui/widgets/home_categories.dart';
+import 'package:acwadcom/models/category_model.dart';
 
 class BuildFilterBottomSheet extends StatefulWidget {
   const BuildFilterBottomSheet({super.key});
@@ -19,17 +20,17 @@ class _BuildFilterBottomSheetState extends State<BuildFilterBottomSheet> {
   @override
   Widget build(BuildContext context) {
     var arrayOfCategories = [
-      CategoryModel(title: AText.all.tr(context), image: "_icAll", id: 1),
+      CategoryModel(title: AText.all.tr(context), image: "_icAll"),
       CategoryModel(
           title: AText.groceries.tr(context),
           image: "_icShoppingBasket",
-          id: 2),
-      CategoryModel(title: AText.resturnts.tr(context), image: "icBell", id: 3),
+          ),
+      CategoryModel(title: AText.resturnts.tr(context), image: "icBell"),
       CategoryModel(
           title: AText.delivery.tr(context),
           image: "_icDelivery_svgrepo",
-          id: 4),
-      CategoryModel(title: AText.fashion.tr(context), image: "_icDress", id: 5),
+         ),
+      CategoryModel(title: AText.fashion.tr(context), image: "_icDress"),
     ];
 
     return Container(
@@ -85,7 +86,7 @@ class _BuildFilterBottomSheetState extends State<BuildFilterBottomSheet> {
           itemBuilder: (ctx, idx) {
             return InkWell(
               onTap: () {
-                selecttedId = arrayOfCategories[idx].id ?? 1;
+                // selecttedId = arrayOfCategories[idx].id ?? 1;
                 setState(() {});
               },
               child: Container(
@@ -93,9 +94,9 @@ class _BuildFilterBottomSheetState extends State<BuildFilterBottomSheet> {
                   // width: 50.w,
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   decoration: BoxDecoration(
-                      color: selecttedId == arrayOfCategories[idx].id
-                          ? ManagerColors.kCustomColor
-                          : Color(0xffE4E4E4),
+                      // color: selecttedId == arrayOfCategories[idx].id
+                      //     ? ManagerColors.kCustomColor
+                      //     : Color(0xffE4E4E4),
                       border:
                           Border.all(width: 1, color: ManagerColors.greyColor),
                       borderRadius: BorderRadius.circular(10)),
@@ -103,9 +104,9 @@ class _BuildFilterBottomSheetState extends State<BuildFilterBottomSheet> {
                     arrayOfCategories[idx].title,
                     fontSize: 14,
                     fontWeight: FontWeightEnum.Medium.fontWeight,
-                    color: selecttedId == arrayOfCategories[idx].id
-                        ? Colors.white
-                        : ManagerColors.kCustomColor,
+                    // color: selecttedId == arrayOfCategories[idx].id
+                    //     ? Colors.white
+                    //     : ManagerColors.kCustomColor,
                   )),
             );
           },

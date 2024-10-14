@@ -6,6 +6,8 @@ class RoundedInputField extends StatefulWidget {
   final String? Function(String?)? validator; 
   final TextInputType? textInputType;
   final TextEditingController? controller;
+  final BuildContext? context;
+  final TextInputAction? textInputAction;
 
   const RoundedInputField({
     super.key,
@@ -14,6 +16,8 @@ class RoundedInputField extends StatefulWidget {
     required this.validator, 
     this.textInputType,  
     this.controller,
+    this.context,  this.textInputAction
+    
   });
 
   @override
@@ -39,6 +43,7 @@ class _RoundedInputFieldState extends State<RoundedInputField> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextFormField(
+            textInputAction: widget.textInputAction ?? TextInputAction.next,       
             controller: widget.controller,
             keyboardType: widget.textInputType ?? TextInputType.name,
             validator: widget.validator,

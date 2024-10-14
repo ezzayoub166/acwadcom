@@ -7,6 +7,7 @@ class Routes {
   static const String bottomTabBarScreen = '/BottomTabBar';
   static const String languageSelectionPage = '/LanguageSelectionPage';
   static const String profileScreen  = "/profileScreen";
+  static const String editProfileScreen = "/editProfile";
   static const String contactUs = "/ContactUs";
   static const String createCodeForUserScreen = "/createCodeForUserScreen";
   static const String storeDeatilsScreen = "/StoreDeatilsScreen";

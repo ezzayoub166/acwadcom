@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/authtication/data/authentication_repository.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:acwadcom/models/user_model.dart';
 import 'package:flutter/foundation.dart';
 
 
@@ -47,6 +47,31 @@ class UserRepository {
   Future<UserModel> fetchUserDetails() async {
     try {
       final documentSnapshot = await _db.collection(collectionNameUsers).doc(_currentAuthUser?.uid).get();
+      if (documentSnapshot.exists) {
+        print("Exist");
+        return UserModel.fromSnapshot(documentSnapshot);
+      } else {
+        print("Not Exist");
+        return UserModel.empty();
+      }
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'something went wrong. Please try again';
+    }
+  }
+
+
+//Fucntion For me ..
+  Future<UserModel> fetchStableData(userID) async {
+    try {
+      final documentSnapshot = await _db.collection(collectionNameUsers).doc(userID).get();
       if (documentSnapshot.exists) {
         print("Exist");
         return UserModel.fromSnapshot(documentSnapshot);
@@ -130,7 +155,7 @@ class UserRepository {
      } on FirebaseException catch (e) {
        throw TFirebaseException(e.code).message;
      } on FormatException catch (_) {
-       throw TFormatException();
+       throw const TFormatException();
      } on PlatformException catch (e) {
        throw TPlatformException(e.code).message;
      } catch (e) {
@@ -139,7 +164,7 @@ class UserRepository {
    }
 
      ///save user Record from any Registration Provider
-   Future<void> saveUserRecord(UserCredential? userCredential)async{
+   Future<dynamic> saveUserRecord(UserCredential? userCredential)async{
     //First update Rx user and then check if user data is already stored . if not store user data.
       UserModel user = await fetchUserDetails();    //if no record already stored
     if(user.id.isEmpty){
@@ -155,9 +180,10 @@ class UserRepository {
               userName: userName,
               email: userCredential.user!.email ?? '',
               phoneNumber: userCredential.user!.phoneNumber ?? '',
-              profilePicture: userCredential.user!.photoURL ?? '');
+              profilePicture: userCredential.user!.photoURL ?? '', userType: UserType.normalUser,storeLink: "");
 
           await storeUserRecord(user);
+          return user;
         }
       }
       catch(e){

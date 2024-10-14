@@ -129,5 +129,14 @@
 "Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.":"تهانينا! حسابك في انتظارك: قم بتأكيد بريدك الإلكتروني لبدء التسوق والاستمتاع بعالم من الصفقات التي لا مثيل لها والعروض المخصصة.",
 "Logging In":"جاري تسجيل الدخول",
 "We are processing your information...":"...نحن نقوم بمعالجة معلوماتك",
-"Don’t worry sometimes people can forget too, enter your email and we will send you a password reset link.":"لا تقلق، في بعض الأحيان قد ينسى بعض الأشخاص ذلك، أدخل بريدك الإلكتروني وسنرسل لك رابط إعادة تعيين كلمة المرور."
+"Don’t worry sometimes people can forget too, enter your email and we will send you a password reset link.":"لا تقلق، في بعض الأحيان قد ينسى بعض الأشخاص ذلك، أدخل بريدك الإلكتروني وسنرسل لك رابط إعادة تعيين كلمة المرور.",
+"Download store logo":"تحميل شعار المتجر",
+"JPG or PNG or SVG\n(Max 128*128 pixels)":"JPG أو PNG أو SVG\n( الحد الأقصى 128*128 بيكسل )",
+"Add your store": "أضف متجرك",
+"Link is required.":"رابط المتجر مطلوب",
+"Please enter your store category.":":رجاء ادخل صنف متجرك",
+"Required field":":حقل مطلوب ",
+"Please select an expiration date.":"الرجاء تحديد تاريخ انتهاء الصلاحية.",
+"Short title , like store name":"عنوان مختصر مثل ..اسم المتجر",
+"Code copied":"تم نسخ الكود"
 }

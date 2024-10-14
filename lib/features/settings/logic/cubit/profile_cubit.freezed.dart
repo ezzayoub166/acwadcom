@@ -56,7 +56,7 @@ mixin _$ProfileState {
     required TResult Function(ProfileLoading value) profileLoading,
     required TResult Function(ProfileSuccess value) profileSuccess,
     required TResult Function(ProfileError value) profileError,
-    required TResult Function(ChangePictureImage value)
+    required TResult Function(ChangePictureImageLoading value)
         changePictureImageLoading,
     required TResult Function(ChangePictureImageSuccess value)
         changePictureImageSuccess,
@@ -70,7 +70,8 @@ mixin _$ProfileState {
     TResult? Function(ProfileLoading value)? profileLoading,
     TResult? Function(ProfileSuccess value)? profileSuccess,
     TResult? Function(ProfileError value)? profileError,
-    TResult? Function(ChangePictureImage value)? changePictureImageLoading,
+    TResult? Function(ChangePictureImageLoading value)?
+        changePictureImageLoading,
     TResult? Function(ChangePictureImageSuccess value)?
         changePictureImageSuccess,
     TResult? Function(ChangePictureImageError value)? changePictureImageError,
@@ -82,7 +83,8 @@ mixin _$ProfileState {
     TResult Function(ProfileLoading value)? profileLoading,
     TResult Function(ProfileSuccess value)? profileSuccess,
     TResult Function(ProfileError value)? profileError,
-    TResult Function(ChangePictureImage value)? changePictureImageLoading,
+    TResult Function(ChangePictureImageLoading value)?
+        changePictureImageLoading,
     TResult Function(ChangePictureImageSuccess value)?
         changePictureImageSuccess,
     TResult Function(ChangePictureImageError value)? changePictureImageError,
@@ -197,7 +199,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(ProfileLoading value) profileLoading,
     required TResult Function(ProfileSuccess value) profileSuccess,
     required TResult Function(ProfileError value) profileError,
-    required TResult Function(ChangePictureImage value)
+    required TResult Function(ChangePictureImageLoading value)
         changePictureImageLoading,
     required TResult Function(ChangePictureImageSuccess value)
         changePictureImageSuccess,
@@ -214,7 +216,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function(ProfileLoading value)? profileLoading,
     TResult? Function(ProfileSuccess value)? profileSuccess,
     TResult? Function(ProfileError value)? profileError,
-    TResult? Function(ChangePictureImage value)? changePictureImageLoading,
+    TResult? Function(ChangePictureImageLoading value)?
+        changePictureImageLoading,
     TResult? Function(ChangePictureImageSuccess value)?
         changePictureImageSuccess,
     TResult? Function(ChangePictureImageError value)? changePictureImageError,
@@ -229,7 +232,8 @@ class _$InitialImpl implements _Initial {
     TResult Function(ProfileLoading value)? profileLoading,
     TResult Function(ProfileSuccess value)? profileSuccess,
     TResult Function(ProfileError value)? profileError,
-    TResult Function(ChangePictureImage value)? changePictureImageLoading,
+    TResult Function(ChangePictureImageLoading value)?
+        changePictureImageLoading,
     TResult Function(ChangePictureImageSuccess value)?
         changePictureImageSuccess,
     TResult Function(ChangePictureImageError value)? changePictureImageError,
@@ -334,7 +338,7 @@ class _$ProfileLoadingImpl implements ProfileLoading {
     required TResult Function(ProfileLoading value) profileLoading,
     required TResult Function(ProfileSuccess value) profileSuccess,
     required TResult Function(ProfileError value) profileError,
-    required TResult Function(ChangePictureImage value)
+    required TResult Function(ChangePictureImageLoading value)
         changePictureImageLoading,
     required TResult Function(ChangePictureImageSuccess value)
         changePictureImageSuccess,
@@ -351,7 +355,8 @@ class _$ProfileLoadingImpl implements ProfileLoading {
     TResult? Function(ProfileLoading value)? profileLoading,
     TResult? Function(ProfileSuccess value)? profileSuccess,
     TResult? Function(ProfileError value)? profileError,
-    TResult? Function(ChangePictureImage value)? changePictureImageLoading,
+    TResult? Function(ChangePictureImageLoading value)?
+        changePictureImageLoading,
     TResult? Function(ChangePictureImageSuccess value)?
         changePictureImageSuccess,
     TResult? Function(ChangePictureImageError value)? changePictureImageError,
@@ -366,7 +371,8 @@ class _$ProfileLoadingImpl implements ProfileLoading {
     TResult Function(ProfileLoading value)? profileLoading,
     TResult Function(ProfileSuccess value)? profileSuccess,
     TResult Function(ProfileError value)? profileError,
-    TResult Function(ChangePictureImage value)? changePictureImageLoading,
+    TResult Function(ChangePictureImageLoading value)?
+        changePictureImageLoading,
     TResult Function(ChangePictureImageSuccess value)?
         changePictureImageSuccess,
     TResult Function(ChangePictureImageError value)? changePictureImageError,
@@ -498,7 +504,7 @@ class _$ProfileSuccessImpl implements ProfileSuccess {
     required TResult Function(ProfileLoading value) profileLoading,
     required TResult Function(ProfileSuccess value) profileSuccess,
     required TResult Function(ProfileError value) profileError,
-    required TResult Function(ChangePictureImage value)
+    required TResult Function(ChangePictureImageLoading value)
         changePictureImageLoading,
     required TResult Function(ChangePictureImageSuccess value)
         changePictureImageSuccess,
@@ -515,7 +521,8 @@ class _$ProfileSuccessImpl implements ProfileSuccess {
     TResult? Function(ProfileLoading value)? profileLoading,
     TResult? Function(ProfileSuccess value)? profileSuccess,
     TResult? Function(ProfileError value)? profileError,
-    TResult? Function(ChangePictureImage value)? changePictureImageLoading,
+    TResult? Function(ChangePictureImageLoading value)?
+        changePictureImageLoading,
     TResult? Function(ChangePictureImageSuccess value)?
         changePictureImageSuccess,
     TResult? Function(ChangePictureImageError value)? changePictureImageError,
@@ -530,7 +537,8 @@ class _$ProfileSuccessImpl implements ProfileSuccess {
     TResult Function(ProfileLoading value)? profileLoading,
     TResult Function(ProfileSuccess value)? profileSuccess,
     TResult Function(ProfileError value)? profileError,
-    TResult Function(ChangePictureImage value)? changePictureImageLoading,
+    TResult Function(ChangePictureImageLoading value)?
+        changePictureImageLoading,
     TResult Function(ChangePictureImageSuccess value)?
         changePictureImageSuccess,
     TResult Function(ChangePictureImageError value)? changePictureImageError,
@@ -667,7 +675,7 @@ class _$ProfileErrorImpl implements ProfileError {
     required TResult Function(ProfileLoading value) profileLoading,
     required TResult Function(ProfileSuccess value) profileSuccess,
     required TResult Function(ProfileError value) profileError,
-    required TResult Function(ChangePictureImage value)
+    required TResult Function(ChangePictureImageLoading value)
         changePictureImageLoading,
     required TResult Function(ChangePictureImageSuccess value)
         changePictureImageSuccess,
@@ -684,7 +692,8 @@ class _$ProfileErrorImpl implements ProfileError {
     TResult? Function(ProfileLoading value)? profileLoading,
     TResult? Function(ProfileSuccess value)? profileSuccess,
     TResult? Function(ProfileError value)? profileError,
-    TResult? Function(ChangePictureImage value)? changePictureImageLoading,
+    TResult? Function(ChangePictureImageLoading value)?
+        changePictureImageLoading,
     TResult? Function(ChangePictureImageSuccess value)?
         changePictureImageSuccess,
     TResult? Function(ChangePictureImageError value)? changePictureImageError,
@@ -699,7 +708,8 @@ class _$ProfileErrorImpl implements ProfileError {
     TResult Function(ProfileLoading value)? profileLoading,
     TResult Function(ProfileSuccess value)? profileSuccess,
     TResult Function(ProfileError value)? profileError,
-    TResult Function(ChangePictureImage value)? changePictureImageLoading,
+    TResult Function(ChangePictureImageLoading value)?
+        changePictureImageLoading,
     TResult Function(ChangePictureImageSuccess value)?
         changePictureImageSuccess,
     TResult Function(ChangePictureImageError value)? changePictureImageError,
@@ -723,25 +733,27 @@ abstract class ProfileError implements ProfileState {
 }
 
 /// @nodoc
-abstract class _$$ChangePictureImageImplCopyWith<$Res> {
-  factory _$$ChangePictureImageImplCopyWith(_$ChangePictureImageImpl value,
-          $Res Function(_$ChangePictureImageImpl) then) =
-      __$$ChangePictureImageImplCopyWithImpl<$Res>;
+abstract class _$$ChangePictureImageLoadingImplCopyWith<$Res> {
+  factory _$$ChangePictureImageLoadingImplCopyWith(
+          _$ChangePictureImageLoadingImpl value,
+          $Res Function(_$ChangePictureImageLoadingImpl) then) =
+      __$$ChangePictureImageLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ChangePictureImageImplCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res, _$ChangePictureImageImpl>
-    implements _$$ChangePictureImageImplCopyWith<$Res> {
-  __$$ChangePictureImageImplCopyWithImpl(_$ChangePictureImageImpl _value,
-      $Res Function(_$ChangePictureImageImpl) _then)
+class __$$ChangePictureImageLoadingImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$ChangePictureImageLoadingImpl>
+    implements _$$ChangePictureImageLoadingImplCopyWith<$Res> {
+  __$$ChangePictureImageLoadingImplCopyWithImpl(
+      _$ChangePictureImageLoadingImpl _value,
+      $Res Function(_$ChangePictureImageLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ChangePictureImageImpl implements ChangePictureImage {
-  const _$ChangePictureImageImpl();
+class _$ChangePictureImageLoadingImpl implements ChangePictureImageLoading {
+  const _$ChangePictureImageLoadingImpl();
 
   @override
   String toString() {
@@ -751,7 +763,8 @@ class _$ChangePictureImageImpl implements ChangePictureImage {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ChangePictureImageImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ChangePictureImageLoadingImpl);
   }
 
   @override
@@ -810,7 +823,7 @@ class _$ChangePictureImageImpl implements ChangePictureImage {
     required TResult Function(ProfileLoading value) profileLoading,
     required TResult Function(ProfileSuccess value) profileSuccess,
     required TResult Function(ProfileError value) profileError,
-    required TResult Function(ChangePictureImage value)
+    required TResult Function(ChangePictureImageLoading value)
         changePictureImageLoading,
     required TResult Function(ChangePictureImageSuccess value)
         changePictureImageSuccess,
@@ -827,7 +840,8 @@ class _$ChangePictureImageImpl implements ChangePictureImage {
     TResult? Function(ProfileLoading value)? profileLoading,
     TResult? Function(ProfileSuccess value)? profileSuccess,
     TResult? Function(ProfileError value)? profileError,
-    TResult? Function(ChangePictureImage value)? changePictureImageLoading,
+    TResult? Function(ChangePictureImageLoading value)?
+        changePictureImageLoading,
     TResult? Function(ChangePictureImageSuccess value)?
         changePictureImageSuccess,
     TResult? Function(ChangePictureImageError value)? changePictureImageError,
@@ -842,7 +856,8 @@ class _$ChangePictureImageImpl implements ChangePictureImage {
     TResult Function(ProfileLoading value)? profileLoading,
     TResult Function(ProfileSuccess value)? profileSuccess,
     TResult Function(ProfileError value)? profileError,
-    TResult Function(ChangePictureImage value)? changePictureImageLoading,
+    TResult Function(ChangePictureImageLoading value)?
+        changePictureImageLoading,
     TResult Function(ChangePictureImageSuccess value)?
         changePictureImageSuccess,
     TResult Function(ChangePictureImageError value)? changePictureImageError,
@@ -855,8 +870,8 @@ class _$ChangePictureImageImpl implements ChangePictureImage {
   }
 }
 
-abstract class ChangePictureImage implements ProfileState {
-  const factory ChangePictureImage() = _$ChangePictureImageImpl;
+abstract class ChangePictureImageLoading implements ProfileState {
+  const factory ChangePictureImageLoading() = _$ChangePictureImageLoadingImpl;
 }
 
 /// @nodoc
@@ -950,7 +965,7 @@ class _$ChangePictureImageSuccessImpl implements ChangePictureImageSuccess {
     required TResult Function(ProfileLoading value) profileLoading,
     required TResult Function(ProfileSuccess value) profileSuccess,
     required TResult Function(ProfileError value) profileError,
-    required TResult Function(ChangePictureImage value)
+    required TResult Function(ChangePictureImageLoading value)
         changePictureImageLoading,
     required TResult Function(ChangePictureImageSuccess value)
         changePictureImageSuccess,
@@ -967,7 +982,8 @@ class _$ChangePictureImageSuccessImpl implements ChangePictureImageSuccess {
     TResult? Function(ProfileLoading value)? profileLoading,
     TResult? Function(ProfileSuccess value)? profileSuccess,
     TResult? Function(ProfileError value)? profileError,
-    TResult? Function(ChangePictureImage value)? changePictureImageLoading,
+    TResult? Function(ChangePictureImageLoading value)?
+        changePictureImageLoading,
     TResult? Function(ChangePictureImageSuccess value)?
         changePictureImageSuccess,
     TResult? Function(ChangePictureImageError value)? changePictureImageError,
@@ -982,7 +998,8 @@ class _$ChangePictureImageSuccessImpl implements ChangePictureImageSuccess {
     TResult Function(ProfileLoading value)? profileLoading,
     TResult Function(ProfileSuccess value)? profileSuccess,
     TResult Function(ProfileError value)? profileError,
-    TResult Function(ChangePictureImage value)? changePictureImageLoading,
+    TResult Function(ChangePictureImageLoading value)?
+        changePictureImageLoading,
     TResult Function(ChangePictureImageSuccess value)?
         changePictureImageSuccess,
     TResult Function(ChangePictureImageError value)? changePictureImageError,
@@ -1116,7 +1133,7 @@ class _$ChangePictureImageErrorImpl implements ChangePictureImageError {
     required TResult Function(ProfileLoading value) profileLoading,
     required TResult Function(ProfileSuccess value) profileSuccess,
     required TResult Function(ProfileError value) profileError,
-    required TResult Function(ChangePictureImage value)
+    required TResult Function(ChangePictureImageLoading value)
         changePictureImageLoading,
     required TResult Function(ChangePictureImageSuccess value)
         changePictureImageSuccess,
@@ -1133,7 +1150,8 @@ class _$ChangePictureImageErrorImpl implements ChangePictureImageError {
     TResult? Function(ProfileLoading value)? profileLoading,
     TResult? Function(ProfileSuccess value)? profileSuccess,
     TResult? Function(ProfileError value)? profileError,
-    TResult? Function(ChangePictureImage value)? changePictureImageLoading,
+    TResult? Function(ChangePictureImageLoading value)?
+        changePictureImageLoading,
     TResult? Function(ChangePictureImageSuccess value)?
         changePictureImageSuccess,
     TResult? Function(ChangePictureImageError value)? changePictureImageError,
@@ -1148,7 +1166,8 @@ class _$ChangePictureImageErrorImpl implements ChangePictureImageError {
     TResult Function(ProfileLoading value)? profileLoading,
     TResult Function(ProfileSuccess value)? profileSuccess,
     TResult Function(ProfileError value)? profileError,
-    TResult Function(ChangePictureImage value)? changePictureImageLoading,
+    TResult Function(ChangePictureImageLoading value)?
+        changePictureImageLoading,
     TResult Function(ChangePictureImageSuccess value)?
         changePictureImageSuccess,
     TResult Function(ChangePictureImageError value)? changePictureImageError,

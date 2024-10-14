@@ -110,7 +110,7 @@ static const copy = "copy";
   static const discountcode = "Discount codes";
   static const request = "Request";
   static const delete = "Delete";
-  static const requests =   "Requests";
+  static const requests =  "Requests";
   static const skip = "Skip";
   static const submit = "Submit";
 
@@ -180,5 +180,9 @@ static const copy = "copy";
   // -- Home
   static const String homeAppbarTitle = "Good day for shopping";
   static const String homeAppbarSubTitle = "Taimoor Sikander";
+
+
+  //Private ...
+  static const gmailAppacwdcom = "appacwdcom@gmail.com";
   
 }

@@ -1,8 +1,10 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/authtication/UI/screens/verify_email_screen.dart';
 import 'package:acwadcom/features/authtication/logic/register/cubit/register_cubit.dart';
+import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/helpers/loader/laoders.dart';
 import 'package:acwadcom/helpers/popups/animation_loader.dart';
+import 'package:acwadcom/models/user_model.dart';
 import 'package:lottie/lottie.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -10,9 +12,7 @@ class RegisterScreen extends StatelessWidget {
 
   final String selectStatus;
 
-    static void openLoadingDialog(String text , String animation){
-  
-  }
+  static void openLoadingDialog(String text, String animation) {}
 
   Widget buildRegisterNewAccount(context) {
     return Row(
@@ -44,42 +44,48 @@ class RegisterScreen extends StatelessWidget {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
         // TODO: implement listener
-        state.when(initial: (){}, 
-        registerLoading: () {
-            showDialog(context: context,barrierDismissible: false,
-        builder:(_) => PopScope(
-            canPop: false,
-            child:Container(
-              color:  ManagerColors.dark,
-              width: double.infinity,
-              height: double.infinity,
-              child: const Column(
-                children: [
-                  SizedBox(height: 250,),
-                  TAnimationLoaderWidget(text: 'We are processing your information...',
-                      animation: "assets/images/loading_sign.json")
-                ],
-              ),
-            ) )
-    );}, 
-        registerSuccess: (){
-                //Show Success Message
-                Navigator.pop(context);
-        TLoader.showSuccessSnackBar(context,title: 'Congratulation',message: 'Your account has been created! Verify email to continue');
+        state.when(
+            initial: () {},
+            registerLoading: () {
+              showDialog(
+                  context: context,
+                  barrierDismissible: false,
+                  builder: (_) => PopScope(
+                      canPop: false,
+                      child: Container(
+                        color: ManagerColors.dark,
+                        width: double.infinity,
+                        height: double.infinity,
+                        child: const Column(
+                          children: [
+                            SizedBox(
+                              height: 250,
+                            ),
+                            TAnimationLoaderWidget(
+                                text: 'We are processing your information...',
+                                animation: "assets/images/loading_sign.json")
+                          ],
+                        ),
+                      )));
+            },
+            registerSuccess: () {
+              //Show Success Message
+              Navigator.pop(context);
+              TLoader.showSuccessSnackBar(context,
+                  title: 'Congratulation',
+                  message:
+                      'Your account has been created! Verify email to continue');
 
-      //Move to Verity Email Screen
-       navigateTo(context, VerifyEmailScreen());
-        // Get.to(() => VerifyEmailScreen(email: userCredential.user?.email));
-        
-        
-        
-        }, 
-        registerError: (error){
-                          Navigator.pop(context);
+              //Move to Verity Email Screen
+              navigateNamedTo(context, Routes.verifyEmailScreen,UserType.normalUser);
+              // Get.to(() => VerifyEmailScreen(email: userCredential.user?.email));
+            },
+            registerError: (error) {
+              Navigator.pop(context);
 
-                TLoader.showErrorSnackBar(context,title: 'On Snap!',message: error.toString());
-
-        });
+              TLoader.showErrorSnackBar(context,
+                  title: 'On Snap!', message: error.toString());
+            });
       },
       builder: (context, state) {
         return SingleChildScrollView(
@@ -213,8 +219,12 @@ class RegisterScreen extends StatelessWidget {
   }
 
   void validateThenDoSignup(BuildContext context) {
-    if (context.read<RegisterCubit>().formKey.currentState!.validate() && context.read<RegisterCubit>().passwordController.text == context.read<RegisterCubit>().passwordConfirmationController.text) {
+    if (context.read<RegisterCubit>().formKey.currentState!.validate() &&
+        context.read<RegisterCubit>().passwordController.text ==
+            context.read<RegisterCubit>().passwordConfirmationController.text) {
       context.read<RegisterCubit>().emitRegisterStates();
+      getIt<CacheHelper>().removeValueWithKey("tYPEUSER");
+       getIt<CacheHelper>().saveValueWithKey("tYPEUSER" , "USER");
     }
   }
 }

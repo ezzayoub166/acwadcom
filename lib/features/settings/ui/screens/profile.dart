@@ -41,7 +41,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   children: [
                     CircleAvatar(
                         radius: 50,
-                        backgroundImage: AssetImage("assets/images/tow.jpeg")),
+                        backgroundImage: user.profilePicture == "" 
+                        ? AssetImage("assets/images/user.png")
+                        : CachedNetworkImageProvider(user.profilePicture) ),
                     myText(
                       user.userName,
                       fontSize: 16,
@@ -97,4 +99,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget setupError() {
     return const SizedBox.shrink();
   }
+
+
 }

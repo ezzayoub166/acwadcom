@@ -3,12 +3,15 @@ import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/authtication/data/authentication_repository.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/helpers/util/helper_functions.dart';
+import 'package:acwadcom/models/user_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:lottie/lottie.dart';
 
 class VerifyEmailScreen extends StatefulWidget {
-  const VerifyEmailScreen({super.key});
+  final UserType typeUser;
+
+  const VerifyEmailScreen({super.key, required this.typeUser});
 
   // final String? email;
 

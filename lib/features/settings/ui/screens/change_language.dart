@@ -3,7 +3,7 @@ import 'package:acwadcom/helpers/constants/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:acwadcom/common/widgets/rounded_button_widget.dart';
-import 'package:acwadcom/cubit/locale_cubit.dart';
+import 'package:acwadcom/localiztion_cubit/locale_cubit.dart';
 import 'package:acwadcom/helpers/constants/colors.dart';
 import 'package:lottie/lottie.dart';
 

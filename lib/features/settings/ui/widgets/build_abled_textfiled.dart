@@ -7,8 +7,8 @@ Widget buildAbleTextField({
   // required TextEditingController? controller
 }) {
   return SizedBox(
-    width: 300.w,
-    height: 50.h,
+    width: double.infinity,
+    height: 60,
     child: TextFormField(
       // controller: controller,
       

@@ -5,6 +5,7 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
+import 'package:acwadcom/models/user_model.dart';
 
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -25,14 +26,19 @@ class AuthenticationRepository  {
   //   screenRedirect();
   // }
 
-  screenRedirect(context) async {
+  screenRedirect(context){
     final user = _auth.currentUser;
     if (user != null) {
       if (user.emailVerified) {
         // await TLocalStorage.init(user.uid);
         // Get.offAll(() => NavigationMenu());
         getIt<CacheHelper>().saveValueWithKey("userID" , user.uid);
+        if(tYPEUSER == "USER"){
         navigateAndFinishNamed(context, Routes.bottomTabBarScreen);
+
+        }else{
+          navigateAndFinishNamed(context, Routes.homeScreenForOwenerStore);
+        }
       } else {
        navigateAndFinishNamed(context, Routes.verifyEmailScreen , _auth.currentUser?.email);
       }
@@ -147,10 +153,22 @@ class AuthenticationRepository  {
   /// [Email Authentication] = valid for any Authntication
  Future<void> logout()async{
    try {
-     await GoogleSignIn().signOut();
-     await _auth.signOut();
-     getIt<CacheHelper>().removeValueWithKey("userID");
+    await Future.wait([
+     GoogleSignIn().signOut(),
+      _auth.signOut(),
+      getIt<CacheHelper>().removeValueWithKey("userID"),
+     getIt<CacheHelper>().removeValueWithKey("tYPEUSER"),
+      getIt<CacheHelper>().removeValueWithKey("USERNAME"),
+     getIt<CacheHelper>().removeValueWithKey("IMAGEURL"),
+      getIt<CacheHelper>().removeValueWithKey("EMAIL"),
+     getIt<CacheHelper>().removeValueWithKey("MOBILENUMBER"),
+    ]);
+     
+
+
+     getIt<CacheHelper>().clearAll();
      isLoggedInUser = false;
+     tYPEUSER = "";
       //!! Some Things Need to Edit 
     //  Get.offAll(() => LoginScreen());
    } on FirebaseAuthException catch (e) {

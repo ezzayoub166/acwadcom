@@ -1,32 +1,29 @@
-import 'package:acwadcom/helpers/constants/lottie.dart';
-import 'package:extended_image/extended_image.dart';
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/common/widgets/build_custom_loader.dart';
+import 'package:extended_image/extended_image.dart';
 import 'package:lottie/lottie.dart';
 
-Widget extendedImageWgt(imageUrl , [double? height , double? width,BorderRadius? borderRadius , ]) {
+Widget extendedImageWgt(String imageUrl, [double? height, double? width, BoxFit? fit]) {
   if (imageUrl == null || imageUrl.isEmpty) {
     return Lottie.asset(LottieConstnts.emptyImageAnimation);
   }
 
   return ExtendedImage.network(
+    imageUrl,
     height: height,
     width: width,
-    borderRadius: borderRadius,
-    imageUrl,
     cache: true,
-    clearMemoryCacheIfFailed :false,
+    fit: fit,
+    clearMemoryCacheIfFailed: false,
     loadStateChanged: (ExtendedImageState state) {
       switch (state.extendedImageLoadState) {
         case LoadState.loading:
-          return Lottie.asset(LottieConstnts.loadingProgress);
+          // return Lottie.asset(LottieConstnts.loading_sing_up_animation);
+          return BuildCustomLoader();
         case LoadState.completed:
           return state.completedWidget;
         case LoadState.failed:
-        return Lottie.asset("assets/lottie/44656-error.json",fit: BoxFit.fitWidth,);
-          // return Image.asset(
-          //   'assets/images/error404.png',
-          //   fit: BoxFit.cover,
-          // );
+          return Lottie.asset("assets/lottie/no_data.json", fit: BoxFit.fitWidth);
       }
     },
   );

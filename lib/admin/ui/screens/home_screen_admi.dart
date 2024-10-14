@@ -1,11 +1,16 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/admin/ui/widgets/build_item_code_for_admin.dart';
+import 'package:acwadcom/models/coupon_model.dart';
 
 class HomeScreenAdmin extends StatelessWidget {
+
+
   const HomeScreenAdmin({super.key});
 
   @override
   Widget build(BuildContext context) {
+      List<Coupon> yourCoupons = [];
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ManagerColors.kCustomColor,
@@ -35,3 +40,5 @@ class HomeScreenAdmin extends StatelessWidget {
     );
   }
 }
+
+
