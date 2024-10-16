@@ -7,19 +7,33 @@ import 'package:acwadcom/admin/ui/screens/home_screen_admi.dart';
 import 'package:acwadcom/admin/ui/screens/request_screen_admin.dart';
 import 'package:acwadcom/admin/ui/screens/tab_bar_admin.dart';
 import 'package:acwadcom/bottomTabBar.dart';
+import 'package:acwadcom/features/authtication/UI/screens/forget_password.dart';
 import 'package:acwadcom/features/authtication/UI/screens/login_screen.dart';
 import 'package:acwadcom/features/authtication/UI/screens/register_screen.dart';
-import 'package:acwadcom/features/coupons/logic/cubit/cubit/create_coupon_cubit.dart';
+import 'package:acwadcom/features/authtication/UI/screens/reset_password.dart';
+import 'package:acwadcom/features/authtication/UI/screens/verify_email_screen.dart';
+import 'package:acwadcom/features/authtication/logic/login/cubit/login_cubit.dart';
+import 'package:acwadcom/features/authtication/logic/register/cubit/register_cubit.dart';
+import 'package:acwadcom/features/coupons/logic/cubit/create_coupon_cubit_cubit.dart';
 import 'package:acwadcom/features/coupons/ui/screens/add_coupon_screen.dart';
 import 'package:acwadcom/features/coupons/ui/screens/revison_response_screen.dart';
 import 'package:acwadcom/features/explore/data/store_model.dart';
+import 'package:acwadcom/features/home/logic/home/cubit/home_cubit.dart';
+import 'package:acwadcom/features/home/logic/search/cubit/search_cubit.dart';
+import 'package:acwadcom/features/home/ui/search_screen.dart';
 import 'package:acwadcom/features/onboarding/ui/screens/onboarding_screen.dart';
 import 'package:acwadcom/features/onboarding/ui/screens/userOrStore.dart';
+import 'package:acwadcom/features/settings/logic/cubit/profile_cubit.dart';
 import 'package:acwadcom/features/settings/ui/screens/change_language.dart';
 import 'package:acwadcom/features/settings/ui/screens/contact_us.dart';
+import 'package:acwadcom/features/settings/ui/screens/edit_profile_screen.dart';
 import 'package:acwadcom/features/settings/ui/screens/profile.dart';
 import 'package:acwadcom/features/store/ui/screens/store_deatils_screen.dart';
 import 'package:acwadcom/helpers/Routing/routes.dart';
+import 'package:acwadcom/helpers/di/dependency_injection.dart';
+import 'package:acwadcom/models/coupon_model.dart';
+import 'package:acwadcom/models/user_model.dart';
+import 'package:acwadcom/ownerStore/features/authitcation/logic/register_owner/register_owner_store_cubit.dart';
 import 'package:acwadcom/ownerStore/features/authitcation/ui/register_owner_store.dart';
 import 'package:acwadcom/ownerStore/features/home/home_screen_owner.dart';
 import 'package:acwadcom/ownerStore/features/home/statistics_screen.dart';
@@ -38,42 +52,55 @@ class AppRouter {
       case Routes.loginScreen:
         final tYPEUSER = settings.arguments as String;
         return MaterialPageRoute(
-            builder: (_) => LoginScreen(
-                  tYPEUSER: tYPEUSER,
+            builder: (_) => BlocProvider(
+                  create: (context) => getIt<LoginCubit>(),
+                  child: LoginScreen(
+                    tYPEUSER: tYPEUSER,
+                  ),
                 ));
       case Routes.signUpScreen:
         final selectStatus = settings.arguments as String;
         return MaterialPageRoute(
-            builder: (_) => RegisterScreen(selectStatus: selectStatus));
+            builder: (_) => BlocProvider(
+                  create: (context) => getIt<RegisterCubit>(),
+                  child: RegisterScreen(selectStatus: selectStatus),
+                ));
       case Routes.bottomTabBarScreen:
         return MaterialPageRoute(builder: (_) => Bottomtabbar());
       case Routes.languageSelectionPage:
         return MaterialPageRoute(builder: (_) => LanguageSelectionPage());
       case Routes.profileScreen:
-        final isEdit = settings.arguments as bool;
         return MaterialPageRoute(
-            builder: (_) => ProfileScreen(
-                  isEdit: isEdit,
+            builder: (_) => BlocProvider(
+                  create: (context) => getIt<ProfileCubit>(),
+                  child: ProfileScreen(),
                 ));
       case Routes.contactUs:
         return MaterialPageRoute(builder: (_) => ContactUs());
       case Routes.createCodeForUserScreen:
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
-                  create: (context) => CreateCouponCubit(),
+                  create: (context) => getIt<CreateCouponCubit>(),
                   child: CreateCodeScreen(),
                 ));
 
       case Routes.storeDeatilsScreen:
         final store = settings.arguments as StoreModel;
         return MaterialPageRoute(
-            builder: (context) => StoreDeatilsScreen(
-                  store: store,
+            builder: (context) => BlocProvider(
+                  create: (context) => getIt<HomeCubit>(),
+                  child: StoreDeatilsScreen(
+                    store: store,
+                  ),
                 ));
       case Routes.revisonResponseScreen:
         return MaterialPageRoute(builder: (context) => RevisonResponseScreen());
       case Routes.registerOwnerStore:
-        return MaterialPageRoute(builder: (context) => RegisterOwnerStore());
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => getIt<RegisterOwnerStoreCubit>(),
+                  child: RegisterOwnerStore(),
+                ));
       case Routes.homeScreenForOwenerStore:
         return MaterialPageRoute(builder: (context) => HomeScreenOwner());
       case Routes.storeOwnerDiscountCodeDetails:
@@ -95,8 +122,42 @@ class AppRouter {
                   child: EditCodeScreenAdmin(),
                 ));
 
-     case Routes.discountCodeDeatilsAdmin:
-     return MaterialPageRoute(builder: (context) => DiscountCodeDeatilsAdmin());           
+      case Routes.discountCodeDeatilsAdmin:
+        return MaterialPageRoute(
+            builder: (context) => DiscountCodeDeatilsAdmin());
+      case Routes.verifyEmailScreen:
+        final typeUser = settings.arguments as UserType;
+        return MaterialPageRoute(
+            builder: (context) => VerifyEmailScreen(typeUser: typeUser));
+      case Routes.forgetPassword:
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => getIt<LoginCubit>(),
+                  child: ForgetPassword(),
+                ));
+
+      case Routes.resetPassword:
+        final email = settings.arguments as String;
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => getIt<LoginCubit>(),
+                  child: ResetPassword(email: email),
+                ));
+
+      case Routes.editProfileScreen:
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => getIt<ProfileCubit>(),
+                  child: EditProfileScreen(),
+                ));
+
+      case Routes.searchScreen:
+        // final items = settings.arguments as List<Coupon>;
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => SearchCubit(),
+                  child: SearchScreen(),
+                ));
     }
   }
 }

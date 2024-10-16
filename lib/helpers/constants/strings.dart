@@ -1,5 +1,7 @@
 // import 'package:acwadcom/acwadcom_packges.dart';
 
+import 'package:flutter/foundation.dart';
+
 class AText {
   // final BuildContext context;
 
@@ -17,6 +19,7 @@ class AText {
   static const email = "e-mail";
   static const yourPassword = "your password";
   static const forgetPass = "Foreget Password ?";
+  static const forgetPasswordSubTitle = "Don’t worry sometimes people can forget too, enter your email and we will send you a password reset link.";
   static const nohaveAccount = "Don't have an account?";
   static const haveAccount = "Do you have an account?";
   static const regiserNewAccount = "Regiser New Account";
@@ -24,18 +27,20 @@ class AText {
   static const loginByApple = "Sign in with Apple ID";
   static const loginByFacebook = "Log in with Facebook";
   static const creatNewAccountlbl = "Create an account";
-  static const insertYourUserNamlbl = "Enter your username";
+  static const insertYourUserNamlbl = "Enter your full Name";
   static const confirmPassword =  "Confirm your password";
   static const user = "User";
   static const shopOwner = "Shop owner";
   static const welcom = "Welcom";
   static const search = "Search";
+  static const searchCoupons = "Search by coupon name and store you want";
   static const all = "All";
   static const groceries = "Groceries";
   static const resturnts = "Resturnts";
   static const delivery = "Delivery";
   static const fashion = "Fashion";
   static const categorieslbl = "Categories";
+    static const category = "Category";
   static const discoverOffers = "Discover offers and coupons";
   static const or = "or";
   static const next = "next";
@@ -91,6 +96,7 @@ static const copy = "copy";
   static const reportProblem = "Report a problem";
   static const enterYourLikeStore = "Enter your store link here.";
   static const choseTheCategory = "Choose the item that suits your store";
+  static const linkofWebsite = "Store Link";
   static const exDate = "expiration date";
   static const yourRequestIsBeingReviewed = "Your request is being reviewed.";
   static const satisfactionMessage = "Your satisfaction is our top priority, and we are grateful for the opportunity to serve you. Thank you for choosing us.";
@@ -105,8 +111,79 @@ static const copy = "copy";
   static const discountcode = "Discount codes";
   static const request = "Request";
   static const delete = "Delete";
-  static const requests =   "Requests";
+  static const requests =  "Requests";
   static const skip = "Skip";
+  static const submit = "Submit";
 
   static const requestOkay = "Requests that require approval";
+  static const startDate = "Start Date";
+  static const someNotes = "Some Notes";
+  static const phoneNumber = "Mobile Number";
+  static const confirmEmailSubTitle = "Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.";
+    static const String yourAccountCreatedTitle = "Your account successfully created!";
+  static const String yourAccountCreatedSubTitle = "Welcome to Your Ultimate Shopping Destination: Your Account is Created, Unleash the Joy of Seamless Online Shopping!";
+  static const String changeYourPasswordTitle = "Password Reset Email Sent";
+  static const String changeYourPasswordSubTitle = "Your Account Security is Our Priority! We've Sent You a Secure Link to Safely Change Your Password and Keep Your Account Protected.";
+
+  static const loggingIn = "Logging In";
+
+
+  // -- GLOBAL Texts
+  static const String and = "and";
+  static const String done = "Done";
+  static const String appName = "T-Store";
+  static const String tContinue = "Continue";
+
+
+  // -- OnBoarding Texts
+  static const String onBoardingTitle1 = "Choose your product";
+  static const String onBoardingTitle2 = "Select Payment Method";
+  static const String onBoardingTitle3 = "Deliver at your door step";
+
+  static const String onBoardingSubTitle1 = "Welcome to a World of Limitless Choices - Your Perfect Product Awaits!";
+  static const String onBoardingSubTitle2 = "For Seamless Transactions, Choose Your Payment Path - Your Convenience, Our Priority!";
+  static const String onBoardingSubTitle3 = "From Our Doorstep to Yours - Swift, Secure, and Contactless Delivery!";
+
+
+  // -- Authentication Forms
+  static const String firstName = "First Name";
+  static const String lastName = "Last Name";
+  static const String password = "Password";
+  static const String newPassword = "New Password";
+  static const String username = "Username";
+  static const String phoneNo = "Phone Number";
+  static const String rememberMe = "Remember Me";
+  static const String forgetPassword = "Forget Password?";
+  static const String signIn = "Sign In";
+  static const String createAccount = "Create Account";
+  static const String orSignInWith = "or sign in with";
+  static const String orSignUpWith = "or sign up with";
+  static const String iAgreeTo = "I agree to";
+  static const String privacyPolicy = "Privacy Policy";
+  static const String termsOfUse = "Terms of use";
+  static const String verificationCode = "verificationCode";
+  static const String resendEmail = "Resend Email";
+  static const String resendEmailIn = "Resend email in";
+
+
+  // -- Authentication Headings
+  static const String loginTitle = "Welcome back,";
+  static const String loginSubTitle = "Discover Limitless Choices and Unmatched Convenience.";
+  static const String signupTitle = "Let’s create your account";
+  static const String forgetPasswordTitle = "Forget password";
+  static const String confirmEmail = "Verify your email address!";
+  static const String emailNotReceivedMessage = "Didn’t get the email? Check your junk/spam or resend it.";
+
+
+  // -- Product
+  static const String popularProducts = "Popular Products";
+
+  // -- Home
+  static const String homeAppbarTitle = "Good day for shopping";
+  static const String homeAppbarSubTitle = "Taimoor Sikander";
+
+
+  //Private ...
+  static const gmailAppacwdcom = "appacwdcom@gmail.com";
+  
 }

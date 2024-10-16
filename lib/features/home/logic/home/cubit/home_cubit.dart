@@ -1,0 +1,77 @@
+import 'package:acwadcom/features/home/data/category_repository.dart';
+import 'package:acwadcom/features/home/data/coupon_repository.dart';
+import 'package:acwadcom/helpers/constants/extenstions.dart';
+import 'package:acwadcom/models/category_model.dart';
+import 'package:acwadcom/models/coupon_model.dart';
+import 'package:bloc/bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'home_state.dart';
+part 'home_cubit.freezed.dart';
+
+class HomeCubit extends Cubit<HomeState> {
+  HomeCubit(this._categoryRepository, this._couponRepository) : super(const HomeState.initial());
+
+  final CategoryRepository _categoryRepository;
+  final CouponRepository _couponRepository;
+   List<CategoryModel> featchedCategories = [];
+   List<Coupon> featchedCoupons = [];
+
+  void emitGetCategories()async{
+    try{
+        emit(const HomeState.loadingCatgories());
+        List<CategoryModel> categories = await _categoryRepository.getAllCategories();
+        bLISTOFCATEGORY = categories;
+        featchedCategories = categories;
+        emit(HomeState.successFeatchedCatgories(categories: categories));
+
+         // Automatically select the first category after categories are loaded
+      emitSelectedCategory(0);
+    }catch(error){
+      emit(HomeState.errorFeatchedCatgories(error: error.toString()));
+    }
+  }
+
+  
+
+  void emitGetCoupons()async{
+    try{
+      emit(const HomeState.loadingCoupons());
+        await _couponRepository.fetchCoupons().then((coupons){
+          featchedCoupons = coupons;
+     emit(HomeState.successFeatchedCoupons(coupons: coupons));
+      });
+    }catch(onError){
+      emit(HomeState.errorFeatchedCoupons(error: onError.toString()));
+    }
+  }
+
+void emitSelectedCategory(int index) {
+
+  List<Coupon>  filteredCoupons = [];
+  // Update the selected state of categories
+  for (int i = 0; i < featchedCategories.length; i++) {
+    featchedCategories[i].isSelected = i == index; // Set isSelected for the category
+  }
+  // Assuming featchedCoupons is a list of CouponModel objects and each has a categoryId property
+  // Get the selected category ID
+  String selectedCategoryId = featchedCategories[index].categoryId!;
+
+  // Filter coupons based on the selected category
+  if(index == 0){
+     emit(HomeState.successFeatchedCoupons(coupons: featchedCoupons));
+
+  }else{
+filteredCoupons = featchedCoupons
+      .where((coupon) => coupon.category?.categoryId == selectedCategoryId)
+      .toList();
+        emit(HomeState.successFeatchedCoupons(coupons: filteredCoupons));
+
+  }
+  // Emit the updated state with selected index and filtered coupons
+  emit(HomeState.categorySelected(index: index, listofCategories: featchedCategories, listofCoupns: filteredCoupons));///! remove the third parm...
+}
+
+
+  
+}

@@ -1,9 +1,25 @@
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/features/authtication/UI/widgets/login_bloc_listener.dart';
+import 'package:acwadcom/helpers/constants/extenstions.dart';
+import 'package:acwadcom/helpers/di/dependency_injection.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key, required this.tYPEUSER});
 
   final String tYPEUSER;
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // addTestData();
+  }
+
 
   Widget buildRegisterNewAccount(context) {
     return Row(
@@ -23,10 +39,11 @@ class LoginScreen extends StatelessWidget {
         TextButton(
           onPressed: () {
             //TODO: Go to the chosen user or Shop owner
-            if (tYPEUSER == "User") {
-              navigateNamedTo(context, Routes.signUpScreen,tYPEUSER);
+            if (widget.tYPEUSER == "USER") {
+              navigateNamedTo(context, Routes.signUpScreen, widget.tYPEUSER);
             } else {
-              navigateNamedTo(context, Routes.registerOwnerStore,tYPEUSER);
+              navigateNamedTo(
+                  context, Routes.registerOwnerStore, widget.tYPEUSER);
             }
           },
           child: myText(
@@ -41,7 +58,9 @@ class LoginScreen extends StatelessWidget {
 
   Widget buildForgetPassButton(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: () {
+        navigateNamedTo(context, Routes.forgetPassword);
+      },
       child: Text(
         AText.forgetPass.tr(context),
         style: Theme.of(context)
@@ -52,19 +71,15 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Widget buildBlocWidget(
-      BuildContext context,
-      TextEditingController emailController,
-      TextEditingController passwordController,
-      GlobalKey<FormState> formKey) {
+  Widget buildBlocWidget(BuildContext context) {
     return Form(
-      key: formKey,
+      key: context.read<LoginCubit>().formKey,
       child: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: EdgeInsets.only(left: 30, right: 30, bottom: 30, top: 30),
+            padding: EdgeInsets.only(left: 30, right: 30, bottom: 30, top: 50),
             child: Column(
-              // crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // buildSpacer(10.0),
@@ -78,17 +93,20 @@ class LoginScreen extends StatelessWidget {
                 ),
                 buildSpacerH(20.0),
                 RoundedInputField(
-                  controller: emailController,
+                  controller: context.read<LoginCubit>().emailController,
                   hintText: AText.email.tr(context),
+                  textInputType: TextInputType.emailAddress,
+
                   validator: (value) {
                     return ManagerValidator.validateEmail(value, context);
                   },
                 ),
                 buildSpacerH(20.0),
                 RoundedInputField(
-                  controller: passwordController,
+                  controller: context.read<LoginCubit>().passwordController,
                   hintText: AText.yourPassword.tr(context),
                   isSecure: true,
+                  textInputType: TextInputType.visiblePassword,
                   validator: (value) {
                     return ManagerValidator.validatePassword(value, context);
                   },
@@ -100,21 +118,18 @@ class LoginScreen extends StatelessWidget {
                     fontSize: 18,
                     onPressed: () {
                       //TODO:  make it Login Function ....
-                      if (tYPEUSER == "User") {
-                        if (formKey.currentState!.validate()) {
-                          if ((emailController.text ==
-                                  "adminOwner1000@gmail.com") &&
-                              (passwordController.text ==
-                                  "adminOwner1000@gmail.com")) {
-                            navigateAndFinishNamed(context, Routes.tabBarAdmin);
-                          } else {
-                            navigateAndFinishNamed(
-                                context, Routes.bottomTabBarScreen);
-                          }
-                        }
+                      if (widget.tYPEUSER == "USER") {
+                         tYPEUSER = "USER";
+                          getIt<CacheHelper>().saveValueWithKey("tYPEUSER","USER");
+
+                        validateThenDoSignup(context);
+              
                       } else {
-                        navigateAndFinishNamed(
-                            context, Routes.homeScreenForOwenerStore);
+                        tYPEUSER = "STOREOWNER";
+                        getIt<CacheHelper>().saveValueWithKey("tYPEUSER","STOREOWNER");
+
+                        validateThenDoSignup(context);
+
                       }
                     }),
                 buildRegisterNewAccount(
@@ -123,7 +138,49 @@ class LoginScreen extends StatelessWidget {
                 buildSpacerH(20.0),
                 const DividerWithText(),
                 buildSpacerH(20.0),
-                buildListOfLoginButtons(context),
+
+                ///Login By Google
+                RoundedButtonWgt(
+                  backgroundColor: ManagerColors.myWhite,
+                  foregroundColor: Colors.black,
+                  title: "",
+                  onPressed: () async {
+                    if (widget.tYPEUSER == "USER") {
+                      getIt<CacheHelper>().saveValueWithKey("tYPEUSER", "USER");
+                      await context
+                          .read<LoginCubit>()
+                          .emitLogInByGoogle(context);
+                    } else {
+                      getIt<CacheHelper>()
+                          .saveValueWithKey("tYPEUSER", "STOREOWNER");
+                      await context
+                          .read<LoginCubit>()
+                          .emitLogInByGoogle(context);
+                    }
+                  },
+                  icon: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        AText.loginByGoogle.tr(context),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(color: Colors.black),
+                      ),
+                      SizedBox(
+                        width: 8.w,
+                      ),
+                      svgImage("google_brand_branding_logo_network_icon",
+                          height: 24.h, width: 24.w),
+                      // SvgPicture.asset(
+                      //   "assets/images/google_brand_branding_logo_network_icon.svg"),
+                    ],
+                  ),
+                ),
+                const LoginBlocListener()
+
+                // buildListOfLoginButtons(context),
               ],
             ),
           ),
@@ -132,20 +189,21 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-
+  void validateThenDoSignup(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      if(context.read<LoginCubit>().emailController.text == "appacwdcom@gmail.com"){
+              context.read<LoginCubit>().emitLogInOwnerApp(context);
+      }else{
+      context.read<LoginCubit>().emitLogIn(context);
+      }
+    }
+  }
 
   ///MARK: Scaffold
   @override
   Widget build(BuildContext context) {
-    final TextEditingController emailController = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
-    emailController.text = "adminOwner1000@gmail.com";
-    passwordController.text = "adminOwner1000@gmail.com";
-
-
-  
-
-    GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+    // emailController.text = "adminOwner1000@gmail.com";
+    // passwordController.text = "adminOwner1000@gmail.com";
     return Scaffold(
         backgroundColor: ManagerColors.kCustomColor,
         appBar: AppBar(
@@ -164,7 +222,6 @@ class LoginScreen extends StatelessWidget {
             ),
           ],
         ),
-        body: buildBlocWidget(
-            context, emailController, passwordController, loginFormKey));
+        body: buildBlocWidget(context));
   }
 }

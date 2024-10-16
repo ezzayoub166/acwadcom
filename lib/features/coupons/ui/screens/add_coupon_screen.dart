@@ -1,4 +1,12 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'dart:io';
+
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/features/coupons/logic/cubit/create_coupon_cubit_cubit.dart';
+import 'package:acwadcom/features/coupons/ui/widgets/create_coupon_listener.dart';
+import 'package:acwadcom/helpers/constants/extenstions.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CreateCodeScreen extends StatefulWidget {
   const CreateCodeScreen({super.key});
@@ -10,24 +18,28 @@ class CreateCodeScreen extends StatefulWidget {
 class _CreateCodeScreenState extends State<CreateCodeScreen> {
   DateTime? pickedDate;
   bool isDateSelected = false; // To track if a date has been selected
-  final TextEditingController _dateController = TextEditingController();
+  // final TextEditingController _dateController = TextEditingController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    BlocProvider.of<CreateCouponCubit>(context).fetchCategories();
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
 
     //! To Pass it to State ..
-    final translatedCategoryTitle = AText.choseTheCategory.tr(context);
+    final translatedExDateTitle = AText.exDate.tr(context);
+    final translatedchoseTheCategory = AText.choseTheCategory.tr(context);
 
-    _dateController.text = translatedCategoryTitle;
-    // Do the translation here
+    context.read<CreateCouponCubit>().dateController.text =
+        translatedExDateTitle;
 
-    DropListModel dropListModel = DropListModel([
-      OptionItem(id: "1", title: "Option 1"),
-      OptionItem(id: "2", title: "Option 2")
-    ]);
-    // OptionItem optionItemSelected =
-    //     OptionItem(id: null, title: AText.choseTheCategory.tr(context));
     return Scaffold(
       backgroundColor: ManagerColors.whiteBtnBackGround,
       body: Stack(
@@ -42,19 +54,23 @@ class _CreateCodeScreenState extends State<CreateCodeScreen> {
                   myImage("img_create_code", height: 400.h, fit: BoxFit.fill),
             ),
             BlocBuilder<CreateCouponCubit, CreateCouponState>(
+              buildWhen: (previous, current) =>
+                  current is DateSelected ||
+                  current is CategoriesLoaded ||
+                  current is CategorySelected,
               builder: (context, state) {
-                OptionItem? optionItemSelected;
                 DateTime? selectedDate;
 
                 // !! check if category is Selected
                 if (state is CategorySelected) {
-                  optionItemSelected = state.optionItemSelected;
+                  context.read<CreateCouponCubit>().optionItemSelected =
+                      state.optionItemSelected;
                   // print(state);
                 }
 
                 if (state is DateSelected) {
                   selectedDate = state.selectedDate;
-                  _dateController.text =
+                  context.read<CreateCouponCubit>().dateController.text =
                       "${selectedDate.day}/${selectedDate.month}/${selectedDate.year}";
                 }
 
@@ -72,74 +88,113 @@ class _CreateCodeScreenState extends State<CreateCodeScreen> {
                         color: ManagerColors.kCustomColor,
                       ),
                       buildSpacerH(20.0),
-                      Column(
-                        children: [
-                          RoundedInputField(
-                              hintText: "Code herer..".tr(context),
-                              validator: (value) =>
-                                  ManagerValidator.validateEmptyText(
-                                      "Code", value ?? "")),
-                          buildSpacerH(10),
-                          RoundedInputField(
+                      tYPEUSER == "USER"
+                          ? buildImagePicker(context)
+                          : const SizedBox(),
+                      buildSpacerH(20.0),
+
+                      //Fileds........
+                      Form(
+                        key: context.read<CreateCouponCubit>().formKey,
+                        child: Column(
+                          children: [
+                            RoundedInputField(
+                                hintText:
+                                    "Short title , like store name".tr(context),
+                                validator: (value) =>
+                                    ManagerValidator.validateEmptyText(
+                                        "Title", value ?? ""),
+                                controller: context
+                                    .read<CreateCouponCubit>()
+                                    .titleController,
+                                textInputAction: TextInputAction.next),
+                            buildSpacerH(10),
+
+                            RoundedInputField(
+                                hintText: "Code herer..".tr(context),
+                                validator: (value) =>
+                                    ManagerValidator.validateEmptyText(
+                                        "Code", value ?? ""),
+                                controller: context
+                                    .read<CreateCouponCubit>()
+                                    .codeTextController,
+                                textInputAction: TextInputAction.next),
+                            buildSpacerH(10),
+                            RoundedInputField(
+                              textInputAction: TextInputAction.next,
+                              textInputType: TextInputType.number,
                               hintText: AText.discontrate.tr(context),
                               validator: (value) =>
                                   ManagerValidator.validateEmptyText(
-                                      "Discount rate", value ?? "")),
-
-                          buildSpacerH(10.0),
-                          RoundedInputField(
-                              hintText: AText.enterYourLikeStore.tr(context),
-                              validator: (value) =>
-                                  ManagerValidator.validateURL(
-                                      value ?? "", context)),
-                          buildSpacerH(10),
-                          //**Category Choose */
-                          // Category selection drop down
-
-                          SelectDropList(
-                            itemSelected: OptionItem(
-                                id: null, title: translatedCategoryTitle),
-                            dropListModel: dropListModel,
-                            onOptionSelected: (OptionItem optionItem) {
-                              //** TOD Set State .... */
-                              context
+                                      "Discount rate", value ?? ""),
+                              controller: context
                                   .read<CreateCouponCubit>()
-                                  .selectCategory(optionItem);
-                              // setState(() {
-                              //   optionItemSelected = optionItem;
-                              // });
-                            },
-                          ),
-                          buildSpacerH(10.0),
-                          // myText(AText.exDate.tr(context) ,  fontSize: 16 , color: ManagerColors.kCustomColor , fontWeight: FontWeightEnum.Bold.fontWeight),
-                          buildExpireDataWidget(context, selectedDate),
-                          buildSpacerH(10.0),
-                          RoundedInputField(
-                              textInputType: TextInputType.number,
-                              hintText: AText.numberOfuse.tr(context),
-                              validator: (value) =>
-                                  ManagerValidator.validateNumberOfUser(
-                                      value ?? "", context)),
-                          buildSpacerH(10.0),
-                          buildSpacerH(10.0),
-                          //* Additional Terms *
-                          AdditionalTermsCardWidget(),
-                          buildSpacerH(20.0),
-                          //** Save Button and Cancle */
+                                  .discountRateController,
+                            ),
 
-                          Column(
-                            children: [
-                              RoundedButtonWgt(
-                                  title: AText.save.tr(context),
-                                  onPressed: () {
-                                    navigateAndFinishNamed(
-                                        context, Routes.revisonResponseScreen);
-                                  }),
-                              buildSpacerH(10.0),
-                              RounderBorderCancelButton()
-                            ],
-                          )
-                        ],
+                            buildSpacerH(10.0),
+                            RoundedInputField(
+                                textInputAction: TextInputAction.done,
+                                hintText: AText.enterYourLikeStore.tr(context),
+                                controller: context
+                                    .read<CreateCouponCubit>()
+                                    .storeLinkController,
+                                validator: (value) =>
+                                    ManagerValidator.validateURL(
+                                        value ?? "", context)),
+                            buildSpacerH(10),
+                            //**Category Choose */
+
+                            // Category selection drop down
+
+                            SelectDropList(
+                              itemSelected: OptionItem(
+                                  id: null, title: translatedchoseTheCategory),
+                              dropListModel: context
+                                  .read<CreateCouponCubit>()
+                                  .listOfCategoriesOption,
+                              onOptionSelected: (OptionItem optionItem) {
+                                //** TOD Set State .... */
+                                context
+                                    .read<CreateCouponCubit>()
+                                    .selectCategory(optionItem);
+                              },
+                            ),
+                            buildSpacerH(10.0),
+                            //** End Date ..... */
+                            buildExpireDataWidget(context, selectedDate),
+                            buildSpacerH(10.0),
+                            RoundedInputField(
+                                controller: context
+                                    .read<CreateCouponCubit>()
+                                    .numberOfUseController,
+                                textInputType: TextInputType.number,
+                                textInputAction: TextInputAction.done,
+                                hintText: AText.numberOfuse.tr(context),
+                                validator: (value) =>
+                                    ManagerValidator.validateNumberOfUser(
+                                        value ?? "", context)),
+                            buildSpacerH(10.0),
+                            buildSpacerH(10.0),
+                            //* Additional Terms *
+                            AdditionalTermsCardWidget(),
+                            buildSpacerH(20.0),
+                            //** Save Button and Cancle */
+
+                            Column(
+                              children: [
+                                RoundedButtonWgt(
+                                    title: AText.save.tr(context),
+                                    onPressed: () {
+                                      validateThenCreatedCode(context);
+                                    }),
+                                buildSpacerH(10.0),
+                                RounderBorderCancelButton()
+                              ],
+                            ),
+                            const CreateCouponListener(),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -149,14 +204,83 @@ class _CreateCodeScreenState extends State<CreateCodeScreen> {
           ]),
     );
   }
-  
+
+  void validateThenCreatedCode(BuildContext context) {
+    if (context.read<CreateCouponCubit>().formKey.currentState!.validate()) {
+      if (context.read<CreateCouponCubit>().optionItemSelected?.id == null) {
+        TLoader.showErrorSnackBar(context,
+            title: "Required field".tr(context),
+            message: "Please enter your store category.".tr(context));
+      }
+      if (context.read<CreateCouponCubit>().dateItem == null) {
+        TLoader.showErrorSnackBar(context,
+            title: "Required field".tr(context),
+            message: "Please select an expiration date.".tr(context));
+      }
+      // print("object");
+      context.read<CreateCouponCubit>().addCoupon();
+    }
+  }
+
+  Widget buildImagePicker(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Column(
+          children: [
+            Text(
+              "Download store logo".tr(context),
+              style: TextStyle(
+                fontSize: 16.sp,
+                color: Colors.grey[700],
+              ),
+            ),
+            SizedBox(height: 5.h),
+            Text(
+              "JPG or PNG or SVG\n(Max 128*128 pixels)".tr(context),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 12.sp,
+                color: Colors.grey,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(width: 5),
+        BlocBuilder<CreateCouponCubit, CreateCouponState>(
+          buildWhen: (previous, current) =>
+              current is LoadedSetLogoStore ||
+              current is LoadingSetLogoStore,
+          builder: (context, state) {
+            return state.maybeWhen(
+                loadingSetLogoStore: () => const Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                loadedSetLogoStore: (imageURL) => CircleAvatar(
+                    radius: 40,
+                    backgroundImage: FileImage(File(imageURL.path))),
+                orElse: () => GestureDetector(
+                    child: svgImage("_icAddImageFrame"),
+                    onTap: () =>
+                        context.read<CreateCouponCubit>().pickImage()));
+          },
+        )
+      ],
+    );
+  }
 
   SizedBox buildExpireDataWidget(BuildContext context, DateTime? selectedDate) {
     return SizedBox(
         width: double.infinity,
         child: TextFormField(
-          controller: _dateController,
-          enabled: !isDateSelected, // Disable when a date is selected
+          controller: context.read<CreateCouponCubit>().dateController,
+          // enabled: false, // Disable when a date is selected
+          validator: (value) {
+            if (value == null || value.isEmpty || pickedDate == null) {
+              return "Please select an expiration date.".tr(context);
+            }
+            return null; // Input is valid
+          },
           style: TextStyle(
             fontSize: 16.sp,
             color: Colors.black,
@@ -197,6 +321,13 @@ class _CreateCodeScreenState extends State<CreateCodeScreen> {
                   : null, // Disable the button when a date is selected
             ),
             fillColor: Colors.white,
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30),
+              borderSide: const BorderSide(
+                color: Colors.transparent, // No border color on error
+                width: 0,
+              ),
+            ),
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             enabledBorder: OutlineInputBorder(

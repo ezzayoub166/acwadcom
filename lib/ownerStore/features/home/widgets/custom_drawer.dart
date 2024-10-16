@@ -1,9 +1,13 @@
-
 // ignore_for_file: prefer_const_constructors
 
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/features/authtication/data/authentication_repository.dart';
+import 'package:acwadcom/features/home/logic/avatar/avatar_cubit.dart';
+import 'package:acwadcom/helpers/di/dependency_injection.dart';
 
 class CustomDrawer extends StatelessWidget {
+  const CustomDrawer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -11,37 +15,7 @@ class CustomDrawer extends StatelessWidget {
         child: Column(
           children: [
             // Profile section
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                children: [
-                  CircleAvatar(
-                    radius: 30,
-                    backgroundColor: ManagerColors.myWhite,
-                    backgroundImage: AssetImage(
-                      
-                        "assets/images/icNike.png"), // Replace with actual image URL
-                  ),
-                  SizedBox(height: 12),
-                  Text(
-                    'خالد محمد أحمد',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    'متجر فوقا',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            buildAvatarStoreOwner(),
             Divider(),
             // Drawer items
             Expanded(
@@ -74,7 +48,7 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   ListTile(
                     leading: Icon(Icons.notifications),
-                    title:myText( AText.notification.tr(context)),
+                    title: myText(AText.notification.tr(context)),
                     onTap: () {
                       // Handle Notifications navigation
                     },
@@ -86,7 +60,7 @@ class CustomDrawer extends StatelessWidget {
                       // Handle Store Info navigation
                     },
                   ),
-                    ListTile(
+                  ListTile(
                     leading: Icon(Icons.card_giftcard),
                     title: Text(AText.changeLanguage.tr(context)),
                     onTap: () {
@@ -96,11 +70,21 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   ListTile(
                     leading: Icon(Icons.delete, color: Colors.red),
-                    title: myText(
-                      AText.deleteStore.tr(context),
-                      color: Colors.red),
+                    title: myText(AText.deleteStore.tr(context),
+                        color: Colors.red),
                     onTap: () {
                       // Handle Delete Store action
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Iconsax.logout,color: Colors.black,),
+                    title: myText(AText.logOut.tr(context),
+                        ),
+                    onTap: () {
+                      // Handle Delete Store action
+                      getIt<AuthenticationRepository>().logout();
+                      navigateAndFinishNamed(context, Routes.chosenStatusScreen);
+
                     },
                   ),
                 ],
@@ -109,6 +93,45 @@ class CustomDrawer extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  BlocBuilder<dynamic, dynamic> buildAvatarStoreOwner() {
+        var username = getIt<CacheHelper>().getValueWithKey("USERNAME") ?? "";
+
+    return BlocBuilder<AvatarCubit, AvatarState>(
+          buildWhen: (previous, current) => current is FetchNameImage,
+      builder: (context, state) {
+        return Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+             CircleAvatar(
+              radius: 30,
+              backgroundImage: state.imageUrl == ""
+                  ? AssetImage("assets/images/user.png")
+                  : CachedNetworkImageProvider(state.imageUrl)),
+              SizedBox(height: 12),
+              Text(
+                state.username,
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              SizedBox(height: 4),
+              // Text(
+              //   'متجر فوقا',
+              //   style: TextStyle(
+              //     fontSize: 14,
+              //     color: Colors.grey,
+              //   ),
+              // ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

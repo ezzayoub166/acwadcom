@@ -1,6 +1,6 @@
 {
     "Login": "Login",
-    "Enter your username": "Enter your username",
+   "Enter your full Name": "Enter your full Name",
     "Welcom": "Welcom",
     "home": "Home",
     "settings": "Settings",
@@ -124,7 +124,33 @@
   "You need to log in to continue.":"You need to log in to continue.",
   "All Coupons in App":"All Coupons in App",
   "Edit Coupon":"Edit Coupon",
-  "Requests that require approval":"Requests that require approval"
+  "Requests that require approval":"Requests that require approval",
+  "Store Link":"Store Link",
+  "Category":"Category",
+"Some Notes":"Some Notes",
+"Accept" : "Accept",
+"reject":"reject",
+"Mobile Number":"Mobile Number",
+"Verify your email address!":"Verify your email address!",
+"Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.":"Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.",
+"Logging In":"Logging In",
+"We are processing your information...":"We are processing your information...",
+"Don’t worry sometimes people can forget too, enter your email and we will send you a password reset link.":"Don’t worry sometimes people can forget too, enter your email and we will send you a password reset link.",
+"Download store logo":"Download store logo",
+"JPG or PNG or SVG\n(Max 128*128 pixels)":"JPG or PNG or SVG\n(Max 128*128 pixels)",
+"Add your store":"Add your store",
+"Link is required.":"Link is required.",
+"Please enter your store category.":"Please enter your store category.",
+"Required field":"Required field",
+"Please select an expiration date.":"Please select an expiration date.",
+"Short title , like store name":"Short title , like store name",
+"Code copied":"Code copied",
+"Search by coupon name and store you want":"Search by coupon name and store you want",
+"must Fill the text":"must Fill the text",
+"Start typing to search...":"Start typing to search...",
+"No results found.":"No results found.",
+"Number of coupons":"Number of coupons"
+
 
 
 }

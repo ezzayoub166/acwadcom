@@ -3,10 +3,10 @@ import 'package:acwadcom/common/widgets/build_spacer_height.dart';
 import 'package:acwadcom/common/widgets/rounded_button_widget.dart';
 import 'package:acwadcom/helpers/Routing/routes.dart';
 import 'package:acwadcom/helpers/constants/colors.dart';
+import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/helpers/constants/strings.dart';
 import 'package:acwadcom/helpers/util/extenstions.dart';
 import 'package:acwadcom/helpers/widgets/common/svgImageWgt.dart';
-import 'package:acwadcom/ownerStore/features/authitcation/ui/register_owner_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -50,13 +50,21 @@ class _ChosenStatusScreenState extends State<ChosenStatusScreen> {
             children: [
               myImage("onBoarding_image_tow",height: 294.h , width: double.infinity),
               RoundedButtonWgt(title: AText.user.tr(context) , onPressed: (){
-                navigateNamedTo(context, Routes.loginScreen , "User");
+                tYPEUSER = "USER";
+                if(isLoggedInUser){
+                  navigateAndFinishNamed(context, Routes.bottomTabBarScreen);
+
+                }else{
+                navigateAndFinishNamed(context, Routes.loginScreen , "USER");
+
+                }
               }),
               buildSpacerH(20),
               RoundedButtonWgt(title: AText.shopOwner.tr(context) , backgroundColor: ManagerColors.whiteBtnBackGround ,foregroundColor: Colors.black , onPressed: (){
                 //TODO:: for Shop owner not complete ...
                 // navigateTo(context, RegisterOwnerStore());
-                 navigateNamedTo(context, Routes.loginScreen , "ShopOwner");
+                tYPEUSER = "STOREOWNER";
+                 navigateNamedTo(context, Routes.loginScreen , "STOREOWNER");
 
 
 

@@ -32,7 +32,7 @@ class BuildListMostUserCopuns extends StatelessWidget {
                 svgImage("shpaeForCode"),
                 Positioned.fill(
                     child: Container(
-                  margin: EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(20),
                   // padding: EdgeInsets.symmetric(horizontal: 10),
                   child: Row(
                     children: [
@@ -48,14 +48,15 @@ class BuildListMostUserCopuns extends StatelessWidget {
           );
         },
       ),) : SizedBox(
-      height: 220.h, // Set the height for the ListView
+      height: 190.h, 
+      width: double.infinity,// Set the height for the ListView
       child: ListView.separated(
         scrollDirection: axis,
         itemCount: 6,
         separatorBuilder: (ctx, index) => buildSpacerH(10.0),
         itemBuilder: (context, index) {
           return SizedBox(
-            width: itemWidth.w,
+            width: itemWidth,
             // Responsive width
             child: Stack(
               // alignment: Alignment.center,
@@ -145,7 +146,7 @@ class BuildListMostUserCopuns extends StatelessWidget {
               Container(
                 height: 30,
                 width: 30,
-                padding: EdgeInsets.symmetric(horizontal: 7, vertical: 7),
+                padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 7),
                 decoration: BoxDecoration(
                     border: Border.all(width: 1, color: Colors.grey.shade200),
                     borderRadius: BorderRadius.circular(15)),
@@ -198,7 +199,7 @@ class BuildListMostUserCopuns extends StatelessWidget {
               (index) => Padding(
                 padding: const EdgeInsets.only(bottom: 2),
                 child: Container(
-                  color: Color(0xffDCDCDC),
+                  color: const  Color(0xffDCDCDC),
                   height: 5.h,
                   width: 2.w,
                 ),

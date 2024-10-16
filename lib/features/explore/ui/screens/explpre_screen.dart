@@ -3,6 +3,7 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/explore/data/store_model.dart';
 import 'package:acwadcom/features/explore/ui/widget/build_list_featured_stores.dart';
+import 'package:acwadcom/helpers/constants/extenstions.dart';
 
 class ExplpreScreen extends StatefulWidget {
   const ExplpreScreen({super.key});
@@ -46,7 +47,7 @@ class _ExplpreScreenState extends State<ExplpreScreen> {
               vertical: TSizes.defaultSpace,
             ),
             child: ListView(children: [
-              customAppBar(context),
+              isLoggedInUser ?  customAppBar(context) : SizedBox(height: 0,),
               buildSpacerH(10.0),
               ASearchContainer(text: AText.search.tr(context)),
               buildSpacerH(10.0),
