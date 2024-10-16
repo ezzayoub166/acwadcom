@@ -24,10 +24,15 @@ class HomeCubit extends Cubit<HomeState> {
         bLISTOFCATEGORY = categories;
         featchedCategories = categories;
         emit(HomeState.successFeatchedCatgories(categories: categories));
+
+         // Automatically select the first category after categories are loaded
+      emitSelectedCategory(0);
     }catch(error){
       emit(HomeState.errorFeatchedCatgories(error: error.toString()));
     }
   }
+
+  
 
   void emitGetCoupons()async{
     try{
@@ -38,9 +43,7 @@ class HomeCubit extends Cubit<HomeState> {
       });
     }catch(onError){
       emit(HomeState.errorFeatchedCoupons(error: onError.toString()));
-
     }
-
   }
 
 void emitSelectedCategory(int index) {
@@ -50,7 +53,6 @@ void emitSelectedCategory(int index) {
   for (int i = 0; i < featchedCategories.length; i++) {
     featchedCategories[i].isSelected = i == index; // Set isSelected for the category
   }
-
   // Assuming featchedCoupons is a list of CouponModel objects and each has a categoryId property
   // Get the selected category ID
   String selectedCategoryId = featchedCategories[index].categoryId!;
@@ -66,8 +68,6 @@ filteredCoupons = featchedCoupons
         emit(HomeState.successFeatchedCoupons(coupons: filteredCoupons));
 
   }
- 
-
   // Emit the updated state with selected index and filtered coupons
   emit(HomeState.categorySelected(index: index, listofCategories: featchedCategories, listofCoupns: filteredCoupons));///! remove the third parm...
 }

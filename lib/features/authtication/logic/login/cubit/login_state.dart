@@ -7,7 +7,7 @@ class LoginState<T> with _$LoginState<T> {
   const factory LoginState.loading() = Loading;
   const factory LoginState.success() = Success<T>;
   const factory LoginState.faluire({required String error}) = Error;
-  const factory LoginState.successForOwner() = SuccessForOwner;
+  const factory LoginState.successForOwner({required String userId}) = SuccessForOwner;
 
   
 }

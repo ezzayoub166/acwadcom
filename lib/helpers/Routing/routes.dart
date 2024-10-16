@@ -24,4 +24,5 @@ class Routes {
   static const String verifyEmailScreen = "/VerifyEmailScreen";
   static const String forgetPassword = "/ForgetPassword";
   static const String resetPassword = "/ResetPassword";
+  static const String searchScreen = "/SearchScreen";
 }

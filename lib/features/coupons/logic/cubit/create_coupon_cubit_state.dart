@@ -11,6 +11,7 @@ class CreateCouponState<T> with _$CreateCouponState<T> {
   const factory CreateCouponState.categoriesLoaded({required DropListModel listOfCategoriesOption}) = CategoriesLoaded;
   const factory CreateCouponState.loadingSetLogoStore() = LoadingSetLogoStore;
   const factory CreateCouponState.loadedSetLogoStore({required XFile imageURL}) = LoadedSetLogoStore;
+  const factory CreateCouponState.emptyLogoStore() = EmptyLogoStore;
 
 
 

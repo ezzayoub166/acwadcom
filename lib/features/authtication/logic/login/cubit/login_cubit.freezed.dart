@@ -22,7 +22,7 @@ mixin _$LoginState<T> {
     required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String error) faluire,
-    required TResult Function() successForOwner,
+    required TResult Function(String userId) successForOwner,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +31,7 @@ mixin _$LoginState<T> {
     TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String error)? faluire,
-    TResult? Function()? successForOwner,
+    TResult? Function(String userId)? successForOwner,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$LoginState<T> {
     TResult Function()? loading,
     TResult Function()? success,
     TResult Function(String error)? faluire,
-    TResult Function()? successForOwner,
+    TResult Function(String userId)? successForOwner,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,7 +134,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String error) faluire,
-    required TResult Function() successForOwner,
+    required TResult Function(String userId) successForOwner,
   }) {
     return initial();
   }
@@ -146,7 +146,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String error)? faluire,
-    TResult? Function()? successForOwner,
+    TResult? Function(String userId)? successForOwner,
   }) {
     return initial?.call();
   }
@@ -158,7 +158,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? loading,
     TResult Function()? success,
     TResult Function(String error)? faluire,
-    TResult Function()? successForOwner,
+    TResult Function(String userId)? successForOwner,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -254,7 +254,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String error) faluire,
-    required TResult Function() successForOwner,
+    required TResult Function(String userId) successForOwner,
   }) {
     return loading();
   }
@@ -266,7 +266,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String error)? faluire,
-    TResult? Function()? successForOwner,
+    TResult? Function(String userId)? successForOwner,
   }) {
     return loading?.call();
   }
@@ -278,7 +278,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? loading,
     TResult Function()? success,
     TResult Function(String error)? faluire,
-    TResult Function()? successForOwner,
+    TResult Function(String userId)? successForOwner,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -374,7 +374,7 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String error) faluire,
-    required TResult Function() successForOwner,
+    required TResult Function(String userId) successForOwner,
   }) {
     return success();
   }
@@ -386,7 +386,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String error)? faluire,
-    TResult? Function()? successForOwner,
+    TResult? Function(String userId)? successForOwner,
   }) {
     return success?.call();
   }
@@ -398,7 +398,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function()? loading,
     TResult Function()? success,
     TResult Function(String error)? faluire,
-    TResult Function()? successForOwner,
+    TResult Function(String userId)? successForOwner,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -520,7 +520,7 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String error) faluire,
-    required TResult Function() successForOwner,
+    required TResult Function(String userId) successForOwner,
   }) {
     return faluire(error);
   }
@@ -532,7 +532,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String error)? faluire,
-    TResult? Function()? successForOwner,
+    TResult? Function(String userId)? successForOwner,
   }) {
     return faluire?.call(error);
   }
@@ -544,7 +544,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function()? loading,
     TResult Function()? success,
     TResult Function(String error)? faluire,
-    TResult Function()? successForOwner,
+    TResult Function(String userId)? successForOwner,
     required TResult orElse(),
   }) {
     if (faluire != null) {
@@ -608,6 +608,8 @@ abstract class _$$SuccessForOwnerImplCopyWith<T, $Res> {
   factory _$$SuccessForOwnerImplCopyWith(_$SuccessForOwnerImpl<T> value,
           $Res Function(_$SuccessForOwnerImpl<T>) then) =
       __$$SuccessForOwnerImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String userId});
 }
 
 /// @nodoc
@@ -617,26 +619,51 @@ class __$$SuccessForOwnerImplCopyWithImpl<T, $Res>
   __$$SuccessForOwnerImplCopyWithImpl(_$SuccessForOwnerImpl<T> _value,
       $Res Function(_$SuccessForOwnerImpl<T>) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userId = null,
+  }) {
+    return _then(_$SuccessForOwnerImpl<T>(
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$SuccessForOwnerImpl<T> implements SuccessForOwner<T> {
-  const _$SuccessForOwnerImpl();
+  const _$SuccessForOwnerImpl({required this.userId});
+
+  @override
+  final String userId;
 
   @override
   String toString() {
-    return 'LoginState<$T>.successForOwner()';
+    return 'LoginState<$T>.successForOwner(userId: $userId)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SuccessForOwnerImpl<T>);
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessForOwnerImpl<T> &&
+            (identical(other.userId, userId) || other.userId == userId));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, userId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessForOwnerImplCopyWith<T, _$SuccessForOwnerImpl<T>> get copyWith =>
+      __$$SuccessForOwnerImplCopyWithImpl<T, _$SuccessForOwnerImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -645,9 +672,9 @@ class _$SuccessForOwnerImpl<T> implements SuccessForOwner<T> {
     required TResult Function() loading,
     required TResult Function() success,
     required TResult Function(String error) faluire,
-    required TResult Function() successForOwner,
+    required TResult Function(String userId) successForOwner,
   }) {
-    return successForOwner();
+    return successForOwner(userId);
   }
 
   @override
@@ -657,9 +684,9 @@ class _$SuccessForOwnerImpl<T> implements SuccessForOwner<T> {
     TResult? Function()? loading,
     TResult? Function()? success,
     TResult? Function(String error)? faluire,
-    TResult? Function()? successForOwner,
+    TResult? Function(String userId)? successForOwner,
   }) {
-    return successForOwner?.call();
+    return successForOwner?.call(userId);
   }
 
   @override
@@ -669,11 +696,11 @@ class _$SuccessForOwnerImpl<T> implements SuccessForOwner<T> {
     TResult Function()? loading,
     TResult Function()? success,
     TResult Function(String error)? faluire,
-    TResult Function()? successForOwner,
+    TResult Function(String userId)? successForOwner,
     required TResult orElse(),
   }) {
     if (successForOwner != null) {
-      return successForOwner();
+      return successForOwner(userId);
     }
     return orElse();
   }
@@ -720,5 +747,11 @@ class _$SuccessForOwnerImpl<T> implements SuccessForOwner<T> {
 }
 
 abstract class SuccessForOwner<T> implements LoginState<T> {
-  const factory SuccessForOwner() = _$SuccessForOwnerImpl<T>;
+  const factory SuccessForOwner({required final String userId}) =
+      _$SuccessForOwnerImpl<T>;
+
+  String get userId;
+  @JsonKey(ignore: true)
+  _$$SuccessForOwnerImplCopyWith<T, _$SuccessForOwnerImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }

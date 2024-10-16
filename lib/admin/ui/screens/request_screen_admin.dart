@@ -1,4 +1,9 @@
+// ignore_for_file: camel_case_types
+
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/admin/logic/request/cubit/control_coupons_cubit.dart';
+import 'package:acwadcom/common/widgets/build_custom_loader.dart';
+import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:flutter/material.dart';
 
 class NotificationItem extends StatelessWidget {
@@ -40,8 +45,6 @@ class NotificationItem extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-
-          
           // Logo
           Container(
             height: 40,
@@ -49,7 +52,8 @@ class NotificationItem extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               image: DecorationImage(
-                image: CachedNetworkImageProvider(logoPath), // Use your actual asset path
+                image: CachedNetworkImageProvider(
+                    logoPath), // Use your actual asset path
                 fit: BoxFit.contain,
               ),
             ),
@@ -62,14 +66,10 @@ class NotificationItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                myText(
-                  'هناك طلب بإضافة كود خصم $discountCode',
-                  
+                myText('هناك طلب بإضافة كود خصم $discountCode',
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
-                    color: ManagerColors.kCustomColor
-                  
-                ),
+                    color: ManagerColors.kCustomColor),
                 SizedBox(height: 8),
                 Row(
                   children: [
@@ -109,7 +109,6 @@ class NotificationItem extends StatelessWidget {
               ],
             ),
           ),
-       
 
           // Status Indicator (Green dot)
           const Padding(
@@ -129,19 +128,22 @@ class NotificationItem extends StatelessWidget {
 class RequestScreenAdmin extends StatelessWidget {
   final List<Map<String, String>> notifications = [
     {
-      'logo': "https://img.freepik.com/free-vector/gradient-instagram-shop-logo-template_23-2149704603.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1727308800&semt=ais_hybrid", // Use correct image path
+      'logo':
+          "https://img.freepik.com/free-vector/gradient-instagram-shop-logo-template_23-2149704603.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1727308800&semt=ais_hybrid", // Use correct image path
       'store': 'Pizza Hut',
       'discountCode': 'STANDR 20',
       'time': 'منذ ساعتين',
     },
     {
-      'logo': "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHuSKg3KQINvWnpNkd9brsgcZmMyjYIeuNjQ&s",
+      'logo':
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHuSKg3KQINvWnpNkd9brsgcZmMyjYIeuNjQ&s",
       'store': 'Boston Pizza',
       'discountCode': 'STANDR 20',
       'time': 'منذ ساعتين',
     },
     {
-      'logo': "https://www.robotbutt.com/wp-content/uploads/2016/02/goodwill-logo.jpg",
+      'logo':
+          "https://www.robotbutt.com/wp-content/uploads/2016/02/goodwill-logo.jpg",
       'store': 'Chili\'s',
       'discountCode': 'STANDR 20',
       'time': 'منذ ساعتين',
@@ -150,28 +152,73 @@ class RequestScreenAdmin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: ManagerColors.kCustomColor,
-        title: myText(AText.requestOkay.tr(context) , color: Colors.white , fontSize: 16, fontWeight: FontWeight.bold),centerTitle: true,),
-      body: ListView.builder(
-        itemCount: notifications.length,
-        itemBuilder: (context, index) {
-          final notification = notifications[index];
-          return NotificationItem(
-            logoPath: notification['logo']!,
-            storeName: notification['store']!,
-            discountCode: notification['discountCode']!,
-            time: notification['time']!,
-            onView: () {
-              // Handle view action
-              navigateNamedTo(
+    return BlocProvider(
+      create: (context) => getIt<ControlCouponsCubit>()..emitGetCouponRequest(),
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: ManagerColors.kCustomColor,
+          title: myText(AText.requestOkay.tr(context),
+              color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+          centerTitle: true,
+        ),
+        body: buildBlocBuilder(notifications: notifications),
+      ),
+    );
+  }
+}
+
+class buildBlocBuilder extends StatelessWidget {
+  const buildBlocBuilder({
+    super.key,
+    required this.notifications,
+  });
+
+  final List<Map<String, String>> notifications;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocListener<ControlCouponsCubit, ControlCouponsState>(
+      listener: (context, state) {
+
+         state.maybeWhen(
+          faluiregetRequestAdded: (error) => TLoader.showErrorSnackBar(context,title: "Error Fetching the requests..", message: error),
+          orElse: () {});
+      },
+      child: BlocBuilder<ControlCouponsCubit, ControlCouponsState>(
+        buildWhen: (previous, current) =>
+            current is LodingGetRequestAdded ||
+            current is SucessgetRequestAdded ||
+            current is FaluiregetRequestAdded ||
+            current is ApproveCouponRequest ||
+            current is RejectCouponRequest,
+        builder: (context, state) {
+          return state.maybeWhen(
+              lodingGetRequestAdded: () => Center(child: BuildCustomLoader()),
+              sucessgetRequestAdded: (coupons) {
+                return ListView.builder(
+                  itemCount: coupons.length,
+                  itemBuilder: (context, index) {
+                    final coupon = coupons[index];
+                    return NotificationItem(
+                      logoPath: coupon.storeLogoURL!,
+                      storeName: coupon.title,
+                      discountCode: coupon.code,
+                      time: "منذ ساعتين",
+                      onView: () {
+                        // Handle view action
+                        navigateNamedTo(
                             context, Routes.discountCodeDeatilsAdmin);
-            },
-            onIgnore: () {
-              // Handle ignore action
-            },
-          );
+                      },
+                      onIgnore: () {
+                        // Handle ignore action
+                      },
+                    );
+                  },
+                );
+              },
+              orElse: () {
+                return const SizedBox();
+              });
         },
       ),
     );

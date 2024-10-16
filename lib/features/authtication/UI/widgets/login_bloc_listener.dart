@@ -6,11 +6,12 @@ import 'package:acwadcom/helpers/di/dependency_injection.dart';
 
 class LoginBlocListener extends StatelessWidget {
   const LoginBlocListener({super.key});
+  //+++
 
   @override
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit, LoginState>(
-      listenWhen: (previous, current) => current is Loading || current is Success || current is Error,
+      listenWhen: (previous, current) => current is Loading || current is Success || current is Error || current is SuccessForOwner,
       listener: (context, state) {
         state.whenOrNull(
           loading: (){
@@ -25,8 +26,9 @@ class LoginBlocListener extends StatelessWidget {
              getIt<AuthenticationRepository>().screenRedirect(context);
             // navigateAndFinishNamed(context, Routes.bottomTabBarScreen);
           },
-          successForOwner: () {
+          successForOwner: (userID) {
             TFullScreenLoader.stopLoading(context);
+          //  getIt<CacheHelper>().saveValueWithKey("userID" , userID);
             navigateAndFinishNamed(context, Routes.tabBarAdmin);
 
           },

@@ -20,9 +20,11 @@ class Coupon {
   final String? userIDAdded ; 
   final bool isFeatured ;
   final bool isMostUsed;
+  final Timestamp uploadDate;
 
   Coupon(
       {
+
       this.isFeatured = false,
       this.isMostUsed = false,
       required this.code,
@@ -33,6 +35,7 @@ class Coupon {
       required this.category,
       required this.endData,
       required this.numberOfUse,
+      required this.uploadDate, 
       required this.additionalTerms, this. storeLogoURL,this.mobileNumberOwner = "", this.emailNumberOwner ="" ,this.userIDAdded ="", 
       });
 
@@ -52,8 +55,31 @@ class Coupon {
       'emailNumberOwner':emailNumberOwner,
       'userIDAdded':userIDAdded,
       'isFeatured':isFeatured,
-      'isMostUsed':isMostUsed
+      'isMostUsed':isMostUsed,
+      'uploadDate':Timestamp.now(),
     };
+  }
+
+    factory Coupon.fromJson(Map<String, dynamic> document) {
+    final data = document;
+    if (data.isEmpty) return Coupon.empty();
+    return Coupon(code: data["code"],
+     title: data["title"], 
+     couponId: data["couponId"],
+      discountRate: data["DiscountRate"], 
+      storeLink: data["StoreLink"], 
+      category: CategoryModel.fromJson(data["Category"]),
+       endData: data["EndData"], 
+       numberOfUse: data["NumberOfUse"],
+        additionalTerms: data["AdditionalTerms"],
+        storeLogoURL: data["storeLogoURL"],
+        mobileNumberOwner: data["mobileNumberOwner"],
+        emailNumberOwner:data["emailNumberOwner"],
+        userIDAdded: data["userIDAdded"],
+        isFeatured: data["isFeatured"],
+        isMostUsed:data["isMostUsed"],
+         uploadDate: data["uploadDate"]
+        );
   }
 
   factory Coupon.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
@@ -76,7 +102,8 @@ class Coupon {
           emailNumberOwner: data["emailNumberOwner"],
           userIDAdded: data["userIDAdded"],
           isFeatured: data['isFeatured'] ?? false,
-          isMostUsed: data['isMostUsed'] ?? false
+          isMostUsed: data['isMostUsed'] ?? false,
+           uploadDate: data["uploadDate"] 
           );
     } else {}
     return Coupon.empty();
@@ -102,5 +129,10 @@ class Coupon {
       category: CategoryModel.empty(),
       endData: Timestamp.now(),
       numberOfUse: 0,
-      additionalTerms: "", title: '',userIDAdded: "",mobileNumberOwner: "",emailNumberOwner: "");
+      additionalTerms: "", 
+      title: '',
+      userIDAdded: "",
+      mobileNumberOwner: "",
+      emailNumberOwner: "",
+       uploadDate: Timestamp.now());
 }

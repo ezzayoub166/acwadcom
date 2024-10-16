@@ -33,6 +33,7 @@ class AText {
   static const shopOwner = "Shop owner";
   static const welcom = "Welcom";
   static const search = "Search";
+  static const searchCoupons = "Search by coupon name and store you want";
   static const all = "All";
   static const groceries = "Groceries";
   static const resturnts = "Resturnts";

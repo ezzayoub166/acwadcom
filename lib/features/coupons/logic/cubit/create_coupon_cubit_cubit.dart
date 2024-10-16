@@ -1,4 +1,5 @@
 import 'package:acwadcom/admin/logic/edit_screen/cubit/edit_code_cubit.dart';
+import 'package:acwadcom/admin/srvices/coupon_request_services.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
@@ -43,6 +44,7 @@ class CreateCouponCubit extends Cubit<CreateCouponState> {
 
   final CategoryRepository categoryRepository;
   final CouponRepository couponRepository;
+  // final CouponRequestService couponRequestService;
 
   DropListModel listOfCategoriesOption = DropListModel([]);
 
@@ -90,17 +92,18 @@ class CreateCouponCubit extends Cubit<CreateCouponState> {
         storeLink: storeLinkController.text.trim(),
         storeLogoURL: urlLOGO,
         category: CategoryModel(
-            title: optionItemSelected?.title ?? "All",
-            image: "",
-            categoryId: optionItemSelected?.id),
-        endData:
-            dateItem != null ? Timestamp.fromDate(dateItem!) : Timestamp.now(),
+        title: optionItemSelected?.title ?? "All",
+        image: "",
+        categoryId: optionItemSelected?.id),
+        endData: dateItem != null ? Timestamp.fromDate(dateItem!) : Timestamp.now(),
         numberOfUse: int.parse(numberOfUseController.text.trim()),
         additionalTerms: additionalTerms.text,
-        userIDAdded: userId, code: codeTextController.text
+        userIDAdded: userId, code: codeTextController.text,
+         uploadDate: Timestamp.now()
         );
     try {
-      await couponRepository.addCoupon(coupon);
+      // await couponRepository.addCoupon(coupon);
+      await couponRepository.snedCouponRequest(coupon: coupon , userID: userId);
       emit(const CreateCouponState.success());
     } catch (error) {
       emit(CreateCouponState.faluire(error: error.toString()));

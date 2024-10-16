@@ -122,6 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   buildSpacerH(10.0),
                   ASearchContainer(
                     text: AText.search.tr(context),
+                    onPressed: () =>  navigateNamedTo(context,Routes.searchScreen),
                   ),
                   buildSpacerH(5.0),
                   buildOffersWgt(),

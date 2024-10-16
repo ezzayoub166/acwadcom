@@ -1,11 +1,13 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
 
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/admin/logic/home_admin_cubit/cubit/home_admin_cubit.dart';
 
 class ConfirmDeleteDialog extends StatelessWidget {
+  final String couponID;
   final String codeName;
 
-  const ConfirmDeleteDialog({required this.codeName});
+  const ConfirmDeleteDialog({required this.codeName,required this.couponID});
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +24,6 @@ class ConfirmDeleteDialog extends StatelessWidget {
           Container(
             width: 100,
               height: 100,
-            // padding: EdgeInsets.all(16),
-            // decoration: BoxDecoration(
-            //   shape: BoxShape.circle,
-            //   color: Colors.orange.withOpacity(0.1),
-            // ),
             child: svgImage(
               "icDeleteIcom",
               fit: BoxFit.fill
@@ -89,6 +86,7 @@ class ConfirmDeleteDialog extends StatelessWidget {
                   ),
                   onPressed: () {
                     // Handle delete action here
+                    context.read<HomeAdminCubit>().emitRemoveCoupon(couponID);
                     Navigator.of(context).pop();
                   },
                   child: myText(

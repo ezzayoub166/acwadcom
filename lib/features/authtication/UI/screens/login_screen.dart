@@ -191,11 +191,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void validateThenDoSignup(BuildContext context) {
     if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-      if(context.read<LoginCubit>().emailController.text == AText.gmailAppacwdcom){
-
+      if(context.read<LoginCubit>().emailController.text == "appacwdcom@gmail.com"){
+              context.read<LoginCubit>().emitLogInOwnerApp(context);
       }else{
       context.read<LoginCubit>().emitLogIn(context);
-
       }
     }
   }

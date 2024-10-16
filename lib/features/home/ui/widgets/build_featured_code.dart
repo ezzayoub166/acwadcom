@@ -53,9 +53,10 @@ class BuildFeaturedCode extends StatelessWidget {
                       myText(
                         coupon.title,
                         color: ManagerColors.textColorDark,
-                        fontSize: 18,
+                        fontSize: 16,
                         fontWeight: FontWeightEnum.Bold.fontWeight,
                         overflow: TextOverflow.ellipsis,
+                        
                       ),
                       Text(
                         "${coupon.discountRate}% ${AText.discount.tr(context)}",
@@ -100,7 +101,7 @@ class BuildFeaturedCode extends StatelessWidget {
                       ? InkWell(
                           child: svgImage("_icRemove", height: 20, width: 20),
                           onTap: () {
-                            showConfirmDeleteDialog(context, "دايدس ");
+                            showConfirmDeleteDialog(context, coupon.title);
                           },
                         )
                       : InkWell(
@@ -120,7 +121,7 @@ class BuildFeaturedCode extends StatelessWidget {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return ConfirmDeleteDialog(codeName: codeName);
+        return ConfirmDeleteDialog(codeName: codeName, couponID: coupon.couponId,);
       },
     );
   }

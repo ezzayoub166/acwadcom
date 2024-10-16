@@ -19,6 +19,8 @@ import 'package:acwadcom/features/coupons/ui/screens/add_coupon_screen.dart';
 import 'package:acwadcom/features/coupons/ui/screens/revison_response_screen.dart';
 import 'package:acwadcom/features/explore/data/store_model.dart';
 import 'package:acwadcom/features/home/logic/home/cubit/home_cubit.dart';
+import 'package:acwadcom/features/home/logic/search/cubit/search_cubit.dart';
+import 'package:acwadcom/features/home/ui/search_screen.dart';
 import 'package:acwadcom/features/onboarding/ui/screens/onboarding_screen.dart';
 import 'package:acwadcom/features/onboarding/ui/screens/userOrStore.dart';
 import 'package:acwadcom/features/settings/logic/cubit/profile_cubit.dart';
@@ -29,6 +31,7 @@ import 'package:acwadcom/features/settings/ui/screens/profile.dart';
 import 'package:acwadcom/features/store/ui/screens/store_deatils_screen.dart';
 import 'package:acwadcom/helpers/Routing/routes.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
+import 'package:acwadcom/models/coupon_model.dart';
 import 'package:acwadcom/models/user_model.dart';
 import 'package:acwadcom/ownerStore/features/authitcation/logic/register_owner/register_owner_store_cubit.dart';
 import 'package:acwadcom/ownerStore/features/authitcation/ui/register_owner_store.dart';
@@ -146,6 +149,14 @@ class AppRouter {
             builder: (context) => BlocProvider(
                   create: (context) => getIt<ProfileCubit>(),
                   child: EditProfileScreen(),
+                ));
+
+      case Routes.searchScreen:
+        // final items = settings.arguments as List<Coupon>;
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => SearchCubit(),
+                  child: SearchScreen(),
                 ));
     }
   }

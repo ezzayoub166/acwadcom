@@ -26,7 +26,7 @@ class _HomeScreenOwnerState extends State<HomeScreenOwner> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return ConfirmDeleteDialog(codeName: codeName);
+        return ConfirmDeleteDialog(codeName: codeName, couponID: '',);
       },
     );
   }
