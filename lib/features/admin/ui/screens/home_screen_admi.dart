@@ -11,6 +11,7 @@ class HomeScreenAdmin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // List<Coupon> yourCoupons = [];
+    //
 
     return BlocProvider(
       create: (context) => getIt<HomeAdminCubit>()..emitGetCoupons(),
