@@ -81,7 +81,11 @@ class DiscountCodeDeatilsAdmin extends StatelessWidget {
                   }),
                   buildSpacerH(10.0),
                   buildActionButton(
-                      AText.reject.tr(context), Colors.red, context, () {}),
+                      AText.reject.tr(context), Colors.red, context, () {
+                        context.read<ControlCouponsCubit>().emitRejectCouponRequest(coupon: coupon);
+                        context.read<ControlCouponsCubit>().emitGetCouponRequest();
+
+                      }),
                 ],
               ),
               BlocListener<ControlCouponsCubit, ControlCouponsState>(
@@ -105,6 +109,12 @@ class DiscountCodeDeatilsAdmin extends StatelessWidget {
                       },
                       rejectCouponRequest: () {
                         //TODO: Reject Coupon Request ......
+                         TLoader.showSuccessSnackBar(context,
+                            title: AText.deleteSuccessCoupon.tr(context),
+                            message: AText.msgSuccessDeleteRrequestForAdin.tr(context));
+                        context.pop();
+
+                        
                       });
                 },
                 child: SizedBox(),

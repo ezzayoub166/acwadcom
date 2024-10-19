@@ -12,6 +12,8 @@ class ControlCouponsState with _$ControlCouponsState {
   const factory ControlCouponsState.faluireapproveCouponRequest({required String error}) = FaluireapproveCouponRequest;
 
   const factory ControlCouponsState.rejectCouponRequest() = RejectCouponRequest;
+  const factory ControlCouponsState.faluireRejectCouponRequest({required String error}) = FaluireRejectCouponRequest;
+
 
 
 

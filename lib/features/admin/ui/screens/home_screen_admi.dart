@@ -21,6 +21,9 @@ class HomeScreenAdmin extends StatelessWidget {
             "All Coupons in App".tr(context),
             color: ManagerColors.myWhite,
           ),
+          actions:[ IconButton(onPressed: (){
+            navigateAndFinishNamed(context, Routes.loginScreen);
+          }, icon: const Icon(Iconsax.logout , color: Colors.white,))],
         ),
         body: BlocBuilder<HomeAdminCubit, HomeAdminState>(
           buildWhen: (previous, current) =>

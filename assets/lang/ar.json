@@ -153,6 +153,8 @@
 "Error":"خطأ",
 "Coupon Add Success":"نجاح إضافة الكوبون",
 "Coupon title required":"عنوان للكوبون مطلوب",
-"The title must not exceed 20 characters and be short.":".يجب أن يكون العنوان لا يتجاوز 20 حرف ومختصر"
+"The title must not exceed 20 characters and be short.":".يجب أن يكون العنوان لا يتجاوز 20 حرف ومختصر",
+"The special request on this coupon has been removed.":"تم حذف الطلب الخاص في هذا الكوبون",
+"The request is being deleted.":"جاري حذف الطلب"
 
 }

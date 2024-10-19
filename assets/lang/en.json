@@ -159,7 +159,9 @@
 "Error":"Error",
 "Coupon Add Success":"Coupon Add Success",
 "Coupon title required":"Coupon title required",
-"The title must not exceed 20 characters and be short.":"The title must not exceed 20 characters and be short."
+"The title must not exceed 20 characters and be short.":"The title must not exceed 20 characters and be short.",
+"The special request on this coupon has been removed.":"The special request on this coupon has been removed.",
+"The request is being deleted.":"The request is being deleted."
 
 
 

@@ -128,6 +128,7 @@ static const copy = "copy";
 
   static const loggingIn = "Logging In";
   static const addSuccessCoupon = "Coupon Add Success";
+  static const deleteSuccessCoupon=  "The request is being deleted.";
   static const reqTitleCoupon = "Coupon title required";
   static const shortTitleReq = "The title must not exceed 20 characters and be short.";
 
@@ -195,6 +196,7 @@ static const copy = "copy";
   static const gmailAppacwdcom = "appacwdcom@gmail.com";
   //For Admin 
   static const msgSuccessAddedForAdmin = "The coupon has been successfully added to the app.";
+  static const msgSuccessDeleteRrequestForAdin = "The special request on this coupon has been removed.";
 
   
 }

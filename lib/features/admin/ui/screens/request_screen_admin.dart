@@ -73,7 +73,8 @@ class buildBlocBuilder extends StatelessWidget {
             current is SucessgetRequestAdded ||
             current is FaluiregetRequestAdded ||
             current is ApproveCouponRequest ||
-            current is RejectCouponRequest,
+            current is RejectCouponRequest || 
+            current is FaluireRejectCouponRequest,
         builder: (context, state) {
           return state.maybeWhen(
               lodingGetRequestAdded: () => Center(child: BuildCustomLoader()),
@@ -94,6 +95,8 @@ class buildBlocBuilder extends StatelessWidget {
                             context, Routes.discountCodeDeatilsAdmin ,couponReq);
                       },
                       onIgnore: () {
+                        context.read<ControlCouponsCubit>().emitRejectCouponRequest(coupon: coupon);
+                        context.read<ControlCouponsCubit>().emitGetCouponRequest();
                         // Handle ignore action
                       },
                     );

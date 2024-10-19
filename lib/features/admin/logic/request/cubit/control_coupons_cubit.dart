@@ -39,4 +39,14 @@ class ControlCouponsCubit extends Cubit<ControlCouponsState> {
 
     }
   }
+
+  emitRejectCouponRequest({required Coupon coupon})async{
+    try{
+      emit(const ControlCouponsState.loadingARCouponRequest());
+      await couponRepository.rejectCouponRequest(coupon);
+      emit(const ControlCouponsState.rejectCouponRequest());
+    }catch(error){
+      emit(ControlCouponsState.faluireRejectCouponRequest(error: error.toString()));
+    }
+  }
 }
