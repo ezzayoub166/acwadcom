@@ -3,10 +3,10 @@
 import 'package:acwadcom/helpers/util/t_formater.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-enum UserType {
-  normalUser,
-  storeOwner,
-}
+// enum UserType {
+//   normalUser,
+//   storeOwner,
+// }
 
 class UserModel {
   final String id;
