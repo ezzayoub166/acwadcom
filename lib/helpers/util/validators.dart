@@ -12,6 +12,16 @@ class ManagerValidator {
     return null;
   }
 
+  static String? validateTitleForCoupon(String value , BuildContext context){
+    if(value.isEmpty){
+      return AText.reqTitleCoupon.tr(context);
+    }
+    if(value.length > 20) {
+      return AText.shortTitleReq.tr(context);
+    }
+    return null;
+  }
+
   static String? validateEmail(String? value,BuildContext context) {
     if (value == null || value.isEmpty) {
       return 'Email is required.'.tr(context);
@@ -69,19 +79,21 @@ class ManagerValidator {
 
     return null;
   }
-  static String? validateURL(String? value , context){
-
- if (value == null || value.isEmpty) {
-      return 'Phone number is required.';
-    }
-
-    bool validURL = Uri.parse(value).isAbsolute;
-    if(validURL = false){
-       return "Please enter a valid link.".tr(context);
-    }
-
-    return null;
+static String? validateURL(String? value, BuildContext context) {
+  if (value == null || value.isEmpty) {
+    return 'Link is required.'.tr(context);
   }
+
+  // A simple regex for validating URLs
+   String pattern = r'(http|https)://[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#-]*[\w@?^=%&amp;/~+#-])?';
+  final urlRegExp = RegExp(pattern);
+
+  if (!urlRegExp.hasMatch(value)) {
+    return "Please enter a valid link.".tr(context);
+  }
+
+  return null;
+}
 
 
   static String? validateNumberOfUser(String value , context){

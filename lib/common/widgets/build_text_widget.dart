@@ -21,4 +21,17 @@ Widget myText(final String text,
             fontWeight: fontWeight,
             color: color,
             decoration: textDecoration));
+
+
+
+            TextStyle TextStyleFont14({final double fontSize = 14,
+      final FontWeight? fontWeight,
+      final TextDecoration? textDecoration,
+      final Color? color = ManagerColors.textColor}) {
+        return GoogleFonts.cairo(
+            fontSize: fontSize.sp,
+            fontWeight: fontWeight,
+            color: color,
+            decoration: textDecoration);
+      }
      

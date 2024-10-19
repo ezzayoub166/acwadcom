@@ -4,6 +4,8 @@
 	<dict>
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
+		<key>NSPhotoLibraryUsageDescription</key>
+        <string>This app requires access to your photo library to allow you to select and upload photos.</string> 
 		<key>CFBundleDisplayName</key>
 		<string>Acwadcom</string>
 		<key>CFBundleExecutable</key>
@@ -47,5 +49,17 @@
 		<true/>
 		<key>UIStatusBarHidden</key>
 		<false/>
+			<key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+               	<key>REVERSED_CLIENT_ID</key>
+               	<string>com.googleusercontent.apps.242503319267-h3mufn4vgpruvcai60rdjpjnissd0nou</string>
+            </array>
+        </dict>
+    </array>
 	</dict>
 </plist>
