@@ -1,8 +1,10 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/app_localizations.dart';
 import 'package:acwadcom/common/widgets/build_spacer_height.dart';
+import 'package:acwadcom/features/user/authtication/UI/screens/verify_email_screen.dart';
+import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/localiztion_cubit/locale_cubit.dart';
-import 'package:acwadcom/features/home/logic/avatar/avatar_cubit.dart';
+import 'package:acwadcom/features/user/home/logic/avatar/avatar_cubit.dart';
 import 'package:acwadcom/helpers/constants/strings.dart';
 import 'package:acwadcom/helpers/widgets/common/svgImageWgt.dart';
 import 'package:flutter/material.dart';
@@ -30,11 +32,11 @@ BlocBuilder<dynamic, dynamic> customAppBar(BuildContext context) {
               children: [
                 Row(
                   children: [
-                   CircleAvatar(
-              radius: 30,
-              backgroundImage: state.imageUrl == ""
-                  ? AssetImage("assets/images/user.png")
-                  : CachedNetworkImageProvider(state.imageUrl)),
+                    CircleAvatar(
+                        radius: 30,
+                        backgroundImage: state.imageUrl == ""
+                            ? AssetImage("assets/images/user.png")
+                            : CachedNetworkImageProvider(state.imageUrl)),
                     buildSpacerW(10),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,6 +61,15 @@ BlocBuilder<dynamic, dynamic> customAppBar(BuildContext context) {
                   child: svgImage("notification_light", height: 24, width: 24),
                   onTap: () {
                     //TODO / go to list notifcations ...
+                    navigateTo(
+                        context,
+                        SuccessScreen(
+                            image: LottieConstnts.loading_sing_up_animation,
+                            title: AText.msgForReview.tr(context),
+                            subTitle: "done opertion".tr(context),
+                            onPressed: () {
+                              context.pop();
+                            }));
                   },
                 ),
               ],

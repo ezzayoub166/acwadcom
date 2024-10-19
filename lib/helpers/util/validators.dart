@@ -12,6 +12,16 @@ class ManagerValidator {
     return null;
   }
 
+  static String? validateTitleForCoupon(String value , BuildContext context){
+    if(value.isEmpty){
+      return AText.reqTitleCoupon.tr(context);
+    }
+    if(value.length > 20) {
+      return AText.shortTitleReq.tr(context);
+    }
+    return null;
+  }
+
   static String? validateEmail(String? value,BuildContext context) {
     if (value == null || value.isEmpty) {
       return 'Email is required.'.tr(context);

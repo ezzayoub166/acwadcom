@@ -114,6 +114,7 @@ static const copy = "copy";
   static const requests =  "Requests";
   static const skip = "Skip";
   static const submit = "Submit";
+  static const error = "Error";
 
   static const requestOkay = "Requests that require approval";
   static const startDate = "Start Date";
@@ -126,6 +127,9 @@ static const copy = "copy";
   static const String changeYourPasswordSubTitle = "Your Account Security is Our Priority! We've Sent You a Secure Link to Safely Change Your Password and Keep Your Account Protected.";
 
   static const loggingIn = "Logging In";
+  static const addSuccessCoupon = "Coupon Add Success";
+  static const reqTitleCoupon = "Coupon title required";
+  static const shortTitleReq = "The title must not exceed 20 characters and be short.";
 
 
   // -- GLOBAL Texts
@@ -166,6 +170,7 @@ static const copy = "copy";
   static const String resendEmailIn = "Resend email in";
 
 
+
   // -- Authentication Headings
   static const String loginTitle = "Welcome back,";
   static const String loginSubTitle = "Discover Limitless Choices and Unmatched Convenience.";
@@ -173,8 +178,11 @@ static const copy = "copy";
   static const String forgetPasswordTitle = "Forget password";
   static const String confirmEmail = "Verify your email address!";
   static const String emailNotReceivedMessage = "Didn’t get the email? Check your junk/spam or resend it.";
-
-
+  static const String thereRquest = "There is a request to add a discount code";
+  static const String accept = "Accept";
+  static const String reject = "reject";
+  static const String msgForReview = "The discount code will be reviewed and the code will be added to the application as soon as possible.";
+  static const String thresProblem = "There's a problem";
   // -- Product
   static const String popularProducts = "Popular Products";
 
@@ -185,5 +193,8 @@ static const copy = "copy";
 
   //Private ...
   static const gmailAppacwdcom = "appacwdcom@gmail.com";
+  //For Admin 
+  static const msgSuccessAddedForAdmin = "The coupon has been successfully added to the app.";
+
   
 }

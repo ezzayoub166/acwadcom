@@ -3,8 +3,8 @@ import 'package:acwadcom/localiztion_cubit/locale_cubit.dart';
 import 'package:acwadcom/helpers/Routing/app_router.dart';
 import 'package:acwadcom/helpers/Routing/routes.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
-import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/helpers/services/cachce_services/chache_helper.dart';
+import 'package:acwadcom/models/user_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:acwadcom/helpers/constants/theme.dart';
@@ -56,12 +56,12 @@ class AcwadcomApp extends StatelessWidget {
 
               debugShowCheckedModeBanner: false,
               initialRoute: isOpenApp
-                  ? (isLoggedInUser
+                  ? (isLoggedInUser && tYPEUSER != ""
                       ? (tYPEUSER == "USER"
                           ? Routes.bottomTabBarScreen
                           : Routes
                               .homeScreenForOwenerStore) // Handles both USER and STOREOWNER
-                      : Routes.chosenStatusScreen)
+                      : Routes.loginScreen)
                   : Routes.onBoardingScreen,
               onGenerateRoute: appRouter.generateRoute,
             );

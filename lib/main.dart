@@ -3,11 +3,11 @@
 import 'package:acwadcom/acwadcom.dart';
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/localiztion_cubit/locale_cubit.dart';
-import 'package:acwadcom/features/home/logic/avatar/avatar_cubit.dart';
+import 'package:acwadcom/features/user/home/logic/avatar/avatar_cubit.dart';
 import 'package:acwadcom/helpers/Routing/app_router.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
-import 'package:acwadcom/ownerStore/firebase_options.dart';
+import 'package:acwadcom/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 // import 'firebase_options.dart';
 
@@ -24,13 +24,6 @@ checkIfLoggedInUser()async{
 
 checkIfUserOrStoreOWner()async{
    tYPEUSER = getIt<CacheHelper>().getValueWithKey("tYPEUSER") ?? "";
-  // UserModel? userFetched = await  getIt<CacheHelper>().getUser();
-
-  // if (tYPEUSER == "USER") {
-  //   tYPEUSER = "USER";
-  // } else {
-  //   tYPEUSER = "STOREOWNER";
-  // }
 }
 
 

@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
+import 'package:acwadcom/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:acwadcom/models/category_model.dart';
@@ -15,16 +16,16 @@ class Coupon {
   final int numberOfUse;
   final String additionalTerms;
   final String? storeLogoURL;
-  final String? mobileNumberOwner ; 
-  final String? emailNumberOwner ; 
-  final String? userIDAdded ; 
+  // final String? mobileNumberOwner ; 
+  // final String? emailNumberOwner ; 
+  // final String? userIDAdded ; 
   final bool isFeatured ;
   final bool isMostUsed;
   final Timestamp uploadDate;
+  final UserModel ownerCoupon;
 
   Coupon(
       {
-
       this.isFeatured = false,
       this.isMostUsed = false,
       required this.code,
@@ -36,7 +37,9 @@ class Coupon {
       required this.endData,
       required this.numberOfUse,
       required this.uploadDate, 
-      required this.additionalTerms, this. storeLogoURL,this.mobileNumberOwner = "", this.emailNumberOwner ="" ,this.userIDAdded ="", 
+      required this.ownerCoupon, 
+      required this.additionalTerms, this. storeLogoURL
+      // ,this.mobileNumberOwner = "", this.emailNumberOwner ="" ,this.userIDAdded ="", 
       });
 
   Map<String, dynamic> toJson() {
@@ -51,12 +54,13 @@ class Coupon {
       'NumberOfUse': numberOfUse,
       'AdditionalTerms': additionalTerms,
       'storeLogoURL':storeLogoURL,
-      'mobileNumberOwner':mobileNumberOwner,
-      'emailNumberOwner':emailNumberOwner,
-      'userIDAdded':userIDAdded,
+      // 'mobileNumberOwner':mobileNumberOwner,
+      // 'emailNumberOwner':emailNumberOwner,
+      // 'userIDAdded':userIDAdded,
       'isFeatured':isFeatured,
       'isMostUsed':isMostUsed,
-      'uploadDate':Timestamp.now(),
+      'uploadDate':uploadDate,
+      'ownerCoupon':ownerCoupon.toJson()
     };
   }
 
@@ -73,12 +77,12 @@ class Coupon {
        numberOfUse: data["NumberOfUse"],
         additionalTerms: data["AdditionalTerms"],
         storeLogoURL: data["storeLogoURL"],
-        mobileNumberOwner: data["mobileNumberOwner"],
-        emailNumberOwner:data["emailNumberOwner"],
-        userIDAdded: data["userIDAdded"],
+        // mobileNumberOwner: data["mobileNumberOwner"],
+        // emailNumberOwner:data["emailNumberOwner"],
+        // userIDAdded: data["userIDAdded"],
         isFeatured: data["isFeatured"],
         isMostUsed:data["isMostUsed"],
-         uploadDate: data["uploadDate"]
+         uploadDate: data["uploadDate"] ?? Timestamp.now(), ownerCoupon: UserModel.fromJson(data["ownerCoupon"])
         );
   }
 
@@ -98,12 +102,12 @@ class Coupon {
         : Timestamp.now(), // Handling possible non-Timestamp
           numberOfUse: data["NumberOfUse"],
           additionalTerms: data["AdditionalTerms"],
-          mobileNumberOwner: data["mobileNumberOwner"],
-          emailNumberOwner: data["emailNumberOwner"],
-          userIDAdded: data["userIDAdded"],
+          // mobileNumberOwner: data["mobileNumberOwner"],
+          // emailNumberOwner: data["emailNumberOwner"],
+          // userIDAdded: data["userIDAdded"],
           isFeatured: data['isFeatured'] ?? false,
           isMostUsed: data['isMostUsed'] ?? false,
-           uploadDate: data["uploadDate"] 
+           uploadDate: data["uploadDate"] ?? Timestamp.now(), ownerCoupon: UserModel.fromJson(data["ownerCoupon"]) 
           );
     } else {}
     return Coupon.empty();
@@ -131,8 +135,8 @@ class Coupon {
       numberOfUse: 0,
       additionalTerms: "", 
       title: '',
-      userIDAdded: "",
-      mobileNumberOwner: "",
-      emailNumberOwner: "",
-       uploadDate: Timestamp.now());
+      // userIDAdded: "",
+      // mobileNumberOwner: "",
+      // emailNumberOwner: "",
+       uploadDate: Timestamp.now(), ownerCoupon: UserModel.empty());
 }

@@ -1,43 +1,45 @@
 // ignore_for_file: prefer_const_constructors, body_might_complete_normally_nullable, unused_local_variable
 
-import 'package:acwadcom/admin/logic/edit_screen/cubit/edit_code_cubit.dart';
-import 'package:acwadcom/admin/ui/screens/discount_code_deatils_admin.dart';
-import 'package:acwadcom/admin/ui/screens/edit_code_screen_admin.dart';
-import 'package:acwadcom/admin/ui/screens/home_screen_admi.dart';
-import 'package:acwadcom/admin/ui/screens/request_screen_admin.dart';
-import 'package:acwadcom/admin/ui/screens/tab_bar_admin.dart';
+import 'package:acwadcom/features/admin/logic/edit_screen/cubit/edit_code_cubit.dart';
+import 'package:acwadcom/features/admin/logic/request/cubit/control_coupons_cubit.dart';
+import 'package:acwadcom/features/admin/ui/screens/discount_code_deatils_admin.dart';
+import 'package:acwadcom/features/admin/ui/screens/edit_code_screen_admin.dart';
+import 'package:acwadcom/features/admin/ui/screens/home_screen_admi.dart';
+import 'package:acwadcom/features/admin/ui/screens/request_screen_admin.dart';
+import 'package:acwadcom/features/admin/ui/screens/tab_bar_admin.dart';
 import 'package:acwadcom/bottomTabBar.dart';
-import 'package:acwadcom/features/authtication/UI/screens/forget_password.dart';
-import 'package:acwadcom/features/authtication/UI/screens/login_screen.dart';
-import 'package:acwadcom/features/authtication/UI/screens/register_screen.dart';
-import 'package:acwadcom/features/authtication/UI/screens/reset_password.dart';
-import 'package:acwadcom/features/authtication/UI/screens/verify_email_screen.dart';
-import 'package:acwadcom/features/authtication/logic/login/cubit/login_cubit.dart';
-import 'package:acwadcom/features/authtication/logic/register/cubit/register_cubit.dart';
-import 'package:acwadcom/features/coupons/logic/cubit/create_coupon_cubit_cubit.dart';
-import 'package:acwadcom/features/coupons/ui/screens/add_coupon_screen.dart';
-import 'package:acwadcom/features/coupons/ui/screens/revison_response_screen.dart';
-import 'package:acwadcom/features/explore/data/store_model.dart';
-import 'package:acwadcom/features/home/logic/home/cubit/home_cubit.dart';
-import 'package:acwadcom/features/home/logic/search/cubit/search_cubit.dart';
-import 'package:acwadcom/features/home/ui/search_screen.dart';
-import 'package:acwadcom/features/onboarding/ui/screens/onboarding_screen.dart';
-import 'package:acwadcom/features/onboarding/ui/screens/userOrStore.dart';
-import 'package:acwadcom/features/settings/logic/cubit/profile_cubit.dart';
-import 'package:acwadcom/features/settings/ui/screens/change_language.dart';
-import 'package:acwadcom/features/settings/ui/screens/contact_us.dart';
-import 'package:acwadcom/features/settings/ui/screens/edit_profile_screen.dart';
-import 'package:acwadcom/features/settings/ui/screens/profile.dart';
-import 'package:acwadcom/features/store/ui/screens/store_deatils_screen.dart';
+import 'package:acwadcom/features/user/authtication/UI/screens/forget_password.dart';
+import 'package:acwadcom/features/user/authtication/UI/screens/login_screen.dart';
+import 'package:acwadcom/features/user/authtication/UI/screens/register_screen.dart';
+import 'package:acwadcom/features/user/authtication/UI/screens/reset_password.dart';
+import 'package:acwadcom/features/user/authtication/UI/screens/verify_email_screen.dart';
+import 'package:acwadcom/features/user/authtication/logic/login/cubit/login_cubit.dart';
+import 'package:acwadcom/features/user/authtication/logic/register/cubit/register_cubit.dart';
+import 'package:acwadcom/features/user/coupons/logic/cubit/create_coupon_cubit_cubit.dart';
+import 'package:acwadcom/features/user/coupons/ui/screens/add_coupon_screen.dart';
+import 'package:acwadcom/features/user/coupons/ui/screens/revison_response_screen.dart';
+import 'package:acwadcom/features/user/explore/data/store_model.dart';
+import 'package:acwadcom/features/user/home/logic/home/cubit/home_cubit.dart';
+import 'package:acwadcom/features/user/home/logic/search/cubit/search_cubit.dart';
+import 'package:acwadcom/features/user/home/ui/search_screen.dart';
+import 'package:acwadcom/features/user/onboarding/ui/screens/onboarding_screen.dart';
+import 'package:acwadcom/features/user/onboarding/ui/screens/userOrStore.dart';
+import 'package:acwadcom/features/user/settings/logic/cubit/profile_cubit.dart';
+import 'package:acwadcom/features/user/settings/ui/screens/change_language.dart';
+import 'package:acwadcom/features/user/settings/ui/screens/contact_us.dart';
+import 'package:acwadcom/features/user/settings/ui/screens/edit_profile_screen.dart';
+import 'package:acwadcom/features/user/settings/ui/screens/profile.dart';
+import 'package:acwadcom/features/user/store/ui/screens/store_deatils_screen.dart';
 import 'package:acwadcom/helpers/Routing/routes.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/models/coupon_model.dart';
+import 'package:acwadcom/models/coupon_request.dart';
 import 'package:acwadcom/models/user_model.dart';
-import 'package:acwadcom/ownerStore/features/authitcation/logic/register_owner/register_owner_store_cubit.dart';
-import 'package:acwadcom/ownerStore/features/authitcation/ui/register_owner_store.dart';
-import 'package:acwadcom/ownerStore/features/home/home_screen_owner.dart';
-import 'package:acwadcom/ownerStore/features/home/statistics_screen.dart';
-import 'package:acwadcom/ownerStore/features/home/store_owner_discount_code_details.dart';
+import 'package:acwadcom/features/ownerStore/features/authitcation/logic/register_owner/register_owner_store_cubit.dart';
+import 'package:acwadcom/features/ownerStore/features/authitcation/ui/register_owner_store.dart';
+import 'package:acwadcom/features/ownerStore/features/home/home_screen_owner.dart';
+import 'package:acwadcom/features/ownerStore/features/home/statistics_screen.dart';
+import 'package:acwadcom/features/ownerStore/features/home/store_owner_discount_code_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -50,12 +52,11 @@ class AppRouter {
       case Routes.chosenStatusScreen:
         return MaterialPageRoute(builder: (_) => ChosenStatusScreen());
       case Routes.loginScreen:
-        final tYPEUSER = settings.arguments as String;
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
                   create: (context) => getIt<LoginCubit>(),
                   child: LoginScreen(
-                    tYPEUSER: tYPEUSER,
+                    // tYPEUSER: tYPEUSER,
                   ),
                 ));
       case Routes.signUpScreen:
@@ -96,10 +97,12 @@ class AppRouter {
       case Routes.revisonResponseScreen:
         return MaterialPageRoute(builder: (context) => RevisonResponseScreen());
       case Routes.registerOwnerStore:
+        final tYPEUSER = settings.arguments as String;
+
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
                   create: (context) => getIt<RegisterOwnerStoreCubit>(),
-                  child: RegisterOwnerStore(),
+                  child: RegisterOwnerStore(selectStatus: tYPEUSER,),
                 ));
       case Routes.homeScreenForOwenerStore:
         return MaterialPageRoute(builder: (context) => HomeScreenOwner());
@@ -123,10 +126,16 @@ class AppRouter {
                 ));
 
       case Routes.discountCodeDeatilsAdmin:
+        final couponReq = settings.arguments as CouponRequest;
         return MaterialPageRoute(
-            builder: (context) => DiscountCodeDeatilsAdmin());
+            builder: (context) => BlocProvider(
+                  create: (context) => getIt<ControlCouponsCubit>(),
+                  child: DiscountCodeDeatilsAdmin(
+                    couponRequest: couponReq,
+                  ),
+                ));
       case Routes.verifyEmailScreen:
-        final typeUser = settings.arguments as UserType;
+        final typeUser = settings.arguments as String;
         return MaterialPageRoute(
             builder: (context) => VerifyEmailScreen(typeUser: typeUser));
       case Routes.forgetPassword:

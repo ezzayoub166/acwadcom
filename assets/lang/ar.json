@@ -143,5 +143,16 @@
 "must Fill the text":"يجب ملء النص",
 "Start typing to search...":"ابدأ الكتابة للبحث...",
 "No results found.":"لم يتم العثور على نتائج.",
-"Number of coupons" : "عدد الكوبونات الكلي"
+"Number of coupons" : "عدد الكوبونات الكلي",
+"There is a request to add a discount code":"هناك طلب بإضافة كود خصم",
+"The discount code will be reviewed and the code will be added to the application as soon as possible.":"سوف يتم مراجعة كود الخصم وسوف يتم إضافة الكود في التطبيق في أقرب وقت.",
+"Loading Add Coubon..":"جاري التحميل إضافة القسيمة..",
+"There's a problem":"حصل مشكلة",
+"done opertion":"تمت العملية",
+"The coupon has been successfully added to the app.":".تم إضافة الكوبون إلى التطبيق بنجاح",
+"Error":"خطأ",
+"Coupon Add Success":"نجاح إضافة الكوبون",
+"Coupon title required":"عنوان للكوبون مطلوب",
+"The title must not exceed 20 characters and be short.":".يجب أن يكون العنوان لا يتجاوز 20 حرف ومختصر"
+
 }

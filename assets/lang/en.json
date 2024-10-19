@@ -149,7 +149,18 @@
 "must Fill the text":"must Fill the text",
 "Start typing to search...":"Start typing to search...",
 "No results found.":"No results found.",
-"Number of coupons":"Number of coupons"
+"Number of coupons":"Number of coupons",
+"There is a request to add a discount code":"There is a request to add a discount code",
+"The discount code will be reviewed and the code will be added to the application as soon as possible.":"The discount code will be reviewed and the code will be added to the application as soon as possible.",
+"Loading Add Coubon..":"Loading Add Coubon..",
+"There's a problem":"There's a problem",
+"done opertion":"done opertion",
+"The coupon has been successfully added to the app.":"The coupon has been successfully added to the app.",
+"Error":"Error",
+"Coupon Add Success":"Coupon Add Success",
+"Coupon title required":"Coupon title required",
+"The title must not exceed 20 characters and be short.":"The title must not exceed 20 characters and be short."
+
 
 
 

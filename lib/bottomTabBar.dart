@@ -1,12 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:acwadcom/acwadcom_packges.dart';
-import 'package:acwadcom/features/explore/ui/screens/explpre_screen.dart';
-import 'package:acwadcom/features/home/ui/home_screen.dart';
-import 'package:acwadcom/features/settings/ui/screens/settings.dart';
-import 'package:acwadcom/features/wishlist/ui/wishlist_screen.dart';
+import 'package:acwadcom/features/user/explore/ui/screens/explpre_screen.dart';
+import 'package:acwadcom/features/user/home/ui/home_screen.dart';
+import 'package:acwadcom/features/user/settings/ui/screens/settings.dart';
+import 'package:acwadcom/features/user/wishlist/ui/wishlist_screen.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
-import 'package:acwadcom/ownerStore/features/home/widgets/custom_pop_dialog_require_login.dart';
+import 'package:acwadcom/features/ownerStore/features/home/widgets/custom_pop_dialog_require_login.dart';
 
 class Bottomtabbar extends StatefulWidget {
   const Bottomtabbar({super.key});

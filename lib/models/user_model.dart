@@ -14,7 +14,7 @@ class UserModel {
   final String email;
   final String phoneNumber;
   final String profilePicture;
-  final UserType userType ;
+  final String userType ;
   final String? storeLink;
 
   Map<String, dynamic> toJson() {
@@ -25,7 +25,7 @@ class UserModel {
       "phoneNumber": phoneNumber,
       "profilePicture": profilePicture,
       "storeLink":storeLink,
-      "userType": userType == UserType.storeOwner ? "STOREOWNER" : "USER"
+      "userType": userType 
     };
   }
 
@@ -60,14 +60,14 @@ class UserModel {
   }
 
   ///static function to create on empty user model
-  static UserModel empty() => UserModel(userType:  UserType.normalUser,storeLink: "", id: "", userName: "", email: "", phoneNumber: "", profilePicture: "");
+  static UserModel empty() => UserModel(userType:  "",storeLink: "", id: "", userName: "", email: "", phoneNumber: "", profilePicture: "");
 
   ///Factory method to create a UserModel from a Firebase snapshot.
 
    factory UserModel.fromSnapshot(DocumentSnapshot<Map<String,dynamic>> doc){
      if(doc.data() != null) {
        return UserModel(
-          userType: doc["userType"] == "STOREOWNER" ? UserType.storeOwner : UserType.normalUser,
+          userType: doc["userType"] ?? "",
            id: doc.id,
            userName: doc["userName"] ?? "",
            email: doc["email"] ?? "",
@@ -87,7 +87,7 @@ class UserModel {
      userName: json["userName"],
       email: json["email"], 
       phoneNumber: json["phoneNumber"], 
-      profilePicture: json["profilePicture"], userType: json["userType"] == "STOREOWNER" ? UserType.storeOwner : UserType.normalUser,
+      profilePicture: json["profilePicture"], userType: json["userType"]?? "",
       storeLink:json["storeLink"]
       );
   }
