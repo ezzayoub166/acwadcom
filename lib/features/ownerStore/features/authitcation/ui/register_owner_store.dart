@@ -213,7 +213,7 @@ class _RegisterOwnerForm extends StatelessWidget {
             onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
       child: ListView(
         children: [
-          buildAppBarWithBackButton(context, isRTL(context), title: ""),
+          buildAppBarWithBackButton(context, isRTL(context), title: "",onPressedBack: () => navigateAndFinishNamed(context,Routes.loginScreen),),
           const SizedBox(height: 20),
           svgImage("_icLogo", height: 200.h),
           const SizedBox(height: 20),

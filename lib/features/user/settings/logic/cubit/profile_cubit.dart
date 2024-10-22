@@ -11,9 +11,8 @@ part 'profile_cubit.freezed.dart';
 class ProfileCubit extends Cubit<ProfileState> {
   ProfileCubit(this._userRepository) : super(const ProfileState.initial());
 
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController mobileNumber = TextEditingController();
+  TextEditingController nameC = TextEditingController();
+  TextEditingController mobileNumberC= TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   final UserRepository _userRepository;
@@ -56,6 +55,30 @@ class ProfileCubit extends Cubit<ProfileState> {
       // TLoader.errorSnackBar(title: 'On Snap!',message: "Some thing wrong: $errorM");
         emit( ProfileState.changePictureImageError(error:error.toString()));
     }
+
+    }
+
+    Future<void> updateUserData()async{
+      try{
+        emit(const ProfileState.profileLoading());
+
+        await _userRepository.updateStringFiled({
+          "userName":nameC.text,
+          "phoneNumber":mobileNumberC.text
+        });
+
+         await _userRepository.fetchUserDetails().then((user) {
+           emit(ProfileState.profileSuccess(user: user));
+            getIt<CacheHelper>().saveValueWithKey("USERNAME",user.userName );
+
+        });
+
+        
+
+      }catch(error){
+        emit(ProfileState.changePictureImageError(error: error.toString()));
+         
+      }
 
     }
 

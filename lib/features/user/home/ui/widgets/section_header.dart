@@ -1,5 +1,7 @@
+import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/common/widgets/build_text_widget.dart';
 import 'package:acwadcom/helpers/constants/colors.dart';
+import 'package:acwadcom/helpers/constants/strings.dart';
 import 'package:acwadcom/helpers/util/extenstions.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +11,7 @@ class TSectionHeader extends StatelessWidget {
     this.textColor ,
     this.showActionButton = false,
     required this.title,
-    this.buttonTitle = "View all",
+    this.buttonTitle = AText.viewAll,
     this.onPressed,
   });
 
@@ -32,7 +34,7 @@ class TSectionHeader extends StatelessWidget {
           color: ManagerColors.textColor,
              ),
      
-        if(showActionButton) TextButton(onPressed: onPressed, child: Text(buttonTitle))
+        if(showActionButton) TextButton(onPressed: onPressed, child: myText(AText.viewAll.tr(context),color: ManagerColors.kCustomColor,fontSize: 12))
       ],
     );
   }

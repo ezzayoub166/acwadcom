@@ -2,6 +2,7 @@
 
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/user/explore/data/store_model.dart';
+import 'package:acwadcom/features/user/explore/ui/screens/list_stores_screen.dart';
 import 'package:acwadcom/features/user/explore/ui/widget/build_list_featured_stores.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
 
@@ -49,20 +50,24 @@ class _ExplpreScreenState extends State<ExplpreScreen> {
             child: ListView(children: [
               isLoggedInUser ?  customAppBar(context) : SizedBox(height: 0,),
               buildSpacerH(10.0),
-              ASearchContainer(text: AText.search.tr(context)),
-              buildSpacerH(10.0),
-              TSectionHeader(
-                title: AText.mostUsedCopuns.tr(context),
-                textColor: ManagerColors.kCustomColor,
-              ),
+                  ASearchContainer(
+                    text: AText.search.tr(context),
+                    onPressed: () =>  navigateNamedTo(context,Routes.searchScreen),
+                  ),              buildSpacerH(10.0),
+              // TSectionHeader(
+              //   title: AText.mostUsedCopuns.tr(context),
+              //   textColor: ManagerColors.kCustomColor,
+              // ),
               buildSpacerH(5.0),
               //** The most used Copuns  */
-              BuildListMostUserCopuns(itemWidth: itemWidth),
-              //** The Special Stores */
-              buildSpacerH(10.0),
+              // BuildListMostUserCopuns(itemWidth: itemWidth),
+              // //** The Special Stores */
+              // buildSpacerH(10.0),
               TSectionHeader(
                 title: AText.featuredStore.tr(context),
                 textColor: ManagerColors.kCustomColor,
+                showActionButton: true,
+                onPressed: () => navigateTo(context,ListStoresScreen(stores: stores)),
               ),
               buildSpacerH(5.0),
               BuildListFeaturedStores(
@@ -74,9 +79,11 @@ class _ExplpreScreenState extends State<ExplpreScreen> {
               TSectionHeader(
                 title: AText.recntlyAdded.tr(context),
                 textColor: ManagerColors.kCustomColor,
+                showActionButton: true,
+                
               ),
               buildSpacerH(5.0),
-              BuildListMostUserCopuns(itemWidth: itemWidth),
+              BuildListMostUserCopuns(itemWidth: itemWidth,axis: Axis.vertical,),
             ])));
   }
 }

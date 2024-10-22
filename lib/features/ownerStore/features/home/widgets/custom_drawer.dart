@@ -57,6 +57,7 @@ class CustomDrawer extends StatelessWidget {
                     leading: Icon(Icons.settings),
                     title: myText(AText.storeData.tr(context)),
                     onTap: () {
+                      navigateNamedTo(context, Routes.editProfileScreen);
                       // Handle Store Info navigation
                     },
                   ),

@@ -2,78 +2,44 @@
 
 import 'package:acwadcom/acwadcom_packges.dart';
 
-
 class BuildListMostUserCopuns extends StatelessWidget {
   const BuildListMostUserCopuns({
     super.key,
-    required this.itemWidth,  this.axis = Axis.horizontal, this.isExpanded = false,
-  
+    required this.itemWidth,
+    this.axis = Axis.horizontal,
+    this.isExpanded = false,
   });
 
   final double itemWidth;
   final Axis axis;
-  final bool isExpanded; 
+  final bool isExpanded;
 
   @override
   Widget build(BuildContext context) {
-    return isExpanded ? Expanded(
+    return SizedBox(
+      height: 1250,
       child: ListView.separated(
         scrollDirection: axis,
         itemCount: 6,
-        separatorBuilder: (ctx, index) => buildSpacerH(10.0),
+        physics: const NeverScrollableScrollPhysics(),
+        separatorBuilder: (ctx, index) => buildSpacerH(20.0),
         itemBuilder: (context, index) {
           return Container(
-            width: double.infinity ,
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            child: Stack(
-              // alignment: Alignment.center,
-              alignment: Alignment.center,
-              children: [
-                svgImage("shpaeForCode"),
-                Positioned.fill(
-                    child: Container(
-                  margin: const EdgeInsets.all(20),
-                  // padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
-                    children: [
-                      buildFavAndCopyWgt(context),
-                      // Dashed Line
-                      buildDashedLine(),
-                      buildAttributesWgt(context)
-                    ],
-                  ),
-                ))
-              ],
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
             ),
-          );
-        },
-      ),) : SizedBox(
-      height: 190.h, 
-      width: double.infinity,// Set the height for the ListView
-      child: ListView.separated(
-        scrollDirection: axis,
-        itemCount: 6,
-        separatorBuilder: (ctx, index) => buildSpacerH(10.0),
-        itemBuilder: (context, index) {
-          return SizedBox(
             width: itemWidth,
-            // Responsive width
-            child: Stack(
-              // alignment: Alignment.center,
+            height: 160.h,
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                svgImage("shpaeForCode"),
-                Positioned.fill(
-                    child: Container(
-                  margin: EdgeInsets.all(20),
-                  child: Row(
-                    children: [
-                      buildFavAndCopyWgt(context),
-                      // Dashed Line
-                      buildDashedLine(),
-                      buildAttributesWgt(context)
-                    ],
-                  ),
-                ))
+                buildFavAndCopyWgt(context),
+                // buildSpacerH(3),
+                buildDashedLine(),
+                // buildSpacerH(3),
+                buildAttributesWgt(context),
               ],
             ),
           );
@@ -82,8 +48,8 @@ class BuildListMostUserCopuns extends StatelessWidget {
     );
   }
 
-  Expanded buildFavAndCopyWgt(BuildContext context) {
-    return Expanded(
+  Flexible buildFavAndCopyWgt(BuildContext context) {
+    return Flexible(
       flex: 2,
       child: Stack(
           // mainAxisSize: MainAxisSize.min,
@@ -102,11 +68,9 @@ class BuildListMostUserCopuns extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    myText(
-                      "15% خصم",
-                      fontSize: 12,
-                      fontWeight: FontWeightEnum.Bold.fontWeight
-                    ),
+                    myText("15% خصم",
+                        fontSize: 12,
+                        fontWeight: FontWeightEnum.Bold.fontWeight),
                     buildSpacerH(5.0),
                     InkWell(
                       child: Container(
@@ -115,17 +79,17 @@ class BuildListMostUserCopuns extends StatelessWidget {
                         // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
                         decoration: const BoxDecoration(
                             color: ManagerColors.yellowColor,
-                            borderRadius: BorderRadius.all(Radius.circular(10))),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
                         child: Center(
                             child: myText(
                           AText.copy.tr(context),
                           fontSize: 10,
                           color: Colors.white,
                           fontWeight: FontWeightEnum.Bold.fontWeight,
-                       
                         )),
                       ),
-                      onTap: (){},
+                      onTap: () {},
                     ),
                   ],
                 ))
@@ -133,8 +97,8 @@ class BuildListMostUserCopuns extends StatelessWidget {
     );
   }
 
-  Expanded buildAttributesWgt(BuildContext context) {
-    return Expanded(
+  Flexible buildAttributesWgt(BuildContext context) {
+    return Flexible(
       flex: 6,
       child: Column(
         // crossAxisAlignment: CrossAxisAlignment.start,
@@ -153,10 +117,7 @@ class BuildListMostUserCopuns extends StatelessWidget {
                 child: myImage("icNike"),
               ),
               buildSpacerW(5),
-              myText(
-                "Nike",
-                color: ManagerColors.blackTextColorexploreItem
-              ),
+              myText("Nike", color: ManagerColors.blackTextColorexploreItem),
               //
             ],
           ),
@@ -186,8 +147,8 @@ class BuildListMostUserCopuns extends StatelessWidget {
     );
   }
 
-  Expanded buildDashedLine() {
-    return Expanded(
+  Flexible buildDashedLine() {
+    return Flexible(
       flex: 1,
       child: Column(
         children: [
@@ -199,7 +160,7 @@ class BuildListMostUserCopuns extends StatelessWidget {
               (index) => Padding(
                 padding: const EdgeInsets.only(bottom: 2),
                 child: Container(
-                  color: const  Color(0xffDCDCDC),
+                  color: const Color(0xffDCDCDC),
                   height: 5.h,
                   width: 2.w,
                 ),

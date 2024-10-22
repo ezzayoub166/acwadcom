@@ -1,7 +1,7 @@
-
-
 import 'package:acwadcom/acwadcom.dart';
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/features/user/wishlist/logic/cubit/wishlist_cubit.dart';
+import 'package:acwadcom/features/user/wishlist/widgets/wish_list_copuns.dart';
 import 'package:acwadcom/localiztion_cubit/locale_cubit.dart';
 import 'package:acwadcom/features/user/home/logic/avatar/avatar_cubit.dart';
 import 'package:acwadcom/helpers/Routing/app_router.dart';
@@ -11,7 +11,7 @@ import 'package:acwadcom/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 // import 'firebase_options.dart';
 
-checkIfLoggedInUser()async{
+checkIfLoggedInUser() async {
   String? userToken = getIt<CacheHelper>().getValueWithKey("userID");
   // UserModel? userFetched = await  getIt<CacheHelper>().getUser();
 
@@ -22,34 +22,32 @@ checkIfLoggedInUser()async{
   }
 }
 
-checkIfUserOrStoreOWner()async{
-   tYPEUSER = getIt<CacheHelper>().getValueWithKey("tYPEUSER") ?? "";
+checkIfUserOrStoreOWner() async {
+  tYPEUSER = getIt<CacheHelper>().getValueWithKey("tYPEUSER") ?? "";
 }
 
-
-
-void main() async{
-
-   WidgetsFlutterBinding.ensureInitialized();
-   setupGetIt();
-    await getIt.isReady<CacheHelper>(); // Ensure CacheHelper is initialized before the app starts
-   checkIfLoggedInUser();
-   checkIfUserOrStoreOWner();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  setupGetIt();
+  await getIt.isReady<
+      CacheHelper>(); // Ensure CacheHelper is initialized before the app starts
+  checkIfLoggedInUser();
+  checkIfUserOrStoreOWner();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  
+
   runApp(MultiBlocProvider(
-  providers: [
-    BlocProvider<LocaleCubit>(
-      create: (context) => LocaleCubit()..getSavedLanguage(),
-      
-    ),
-     BlocProvider<AvatarCubit>(
-      create: (context) => AvatarCubit()..loadProfileData(),
-      
-    ),
-  ],
-  child: AcwadcomApp(appRouter: AppRouter()),
-));
+    providers: [
+      BlocProvider<LocaleCubit>(
+        create: (context) => LocaleCubit()..getSavedLanguage(),
+      ),
+      BlocProvider<AvatarCubit>(
+        create: (context) => AvatarCubit()..loadProfileData(),
+      ),
+      BlocProvider<WishlistCubit>(
+          create: (context) => getIt<WishlistCubit>()..feathcoWishList())
+    ],
+    child: AcwadcomApp(appRouter: AppRouter()),
+  ));
 }

@@ -10,6 +10,8 @@ import 'package:acwadcom/features/user/home/data/category_repository.dart';
 import 'package:acwadcom/features/user/home/data/coupon_repository.dart';
 import 'package:acwadcom/features/user/home/logic/home/cubit/home_cubit.dart';
 import 'package:acwadcom/features/user/settings/logic/cubit/profile_cubit.dart';
+import 'package:acwadcom/features/user/wishlist/data/wihslist_repository.dart';
+import 'package:acwadcom/features/user/wishlist/logic/cubit/wishlist_cubit.dart';
 import 'package:acwadcom/helpers/services/cachce_services/chache_helper.dart';
 import 'package:acwadcom/helpers/services/fireabse_storage_services.dart';
 import 'package:acwadcom/features/ownerStore/features/authitcation/logic/register_owner/register_owner_store_cubit.dart';
@@ -22,6 +24,9 @@ Future<void> setupGetIt() async {
       () => AuthenticationRepository());
 
   getIt.registerLazySingleton<UserRepository>(() => UserRepository());
+
+    getIt.registerLazySingleton<WihslistRepository>(() => WihslistRepository());
+
 
   getIt.registerLazySingleton<TFirebaseStorageService>(
       () => TFirebaseStorageService());
@@ -45,6 +50,10 @@ Future<void> setupGetIt() async {
   //Login
   getIt.registerFactory<LoginCubit>(() => LoginCubit(
       getIt<AuthenticationRepository>(), getIt<UserRepository>())); //Profile
+
+
+       getIt.registerFactory<WishlistCubit>(() => WishlistCubit(
+      getIt<WihslistRepository>()));
 
   getIt.registerFactory<ProfileCubit>(
       () => ProfileCubit(getIt<UserRepository>()));

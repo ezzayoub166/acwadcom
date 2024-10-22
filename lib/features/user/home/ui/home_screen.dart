@@ -29,6 +29,12 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   @override
+void dispose() {
+  BlocProvider.of<HomeCubit>(context).close();
+  super.dispose();
+}
+
+  @override
   Widget build(BuildContext context) {
     final pageController = PageController();
     int currentPageIndex = 0;

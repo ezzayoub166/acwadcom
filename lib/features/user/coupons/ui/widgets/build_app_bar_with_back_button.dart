@@ -1,12 +1,13 @@
   import 'package:acwadcom/acwadcom_packges.dart';
 
-AppBar buildAppBarWithBackButton(BuildContext context, bool isRtl , {String title = ""}) {
+AppBar buildAppBarWithBackButton(BuildContext context, bool isRtl , {String title = "", VoidCallback? onPressedBack} ) {
     return AppBar(
       centerTitle: true,
       title :  myText(
             title,
-            // color: ManagerColors.kCustomColor,
-            fontSize: 20,
+            fontWeight: FontWeightEnum.ExtraBold.fontWeight,
+            color: ManagerColors.kCustomColor,
+            fontSize: 16,
           ),
         leading: Padding(
           padding: EdgeInsets.only(
@@ -18,10 +19,10 @@ AppBar buildAppBarWithBackButton(BuildContext context, bool isRtl , {String titl
                 : 0, // Padding for Arabic
           ),
           child: InkWell(
-            child: svgImage("Vector", isRtl: isRtl),
-            onTap: () {
+            onTap: onPressedBack ?? () {
               Navigator.pop(context);
             },
+            child: svgImage("Vector", isRtl: isRtl),
           ),
         ),
         leadingWidth: 50,

@@ -4,6 +4,7 @@ import 'package:acwadcom/features/user/coupons/ui/widgets/build_app_bar_with_bac
 import 'package:acwadcom/features/user/home/logic/avatar/avatar_cubit.dart';
 import 'package:acwadcom/features/user/settings/logic/cubit/profile_cubit.dart';
 import 'package:acwadcom/features/user/settings/ui/widgets/build_abled_textfiled.dart';
+import 'package:acwadcom/features/user/settings/ui/widgets/build_disabled_textfiled.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -67,107 +68,130 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   });
                   return Center(child: Text('An error occurred'));
                 },
-                profileSuccess: (user) => Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Stack(
+                profileSuccess: (user) {
+                  // Set initial values for controllers
+                  context.read<ProfileCubit>().nameC.text = user.userName;
+                  context.read<ProfileCubit>().mobileNumberC.text =
+                      user.phoneNumber;
+                  return SingleChildScrollView(
+                    child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+                        child: Column(
+                                                      
                             children: [
-                              // CircleAvatar with image
-                              BlocBuilder<ProfileCubit, ProfileState>(
-                                builder: (context, state) {
-                                  return state.maybeWhen(
-                                    profileSuccess: (user) {
-                                      // Evict the cached image when the profile picture changes
-                                      if (user.profilePicture.isNotEmpty) {
-                                        CachedNetworkImageProvider(
-                                                user.profilePicture)
-                                            .evict();
-                                      }
+                              Stack(
+                                children: [
+                                  // CircleAvatar with image
+                                  BlocBuilder<ProfileCubit, ProfileState>(
+                                    builder: (context, state) {
+                                      return state.maybeWhen(
+                                        profileSuccess: (user) {
+                                          // Evict the cached image when the profile picture changes
+                                          if (user.profilePicture.isNotEmpty) {
+                                            CachedNetworkImageProvider(
+                                                    user.profilePicture)
+                                                .evict();
+                                          }
 
-                                      return CircleAvatar(
-                                        radius: 50,
-                                        backgroundImage:
-                                            user.profilePicture.isEmpty
+                                          return CircleAvatar(
+                                            radius: 50,
+                                            backgroundImage: user
+                                                    .profilePicture.isEmpty
                                                 ? AssetImage(
                                                     "assets/images/user.png")
                                                 : CachedNetworkImageProvider(
                                                     user.profilePicture),
+                                          );
+                                        },
+                                        orElse: () => Center(
+                                            child: CircularProgressIndicator()),
                                       );
                                     },
-                                    orElse: () => Center(
-                                        child: CircularProgressIndicator()),
-                                  );
-                                },
-                              ),
+                                  ),
 
-                              // Positioned widget to place the edit icon at the bottom right
-                              Positioned(
-                                bottom: 0,
-                                right: 0,
-                                child: InkWell(
-                                  onTap: () {
-                                    // Handle the image edit action here
-                                    context
-                                        .read<ProfileCubit>()
-                                        .uploadUserProfilePicture();
-                                  },
-                                  child: CircleAvatar(
-                                    radius: 18,
-                                    backgroundColor: ManagerColors.kCustomColor, // Background color for edit icon circle
-                                    child: Icon(
-                                      Icons.edit, // The edit icon
-                                      color: Colors.white, // Icon color
-                                      size: 20,
+                                  // Positioned widget to place the edit icon at the bottom right
+                                  Positioned(
+                                    bottom: 0,
+                                    right: 0,
+                                    child: InkWell(
+                                      onTap: () {
+                                        // Handle the image edit action here
+                                        context
+                                            .read<ProfileCubit>()
+                                            .uploadUserProfilePicture();
+                                      },
+                                      child: CircleAvatar(
+                                        radius: 18,
+                                        backgroundColor: ManagerColors
+                                            .kCustomColor, // Background color for edit icon circle
+                                        child: Icon(
+                                          Icons.edit, // The edit icon
+                                          color: Colors.white, // Icon color
+                                          size: 20,
+                                        ),
+                                      ),
                                     ),
                                   ),
+                                ],
+                              ),
+                              myText(
+                                user.userName,
+                                fontSize: 16,
+                                color: ManagerColors.kCustomColor,
+                                fontWeight: FontWeightEnum.Bold.fontWeight,
+                              ),
+                              buildSpacerH(5.0),
+                              myText(AText.user.tr(context),
+                                  fontSize: 16,
+                                  fontWeight: FontWeightEnum.Bold.fontWeight,
+                                  color: ManagerColors.yellowColor),
+                              buildSpacerH(10.0),
+                              Form(
+                                key: context.read<ProfileCubit>().formKey,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    buildAbleTextField(
+                                        controller:
+                                            context.read<ProfileCubit>().nameC,
+                                        // text: user.userName,
+                                        validator: (value) =>
+                                            ManagerValidator.validateEmptyText(
+                                                "Name", "Izzdine Atallah")),
+                                    buildSpacerH(10.0),
+                                    buildAbleTextField(
+                                        controller: context
+                                            .read<ProfileCubit>()
+                                            .mobileNumberC,
+                                        // text: user.phoneNumber,
+                                        validator: (value) =>
+                                            ManagerValidator.validateEmail(
+                                                value, context)),
+                                    buildSpacerH(10.0),
+                                    buildDisabledTextField(
+                                      text: user.phoneNumber,
+
+                                      // validator: (value) =>
+                                      //     ManagerValidator.validateEmail(
+                                      //         value, context)
+                                    ),
+                                    buildSpacerH(10.0),
+                                    RoundedButtonWgt(
+                                        width: double.infinity,
+                                        fontSize: 16,
+                                        title: AText.save.tr(context),
+                                        onPressed: () {
+                                          //!! For Editing the Data For user ..........
+                                          context.read<ProfileCubit>().updateUserData();
+                                          
+                                        })
+                                  ],
                                 ),
                               ),
-                            ],
-                          ),
-                          myText(
-                            user.userName,
-                            fontSize: 16,
-                            color: ManagerColors.kCustomColor,
-                            fontWeight: FontWeightEnum.Bold.fontWeight,
-                          ),
-                          buildSpacerH(5.0),
-                          myText(AText.user.tr(context),
-                              fontSize: 16,
-                              fontWeight: FontWeightEnum.Bold.fontWeight,
-                              color: ManagerColors.yellowColor),
-                          buildSpacerH(10.0),
-                          Column(
-                            children: [
-                              buildAbleTextField(
-                                  text: user.userName,
-                                  validator: (value) =>
-                                      ManagerValidator.validateEmptyText(
-                                          "Name", "Izzdine Atallah")),
-                              buildSpacerH(10.0),
-                              buildAbleTextField(
-                                  text: user.email,
-                                  validator: (value) =>
-                                      ManagerValidator.validateEmail(
-                                          value, context)),
-                              buildSpacerH(10.0),
-                              buildAbleTextField(
-                                  text: user.phoneNumber,
-                                  validator: (value) =>
-                                      ManagerValidator.validateEmail(
-                                          value, context)),
-                              buildSpacerH(10.0),
-                              RoundedButtonWgt(
-                                  width: double.infinity,
-                                  fontSize: 16,
-                                  title: AText.save.tr(context),
-                                  onPressed: () {
-                                    //!! For Editing the Data For user ..........
-                                  })
-                            ],
-                          ),
-                        ])),
+                            ])),
+                  );
+                },
                 orElse: () => Center(child: CircularProgressIndicator()));
           },
         )));

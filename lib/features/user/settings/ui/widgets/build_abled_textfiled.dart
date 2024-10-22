@@ -1,24 +1,25 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 Widget buildAbleTextField({
-  required String text, // النص الافتراضي الذي سيتم عرضه
+   String? text = "", // النص الافتراضي الذي سيتم عرضه
   required String? Function(String?)? validator, // الدالة للتحقق من صحة المدخلات
+  required TextEditingController controller ,
   // required TextEditingController? controller
 }) {
   return SizedBox(
     width: double.infinity,
     height: 60,
     child: TextFormField(
-      // controller: controller,
-      
+      controller: controller,
       style: TextStyle(
           color: ManagerColors.kCustomColor,
           fontWeight: FontWeight.bold,
           fontSize: 16
         ),
     
-      initialValue: text, // النص المعروض في البداية
+      // initialValue: text, // النص المعروض في البداية
       validator: validator, // دالة التحقق من صحة المدخلات
       decoration: InputDecoration(        
         hintText: 'Enter text here', // نص المساعدة

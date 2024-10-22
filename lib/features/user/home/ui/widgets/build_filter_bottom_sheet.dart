@@ -90,9 +90,9 @@ class _BuildFilterBottomSheetState extends State<BuildFilterBottomSheet> {
                 setState(() {});
               },
               child: Container(
-                  // height: 30.h,
+                  height: 50,
                   // width: 50.w,
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  padding: EdgeInsets.symmetric(horizontal: 10),
                   decoration: BoxDecoration(
                       // color: selecttedId == arrayOfCategories[idx].id
                       //     ? ManagerColors.kCustomColor
@@ -102,7 +102,7 @@ class _BuildFilterBottomSheetState extends State<BuildFilterBottomSheet> {
                       borderRadius: BorderRadius.circular(10)),
                   child: myText(
                     arrayOfCategories[idx].title,
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontWeight: FontWeightEnum.Medium.fontWeight,
                     // color: selecttedId == arrayOfCategories[idx].id
                     //     ? Colors.white

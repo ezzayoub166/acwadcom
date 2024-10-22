@@ -20,14 +20,9 @@ class ConfirmRequireLoginDialog extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           // Icon at the top
-          Container(
+          SizedBox(
             width: 100,
               height: 100,
-            // padding: EdgeInsets.all(16),
-            // decoration: BoxDecoration(
-            //   shape: BoxShape.circle,
-            //   color: Colors.orange.withOpacity(0.1),
-            // ),
             child: svgImage(
               "icBuildLogo",
               fit: BoxFit.fill
