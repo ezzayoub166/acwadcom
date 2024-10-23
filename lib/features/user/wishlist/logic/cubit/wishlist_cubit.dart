@@ -34,6 +34,7 @@ class WishlistCubit extends Cubit<WishlistState> {
       emit(WishlistState.wishlistFaluire(error: error.toString()));
     }
   }
+  //...
 
   addToWishList(Coupon coupon)async{
     try{

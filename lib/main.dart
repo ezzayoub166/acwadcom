@@ -46,7 +46,9 @@ void main() async {
         create: (context) => AvatarCubit(),
       ),
       BlocProvider<WishlistCubit>(
-          create: (context) => getIt<WishlistCubit>()..feathcoWishList())
+          create: (context) => getIt<WishlistCubit>()
+            ..feathcoWishList()
+            ..featchWishLitForStores())
     ],
     child: AcwadcomApp(appRouter: AppRouter()),
   ));
