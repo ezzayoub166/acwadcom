@@ -10,6 +10,9 @@ import 'package:acwadcom/features/user/wishlist/widgets/empty_wish_list.dart';
 import 'package:acwadcom/features/user/wishlist/widgets/tab_Item.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
+import 'package:acwadcom/models/user_model.dart';
+
+import '../../home/ui/widgets/build_list_coupons.dart';
 
 class WishlistScreen extends StatefulWidget {
   const WishlistScreen({super.key});
@@ -23,7 +26,7 @@ class _WishlistScreenState extends State<WishlistScreen>
   late TabController _tabController;
 
   //** the data for WishList  **/
-  final List<StoreModel> favStores = [];
+  final List<UserModel> favStores = [];
   final List<String> favCoupns = [];
 
   @override

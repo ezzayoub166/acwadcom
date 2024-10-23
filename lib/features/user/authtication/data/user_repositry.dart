@@ -39,7 +39,6 @@ class UserRepository {
      }catch(e){
        throw 'something went wrong. Please try again';
      }
-
    }
 
    ///Function to fetch user details based on user ID

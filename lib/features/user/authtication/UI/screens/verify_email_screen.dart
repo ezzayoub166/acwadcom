@@ -121,7 +121,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-              onPressed: () => _authRepository.logout(),
+              onPressed: () => _authRepository.logout(context),
               icon: Icon(CupertinoIcons.clear))
         ],
       ),

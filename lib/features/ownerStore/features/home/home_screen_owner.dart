@@ -32,6 +32,8 @@ class _HomeScreenOwnerState extends State<HomeScreenOwner> {
   void initState() {
     // TODO: implement initState
      super.initState();
+         BlocProvider.of<AvatarCubit>(context).loadProfileData();
+
   }
 
   @override

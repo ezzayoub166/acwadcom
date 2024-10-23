@@ -1,5 +1,6 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously, constant_pattern_never_matches_value_type
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/features/user/home/logic/avatar/avatar_cubit.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/models/user_model.dart';
@@ -28,7 +29,9 @@ class AuthenticationRepository {
         // await TLocalStorage.init(user.uid);
         // Get.offAll(() => NavigationMenu());
         getIt<CacheHelper>().saveValueWithKey("userID", user.uid);
-        if (tYPEUSER == "USER") {
+        var typeUser = getIt<CacheHelper>().getValueWithKey("tYPEUSER");
+        // print(typeUser);
+        if (typeUser == "USER") {
           navigateAndFinishNamed(context, Routes.bottomTabBarScreen);
         } else {
           navigateAndFinishNamed(context, Routes.homeScreenForOwenerStore);
@@ -65,7 +68,36 @@ class AuthenticationRepository {
       return await _auth.signInWithEmailAndPassword(
           email: email, password: password);
     } on FirebaseAuthException catch (e) {
-      throw TFirebaseAuthException(e.code).message;
+          // Handle different FirebaseAuth error codes
+
+          switch (e) {
+      case "ERROR_EMAIL_ALREADY_IN_USE":
+      case "account-exists-with-different-credential":
+      case "email-already-in-use":
+        throw "Email already used. Go to login page.";
+        
+      case "ERROR_WRONG_PASSWORD":
+      case "wrong-password":
+        throw "Wrong email/password combination.";
+        
+      case "ERROR_USER_NOT_FOUND":
+      case "user-not-found":
+        throw "No user found with this email.";
+        
+      case "ERROR_USER_DISABLED":
+      case "user-disabled":
+        throw "User disabled.";
+        
+      case "ERROR_TOO_MANY_REQUESTS":
+      case "operation-not-allowed":
+        throw "Too many requests to log into this account.";
+      case "ERROR_OPERATION_NOT_ALLOWED":
+      case "ERROR_INVALID_EMAIL":
+      case "invalid-email":
+        throw "Email address is invalid.";
+      default:
+        throw "Wrong email/password. Please try again.";
+    }
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {
@@ -144,22 +176,28 @@ class AuthenticationRepository {
   }
 
   /// [Email Authentication] = valid for any Authntication
-  Future<void> logout() async {
+  Future<void> logout(BuildContext context) async {
     try {
       await Future.wait([
         GoogleSignIn().signOut(),
         _auth.signOut(),
-        getIt<CacheHelper>().removeValueWithKey("userID"),
-        getIt<CacheHelper>().removeValueWithKey("tYPEUSER"),
-        getIt<CacheHelper>().removeValueWithKey("USERNAME"),
-        getIt<CacheHelper>().removeValueWithKey("IMAGEURL"),
-        getIt<CacheHelper>().removeValueWithKey("EMAIL"),
-        getIt<CacheHelper>().removeValueWithKey("MOBILENUMBER"),
-      ]);
+        // getIt<CacheHelper>().removeValueWithKey("userID"),
+        // getIt<CacheHelper>().removeValueWithKey("tYPEUSER"),
+        // getIt<CacheHelper>().removeValueWithKey("USERNAME"),
+        // getIt<CacheHelper>().removeValueWithKey("IMAGEURL"),
+        // getIt<CacheHelper>().removeValueWithKey("EMAIL"),
+        // getIt<CacheHelper>().removeValueWithKey("MOBILENUMBER"),
+          getIt<CacheHelper>().clearAll()
 
-      getIt<CacheHelper>().clearAll();
+      ]);
+        // Debugging: Check if cache is cleared
+    //  print(await getIt<CacheHelper>().getValueWithKey("USERNAME")); // Should print null
+    //  print(await getIt<CacheHelper>().getValueWithKey("IMAGEURL")); // Should print null
+
+
       isLoggedInUser = false;
       tYPEUSER = "";
+      context.read<AvatarCubit>().clearProfileData();
       //!! Some Things Need to Edit
       //  Get.offAll(() => LoginScreen());
     } on FirebaseAuthException catch (e) {

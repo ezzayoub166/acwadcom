@@ -6,6 +6,8 @@ import 'package:acwadcom/features/user/home/ui/home_screen.dart';
 import 'package:acwadcom/features/user/wishlist/logic/cubit/wishlist_cubit.dart';
 import 'package:acwadcom/features/user/wishlist/widgets/empty_wish_list.dart';
 
+import '../../home/ui/widgets/build_list_coupons.dart';
+
 class StoresFavoritesScreen extends StatefulWidget {
   const StoresFavoritesScreen({super.key});
 
@@ -47,7 +49,7 @@ class _CouponsFavoritesScreenState extends State<StoresFavoritesScreen> {
         return state.maybeWhen(
           wishlistLoading: () => BuildCustomLoader(),
           wishlistLoaded: (coupons) => BuildListCoupons(coupons: coupons),
-          wishlistStoresLoaded: (stores) => BuildListFeaturedStores(stores: storesF),
+          wishlistStoresLoaded: (stores) => BuildListFeaturedStores(stores: stores),
           emptyWishList: () => emptyWishList(context),
           orElse: () => emptyWishList(context),
         );

@@ -73,7 +73,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             backgroundColor: ManagerColors.kCustomColor,
                             foregroundColor: Colors.white,
                             onPressed: () {
-                              getIt<AuthenticationRepository>().logout(); 
+                              getIt<AuthenticationRepository>().logout(context); 
                               navigateAndFinishNamed(context, Routes.loginScreen);
                             })
                       ],

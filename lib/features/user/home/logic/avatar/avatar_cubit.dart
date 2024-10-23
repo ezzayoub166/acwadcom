@@ -18,4 +18,9 @@ class AvatarCubit extends Cubit<AvatarState> {
     // Emit new state
     emit(AvatarState.fetchNameImage(username: username, imageUrl: imageUrl));
   }
+
+   // New method to clear the cubit state on logout
+  void clearProfileData() {
+    emit(const AvatarState.fetchNameImage(username: "", imageUrl: ""));
+  }
 }

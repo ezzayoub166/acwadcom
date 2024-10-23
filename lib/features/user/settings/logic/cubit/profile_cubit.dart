@@ -26,6 +26,7 @@ class ProfileCubit extends Cubit<ProfileState> {
 
     // Fetch user details from repository
     final user = await _userRepository.fetchUserDetails();
+    print(user.email);
 
     // If the fetch is successful, emit the loaded state with the user data
     emit(ProfileState.profileSuccess(user: user));

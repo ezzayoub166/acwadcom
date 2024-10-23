@@ -43,7 +43,7 @@ void main() async {
         create: (context) => LocaleCubit()..getSavedLanguage(),
       ),
       BlocProvider<AvatarCubit>(
-        create: (context) => AvatarCubit()..loadProfileData(),
+        create: (context) => AvatarCubit(),
       ),
       BlocProvider<WishlistCubit>(
           create: (context) => getIt<WishlistCubit>()..feathcoWishList())

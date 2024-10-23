@@ -1,8 +1,8 @@
 
-import 'package:acwadcom/acwadcom.dart';
 import 'package:acwadcom/acwadcom_packges.dart';
-import 'package:acwadcom/features/user/explore/data/store_model.dart';
 import 'package:acwadcom/features/user/explore/ui/widget/build_store_card.dart';
+import 'package:acwadcom/features/user/store/ui/screens/store_deatils_screen.dart';
+import 'package:acwadcom/models/user_model.dart';
 
 class BuildListFeaturedStores extends StatelessWidget {
     const BuildListFeaturedStores({
@@ -10,7 +10,7 @@ class BuildListFeaturedStores extends StatelessWidget {
     required this.stores,
   });
 
-  final  List<StoreModel> stores ;
+  final  List<UserModel> stores ;
 
   
 
@@ -34,7 +34,7 @@ class BuildListFeaturedStores extends StatelessWidget {
           itemBuilder: (context, index) {
             return InkWell(
               onTap: (){
-                navigateNamedTo(context, Routes.storeDeatilsScreen , stores[index]);
+                navigateTo(context,StoreDeatilsScreen(store: stores[index]));
               },
               child: StoreCard(store: stores[index],));
           },
@@ -50,7 +50,9 @@ class BuildListFeaturedStores extends StatelessWidget {
           itemBuilder: (context, index) {
             return InkWell(
               onTap: (){
-                navigateNamedTo(context, Routes.storeDeatilsScreen , stores[index]);
+                // navigateNamedTo(context, Routes.storeDeatilsScreen , stores[index]);
+                navigateTo(context,StoreDeatilsScreen(store: stores[index]));
+
               },
               child: StoreCard(store: stores[index],));
           },

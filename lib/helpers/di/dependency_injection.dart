@@ -6,6 +6,8 @@ import 'package:acwadcom/features/user/authtication/data/user_repositry.dart';
 import 'package:acwadcom/features/user/authtication/logic/login/cubit/login_cubit.dart';
 import 'package:acwadcom/features/user/authtication/logic/register/cubit/register_cubit.dart';
 import 'package:acwadcom/features/user/coupons/logic/cubit/create_coupon_cubit_cubit.dart';
+import 'package:acwadcom/features/user/explore/data/store_repository.dart';
+import 'package:acwadcom/features/user/explore/logic/cubit/explore_cubit.dart';
 import 'package:acwadcom/features/user/home/data/category_repository.dart';
 import 'package:acwadcom/features/user/home/data/coupon_repository.dart';
 import 'package:acwadcom/features/user/home/logic/home/cubit/home_cubit.dart';
@@ -28,6 +30,9 @@ Future<void> setupGetIt() async {
     getIt.registerLazySingleton<WihslistRepository>(() => WihslistRepository());
 
 
+    getIt.registerLazySingleton<StoreRepository>(() => StoreRepository());
+
+
   getIt.registerLazySingleton<TFirebaseStorageService>(
       () => TFirebaseStorageService());
 
@@ -37,6 +42,10 @@ Future<void> setupGetIt() async {
 
   getIt.registerLazySingleton<CouponRequestService>(
       () => CouponRequestService());
+
+      
+
+
 
   // Register CacheHelper asynchronously
   getIt.registerLazySingletonAsync<CacheHelper>(() async {
@@ -64,6 +73,10 @@ Future<void> setupGetIt() async {
 
   getIt.registerFactory<RegisterOwnerStoreCubit>(() => RegisterOwnerStoreCubit(
       getIt<AuthenticationRepository>(), getIt<UserRepository>()));
+
+
+
+      getIt.registerFactory<ExploreCubit>(() => ExploreCubit(getIt<StoreRepository>()));
 
   getIt.registerFactory<CreateCouponCubit>(() => CreateCouponCubit(
       getIt<CategoryRepository>(),

@@ -2,11 +2,14 @@
 
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/user/explore/ui/screens/explpre_screen.dart';
+import 'package:acwadcom/features/user/home/logic/avatar/avatar_cubit.dart';
 import 'package:acwadcom/features/user/home/ui/home_screen.dart';
+import 'package:acwadcom/features/user/settings/logic/cubit/profile_cubit.dart';
 import 'package:acwadcom/features/user/settings/ui/screens/settings.dart';
 import 'package:acwadcom/features/user/wishlist/ui/wishlist_screen.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/features/ownerStore/features/home/widgets/custom_pop_dialog_require_login.dart';
+import 'package:acwadcom/helpers/di/dependency_injection.dart';
 
 class Bottomtabbar extends StatefulWidget {
   const Bottomtabbar({super.key});
@@ -30,6 +33,17 @@ class _BottomtabbarState extends State<Bottomtabbar> {
     WishlistScreen(),
     SettingsScreen()
   ];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+        BlocProvider.of<AvatarCubit>(context).loadProfileData();
+
+        // BlocProvider.of<ProfileCubit>(context).emitLoadingProfileData();
+
+
+  }
 
   // Function to show the dialog
   void showRequireLoginDialog(context) {

@@ -3,9 +3,11 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/common/widgets/build_custom_loader.dart';
 import 'package:acwadcom/features/user/coupons/ui/screens/coupon_deatls_screen.dart';
+import 'package:acwadcom/features/user/home/logic/avatar/avatar_cubit.dart';
 import 'package:acwadcom/features/user/home/logic/home/cubit/home_cubit.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/build_featured_code.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/build_list_categories_shimer.dart';
+import 'package:acwadcom/features/user/home/ui/widgets/build_list_coupons.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/home_categories.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
@@ -25,14 +27,8 @@ class _HomeScreenState extends State<HomeScreen> {
     // TODO: implement initState
     super.initState();
     // BlocProvider.of<HomeCubit>(context).emitSelectedCategory(0);
-
   }
 
-  @override
-void dispose() {
-  BlocProvider.of<HomeCubit>(context).close();
-  super.dispose();
-}
 
   @override
   Widget build(BuildContext context) {
@@ -206,36 +202,4 @@ void dispose() {
           ),
         ));
   }
-}
-
-class BuildListCoupons extends StatelessWidget {
-  final List<Coupon> coupons;
-  const BuildListCoupons({
-    super.key,
-    required this.coupons,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.separated(
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
-        itemBuilder: (ctx, index) {
-          return InkWell(
-              onTap: () {
-                navigateTo(
-                    context,
-                    CouponDeatlsScreen(
-                      coupon: coupons[index],
-                    ));
-              },
-              child: BuildFeaturedCode(
-                coupon: coupons[index],
-              ));
-        },
-        separatorBuilder: (ctx, index) => buildSpacerH(10.0),
-        itemCount: coupons.length);
-  }
-  //flutter_spinkit: ^5.2.0
 }

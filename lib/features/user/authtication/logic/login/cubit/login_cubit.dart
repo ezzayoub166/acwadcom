@@ -29,9 +29,11 @@ class LoginCubit extends Cubit<LoginState> {
   emitLogIn(context) async {
     try {
       emit(const LoginState.loading());
-      await _authenticationRepository.loginWithEmilAndPassword(
+      final UserCredential userCredential =  await _authenticationRepository.loginWithEmilAndPassword(
           emailController.text.trim(), passwordController.text.trim());
-      final fetchedUser = await _userRepository.fetchUserDetails();
+      final fetchedUser = await _userRepository.fetchStableData(userCredential.user?.uid);
+      print(fetchedUser.email);
+
       // Save user details in cache concurrently
       await Future.wait([
         getIt<CacheHelper>().saveValueWithKey("USERNAME", fetchedUser.userName),

@@ -19,6 +19,7 @@ import 'package:acwadcom/features/user/coupons/logic/cubit/create_coupon_cubit_c
 import 'package:acwadcom/features/user/coupons/ui/screens/add_coupon_screen.dart';
 import 'package:acwadcom/features/user/coupons/ui/screens/revison_response_screen.dart';
 import 'package:acwadcom/features/user/explore/data/store_model.dart';
+import 'package:acwadcom/features/user/explore/logic/cubit/explore_cubit.dart';
 import 'package:acwadcom/features/user/home/logic/home/cubit/home_cubit.dart';
 import 'package:acwadcom/features/user/home/logic/search/cubit/search_cubit.dart';
 import 'package:acwadcom/features/user/home/ui/search_screen.dart';
@@ -42,6 +43,8 @@ import 'package:acwadcom/features/ownerStore/features/home/statistics_screen.dar
 import 'package:acwadcom/features/ownerStore/features/home/store_owner_discount_code_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../features/user/explore/ui/screens/list_stores_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -73,7 +76,7 @@ class AppRouter {
       case Routes.profileScreen:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
-                  create: (context) => getIt<ProfileCubit>(),
+                  create: (context) => getIt<ProfileCubit>()..emitLoadingProfileData(),
                   child: ProfileScreen(),
                 ));
       case Routes.contactUs:
@@ -85,15 +88,22 @@ class AppRouter {
                   child: CreateCodeScreen(),
                 ));
 
-      case Routes.storeDeatilsScreen:
-        final store = settings.arguments as StoreModel;
-        return MaterialPageRoute(
-            builder: (context) => BlocProvider(
-                  create: (context) => getIt<HomeCubit>(),
-                  child: StoreDeatilsScreen(
-                    store: store,
-                  ),
-                ));
+      // case Routes.storeDeatilsScreen:
+      //   final store = settings.arguments as UserModel;
+      //   return MaterialPageRoute(
+      //       builder: (context) => BlocProvider(
+      //         create: (context) => getIt<ExploreCubit>()..getCouponsForSelectedStore(store.id),
+      //         child: StoreDeatilsScreen(
+      //           store: store,
+      //         ),
+      //       ));
+
+      // case Routes.storeDeatilsScreen:
+      //   // final store = settings.arguments as UserModel;
+      //   return MaterialPageRoute(
+      //       builder: (context) => StoreDeatilsScreen(
+      //         store: store,
+      //       ));
       case Routes.revisonResponseScreen:
         return MaterialPageRoute(builder: (context) => RevisonResponseScreen());
       case Routes.registerOwnerStore:
@@ -167,6 +177,13 @@ class AppRouter {
                   create: (context) => SearchCubit(),
                   child: SearchScreen(),
                 ));
+
+
+      case Routes.listOfStoresScreen:
+        return MaterialPageRoute(builder: (context) => BlocProvider(
+              create:(context) => getIt<ExploreCubit>()..fetchStores() ,
+             child: ListStoresScreen()
+    ));
     }
   }
 }

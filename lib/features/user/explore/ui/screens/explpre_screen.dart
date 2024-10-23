@@ -1,10 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/common/widgets/build_custom_loader.dart';
 import 'package:acwadcom/features/user/explore/data/store_model.dart';
+import 'package:acwadcom/features/user/explore/logic/cubit/explore_cubit.dart';
 import 'package:acwadcom/features/user/explore/ui/screens/list_stores_screen.dart';
 import 'package:acwadcom/features/user/explore/ui/widget/build_list_featured_stores.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
+import 'package:acwadcom/helpers/di/dependency_injection.dart';
 
 class ExplpreScreen extends StatefulWidget {
   const ExplpreScreen({super.key});
@@ -14,6 +17,12 @@ class ExplpreScreen extends StatefulWidget {
 }
 
 class _ExplpreScreenState extends State<ExplpreScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final double itemWidth = MediaQuery.of(context).size.width * 0.8;
@@ -40,50 +49,74 @@ class _ExplpreScreenState extends State<ExplpreScreen> {
           deatilsForCopunns: "أكواد خصم تصل الى %20"),
     ];
 
-    return Scaffold(
-        backgroundColor: Color(0xffF5F5F5),
-        body: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: TSizes.defaultSpace,
-              vertical: TSizes.defaultSpace,
-            ),
-            child: ListView(children: [
-              isLoggedInUser ?  customAppBar(context) : SizedBox(height: 0,),
-              buildSpacerH(10.0),
-                  ASearchContainer(
-                    text: AText.search.tr(context),
-                    onPressed: () =>  navigateNamedTo(context,Routes.searchScreen),
-                  ),              buildSpacerH(10.0),
-              // TSectionHeader(
-              //   title: AText.mostUsedCopuns.tr(context),
-              //   textColor: ManagerColors.kCustomColor,
-              // ),
-              buildSpacerH(5.0),
-              //** The most used Copuns  */
-              // BuildListMostUserCopuns(itemWidth: itemWidth),
-              // //** The Special Stores */
-              // buildSpacerH(10.0),
-              TSectionHeader(
-                title: AText.featuredStore.tr(context),
-                textColor: ManagerColors.kCustomColor,
-                showActionButton: true,
-                onPressed: () => navigateTo(context,ListStoresScreen(stores: stores)),
+    return BlocProvider(
+      create: (context) => getIt<ExploreCubit>()..fetchSpecialStores(),
+      child: Scaffold(
+          backgroundColor: Color(0xffF5F5F5),
+          body: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: TSizes.defaultSpace,
+                vertical: TSizes.defaultSpace,
               ),
-              buildSpacerH(5.0),
-              BuildListFeaturedStores(
-                stores: stores,
-              ),
+              child: ListView(children: [
+                isLoggedInUser
+                    ? customAppBar(context)
+                    : SizedBox(
+                        height: 0,
+                      ),
+                buildSpacerH(10.0),
+                ASearchContainer(
+                  text: AText.search.tr(context),
+                  onPressed: () =>
+                      navigateNamedTo(context, Routes.searchScreen),
+                ),
+                buildSpacerH(10.0),
+                // TSectionHeader(
+                //   title: AText.mostUsedCopuns.tr(context),
+                //   textColor: ManagerColors.kCustomColor,
+                // ),
+                buildSpacerH(5.0),
+                //** The most used Copuns  */
+                // BuildListMostUserCopuns(itemWidth: itemWidth),
+                // //** The Special Stores */
+                // buildSpacerH(10.0),
+                TSectionHeader(
+                  title: AText.featuredStore.tr(context),
+                  textColor: ManagerColors.kCustomColor,
+                  showActionButton: true,
+                  onPressed: () =>
+                      navigateNamedTo(context,Routes.listOfStoresScreen)
+                ),
+                buildSpacerH(5.0),
+                BlocBuilder<ExploreCubit, ExploreState>(
+                  buildWhen: (previous, current) => current is LoadingStores || current is SucessGetSpecialStores,
+                  builder: (context, state) {
+                    return state.maybeWhen(
+                      loadingStores: () => BuildCustomLoader(),
+                      sucessGetSpecialStores: (stores) {
+                         return BuildListFeaturedStores(
+                      stores: stores,
+                    );
+                      } ,
+                      
+                      orElse: ()=> Container());
+                   
+                  },
+                ),
 
-              buildSpacerH(10.0),
-              //** The Adddred Recntly */
-              TSectionHeader(
-                title: AText.recntlyAdded.tr(context),
-                textColor: ManagerColors.kCustomColor,
-                showActionButton: true,
-                
-              ),
-              buildSpacerH(5.0),
-              BuildListMostUserCopuns(itemWidth: itemWidth,axis: Axis.vertical,),
-            ])));
+                buildSpacerH(10.0),
+                //** The Adddred Recntly */
+                TSectionHeader(
+                  title: AText.recntlyAdded.tr(context),
+                  textColor: ManagerColors.kCustomColor,
+                  showActionButton: true,
+                ),
+                buildSpacerH(5.0),
+                BuildListMostUserCopuns(
+                  itemWidth: itemWidth,
+                  axis: Axis.vertical,
+                ),
+              ]))),
+    );
   }
 }

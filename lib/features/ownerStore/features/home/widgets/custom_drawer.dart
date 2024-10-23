@@ -83,7 +83,7 @@ class CustomDrawer extends StatelessWidget {
                         ),
                     onTap: () {
                       // Handle Delete Store action
-                      getIt<AuthenticationRepository>().logout();
+                      getIt<AuthenticationRepository>().logout(context);
                       navigateAndFinishNamed(context, Routes.loginScreen);
 
                     },
