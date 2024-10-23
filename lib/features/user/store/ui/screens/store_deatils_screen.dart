@@ -6,6 +6,7 @@ import 'package:acwadcom/features/user/explore/logic/cubit/explore_cubit.dart';
 import 'package:acwadcom/features/user/home/logic/home/cubit/home_cubit.dart';
 import 'package:acwadcom/features/user/home/ui/home_screen.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/build_featured_code.dart';
+import 'package:acwadcom/features/user/wishlist/logic/cubit/wishlist_cubit.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/models/user_model.dart';
 
@@ -79,10 +80,23 @@ class _StoreDeatilsScreenState extends State<StoreDeatilsScreen> {
                             right: 16 // Padding for Arabic
                             ),
                         child: InkWell(
-                          child: svgImage("_icGrayHeart", isRtl: isRTL(context)),
+                          child: BlocBuilder<WishlistCubit,WishlistState>(
+                              builder: (context,state){
+                                final isFavorited = (state is WishlistStoresLoaded &&
+                                    state.stores.any((c) => c.id == widget.store.id));
+                              return isFavorited  ? svgImage("_icHeart_click" ,isRtl: isRTL(context)) :  svgImage("_icGrayHeart", isRtl: isRTL(context));
+                              }
+                          ),
                           onTap: () {
                             //** TOTO heart Store.... */
                             // Navigator.pop(context);
+                            // Handle adding/removing from wishlist on tap
+                            if (context.read<WishlistCubit>().isStoreInWishlist(widget.store)) {
+                              context.read<WishlistCubit>().removeStoreFromWishlist(widget.store);
+
+                            } else {
+                              context.read<WishlistCubit>().addStoreToWishList(widget.store);
+                            }
                           },
                         ),
                       ),

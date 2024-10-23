@@ -85,11 +85,29 @@ class WishlistCubit extends Cubit<WishlistState> {
   addStoreToWishList(UserModel store)async {
     try{
       await _wihslistRepository.addStoreToWishList(store);
-      
-
+      await featchWishLitForStores();
     }catch(error){
-
+      emit(WishlistState.wishlistFaluire(error: error.toString()));
     }
+  }
+
+  // Remove Store from wishlist
+  Future<void> removeStoreFromWishlist(UserModel store) async {
+    try {
+      await _wihslistRepository.removeStoreFromWishList(store);
+      await featchWishLitForStores(); // Refresh the wishlist after removal
+    } catch (e) {
+      throw 'Failed to remove coupon from wishlist: $e';
+    }
+  }
+
+  // Check if a store is in the wishlist
+  bool isStoreInWishlist(UserModel coupon) {
+    final state = this.state;
+    if (state is WishlistStoresLoaded) {
+      return state.stores.any((c) => c.id == coupon.id);
+    }
+    return false;
   }
   
 }
