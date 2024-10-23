@@ -101,9 +101,7 @@ class _WishlistScreenState extends State<WishlistScreen>
                   controller: _tabController,
                   children: [
                     CouponsFavoritesScreen(),
-                    favStores.isEmpty
-                        ? emptyWishList(context)
-                        : BuildListFeaturedStores(stores: favStores)
+                    StoresWishListScreen(favStores: favStores)
                   ],
                 ),
               ),
@@ -136,6 +134,33 @@ class _WishlistScreenState extends State<WishlistScreen>
                 ])
               ])));
     }
+  }
+}
+
+class StoresWishListScreen extends StatelessWidget {
+  const StoresWishListScreen({
+    super.key,
+
+  });
+
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<WishlistCubit,WishlistState>(
+    buildWhen: (previous,current) => current is WishlistLoading || current is WishlistStoresLoaded || current is WishlistFaluire,
+        builder: (context,state) {
+    return state.maybeWhen(
+    wishlistLoading: () => BuildCustomLoader(),
+    wishlistStoresLoaded: (stores) => BuildListFeaturedStores(stores: stores),
+    emptyWishList: () => emptyWishList(context),
+    wishlistFaluire: (error) => setupError(),
+    orElse: (){return emptyWishList(context);});
+    });
+    }
+  }
+
+  Widget setupError() {
+    return const SizedBox.shrink();
   }
 }
 
