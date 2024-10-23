@@ -1,18 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:acwadcom/acwadcom_packges.dart';
-import 'package:acwadcom/common/widgets/build_custom_loader.dart';
-import 'package:acwadcom/features/user/explore/data/store_model.dart';
-import 'package:acwadcom/features/user/explore/ui/widget/build_list_featured_stores.dart';
-import 'package:acwadcom/features/user/home/ui/home_screen.dart';
 import 'package:acwadcom/features/user/wishlist/logic/cubit/wishlist_cubit.dart';
-import 'package:acwadcom/features/user/wishlist/widgets/empty_wish_list.dart';
+import 'package:acwadcom/features/user/wishlist/ui/stores_favorites_screen.dart';
 import 'package:acwadcom/features/user/wishlist/widgets/tab_Item.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
-import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/models/user_model.dart';
-
-import '../../home/ui/widgets/build_list_coupons.dart';
+import 'coupons_favorites_screen.dart';
 
 class WishlistScreen extends StatefulWidget {
   const WishlistScreen({super.key});
@@ -101,7 +95,7 @@ class _WishlistScreenState extends State<WishlistScreen>
                   controller: _tabController,
                   children: [
                     CouponsFavoritesScreen(),
-                    StoresWishListScreen(favStores: favStores)
+                    StoresWishListScreen()
                   ],
                 ),
               ),
@@ -137,56 +131,6 @@ class _WishlistScreenState extends State<WishlistScreen>
   }
 }
 
-class StoresWishListScreen extends StatelessWidget {
-  const StoresWishListScreen({
-    super.key,
-
-  });
 
 
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<WishlistCubit,WishlistState>(
-    buildWhen: (previous,current) => current is WishlistLoading || current is WishlistStoresLoaded || current is WishlistFaluire,
-        builder: (context,state) {
-    return state.maybeWhen(
-    wishlistLoading: () => BuildCustomLoader(),
-    wishlistStoresLoaded: (stores) => BuildListFeaturedStores(stores: stores),
-    emptyWishList: () => emptyWishList(context),
-    wishlistFaluire: (error) => setupError(),
-    orElse: (){return emptyWishList(context);});
-    });
-    }
-  }
 
-  Widget setupError() {
-    return const SizedBox.shrink();
-  }
-}
-
-class CouponsFavoritesScreen extends StatefulWidget {
-  const CouponsFavoritesScreen({super.key});
-
-  @override
-  State<CouponsFavoritesScreen> createState() => _CouponsFavoritesScreenState();
-}
-
-class _CouponsFavoritesScreenState extends State<CouponsFavoritesScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<WishlistCubit, WishlistState>(
-      buildWhen: (previous, current) =>
-          current is WishlistLoading ||
-          current is WishlistLoaded ||
-          current is WishlistFaluire,
-      builder: (context, state) {
-        return state.maybeWhen(
-          wishlistLoading: () => BuildCustomLoader(),
-          wishlistLoaded: (coupons) => BuildListCoupons(coupons: coupons),
-          emptyWishList: () => emptyWishList(context),
-          orElse: () => emptyWishList(context),
-        );
-      },
-    );
-  }
-}
