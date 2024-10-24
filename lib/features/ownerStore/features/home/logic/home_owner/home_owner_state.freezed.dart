@@ -22,8 +22,8 @@ mixin _$HomeOwnerState {
     required TResult Function() loadingGetCouponsForOwner,
     required TResult Function(List<Coupon> coupons) successGetCouponsForOwner,
     required TResult Function(String error) faluireGetCouponsForOwner,
+    required TResult Function(int number) getNumberOfCoupons,
     required TResult Function() emptyCouponsForOwner,
-    required TResult Function() getAllCategories,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,8 +32,8 @@ mixin _$HomeOwnerState {
     TResult? Function()? loadingGetCouponsForOwner,
     TResult? Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult? Function(String error)? faluireGetCouponsForOwner,
+    TResult? Function(int number)? getNumberOfCoupons,
     TResult? Function()? emptyCouponsForOwner,
-    TResult? Function()? getAllCategories,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,8 +42,8 @@ mixin _$HomeOwnerState {
     TResult Function()? loadingGetCouponsForOwner,
     TResult Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult Function(String error)? faluireGetCouponsForOwner,
+    TResult Function(int number)? getNumberOfCoupons,
     TResult Function()? emptyCouponsForOwner,
-    TResult Function()? getAllCategories,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -56,8 +56,8 @@ mixin _$HomeOwnerState {
         successGetCouponsForOwner,
     required TResult Function(FaluireGetCouponsForOwner value)
         faluireGetCouponsForOwner,
+    required TResult Function(GetNumberOfCoupons value) getNumberOfCoupons,
     required TResult Function(EmptyCouponsForOwner value) emptyCouponsForOwner,
-    required TResult Function(GetAllCategories value) getAllCategories,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,8 +69,8 @@ mixin _$HomeOwnerState {
         successGetCouponsForOwner,
     TResult? Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
+    TResult? Function(GetNumberOfCoupons value)? getNumberOfCoupons,
     TResult? Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
-    TResult? Function(GetAllCategories value)? getAllCategories,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,8 +82,8 @@ mixin _$HomeOwnerState {
         successGetCouponsForOwner,
     TResult Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
+    TResult Function(GetNumberOfCoupons value)? getNumberOfCoupons,
     TResult Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
-    TResult Function(GetAllCategories value)? getAllCategories,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -149,8 +149,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loadingGetCouponsForOwner,
     required TResult Function(List<Coupon> coupons) successGetCouponsForOwner,
     required TResult Function(String error) faluireGetCouponsForOwner,
+    required TResult Function(int number) getNumberOfCoupons,
     required TResult Function() emptyCouponsForOwner,
-    required TResult Function() getAllCategories,
   }) {
     return initial();
   }
@@ -162,8 +162,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loadingGetCouponsForOwner,
     TResult? Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult? Function(String error)? faluireGetCouponsForOwner,
+    TResult? Function(int number)? getNumberOfCoupons,
     TResult? Function()? emptyCouponsForOwner,
-    TResult? Function()? getAllCategories,
   }) {
     return initial?.call();
   }
@@ -175,8 +175,8 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loadingGetCouponsForOwner,
     TResult Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult Function(String error)? faluireGetCouponsForOwner,
+    TResult Function(int number)? getNumberOfCoupons,
     TResult Function()? emptyCouponsForOwner,
-    TResult Function()? getAllCategories,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -195,8 +195,8 @@ class _$InitialImpl implements _Initial {
         successGetCouponsForOwner,
     required TResult Function(FaluireGetCouponsForOwner value)
         faluireGetCouponsForOwner,
+    required TResult Function(GetNumberOfCoupons value) getNumberOfCoupons,
     required TResult Function(EmptyCouponsForOwner value) emptyCouponsForOwner,
-    required TResult Function(GetAllCategories value) getAllCategories,
   }) {
     return initial(this);
   }
@@ -211,8 +211,8 @@ class _$InitialImpl implements _Initial {
         successGetCouponsForOwner,
     TResult? Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
+    TResult? Function(GetNumberOfCoupons value)? getNumberOfCoupons,
     TResult? Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
-    TResult? Function(GetAllCategories value)? getAllCategories,
   }) {
     return initial?.call(this);
   }
@@ -227,8 +227,8 @@ class _$InitialImpl implements _Initial {
         successGetCouponsForOwner,
     TResult Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
+    TResult Function(GetNumberOfCoupons value)? getNumberOfCoupons,
     TResult Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
-    TResult Function(GetAllCategories value)? getAllCategories,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -287,8 +287,8 @@ class _$LoadingGetCouponsForOwnerImpl implements LoadingGetCouponsForOwner {
     required TResult Function() loadingGetCouponsForOwner,
     required TResult Function(List<Coupon> coupons) successGetCouponsForOwner,
     required TResult Function(String error) faluireGetCouponsForOwner,
+    required TResult Function(int number) getNumberOfCoupons,
     required TResult Function() emptyCouponsForOwner,
-    required TResult Function() getAllCategories,
   }) {
     return loadingGetCouponsForOwner();
   }
@@ -300,8 +300,8 @@ class _$LoadingGetCouponsForOwnerImpl implements LoadingGetCouponsForOwner {
     TResult? Function()? loadingGetCouponsForOwner,
     TResult? Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult? Function(String error)? faluireGetCouponsForOwner,
+    TResult? Function(int number)? getNumberOfCoupons,
     TResult? Function()? emptyCouponsForOwner,
-    TResult? Function()? getAllCategories,
   }) {
     return loadingGetCouponsForOwner?.call();
   }
@@ -313,8 +313,8 @@ class _$LoadingGetCouponsForOwnerImpl implements LoadingGetCouponsForOwner {
     TResult Function()? loadingGetCouponsForOwner,
     TResult Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult Function(String error)? faluireGetCouponsForOwner,
+    TResult Function(int number)? getNumberOfCoupons,
     TResult Function()? emptyCouponsForOwner,
-    TResult Function()? getAllCategories,
     required TResult orElse(),
   }) {
     if (loadingGetCouponsForOwner != null) {
@@ -333,8 +333,8 @@ class _$LoadingGetCouponsForOwnerImpl implements LoadingGetCouponsForOwner {
         successGetCouponsForOwner,
     required TResult Function(FaluireGetCouponsForOwner value)
         faluireGetCouponsForOwner,
+    required TResult Function(GetNumberOfCoupons value) getNumberOfCoupons,
     required TResult Function(EmptyCouponsForOwner value) emptyCouponsForOwner,
-    required TResult Function(GetAllCategories value) getAllCategories,
   }) {
     return loadingGetCouponsForOwner(this);
   }
@@ -349,8 +349,8 @@ class _$LoadingGetCouponsForOwnerImpl implements LoadingGetCouponsForOwner {
         successGetCouponsForOwner,
     TResult? Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
+    TResult? Function(GetNumberOfCoupons value)? getNumberOfCoupons,
     TResult? Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
-    TResult? Function(GetAllCategories value)? getAllCategories,
   }) {
     return loadingGetCouponsForOwner?.call(this);
   }
@@ -365,8 +365,8 @@ class _$LoadingGetCouponsForOwnerImpl implements LoadingGetCouponsForOwner {
         successGetCouponsForOwner,
     TResult Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
+    TResult Function(GetNumberOfCoupons value)? getNumberOfCoupons,
     TResult Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
-    TResult Function(GetAllCategories value)? getAllCategories,
     required TResult orElse(),
   }) {
     if (loadingGetCouponsForOwner != null) {
@@ -458,8 +458,8 @@ class _$SuccessGetCouponsForOwnerImpl implements SuccessGetCouponsForOwner {
     required TResult Function() loadingGetCouponsForOwner,
     required TResult Function(List<Coupon> coupons) successGetCouponsForOwner,
     required TResult Function(String error) faluireGetCouponsForOwner,
+    required TResult Function(int number) getNumberOfCoupons,
     required TResult Function() emptyCouponsForOwner,
-    required TResult Function() getAllCategories,
   }) {
     return successGetCouponsForOwner(coupons);
   }
@@ -471,8 +471,8 @@ class _$SuccessGetCouponsForOwnerImpl implements SuccessGetCouponsForOwner {
     TResult? Function()? loadingGetCouponsForOwner,
     TResult? Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult? Function(String error)? faluireGetCouponsForOwner,
+    TResult? Function(int number)? getNumberOfCoupons,
     TResult? Function()? emptyCouponsForOwner,
-    TResult? Function()? getAllCategories,
   }) {
     return successGetCouponsForOwner?.call(coupons);
   }
@@ -484,8 +484,8 @@ class _$SuccessGetCouponsForOwnerImpl implements SuccessGetCouponsForOwner {
     TResult Function()? loadingGetCouponsForOwner,
     TResult Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult Function(String error)? faluireGetCouponsForOwner,
+    TResult Function(int number)? getNumberOfCoupons,
     TResult Function()? emptyCouponsForOwner,
-    TResult Function()? getAllCategories,
     required TResult orElse(),
   }) {
     if (successGetCouponsForOwner != null) {
@@ -504,8 +504,8 @@ class _$SuccessGetCouponsForOwnerImpl implements SuccessGetCouponsForOwner {
         successGetCouponsForOwner,
     required TResult Function(FaluireGetCouponsForOwner value)
         faluireGetCouponsForOwner,
+    required TResult Function(GetNumberOfCoupons value) getNumberOfCoupons,
     required TResult Function(EmptyCouponsForOwner value) emptyCouponsForOwner,
-    required TResult Function(GetAllCategories value) getAllCategories,
   }) {
     return successGetCouponsForOwner(this);
   }
@@ -520,8 +520,8 @@ class _$SuccessGetCouponsForOwnerImpl implements SuccessGetCouponsForOwner {
         successGetCouponsForOwner,
     TResult? Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
+    TResult? Function(GetNumberOfCoupons value)? getNumberOfCoupons,
     TResult? Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
-    TResult? Function(GetAllCategories value)? getAllCategories,
   }) {
     return successGetCouponsForOwner?.call(this);
   }
@@ -536,8 +536,8 @@ class _$SuccessGetCouponsForOwnerImpl implements SuccessGetCouponsForOwner {
         successGetCouponsForOwner,
     TResult Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
+    TResult Function(GetNumberOfCoupons value)? getNumberOfCoupons,
     TResult Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
-    TResult Function(GetAllCategories value)? getAllCategories,
     required TResult orElse(),
   }) {
     if (successGetCouponsForOwner != null) {
@@ -628,8 +628,8 @@ class _$FaluireGetCouponsForOwnerImpl implements FaluireGetCouponsForOwner {
     required TResult Function() loadingGetCouponsForOwner,
     required TResult Function(List<Coupon> coupons) successGetCouponsForOwner,
     required TResult Function(String error) faluireGetCouponsForOwner,
+    required TResult Function(int number) getNumberOfCoupons,
     required TResult Function() emptyCouponsForOwner,
-    required TResult Function() getAllCategories,
   }) {
     return faluireGetCouponsForOwner(error);
   }
@@ -641,8 +641,8 @@ class _$FaluireGetCouponsForOwnerImpl implements FaluireGetCouponsForOwner {
     TResult? Function()? loadingGetCouponsForOwner,
     TResult? Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult? Function(String error)? faluireGetCouponsForOwner,
+    TResult? Function(int number)? getNumberOfCoupons,
     TResult? Function()? emptyCouponsForOwner,
-    TResult? Function()? getAllCategories,
   }) {
     return faluireGetCouponsForOwner?.call(error);
   }
@@ -654,8 +654,8 @@ class _$FaluireGetCouponsForOwnerImpl implements FaluireGetCouponsForOwner {
     TResult Function()? loadingGetCouponsForOwner,
     TResult Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult Function(String error)? faluireGetCouponsForOwner,
+    TResult Function(int number)? getNumberOfCoupons,
     TResult Function()? emptyCouponsForOwner,
-    TResult Function()? getAllCategories,
     required TResult orElse(),
   }) {
     if (faluireGetCouponsForOwner != null) {
@@ -674,8 +674,8 @@ class _$FaluireGetCouponsForOwnerImpl implements FaluireGetCouponsForOwner {
         successGetCouponsForOwner,
     required TResult Function(FaluireGetCouponsForOwner value)
         faluireGetCouponsForOwner,
+    required TResult Function(GetNumberOfCoupons value) getNumberOfCoupons,
     required TResult Function(EmptyCouponsForOwner value) emptyCouponsForOwner,
-    required TResult Function(GetAllCategories value) getAllCategories,
   }) {
     return faluireGetCouponsForOwner(this);
   }
@@ -690,8 +690,8 @@ class _$FaluireGetCouponsForOwnerImpl implements FaluireGetCouponsForOwner {
         successGetCouponsForOwner,
     TResult? Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
+    TResult? Function(GetNumberOfCoupons value)? getNumberOfCoupons,
     TResult? Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
-    TResult? Function(GetAllCategories value)? getAllCategories,
   }) {
     return faluireGetCouponsForOwner?.call(this);
   }
@@ -706,8 +706,8 @@ class _$FaluireGetCouponsForOwnerImpl implements FaluireGetCouponsForOwner {
         successGetCouponsForOwner,
     TResult Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
+    TResult Function(GetNumberOfCoupons value)? getNumberOfCoupons,
     TResult Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
-    TResult Function(GetAllCategories value)? getAllCategories,
     required TResult orElse(),
   }) {
     if (faluireGetCouponsForOwner != null) {
@@ -725,6 +725,174 @@ abstract class FaluireGetCouponsForOwner implements HomeOwnerState {
   @JsonKey(ignore: true)
   _$$FaluireGetCouponsForOwnerImplCopyWith<_$FaluireGetCouponsForOwnerImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetNumberOfCouponsImplCopyWith<$Res> {
+  factory _$$GetNumberOfCouponsImplCopyWith(_$GetNumberOfCouponsImpl value,
+          $Res Function(_$GetNumberOfCouponsImpl) then) =
+      __$$GetNumberOfCouponsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int number});
+}
+
+/// @nodoc
+class __$$GetNumberOfCouponsImplCopyWithImpl<$Res>
+    extends _$HomeOwnerStateCopyWithImpl<$Res, _$GetNumberOfCouponsImpl>
+    implements _$$GetNumberOfCouponsImplCopyWith<$Res> {
+  __$$GetNumberOfCouponsImplCopyWithImpl(_$GetNumberOfCouponsImpl _value,
+      $Res Function(_$GetNumberOfCouponsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? number = null,
+  }) {
+    return _then(_$GetNumberOfCouponsImpl(
+      number: null == number
+          ? _value.number
+          : number // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetNumberOfCouponsImpl implements GetNumberOfCoupons {
+  const _$GetNumberOfCouponsImpl({required this.number});
+
+  @override
+  final int number;
+
+  @override
+  String toString() {
+    return 'HomeOwnerState.getNumberOfCoupons(number: $number)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetNumberOfCouponsImpl &&
+            (identical(other.number, number) || other.number == number));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, number);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetNumberOfCouponsImplCopyWith<_$GetNumberOfCouponsImpl> get copyWith =>
+      __$$GetNumberOfCouponsImplCopyWithImpl<_$GetNumberOfCouponsImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingGetCouponsForOwner,
+    required TResult Function(List<Coupon> coupons) successGetCouponsForOwner,
+    required TResult Function(String error) faluireGetCouponsForOwner,
+    required TResult Function(int number) getNumberOfCoupons,
+    required TResult Function() emptyCouponsForOwner,
+  }) {
+    return getNumberOfCoupons(number);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingGetCouponsForOwner,
+    TResult? Function(List<Coupon> coupons)? successGetCouponsForOwner,
+    TResult? Function(String error)? faluireGetCouponsForOwner,
+    TResult? Function(int number)? getNumberOfCoupons,
+    TResult? Function()? emptyCouponsForOwner,
+  }) {
+    return getNumberOfCoupons?.call(number);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingGetCouponsForOwner,
+    TResult Function(List<Coupon> coupons)? successGetCouponsForOwner,
+    TResult Function(String error)? faluireGetCouponsForOwner,
+    TResult Function(int number)? getNumberOfCoupons,
+    TResult Function()? emptyCouponsForOwner,
+    required TResult orElse(),
+  }) {
+    if (getNumberOfCoupons != null) {
+      return getNumberOfCoupons(number);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingGetCouponsForOwner value)
+        loadingGetCouponsForOwner,
+    required TResult Function(SuccessGetCouponsForOwner value)
+        successGetCouponsForOwner,
+    required TResult Function(FaluireGetCouponsForOwner value)
+        faluireGetCouponsForOwner,
+    required TResult Function(GetNumberOfCoupons value) getNumberOfCoupons,
+    required TResult Function(EmptyCouponsForOwner value) emptyCouponsForOwner,
+  }) {
+    return getNumberOfCoupons(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingGetCouponsForOwner value)?
+        loadingGetCouponsForOwner,
+    TResult? Function(SuccessGetCouponsForOwner value)?
+        successGetCouponsForOwner,
+    TResult? Function(FaluireGetCouponsForOwner value)?
+        faluireGetCouponsForOwner,
+    TResult? Function(GetNumberOfCoupons value)? getNumberOfCoupons,
+    TResult? Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
+  }) {
+    return getNumberOfCoupons?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(LoadingGetCouponsForOwner value)?
+        loadingGetCouponsForOwner,
+    TResult Function(SuccessGetCouponsForOwner value)?
+        successGetCouponsForOwner,
+    TResult Function(FaluireGetCouponsForOwner value)?
+        faluireGetCouponsForOwner,
+    TResult Function(GetNumberOfCoupons value)? getNumberOfCoupons,
+    TResult Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
+    required TResult orElse(),
+  }) {
+    if (getNumberOfCoupons != null) {
+      return getNumberOfCoupons(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetNumberOfCoupons implements HomeOwnerState {
+  const factory GetNumberOfCoupons({required final int number}) =
+      _$GetNumberOfCouponsImpl;
+
+  int get number;
+  @JsonKey(ignore: true)
+  _$$GetNumberOfCouponsImplCopyWith<_$GetNumberOfCouponsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -770,8 +938,8 @@ class _$EmptyCouponsForOwnerImpl implements EmptyCouponsForOwner {
     required TResult Function() loadingGetCouponsForOwner,
     required TResult Function(List<Coupon> coupons) successGetCouponsForOwner,
     required TResult Function(String error) faluireGetCouponsForOwner,
+    required TResult Function(int number) getNumberOfCoupons,
     required TResult Function() emptyCouponsForOwner,
-    required TResult Function() getAllCategories,
   }) {
     return emptyCouponsForOwner();
   }
@@ -783,8 +951,8 @@ class _$EmptyCouponsForOwnerImpl implements EmptyCouponsForOwner {
     TResult? Function()? loadingGetCouponsForOwner,
     TResult? Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult? Function(String error)? faluireGetCouponsForOwner,
+    TResult? Function(int number)? getNumberOfCoupons,
     TResult? Function()? emptyCouponsForOwner,
-    TResult? Function()? getAllCategories,
   }) {
     return emptyCouponsForOwner?.call();
   }
@@ -796,8 +964,8 @@ class _$EmptyCouponsForOwnerImpl implements EmptyCouponsForOwner {
     TResult Function()? loadingGetCouponsForOwner,
     TResult Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult Function(String error)? faluireGetCouponsForOwner,
+    TResult Function(int number)? getNumberOfCoupons,
     TResult Function()? emptyCouponsForOwner,
-    TResult Function()? getAllCategories,
     required TResult orElse(),
   }) {
     if (emptyCouponsForOwner != null) {
@@ -816,8 +984,8 @@ class _$EmptyCouponsForOwnerImpl implements EmptyCouponsForOwner {
         successGetCouponsForOwner,
     required TResult Function(FaluireGetCouponsForOwner value)
         faluireGetCouponsForOwner,
+    required TResult Function(GetNumberOfCoupons value) getNumberOfCoupons,
     required TResult Function(EmptyCouponsForOwner value) emptyCouponsForOwner,
-    required TResult Function(GetAllCategories value) getAllCategories,
   }) {
     return emptyCouponsForOwner(this);
   }
@@ -832,8 +1000,8 @@ class _$EmptyCouponsForOwnerImpl implements EmptyCouponsForOwner {
         successGetCouponsForOwner,
     TResult? Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
+    TResult? Function(GetNumberOfCoupons value)? getNumberOfCoupons,
     TResult? Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
-    TResult? Function(GetAllCategories value)? getAllCategories,
   }) {
     return emptyCouponsForOwner?.call(this);
   }
@@ -848,8 +1016,8 @@ class _$EmptyCouponsForOwnerImpl implements EmptyCouponsForOwner {
         successGetCouponsForOwner,
     TResult Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
+    TResult Function(GetNumberOfCoupons value)? getNumberOfCoupons,
     TResult Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
-    TResult Function(GetAllCategories value)? getAllCategories,
     required TResult orElse(),
   }) {
     if (emptyCouponsForOwner != null) {
@@ -861,139 +1029,4 @@ class _$EmptyCouponsForOwnerImpl implements EmptyCouponsForOwner {
 
 abstract class EmptyCouponsForOwner implements HomeOwnerState {
   const factory EmptyCouponsForOwner() = _$EmptyCouponsForOwnerImpl;
-}
-
-/// @nodoc
-abstract class _$$GetAllCategoriesImplCopyWith<$Res> {
-  factory _$$GetAllCategoriesImplCopyWith(_$GetAllCategoriesImpl value,
-          $Res Function(_$GetAllCategoriesImpl) then) =
-      __$$GetAllCategoriesImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$GetAllCategoriesImplCopyWithImpl<$Res>
-    extends _$HomeOwnerStateCopyWithImpl<$Res, _$GetAllCategoriesImpl>
-    implements _$$GetAllCategoriesImplCopyWith<$Res> {
-  __$$GetAllCategoriesImplCopyWithImpl(_$GetAllCategoriesImpl _value,
-      $Res Function(_$GetAllCategoriesImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$GetAllCategoriesImpl implements GetAllCategories {
-  const _$GetAllCategoriesImpl();
-
-  @override
-  String toString() {
-    return 'HomeOwnerState.getAllCategories()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GetAllCategoriesImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loadingGetCouponsForOwner,
-    required TResult Function(List<Coupon> coupons) successGetCouponsForOwner,
-    required TResult Function(String error) faluireGetCouponsForOwner,
-    required TResult Function() emptyCouponsForOwner,
-    required TResult Function() getAllCategories,
-  }) {
-    return getAllCategories();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loadingGetCouponsForOwner,
-    TResult? Function(List<Coupon> coupons)? successGetCouponsForOwner,
-    TResult? Function(String error)? faluireGetCouponsForOwner,
-    TResult? Function()? emptyCouponsForOwner,
-    TResult? Function()? getAllCategories,
-  }) {
-    return getAllCategories?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loadingGetCouponsForOwner,
-    TResult Function(List<Coupon> coupons)? successGetCouponsForOwner,
-    TResult Function(String error)? faluireGetCouponsForOwner,
-    TResult Function()? emptyCouponsForOwner,
-    TResult Function()? getAllCategories,
-    required TResult orElse(),
-  }) {
-    if (getAllCategories != null) {
-      return getAllCategories();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(LoadingGetCouponsForOwner value)
-        loadingGetCouponsForOwner,
-    required TResult Function(SuccessGetCouponsForOwner value)
-        successGetCouponsForOwner,
-    required TResult Function(FaluireGetCouponsForOwner value)
-        faluireGetCouponsForOwner,
-    required TResult Function(EmptyCouponsForOwner value) emptyCouponsForOwner,
-    required TResult Function(GetAllCategories value) getAllCategories,
-  }) {
-    return getAllCategories(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(LoadingGetCouponsForOwner value)?
-        loadingGetCouponsForOwner,
-    TResult? Function(SuccessGetCouponsForOwner value)?
-        successGetCouponsForOwner,
-    TResult? Function(FaluireGetCouponsForOwner value)?
-        faluireGetCouponsForOwner,
-    TResult? Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
-    TResult? Function(GetAllCategories value)? getAllCategories,
-  }) {
-    return getAllCategories?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(LoadingGetCouponsForOwner value)?
-        loadingGetCouponsForOwner,
-    TResult Function(SuccessGetCouponsForOwner value)?
-        successGetCouponsForOwner,
-    TResult Function(FaluireGetCouponsForOwner value)?
-        faluireGetCouponsForOwner,
-    TResult Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
-    TResult Function(GetAllCategories value)? getAllCategories,
-    required TResult orElse(),
-  }) {
-    if (getAllCategories != null) {
-      return getAllCategories(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetAllCategories implements HomeOwnerState {
-  const factory GetAllCategories() = _$GetAllCategoriesImpl;
 }

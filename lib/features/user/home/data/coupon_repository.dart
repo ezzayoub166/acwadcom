@@ -52,7 +52,10 @@ class CouponRepository {
 
   Future<List<Coupon>> fetchCoupons() async {
     try {
-      final ref = await _db.collection(couponsConstant).get();
+       // Get the current date and time
+  DateTime currentDate = DateTime.now();
+  Timestamp currentTimestamp = Timestamp.fromDate(currentDate);
+      final ref = await _db.collection(couponsConstant).where('EndData', isGreaterThan: currentTimestamp).get();
       final coupons =
           ref.docs.map((document) => Coupon.fromSnapshot(document)).toList();
       return coupons;
@@ -70,11 +73,77 @@ class CouponRepository {
     }
   }
 
+
+  Future<List<Coupon>> fetchRecentlyAddedCoupons() async {
+  try {
+    // Get the current date and time
+    DateTime currentDate = DateTime.now();
+    Timestamp currentTimestamp = Timestamp.fromDate(currentDate);
+
+    // Query the Firestore collection for coupons that have not expired
+    // and order them by uploadDate in descending order to get the most recent first
+    final ref = await _db
+        .collection(couponsConstant)
+        .where('EndData', isGreaterThan: currentTimestamp)
+        .limit(10)
+        .get();
+
+
+        
+
+    // Convert the documents into Coupon objects
+    final coupons = ref.docs.map((document) => Coupon.fromSnapshot(document)).toList();
+
+        // Sort locally by uploadDate in descending order
+    coupons.sort((a, b) => b.uploadDate.compareTo(a.uploadDate));
+
+    // Return only the most recent 10 coupons
+    return coupons.toList();
+
+  } on FirebaseAuthException catch (e) {
+    throw TFirebaseAuthException(e.code).message;
+  } on FirebaseException catch (e) {
+    throw TFirebaseException(e.code).message;
+  } on FormatException catch (_) {
+    throw const TFormatException();
+  } on PlatformException catch (e) {
+    throw TPlatformException(e.code).message;
+  } catch (e) {
+    print(e);
+    throw 'Something went wrong. Please try again';
+  }
+}
+
+
+
+  // Future<List<Coupon>> fetchCoupons() async {
+  //   try {
+  //     final ref = await _db.collection(couponsConstant).get();
+  //     final coupons =
+  //         ref.docs.map((document) => Coupon.fromSnapshot(document)).toList();
+  //     return coupons;
+  //   } on FirebaseAuthException catch (e) {
+  //     throw TFirebaseAuthException(e.code).message;
+  //   } on FirebaseException catch (e) {
+  //     throw TFirebaseException(e.code).message;
+  //   } on FormatException catch (_) {
+  //     throw const TFormatException();
+  //   } on PlatformException catch (e) {
+  //     throw TPlatformException(e.code).message;
+  //   } catch (e) {
+  //     print(e);
+  //     throw 'something went wrong. Please try again';
+  //   }
+  // }
+
   Future<List<Coupon>> fetchCouponsForOwner() async {
     try {
       final storeOwnerId = getIt<CacheHelper>().getValueWithKey("userID");
+           // Get the current date and time
+  DateTime currentDate = DateTime.now();
+  Timestamp currentTimestamp = Timestamp.fromDate(currentDate);
 
-      final ref = await _db.collection(couponsConstant).where("ownerCoupon.id" , isEqualTo: storeOwnerId).get();
+      final ref = await _db.collection(couponsConstant).where("ownerCoupon.id" , isEqualTo: storeOwnerId).where('EndData', isGreaterThan: currentTimestamp).get();
       final coupons =
           ref.docs.map((document) => Coupon.fromSnapshot(document)).toList();
       return coupons;

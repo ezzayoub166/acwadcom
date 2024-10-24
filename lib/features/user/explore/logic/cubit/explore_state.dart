@@ -18,6 +18,8 @@ class ExploreState with _$ExploreState {
    const factory ExploreState.emptyListCoupons() = EmptyListCoupons;
 
 
+   
+
   
 
 

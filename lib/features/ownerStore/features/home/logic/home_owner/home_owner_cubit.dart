@@ -11,15 +11,24 @@ class HomeOwnerCubit extends Cubit<HomeOwnerState> {
   final CouponRepository couponRepository;
 
 
+  int numberOfItems = 0 ;
+
+
 
 emitGetCoupons()async{
   emit(const HomeOwnerState.loadingGetCouponsForOwner());
   try{
     final List<Coupon> coupons = await couponRepository.fetchCouponsForOwner();
     emit(HomeOwnerState.successGetCouponsForOwner(coupons: coupons));
+emit(HomeOwnerState.getNumberOfCoupons(number: coupons.length));
   }catch(error){
     emit(HomeOwnerState.faluireGetCouponsForOwner(error: error.toString()));
   }
+}
+
+
+emitNumberOfItems(){
+      emit(HomeOwnerState.getNumberOfCoupons(number: numberOfItems));
 }
   
 

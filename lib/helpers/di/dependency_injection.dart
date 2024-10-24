@@ -85,7 +85,7 @@ Future<void> setupGetIt() async {
 
 
 
-      getIt.registerFactory<ExploreCubit>(() => ExploreCubit(getIt<StoreRepository>()));
+      getIt.registerFactory<ExploreCubit>(() => ExploreCubit(getIt<StoreRepository>() , getIt<CouponRepository>()));
 
   getIt.registerFactory<CreateCouponCubit>(() => CreateCouponCubit(
       getIt<CategoryRepository>(),

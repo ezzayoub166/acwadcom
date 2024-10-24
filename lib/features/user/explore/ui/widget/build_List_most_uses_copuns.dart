@@ -1,18 +1,22 @@
 // ignore_for_file: file_names
 
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/common/widgets/build_extended_image.dart';
+import 'package:acwadcom/models/coupon_model.dart';
+import 'package:intl/intl.dart';
 
 class BuildListMostUserCopuns extends StatelessWidget {
   const BuildListMostUserCopuns({
     super.key,
     required this.itemWidth,
     this.axis = Axis.horizontal,
-    this.isExpanded = false,
+    this.isExpanded = false, required this.coupons,
   });
 
   final double itemWidth;
   final Axis axis;
   final bool isExpanded;
+  final List<Coupon> coupons;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +24,7 @@ class BuildListMostUserCopuns extends StatelessWidget {
       height: 1000,
       child: ListView.separated(
         scrollDirection: axis,
-        itemCount: 6,
+        itemCount: coupons.length,
         physics: const NeverScrollableScrollPhysics(),
         separatorBuilder: (ctx, index) => buildSpacerH(20.0),
         itemBuilder: (context, index) {
@@ -35,11 +39,11 @@ class BuildListMostUserCopuns extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                buildFavAndCopyWgt(context),
+                buildFavAndCopyWgt(context,coupons[index]),
                 // buildSpacerH(3),
                 buildDashedLine(),
                 // buildSpacerH(3),
-                buildAttributesWgt(context),
+                buildAttributesWgt(context,coupons[index]),
               ],
             ),
           );
@@ -48,7 +52,7 @@ class BuildListMostUserCopuns extends StatelessWidget {
     );
   }
 
-  Flexible buildFavAndCopyWgt(BuildContext context) {
+  Flexible buildFavAndCopyWgt(BuildContext context , Coupon coupon) {
     return Flexible(
       flex: 2,
       child: Stack(
@@ -68,8 +72,8 @@ class BuildListMostUserCopuns extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    myText("15% خصم",
-                        fontSize: 12,
+                    myText("${coupon.discountRate}% ${AText.discountText.tr(context)}",
+                        fontSize: 10,
                         fontWeight: FontWeightEnum.Bold.fontWeight),
                     buildSpacerH(5.0),
                     InkWell(
@@ -97,7 +101,9 @@ class BuildListMostUserCopuns extends StatelessWidget {
     );
   }
 
-  Flexible buildAttributesWgt(BuildContext context) {
+  Flexible buildAttributesWgt(BuildContext context , Coupon coupon) {
+     String formattedDate = DateFormat('dd/MM/yyyy').format(coupon.endData.toDate());
+
     return Flexible(
       flex: 6,
       child: Column(
@@ -114,22 +120,25 @@ class BuildListMostUserCopuns extends StatelessWidget {
                 decoration: BoxDecoration(
                     border: Border.all(width: 1, color: Colors.grey.shade200),
                     borderRadius: BorderRadius.circular(15)),
-                child: myImage("icNike"),
+                child: extendedImageWgt(coupon.storeLogoURL!),
               ),
               buildSpacerW(5),
-              myText("Nike", color: ManagerColors.blackTextColorexploreItem),
+              myText(coupon.title, color: ManagerColors.blackTextColorexploreItem),
               //
             ],
           ),
           myText(AText.codeDicount.tr(context),
               color: ManagerColors.blackTextColorexploreItem),
           //** Discount Code */
-          myText("STANDR 20",
+          myText(coupon.code,
               fontSize: 14,
               fontWeight: FontWeightEnum.SemiBold.fontWeight,
               color: ManagerColors.yellowColor),
           //** deatils of Code. */
-          myText("أشهر ماركات الأحذية و الملابس الرياضية ",
+          myText(coupon.additionalTerms,
+          maxLines: 1,
+          overflow:TextOverflow.ellipsis,
+          
               fontSize: 14, fontWeight: FontWeightEnum.Regular.fontWeight),
 
           Row(
@@ -139,7 +148,7 @@ class BuildListMostUserCopuns extends StatelessWidget {
               myText(AText.endDate.tr(context),
                   fontSize: 14, color: Colors.green),
               buildSpacerW(2),
-              myText("12/3/2024")
+              myText(formattedDate)
             ],
           )
         ],
@@ -152,7 +161,7 @@ class BuildListMostUserCopuns extends StatelessWidget {
       flex: 1,
       child: Column(
         children: [
-          buildSpacerH(10.0),
+          buildSpacerH(2.0),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: List.generate(
@@ -167,7 +176,7 @@ class BuildListMostUserCopuns extends StatelessWidget {
               ),
             ),
           ),
-          buildSpacerH(5.0.h),
+          buildSpacerH(2.0.h),
         ],
       ),
     );

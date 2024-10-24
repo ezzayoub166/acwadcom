@@ -1,5 +1,6 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/user/explore/data/store_repository.dart';
+import 'package:acwadcom/features/user/home/data/coupon_repository.dart';
 import 'package:acwadcom/models/coupon_model.dart';
 import 'package:acwadcom/models/user_model.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,9 +10,10 @@ part 'explore_state.dart';
 part 'explore_cubit.freezed.dart';
 
 class ExploreCubit extends Cubit<ExploreState> {
-  ExploreCubit(this.storeRepository) : super(const ExploreState.initial());
+  ExploreCubit(this.storeRepository, this.couponRepository) : super(const ExploreState.initial());
 
   final StoreRepository storeRepository;
+  final CouponRepository couponRepository;
 
   Future<List<Coupon>> fetchMostUsedCoupons() async {
     return [Coupon.empty()];
@@ -55,7 +57,15 @@ class ExploreCubit extends Cubit<ExploreState> {
   }
 
 
-  Future<List<Coupon>> fetchCouponsAddedRecently() async {
-    return [Coupon.empty()];
+  Future<void> fetchCouponsAddedRecently() async {
+    try{
+      emit(const ExploreState.loadingGetCoupons());
+      await couponRepository.fetchRecentlyAddedCoupons().then((coupons){
+        emit(ExploreState.successGetCoupon(coupons: coupons));
+      });
+    }catch(error){
+      emit(ExploreState.errorGetCoupons(error: error.toString()));
+
+    }
   }
 }

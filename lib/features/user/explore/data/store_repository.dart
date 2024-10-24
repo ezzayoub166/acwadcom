@@ -50,7 +50,10 @@ class StoreRepository{
   //fetch
   Future<List<Coupon>> fetchCouponForSelectStore(String ownerID)async{
     try{
-      final ref = await _db.collection("Coupons").where("ownerCoupon.id" , isEqualTo: ownerID).get();
+           // Get the current date and time
+  DateTime currentDate = DateTime.now();
+  Timestamp currentTimestamp = Timestamp.fromDate(currentDate);
+      final ref = await _db.collection("Coupons").where('EndData', isGreaterThan: currentTimestamp).where("ownerCouponId" , isEqualTo: ownerID).get();
       final coupons = ref.docs.map((coupon) => Coupon.fromSnapshot(coupon)).toList();
       return coupons;
     }on FirebaseAuthException catch (e){
@@ -62,7 +65,9 @@ class StoreRepository{
     }on PlatformException catch (e){
       throw TPlatformException(e.code).message;
     }catch(e){
+      print(e.toString());
       throw 'something went wrong. Please try again';
+      
     }
     
   }

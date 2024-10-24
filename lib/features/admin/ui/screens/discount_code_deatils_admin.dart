@@ -19,7 +19,7 @@ class DiscountCodeDeatilsAdmin extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     final coupon = couponRequest.coupon;
-    print(coupon.endData);
+
       // Format the DateTime to the desired format (DD/MM/YYYY)
   String formattedDate = DateFormat('dd/MM/yyyy').format(coupon.endData.toDate());
   // print(formattedDate);

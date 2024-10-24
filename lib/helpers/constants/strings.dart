@@ -79,6 +79,7 @@ class AText {
 
   static const codeDicount = "Discount code";
   static const endDate = "End";
+  static const discountText = "discount";
   static const mostUsedCopuns = "Most Used Coupons";
   static const featuredStore = "Featured Stores";
   static const recntlyAdded = "Recently added";

@@ -89,6 +89,7 @@ class CreateCouponCubit extends Cubit<CreateCouponState> {
         isFeatured: false,
         isMostUsed: false,
         couponId: couponID,
+        ownerCouponId: userId,
         discountRate: discountRateController.text.trim(),
         storeLink: storeLinkController.text.trim(),
         storeLogoURL: urlLOGO,

@@ -50,7 +50,7 @@ class _ExplpreScreenState extends State<ExplpreScreen> {
     ];
 
     return BlocProvider(
-      create: (context) => getIt<ExploreCubit>()..fetchSpecialStores(),
+      create: (context) => getIt<ExploreCubit>()..fetchSpecialStores()..fetchCouponsAddedRecently(),
       child: Scaffold(
           backgroundColor: Color(0xffF5F5F5),
           body: Padding(
@@ -81,26 +81,25 @@ class _ExplpreScreenState extends State<ExplpreScreen> {
                 // //** The Special Stores */
                 // buildSpacerH(10.0),
                 TSectionHeader(
-                  title: AText.featuredStore.tr(context),
-                  textColor: ManagerColors.kCustomColor,
-                  showActionButton: true,
-                  onPressed: () =>
-                      navigateNamedTo(context,Routes.listOfStoresScreen)
-                ),
+                    title: AText.featuredStore.tr(context),
+                    textColor: ManagerColors.kCustomColor,
+                    showActionButton: true,
+                    onPressed: () =>
+                        navigateNamedTo(context, Routes.listOfStoresScreen)),
                 buildSpacerH(5.0),
                 BlocBuilder<ExploreCubit, ExploreState>(
-                  buildWhen: (previous, current) => current is LoadingStores || current is SucessGetSpecialStores,
+                  buildWhen: (previous, current) =>
+                      current is LoadingStores ||
+                      current is SucessGetSpecialStores,
                   builder: (context, state) {
                     return state.maybeWhen(
-                      loadingStores: () => BuildCustomLoader(),
-                      sucessGetSpecialStores: (stores) {
-                         return BuildListFeaturedStores(
-                      stores: stores,
-                    );
-                      } ,
-                      
-                      orElse: ()=> Container());
-                   
+                        loadingStores: () => BuildCustomLoader(),
+                        sucessGetSpecialStores: (stores) {
+                          return BuildListFeaturedStores(
+                            stores: stores,
+                          );
+                        },
+                        orElse: () => Container());
                   },
                 ),
 
@@ -112,11 +111,42 @@ class _ExplpreScreenState extends State<ExplpreScreen> {
                   showActionButton: true,
                 ),
                 buildSpacerH(5.0),
-                BuildListMostUserCopuns(
-                  itemWidth: itemWidth,
-                  axis: Axis.vertical,
+                BlocBuilder<ExploreCubit, ExploreState>(
+                  buildWhen: (previous, current) => current is LoadingGetCoupons || current is SuccessGetCoupon || current is FaluireGetStores,
+                  builder: (context, state) {
+                    return state.maybeWhen(
+                      loadingGetCoupons: () => Center(child: BuildCustomLoader(),),
+                      successGetCoupon: (coupons) {
+                        return BuildListMostUserCopuns(
+                      itemWidth: itemWidth,
+                      axis: Axis.vertical, coupons: coupons,
+                    );
+                      },
+                      faluireGetStores: (error) =>  setUpError(error),
+                      
+                      orElse: (){
+                        return SizedBox.shrink();
+                      });
+                    
+                  },
                 ),
               ]))),
+    );
+  }
+
+
+  Widget setUpError(error){
+    print(error.toString());
+    return Center(
+      child: Container(
+        height: 200,
+        width: 200,
+        decoration: BoxDecoration(
+          color: ManagerColors.blackTextColorexploreItem,
+          borderRadius: BorderRadius.circular(10)
+        ),
+        child: myText(error.toString() , fontSize: 16 , fontWeight: FontWeightEnum.Bold.fontWeight),
+      ),
     );
   }
 }

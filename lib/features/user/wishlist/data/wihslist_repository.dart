@@ -11,11 +11,14 @@ class WihslistRepository {
 
   Future<List<Coupon>> feathcoWishList() async {
     try {
+           // Get the current date and time
+  DateTime currentDate = DateTime.now();
+  Timestamp currentTimestamp = Timestamp.fromDate(currentDate);
       final userId = getIt<CacheHelper>().getValueWithKey("userID");
       final ref = await _db
           .collection("Users")
           .doc(userId)
-          .collection("wishlist")
+          .collection("wishlist").where('EndData', isGreaterThan: currentTimestamp)
           .get();
       final coupons =
           ref.docs.map((document) => Coupon.fromSnapshot(document)).toList();

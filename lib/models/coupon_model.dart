@@ -18,17 +18,18 @@ class Coupon {
   final String? storeLogoURL;
   // final String? mobileNumberOwner ; 
   // final String? emailNumberOwner ; 
-  // final String? userIDAdded ; 
   final bool isFeatured ;
   final bool isMostUsed;
   final Timestamp uploadDate;
   final UserModel ownerCoupon;
+  final String ownerCouponId ;
 
   Coupon(
       {
       this.isFeatured = false,
       this.isMostUsed = false,
       required this.code,
+      required this.ownerCouponId,
       required this.title, 
       required this.couponId,
       required this.discountRate,
@@ -60,7 +61,8 @@ class Coupon {
       'isFeatured':isFeatured,
       'isMostUsed':isMostUsed,
       'uploadDate':uploadDate,
-      'ownerCoupon':ownerCoupon.toJson()
+      'ownerCoupon':ownerCoupon.toJson(),
+      'ownerCouponId':ownerCouponId
     };
   }
 
@@ -82,6 +84,7 @@ class Coupon {
         // userIDAdded: data["userIDAdded"],
         isFeatured: data["isFeatured"],
         isMostUsed:data["isMostUsed"],
+        ownerCouponId: data["ownerCouponId"],
          uploadDate: data["uploadDate"] ?? Timestamp.now(), ownerCoupon: UserModel.fromJson(data["ownerCoupon"])
         );
   }
@@ -102,6 +105,7 @@ class Coupon {
         : Timestamp.now(), // Handling possible non-Timestamp
           numberOfUse: data["NumberOfUse"],
           additionalTerms: data["AdditionalTerms"],
+          ownerCouponId:data["ownerCouponId"],
           // mobileNumberOwner: data["mobileNumberOwner"],
           // emailNumberOwner: data["emailNumberOwner"],
           // userIDAdded: data["userIDAdded"],
@@ -138,5 +142,5 @@ class Coupon {
       // userIDAdded: "",
       // mobileNumberOwner: "",
       // emailNumberOwner: "",
-       uploadDate: Timestamp.now(), ownerCoupon: UserModel.empty());
+       uploadDate: Timestamp.now(), ownerCoupon: UserModel.empty(), ownerCouponId: '');
 }
