@@ -1,11 +1,7 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/common/widgets/build_custom_loader.dart';
-import 'package:acwadcom/features/admin/logic/home_admin_cubit/cubit/home_admin_cubit.dart';
-import 'package:acwadcom/features/user/explore/data/store_model.dart';
 import 'package:acwadcom/features/user/explore/logic/cubit/explore_cubit.dart';
-import 'package:acwadcom/features/user/home/logic/home/cubit/home_cubit.dart';
-import 'package:acwadcom/features/user/home/ui/home_screen.dart';
-import 'package:acwadcom/features/user/home/ui/widgets/build_featured_code.dart';
+import 'package:acwadcom/features/user/wishlist/data/wihslist_repository.dart';
 import 'package:acwadcom/features/user/wishlist/logic/cubit/wishlist_cubit.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/models/user_model.dart';
@@ -21,11 +17,21 @@ class StoreDeatilsScreen extends StatefulWidget {
 }
 
 class _StoreDeatilsScreenState extends State<StoreDeatilsScreen> {
+  bool isWishList = false;
   @override
   void initState() {
-    // TODO: implement initState
+    // TODO: implement InitState
     super.initState();
+    checkWishlistStatus();
+  }
 
+  // Create an async method to handle the async operation
+  Future<void> checkWishlistStatus() async {
+    isWishList =
+        await getIt<WihslistRepository>().isWishListStore(widget.store.id);
+    setState(() {
+      // Trigger UI update once the async call is done
+    });
   }
 
   @override
@@ -33,7 +39,8 @@ class _StoreDeatilsScreenState extends State<StoreDeatilsScreen> {
     final double itemWidth = MediaQuery.of(context).size.width * 0.9;
 
     return BlocProvider(
-      create: (context) => getIt<ExploreCubit>()..getCouponsForSelectedStore(widget.store.id),
+      create: (context) =>
+          getIt<ExploreCubit>()..getCouponsForSelectedStore(widget.store.id),
       child: Scaffold(
           backgroundColor: Color(0xffF5F5F5),
           body: Stack(
@@ -57,48 +64,59 @@ class _StoreDeatilsScreenState extends State<StoreDeatilsScreen> {
                     backgroundColor: ManagerColors.kCustomColor,
                     leading: Padding(
                       padding: EdgeInsets.only(
-                        left: Localizations.localeOf(context).languageCode == 'ar'
-                            ? 0
-                            : 16, // Padding for English
+                        left:
+                            Localizations.localeOf(context).languageCode == 'ar'
+                                ? 0
+                                : 16, // Padding for English
                         right:
                             Localizations.localeOf(context).languageCode == 'ar'
                                 ? 16
                                 : 0, // Padding for Arabic
                       ),
                       child: InkWell(
-                        child:
-                            svgImage("arrow-circle-left", isRtl: isRTL(context)),
+                        child: svgImage("arrow-circle-left",
+                            isRtl: isRTL(context)),
                         onTap: () {
                           Navigator.pop(context);
                         },
                       ),
                     ),
                     actions: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 16, // Padding for English
-                            right: 16 // Padding for Arabic
-                            ),
-                        child: InkWell(
-                          child: BlocBuilder<WishlistCubit,WishlistState>(
-                              builder: (context,state){
-                                final isFavorited = (state is WishlistStoresLoaded &&
-                                    state.stores.any((c) => c.id == widget.store.id));
-                              return isFavorited  ? svgImage("_icHeart_click" ,isRtl: isRTL(context)) :  svgImage("_icGrayHeart", isRtl: isRTL(context));
-                              }
-                          ),
-                          onTap: () {
-                            //** TOTO heart Store.... */
-                            // Navigator.pop(context);
-                            // Handle adding/removing from wishlist on tap
-                            if (context.read<WishlistCubit>().isStoreInWishlist(widget.store)) {
-                              context.read<WishlistCubit>().removeStoreFromWishlist(widget.store);
+                      BlocBuilder<WishlistStoresCubit, WishListStoresState>(
+                        builder: (context, state) {
+                          return Padding(
+                            padding: const EdgeInsets.only(
+                                left: 16, // Padding for English
+                                right: 16 // Padding for Arabic
+                                ),
+                            child: InkWell(
+                              child: isWishList
+                                  ? svgImage("_icHeart_click",
+                                      isRtl: isRTL(context))
+                                  : svgImage("_icGrayHeart",
+                                      isRtl: isRTL(context)),
+                              onTap: () async{
+                                //** TOTO heart Store.... */
+                                // Navigator.pop(context);
+                                // Handle adding/removing from wishlist on tap
+                                if (isWishList) {
+                                 await getIt<WihslistRepository>().removeStoreFromWishList(widget.store);
+                                
 
-                            } else {
-                              context.read<WishlistCubit>().addStoreToWishList(widget.store);
-                            }
-                          },
-                        ),
+                                } else {
+                                  await getIt<WihslistRepository>().addStoreToWishList(widget.store);
+                                 
+                                }
+
+                                setState(() {
+                                  isWishList = !isWishList;
+                                });
+
+                               
+                              },
+                            ),
+                          );
+                        },
                       ),
                     ],
                   )),
@@ -120,16 +138,20 @@ class _StoreDeatilsScreenState extends State<StoreDeatilsScreen> {
                           color: ManagerColors.kCustomColor),
                       BlocBuilder<ExploreCubit, ExploreState>(
                         buildWhen: (previous, current) =>
-                        current is SuccessGetCoupon ||
+                            current is SuccessGetCoupon ||
                             current is LoadingGetCoupons ||
                             current is ErrorGetCoupons,
                         builder: (context, state) {
                           return state.maybeWhen(
                             loadingGetCoupons: () => BuildCustomLoader(),
-                            successGetCoupon: (coupons) => BuildListCoupons(coupons: coupons),
-                            errorGetCoupons: (error) => Center(child: myText(error)),
-                            emptyListCoupons: () => Center(child: myText("No coupons available")),
-                            orElse: () => Center(child: myText("not contain Coupons yet..")),
+                            successGetCoupon: (coupons) =>
+                                BuildListCoupons(coupons: coupons),
+                            errorGetCoupons: (error) =>
+                                Center(child: myText(error)),
+                            emptyListCoupons: () =>
+                                Center(child: myText("No coupons available")),
+                            orElse: () => Center(
+                                child: myText("not contain Coupons yet..")),
                           );
                         },
                       )

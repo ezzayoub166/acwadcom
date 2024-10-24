@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/features/user/wishlist/logic/coupons_wishlist/cubit/wihslist_coupons_cubit.dart';
 import 'package:acwadcom/features/user/wishlist/logic/cubit/wishlist_cubit.dart';
 import 'package:acwadcom/features/user/wishlist/ui/stores_favorites_screen.dart';
 import 'package:acwadcom/features/user/wishlist/widgets/tab_Item.dart';
@@ -26,6 +27,10 @@ class _WishlistScreenState extends State<WishlistScreen>
   @override
   void initState() {
     super.initState();
+    
+    
+    
+    
     _tabController = TabController(length: 2, vsync: this);
   }
 
@@ -67,10 +72,7 @@ class _WishlistScreenState extends State<WishlistScreen>
                   //   25.0,
                   // ),
                 ),
-                child: BlocBuilder<WishlistCubit, WishlistState>(
-                  builder: (context, state) {
-                    // state.maybeWhen(wishlistLoaded: (coupons) => , initial: () {  }, orElse: () {  },);
-                    return TabBar(
+                child:  TabBar(
                       indicatorSize: TabBarIndicatorSize.tab,
                       dividerColor: Colors.transparent,
                       controller: _tabController,
@@ -81,19 +83,41 @@ class _WishlistScreenState extends State<WishlistScreen>
                       labelColor: ManagerColors.kCustomColor,
                       unselectedLabelColor: ManagerColors.kCustomColor,
                       tabs: [
-                        TabItem(title: AText.coupons.tr(context), count: 1),
-                        TabItem(title: AText.stores.tr(context), count: 4)
+
+                       BlocBuilder<WishListCouponsCubit, WishListCouponsState>(
+                        buildWhen: (previous, current) => current is GetNumberOFCouponsInWishList,
+                      builder: (context, state) {
+                        if(state is GetNumberOFCouponsInWishList){
+                        return TabItem(title: AText.coupons.tr(context), count:state.count);
+                        }
+                        return TabItem(title: AText.coupons.tr(context), count:0);
+
+                      },
+                    ),
+                    BlocBuilder<WishlistStoresCubit, WishListStoresState>(
+                       buildWhen: (previous, current) => current is GetNumberOFStoresInWishList,
+                      builder: (context, state) {
+                      
+                        if(state is GetNumberOFStoresInWishList){
+                        return TabItem(title: AText.stores.tr(context), count: state.count);
+                        }
+                        return TabItem(title: AText.stores.tr(context), count: 0);
+
+
+                      },
+                    )
+                        
                       ],
-                    );
-                  },
+                )
+                   
                 ),
-              ),
               buildSpacerH(20.0),
               SizedBox(
                 height: 400.h,
                 child: TabBarView(
                   controller: _tabController,
                   children: [
+                    
                     CouponsFavoritesScreen(),
                     StoresWishListScreen()
                   ],

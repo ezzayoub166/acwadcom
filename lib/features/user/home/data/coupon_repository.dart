@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/models/coupon_model.dart';
 import 'package:acwadcom/models/coupon_request.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -68,6 +69,32 @@ class CouponRepository {
       throw 'something went wrong. Please try again';
     }
   }
+
+  Future<List<Coupon>> fetchCouponsForOwner() async {
+    try {
+      final storeOwnerId = getIt<CacheHelper>().getValueWithKey("userID");
+
+      final ref = await _db.collection(couponsConstant).where("ownerCoupon.id" , isEqualTo: storeOwnerId).get();
+      final coupons =
+          ref.docs.map((document) => Coupon.fromSnapshot(document)).toList();
+      return coupons;
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      print(e);
+      throw 'something went wrong. Please try again';
+    }
+  }
+
+
+
+
 
   Future<List<CouponRequest>> fetchCouponsRequest() async {
     try {

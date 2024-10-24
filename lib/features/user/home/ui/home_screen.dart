@@ -9,9 +9,10 @@ import 'package:acwadcom/features/user/home/ui/widgets/build_featured_code.dart'
 import 'package:acwadcom/features/user/home/ui/widgets/build_list_categories_shimer.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/build_list_coupons.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/home_categories.dart';
+import 'package:acwadcom/features/user/wishlist/logic/coupons_wishlist/cubit/wihslist_coupons_cubit.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
-import 'package:acwadcom/models/coupon_model.dart';
+import 'package:intl/intl.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -24,9 +25,27 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
-    // TODO: implement initState
+    // TODO: implement initState    
     super.initState();
-    // BlocProvider.of<HomeCubit>(context).emitSelectedCategory(0);
+ // The string you have
+  String dateString = "October 24, 2024 at 10:20:00 PM UTC+3";
+
+  // Define a pattern matching the format of your date string
+  DateFormat dateFormat = DateFormat("MMMM d, y 'at' h:mm:ss a 'UTC+3'");
+
+  try {
+    // Parse the date string
+    DateTime parsedDate = dateFormat.parse(dateString);
+
+    // Format the date as 'dd/MM/yyyy'
+    String formattedDate = DateFormat('dd/MM/yyyy').format(parsedDate);
+
+    print(formattedDate); // Output: 24/10/2024
+  } catch (e) {
+    print('Error parsing date: $e');
+  }
+     
+
   }
 
 

@@ -47,10 +47,8 @@ class UserRepository {
     try {
       final documentSnapshot = await _db.collection(collectionNameUsers).doc(_currentAuthUser?.uid).get();
       if (documentSnapshot.exists) {
-        print("Exist");
         return UserModel.fromSnapshot(documentSnapshot);
       } else {
-        print("Not Exist");
         return UserModel.empty();
       }
     } on FirebaseAuthException catch (e) {
@@ -72,10 +70,8 @@ class UserRepository {
     try {
       final documentSnapshot = await _db.collection(collectionNameUsers).doc(userID).get();
       if (documentSnapshot.exists) {
-        print("Exist");
         return UserModel.fromSnapshot(documentSnapshot);
       } else {
-        print("Exist");
         return UserModel.empty();
       }
     } on FirebaseAuthException catch (e) {

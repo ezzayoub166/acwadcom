@@ -4,8 +4,9 @@ import '../../../store/ui/screens/store_deatils_screen.dart';
 
 class BuildlistOfAllStores extends StatelessWidget {
   final List<UserModel> stores;
+  final  Color? colorForITem;
   const BuildlistOfAllStores({
-    super.key, required this.stores,
+    super.key, required this.stores, this.colorForITem =Colors.white ,
   });
 
   @override
@@ -32,12 +33,12 @@ class BuildlistOfAllStores extends StatelessWidget {
                 alignment: Alignment.center,
                 children: [
                   Container(
-                    height: 90.h,
-                    // width: 130, // Fixed responsive width
+                   height: 100.h,
+                    // width: 130.w, 
                     // width: double.infinity,
                     padding: EdgeInsets.all(8.w),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: colorForITem,
                       borderRadius: BorderRadius.circular(16.0),
                     ),
                     child: Column(
@@ -49,7 +50,7 @@ class BuildlistOfAllStores extends StatelessWidget {
                             FontWeightEnum.Regular.fontWeight),
                         myText(
                           //TODO: MUST ADD DEATILS FILED FOR THIS POINT .....
-                          "Details For Store",
+                          store.deatilsForStore??"أكواد خصم تصل إلى %20",
                           fontSize: 16.0,
                           color: Colors.grey[700],
                           textAlign: TextAlign.center,

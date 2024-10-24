@@ -6,8 +6,9 @@ import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/helpers/constants/strings.dart';
 import 'package:acwadcom/models/coupon_model.dart';
 import 'package:acwadcom/models/coupon_request.dart';
-import 'package:acwadcom/features/ownerStore/features/authitcation/logic/home_owner/home_owner_cubit.dart';
+import 'package:acwadcom/features/ownerStore/features/home/logic/home_owner/home_owner_cubit.dart';
 import 'package:extended_image/extended_image.dart';
+import 'package:intl/intl.dart';
 
 class DiscountCodeDeatilsAdmin extends StatelessWidget {
   final CouponRequest couponRequest;
@@ -18,6 +19,11 @@ class DiscountCodeDeatilsAdmin extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     final coupon = couponRequest.coupon;
+    print(coupon.endData);
+      // Format the DateTime to the desired format (DD/MM/YYYY)
+  String formattedDate = DateFormat('dd/MM/yyyy').format(coupon.endData.toDate());
+  // print(formattedDate);
+
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -53,14 +59,14 @@ class DiscountCodeDeatilsAdmin extends StatelessWidget {
               buildInfoField(
                   AText.discountcode.tr(context), coupon.code, context),
               buildInfoField(AText.discontrate.tr(context),
-                  "${AText.discontrate}${coupon.discountRate}", context),
+                  "${coupon.discountRate}%", context),
               buildInfoField(
                   AText.linkofWebsite.tr(context), coupon.storeLink, context),
               buildInfoField(
                   AText.category.tr(context), coupon.category!.title, context),
               // buildInfoField(AText.stateData.tr(context), "2024-3-30", context),
               buildInfoField(AText.endDate.tr(context),
-                  coupon.endData.toString(), context),
+                  formattedDate, context),
 
               // Notes Section
               buildNotesField(

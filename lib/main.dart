@@ -1,7 +1,7 @@
 import 'package:acwadcom/acwadcom.dart';
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/features/user/wishlist/logic/coupons_wishlist/cubit/wihslist_coupons_cubit.dart';
 import 'package:acwadcom/features/user/wishlist/logic/cubit/wishlist_cubit.dart';
-import 'package:acwadcom/features/user/wishlist/widgets/wish_list_copuns.dart';
 import 'package:acwadcom/localiztion_cubit/locale_cubit.dart';
 import 'package:acwadcom/features/user/home/logic/avatar/avatar_cubit.dart';
 import 'package:acwadcom/helpers/Routing/app_router.dart';
@@ -45,10 +45,12 @@ void main() async {
       BlocProvider<AvatarCubit>(
         create: (context) => AvatarCubit(),
       ),
-      BlocProvider<WishlistCubit>(
-          create: (context) => getIt<WishlistCubit>()
-            ..feathcoWishList()
-            ..featchWishLitForStores())
+      BlocProvider<WishListCouponsCubit>(
+          create: (context) => getIt<WishListCouponsCubit>()..fetchFavoriteCoupons()
+           ),
+
+              BlocProvider<WishlistStoresCubit>(
+          create: (context) => getIt<WishlistStoresCubit>())
     ],
     child: AcwadcomApp(appRouter: AppRouter()),
   ));

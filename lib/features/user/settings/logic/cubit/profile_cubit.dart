@@ -31,6 +31,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     // If the fetch is successful, emit the loaded state with the user data
     emit(ProfileState.profileSuccess(user: user));
   } catch (e) {
+    print(e.toString());
     // If an error occurs, emit the error state with the error message
     emit(ProfileState.profileError(error: e.toString()));
   }

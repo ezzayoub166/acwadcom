@@ -3,9 +3,13 @@
 import 'dart:io';
 
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/features/ownerStore/features/home/logic/home_owner/home_owner_cubit.dart';
+import 'package:acwadcom/features/ownerStore/features/home/logic/home_owner/home_owner_state.dart';
 import 'package:acwadcom/features/user/coupons/logic/cubit/create_coupon_cubit_cubit.dart';
 import 'package:acwadcom/features/user/coupons/ui/widgets/create_coupon_listener.dart';
+import 'package:acwadcom/features/user/home/data/category_repository.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
+import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CreateCodeScreen extends StatefulWidget {
@@ -24,9 +28,11 @@ class _CreateCodeScreenState extends State<CreateCodeScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    BlocProvider.of<CreateCouponCubit>(context).fetchCategories();
-  }
+    
+    context.read<CreateCouponCubit>().fetchCategories();
 
+    }
+  
 
 
   @override
@@ -197,7 +203,9 @@ class _CreateCodeScreenState extends State<CreateCodeScreen> {
                             ],
                           ),
                         ),
+                   
                       ],
+                      
                     ),
                   ));
                 },

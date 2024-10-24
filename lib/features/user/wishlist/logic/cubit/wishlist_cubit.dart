@@ -1,9 +1,6 @@
-import 'dart:convert';
+
 
 import 'package:acwadcom/features/user/wishlist/data/wihslist_repository.dart';
-import 'package:acwadcom/helpers/di/dependency_injection.dart';
-import 'package:acwadcom/helpers/services/cachce_services/chache_helper.dart';
-import 'package:acwadcom/models/coupon_model.dart';
 import 'package:acwadcom/models/user_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -11,84 +8,44 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'wishlist_state.dart';
 part 'wishlist_cubit.freezed.dart';
 
-class WishlistCubit extends Cubit<WishlistState> {
-  WishlistCubit(this._wihslistRepository)
-      : super(const WishlistState.initial());
+class WishlistStoresCubit extends Cubit<WishListStoresState> {
+ WishlistStoresCubit(this._wihslistRepository) : super(const WishListStoresState.initial());
 
   final WihslistRepository _wihslistRepository;
 
+  List<UserModel> wishlistStores = [];
 
-    ///! for Coupons ..........
-
-
-  feathcoWishList() async {
-    try {
-      emit(const WishlistState.wishlistLoading());
-      final wishlist = await _wihslistRepository.feathcoWishList();
-      if (wishlist.isEmpty) {
-        emit(const WishlistState.emptyWishList());
-      } else {
-        emit(WishlistState.wishlistLoaded(coupons: wishlist));
-      }
-    } catch (error) {
-      emit(WishlistState.wishlistFaluire(error: error.toString()));
-    }
-  }
-  //...
-
-  addToWishList(Coupon coupon)async{
-    try{
-      await _wihslistRepository.addCouponToWishList(coupon);
-      await feathcoWishList(); // Refresh the wishlist
-    }catch(error){
-      emit(WishlistState.wishlistFaluire(error: error.toString()));
-    }
-  }
-
-    // Remove coupon from wishlist
-  Future<void> removeCouponFromWishlist(Coupon coupon) async {
-    try {
-       await _wihslistRepository.removeCouponFromWishList(coupon);
-        await feathcoWishList(); // Refresh the wishlist after removal
-
-
-    } catch (e) {
-      throw 'Failed to remove coupon from wishlist: $e';
-    }
-  }
-
-    // Check if a coupon is in the wishlist
-  bool isInWishlist(Coupon coupon) {
-    final state = this.state;
-    if (state is WishlistLoaded) {
-      return state.coupons.any((c) => c.couponId == coupon.couponId);
-    }
-    return false;
-  }
 
 
   ///! for Stores ..........
-  featchWishLitForStores() async {
+  fetchWishListForStores() async {
     try {
-      emit(const WishlistState.wishlistLoading());
+      emit(const WishListStoresState.wishlistStoresLoading());
       final wishlist = await _wihslistRepository.featchWishListForStores();
       if (wishlist.isEmpty) {
-        emit(const WishlistState.emptyWishList());
+        emit(const WishListStoresState.emptyStoresWishList());
+        emit(const WishListStoresState.getNumberOFStoresInWishList(count: 0));
       } else {
-        emit(WishlistState.wishlistStoresLoaded(stores: wishlist));
+        wishlistStores = wishlist;
+        emit(WishListStoresState.wishlistStoresLoaded(stores: wishlist));
+        emit(WishListStoresState.getNumberOFStoresInWishList(count: wishlist.length));
+        
       }
     } catch (error) {
-      emit(WishlistState.wishlistFaluire(error: error.toString()));
+      emit(WishListStoresState.wishlistStoresFaluire(error: error.toString()));
     }
   }
+
+
+  
 
 
   addStoreToWishList(UserModel store)async {
     try{
       await _wihslistRepository.addStoreToWishList(store);
-      await featchWishLitForStores();
+      await fetchWishListForStores();
     }catch(error){
-      emit(WishlistState.wishlistFaluire(error: error.toString()));
+      emit(WishListStoresState.wishlistStoresFaluire(error: error.toString()));
     }
   }
 
@@ -96,19 +53,31 @@ class WishlistCubit extends Cubit<WishlistState> {
   Future<void> removeStoreFromWishlist(UserModel store) async {
     try {
       await _wihslistRepository.removeStoreFromWishList(store);
-      await featchWishLitForStores(); // Refresh the wishlist after removal
+      await fetchWishListForStores(); // Refresh the wishlist after removal
     } catch (e) {
       throw 'Failed to remove coupon from wishlist: $e';
     }
   }
 
   // Check if a store is in the wishlist
-  bool isStoreInWishlist(UserModel coupon) {
+  bool isStoreInWishlist(UserModel store) {
     final state = this.state;
     if (state is WishlistStoresLoaded) {
-      return state.stores.any((c) => c.id == coupon.id);
+      return state.stores.any((c) => c.id == store.id);
     }
     return false;
   }
+
+  bool checkIfItemInWishlist(UserModel store){
+    if(wishlistStores.contains(store)){
+      return true;
+    }else{
+      return false;
+    }
+    
+  }
+
+
+
   
 }

@@ -16,6 +16,7 @@ class UserModel {
   final String profilePicture;
   final String userType ;
   final String? storeLink;
+  final String? deatilsForStore;
 
   Map<String, dynamic> toJson() {
     return {
@@ -25,13 +26,15 @@ class UserModel {
       "phoneNumber": phoneNumber,
       "profilePicture": profilePicture,
       "storeLink":storeLink,
-      "userType": userType 
+      "userType": userType ,
+      "deatilsForStore":deatilsForStore
     };
   }
 
   UserModel(
       {required this.id,
        this.storeLink = "", 
+       this.deatilsForStore = "",
      required this.userType,
       // required this.lastName,
       required this.userName,
@@ -73,7 +76,8 @@ class UserModel {
            email: doc["email"] ?? "",
            phoneNumber: doc["phoneNumber"] ?? "",
            profilePicture: doc["profilePicture"] ?? "",
-            storeLink: doc["storeLink"] ?? ""
+            storeLink: doc["storeLink"] ?? "",
+            deatilsForStore: doc["deatilsForStore"] ?? ""
            );
      }
        else{
@@ -88,7 +92,8 @@ class UserModel {
       email: json["email"], 
       phoneNumber: json["phoneNumber"], 
       profilePicture: json["profilePicture"], userType: json["userType"]?? "",
-      storeLink:json["storeLink"]
+      storeLink:json["storeLink"],
+      deatilsForStore: json["deatilsForStore"] ?? ""
       );
   }
 }

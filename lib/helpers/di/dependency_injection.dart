@@ -1,6 +1,7 @@
 import 'package:acwadcom/features/admin/logic/home_admin_cubit/cubit/home_admin_cubit.dart';
 import 'package:acwadcom/features/admin/logic/request/cubit/control_coupons_cubit.dart';
 import 'package:acwadcom/features/admin/srvices/coupon_request_services.dart';
+import 'package:acwadcom/features/ownerStore/features/home/logic/home_owner/home_owner_cubit.dart';
 import 'package:acwadcom/features/user/authtication/data/authentication_repository.dart';
 import 'package:acwadcom/features/user/authtication/data/user_repositry.dart';
 import 'package:acwadcom/features/user/authtication/logic/login/cubit/login_cubit.dart';
@@ -13,6 +14,7 @@ import 'package:acwadcom/features/user/home/data/coupon_repository.dart';
 import 'package:acwadcom/features/user/home/logic/home/cubit/home_cubit.dart';
 import 'package:acwadcom/features/user/settings/logic/cubit/profile_cubit.dart';
 import 'package:acwadcom/features/user/wishlist/data/wihslist_repository.dart';
+import 'package:acwadcom/features/user/wishlist/logic/coupons_wishlist/cubit/wihslist_coupons_cubit.dart';
 import 'package:acwadcom/features/user/wishlist/logic/cubit/wishlist_cubit.dart';
 import 'package:acwadcom/helpers/services/cachce_services/chache_helper.dart';
 import 'package:acwadcom/helpers/services/fireabse_storage_services.dart';
@@ -61,7 +63,14 @@ Future<void> setupGetIt() async {
       getIt<AuthenticationRepository>(), getIt<UserRepository>())); //Profile
 
 
-       getIt.registerFactory<WishlistCubit>(() => WishlistCubit(
+       getIt.registerFactory<WishListCouponsCubit>(() => WishListCouponsCubit(
+      getIt<WihslistRepository>()));
+
+
+         getIt.registerFactory<HomeOwnerCubit>(() => HomeOwnerCubit(
+      getIt<CouponRepository>()));
+
+        getIt.registerFactory<WishlistStoresCubit>(() => WishlistStoresCubit(
       getIt<WihslistRepository>()));
 
   getIt.registerFactory<ProfileCubit>(

@@ -1,12 +1,7 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/common/widgets/build_custom_loader.dart';
 import 'package:acwadcom/features/user/coupons/ui/widgets/build_app_bar_with_back_button.dart';
-import 'package:acwadcom/features/user/explore/data/store_model.dart';
 import 'package:acwadcom/features/user/explore/logic/cubit/explore_cubit.dart';
-import 'package:acwadcom/features/user/explore/ui/widget/build_list_featured_stores.dart';
-import 'package:acwadcom/features/user/explore/ui/widget/build_store_card.dart';
-
-import '../../../../../models/user_model.dart';
 import '../widget/build_list_of_all_stores.dart';
 
 class ListStoresScreen extends StatefulWidget {
@@ -29,7 +24,7 @@ class _ListStoresScreenState extends State<ListStoresScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xffF5F5F5),
+        backgroundColor: const Color(0xffF5F5F5),
         appBar: buildAppBarWithBackButton(context, isRTL(context),
             title: AText.stores.tr(context)),
         body: BlocBuilder<ExploreCubit , ExploreState>(

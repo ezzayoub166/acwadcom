@@ -12,6 +12,7 @@ class CreateCouponState<T> with _$CreateCouponState<T> {
   const factory CreateCouponState.loadingSetLogoStore() = LoadingSetLogoStore;
   const factory CreateCouponState.loadedSetLogoStore({required XFile imageURL}) = LoadedSetLogoStore;
   const factory CreateCouponState.emptyLogoStore() = EmptyLogoStore;
+  
 
 
 

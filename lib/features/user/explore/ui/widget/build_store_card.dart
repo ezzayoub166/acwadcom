@@ -14,8 +14,8 @@ class StoreCard extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         Container(
-          height: 90.h,
-           // width: 130.w, // Fixed responsive width
+          height: 100,
+           width: 130.w, // Fixed responsive width
           // width: double.infinity,
           padding: EdgeInsets.all(8.w),
           decoration: BoxDecoration(
@@ -25,11 +25,12 @@ class StoreCard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              myText(store.userName , fontSize: 15 , fontWeight: FontWeightEnum.Regular.fontWeight),
+              myText(store.userName , fontSize: 15 , fontWeight: FontWeightEnum.SemiBold.fontWeight),
               myText(
                 //!!! TODO create the deatis for store owner ,,,,, when create account
-                "IN DEBUGIN........",
-                  fontSize: 16.0,
+                store.deatilsForStore??"أكواد خصم تصل إلى %",
+                  fontSize: 15.0,
+                  maxLines: 2,
                   color: Colors.grey[700],
                 textAlign: TextAlign.center,
               ),
@@ -37,8 +38,9 @@ class StoreCard extends StatelessWidget {
             ],
           ),
         ),
+        
         Positioned(
-          top:10,
+          top:0,
           left: 30.w,
           right: 30.w,
           child: CircleAvatar(

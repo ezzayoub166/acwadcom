@@ -17,7 +17,7 @@ class BuildListMostUserCopuns extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 1200,
+      height: 1000,
       child: ListView.separated(
         scrollDirection: axis,
         itemCount: 6,
@@ -30,7 +30,7 @@ class BuildListMostUserCopuns extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
             width: itemWidth,
-            height: 170,
+            height: 140.h,
             padding: const EdgeInsets.all(10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -156,7 +156,7 @@ class BuildListMostUserCopuns extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: List.generate(
-              18,
+              15,
               (index) => Padding(
                 padding: const EdgeInsets.only(bottom: 2),
                 child: Container(

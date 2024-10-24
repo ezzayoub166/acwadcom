@@ -1,10 +1,10 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/common/widgets/build_extended_image.dart';
-import 'package:acwadcom/features/user/wishlist/logic/cubit/wishlist_cubit.dart';
+import 'package:acwadcom/features/user/wishlist/logic/coupons_wishlist/cubit/wihslist_coupons_cubit.dart';
 import 'package:acwadcom/models/coupon_model.dart';
 import 'package:acwadcom/features/ownerStore/features/home/widgets/custom_pop_dialog_delete.dart';
 
-class BuildFeaturedCode extends StatelessWidget {
+class BuildFeaturedCode extends StatefulWidget {
   final Coupon coupon;
 
   final bool isShowRemove;
@@ -15,10 +15,28 @@ class BuildFeaturedCode extends StatelessWidget {
   });
 
   @override
+  State<BuildFeaturedCode> createState() => _BuildFeaturedCodeState();
+}
+
+class _BuildFeaturedCodeState extends State<BuildFeaturedCode> {
+
+  bool isFavorited = false;
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    
+  }
+
+  
+  @override
   Widget build(BuildContext context) {
+    
     // Access the cubit to listen for wishlist updates
-    final wishlistCubit = context.read<WishlistCubit>();
-    return Container(
+    final wishlistCubit = context.read<WishListCouponsCubit>();
+;    return Container(
         padding: const EdgeInsets.all(5),
         decoration: BoxDecoration(
             color: Colors.white,
@@ -37,7 +55,7 @@ class BuildFeaturedCode extends StatelessWidget {
                   clipBehavior: Clip.antiAlias,
                   elevation: 5.0,
                   child: extendedImageWgt(
-                      coupon.storeLogoURL ?? "", 100, 140, BoxFit.cover)),
+                      widget.coupon.storeLogoURL ?? "", 100, 140, BoxFit.cover)),
             ),
 
             buildSpacerW(10),
@@ -53,7 +71,7 @@ class BuildFeaturedCode extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       myText(
-                        coupon.title,
+                        widget.coupon.title,
                         color: ManagerColors.textColorDark,
                         fontSize: 16.sp,
                         maxLines: 2,
@@ -61,7 +79,7 @@ class BuildFeaturedCode extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                       Text(
-                        "${coupon.discountRate}% ${AText.discount.tr(context)}",
+                        "${widget.coupon.discountRate}% ${AText.discount.tr(context)}",
                         style: Theme.of(context)
                             .textTheme
                             .bodyLarge!
@@ -99,35 +117,44 @@ class BuildFeaturedCode extends StatelessWidget {
                     ],
                   ),
                   //Favorite button..
-                  if (isShowRemove)
+                  if (widget.isShowRemove)
                     InkWell(
                       child: svgImage("_icRemove", height: 20, width: 20),
                       onTap: () {
-                        showConfirmDeleteDialog(context, coupon.title);
+                        showConfirmDeleteDialog(context, widget.coupon.title);
                       },
                     )
                   else
                          InkWell(
                       // Using BlocBuilder to update the heart icon based on the wishlist state
-                      child: BlocBuilder<WishlistCubit, WishlistState>(
+                      child: BlocBuilder<WishListCouponsCubit, WishListCouponsState>(
+                        buildWhen: (previous, current) => current is WishlistLoaded,
                         builder: (context, state) {
-                          final isFavorited = (state is WishlistLoaded &&
-                              state.coupons.any((c) => c.couponId == coupon.couponId));
+                          if(state is WishlistLoaded){
+                          isFavorited = 
+                              state.coupons.any((c) => c.couponId == widget.coupon.couponId);
 
 
-                          return isFavorited ?svgImage("_icHeart_click" , height: 30 , width: 30) :svgImage("_icFavorites" , height: 30 , width: 30);
+                          return isFavorited ? svgImage("_icHeart_click" , height: 30 , width: 30) :svgImage("_icFavorites" , height: 30 , width: 30);
 
+                          }
+                          return svgImage("_icFavorites" , height: 30 , width: 30);
+                       
 
                         },
                       ),
                       onTap: () {
                         // Handle adding/removing from wishlist on tap
-                        if (wishlistCubit.isInWishlist(coupon)) {
-                          wishlistCubit.removeCouponFromWishlist(coupon);
+                        if (wishlistCubit.isInWishlist(widget.coupon)) {
+                          wishlistCubit.removeCouponFromWishlist(widget.coupon);
                           
                         } else {
-                          wishlistCubit.addToWishList(coupon);
+                          wishlistCubit.addToWishList(widget.coupon);
                         }
+
+                        setState(() {
+                          isFavorited !=isFavorited;
+                        });
                       },
                     )
                   
@@ -145,7 +172,7 @@ class BuildFeaturedCode extends StatelessWidget {
       builder: (BuildContext context) {
         return ConfirmDeleteDialog(
           codeName: codeName,
-          couponID: coupon.couponId,
+          couponID: widget.coupon.couponId,
         );
       },
     );

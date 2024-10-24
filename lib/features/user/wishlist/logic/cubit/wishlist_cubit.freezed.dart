@@ -15,94 +15,87 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$WishlistState {
+mixin _$WishListStoresState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() wishlistLoading,
-    required TResult Function(List<Coupon> coupons) wishlistLoaded,
+    required TResult Function() wishlistStoresLoading,
     required TResult Function(List<UserModel> stores) wishlistStoresLoaded,
-    required TResult Function(String error) wishlistFaluire,
-    required TResult Function() emptyWishList,
-    required TResult Function(Coupon coupon) addToWishList,
-    required TResult Function(Coupon coupon) removeToWishList,
+    required TResult Function(String error) wishlistStoresFaluire,
+    required TResult Function() emptyStoresWishList,
+    required TResult Function(int count) getNumberOFStoresInWishList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? wishlistLoading,
-    TResult? Function(List<Coupon> coupons)? wishlistLoaded,
+    TResult? Function()? wishlistStoresLoading,
     TResult? Function(List<UserModel> stores)? wishlistStoresLoaded,
-    TResult? Function(String error)? wishlistFaluire,
-    TResult? Function()? emptyWishList,
-    TResult? Function(Coupon coupon)? addToWishList,
-    TResult? Function(Coupon coupon)? removeToWishList,
+    TResult? Function(String error)? wishlistStoresFaluire,
+    TResult? Function()? emptyStoresWishList,
+    TResult? Function(int count)? getNumberOFStoresInWishList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? wishlistLoading,
-    TResult Function(List<Coupon> coupons)? wishlistLoaded,
+    TResult Function()? wishlistStoresLoading,
     TResult Function(List<UserModel> stores)? wishlistStoresLoaded,
-    TResult Function(String error)? wishlistFaluire,
-    TResult Function()? emptyWishList,
-    TResult Function(Coupon coupon)? addToWishList,
-    TResult Function(Coupon coupon)? removeToWishList,
+    TResult Function(String error)? wishlistStoresFaluire,
+    TResult Function()? emptyStoresWishList,
+    TResult Function(int count)? getNumberOFStoresInWishList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(WishlistLoading value) wishlistLoading,
-    required TResult Function(WishlistLoaded value) wishlistLoaded,
+    required TResult Function(WishlistStoresLoading value)
+        wishlistStoresLoading,
     required TResult Function(WishlistStoresLoaded value) wishlistStoresLoaded,
-    required TResult Function(WishlistFaluire value) wishlistFaluire,
-    required TResult Function(EmptyWishList value) emptyWishList,
-    required TResult Function(AddToWishList value) addToWishList,
-    required TResult Function(RemoveFromWishList value) removeToWishList,
+    required TResult Function(WishlistStoresFaluire value)
+        wishlistStoresFaluire,
+    required TResult Function(EmptyStoresWishList value) emptyStoresWishList,
+    required TResult Function(GetNumberOFStoresInWishList value)
+        getNumberOFStoresInWishList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(WishlistLoading value)? wishlistLoading,
-    TResult? Function(WishlistLoaded value)? wishlistLoaded,
+    TResult? Function(WishlistStoresLoading value)? wishlistStoresLoading,
     TResult? Function(WishlistStoresLoaded value)? wishlistStoresLoaded,
-    TResult? Function(WishlistFaluire value)? wishlistFaluire,
-    TResult? Function(EmptyWishList value)? emptyWishList,
-    TResult? Function(AddToWishList value)? addToWishList,
-    TResult? Function(RemoveFromWishList value)? removeToWishList,
+    TResult? Function(WishlistStoresFaluire value)? wishlistStoresFaluire,
+    TResult? Function(EmptyStoresWishList value)? emptyStoresWishList,
+    TResult? Function(GetNumberOFStoresInWishList value)?
+        getNumberOFStoresInWishList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(WishlistLoading value)? wishlistLoading,
-    TResult Function(WishlistLoaded value)? wishlistLoaded,
+    TResult Function(WishlistStoresLoading value)? wishlistStoresLoading,
     TResult Function(WishlistStoresLoaded value)? wishlistStoresLoaded,
-    TResult Function(WishlistFaluire value)? wishlistFaluire,
-    TResult Function(EmptyWishList value)? emptyWishList,
-    TResult Function(AddToWishList value)? addToWishList,
-    TResult Function(RemoveFromWishList value)? removeToWishList,
+    TResult Function(WishlistStoresFaluire value)? wishlistStoresFaluire,
+    TResult Function(EmptyStoresWishList value)? emptyStoresWishList,
+    TResult Function(GetNumberOFStoresInWishList value)?
+        getNumberOFStoresInWishList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $WishlistStateCopyWith<$Res> {
-  factory $WishlistStateCopyWith(
-          WishlistState value, $Res Function(WishlistState) then) =
-      _$WishlistStateCopyWithImpl<$Res, WishlistState>;
+abstract class $WishListStoresStateCopyWith<$Res> {
+  factory $WishListStoresStateCopyWith(
+          WishListStoresState value, $Res Function(WishListStoresState) then) =
+      _$WishListStoresStateCopyWithImpl<$Res, WishListStoresState>;
 }
 
 /// @nodoc
-class _$WishlistStateCopyWithImpl<$Res, $Val extends WishlistState>
-    implements $WishlistStateCopyWith<$Res> {
-  _$WishlistStateCopyWithImpl(this._value, this._then);
+class _$WishListStoresStateCopyWithImpl<$Res, $Val extends WishListStoresState>
+    implements $WishListStoresStateCopyWith<$Res> {
+  _$WishListStoresStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -119,7 +112,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$WishlistStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$WishListStoresStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -133,7 +126,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'WishlistState.initial()';
+    return 'WishListStoresState.initial()';
   }
 
   @override
@@ -149,13 +142,11 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() wishlistLoading,
-    required TResult Function(List<Coupon> coupons) wishlistLoaded,
+    required TResult Function() wishlistStoresLoading,
     required TResult Function(List<UserModel> stores) wishlistStoresLoaded,
-    required TResult Function(String error) wishlistFaluire,
-    required TResult Function() emptyWishList,
-    required TResult Function(Coupon coupon) addToWishList,
-    required TResult Function(Coupon coupon) removeToWishList,
+    required TResult Function(String error) wishlistStoresFaluire,
+    required TResult Function() emptyStoresWishList,
+    required TResult Function(int count) getNumberOFStoresInWishList,
   }) {
     return initial();
   }
@@ -164,13 +155,11 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? wishlistLoading,
-    TResult? Function(List<Coupon> coupons)? wishlistLoaded,
+    TResult? Function()? wishlistStoresLoading,
     TResult? Function(List<UserModel> stores)? wishlistStoresLoaded,
-    TResult? Function(String error)? wishlistFaluire,
-    TResult? Function()? emptyWishList,
-    TResult? Function(Coupon coupon)? addToWishList,
-    TResult? Function(Coupon coupon)? removeToWishList,
+    TResult? Function(String error)? wishlistStoresFaluire,
+    TResult? Function()? emptyStoresWishList,
+    TResult? Function(int count)? getNumberOFStoresInWishList,
   }) {
     return initial?.call();
   }
@@ -179,13 +168,11 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? wishlistLoading,
-    TResult Function(List<Coupon> coupons)? wishlistLoaded,
+    TResult Function()? wishlistStoresLoading,
     TResult Function(List<UserModel> stores)? wishlistStoresLoaded,
-    TResult Function(String error)? wishlistFaluire,
-    TResult Function()? emptyWishList,
-    TResult Function(Coupon coupon)? addToWishList,
-    TResult Function(Coupon coupon)? removeToWishList,
+    TResult Function(String error)? wishlistStoresFaluire,
+    TResult Function()? emptyStoresWishList,
+    TResult Function(int count)? getNumberOFStoresInWishList,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -198,13 +185,14 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(WishlistLoading value) wishlistLoading,
-    required TResult Function(WishlistLoaded value) wishlistLoaded,
+    required TResult Function(WishlistStoresLoading value)
+        wishlistStoresLoading,
     required TResult Function(WishlistStoresLoaded value) wishlistStoresLoaded,
-    required TResult Function(WishlistFaluire value) wishlistFaluire,
-    required TResult Function(EmptyWishList value) emptyWishList,
-    required TResult Function(AddToWishList value) addToWishList,
-    required TResult Function(RemoveFromWishList value) removeToWishList,
+    required TResult Function(WishlistStoresFaluire value)
+        wishlistStoresFaluire,
+    required TResult Function(EmptyStoresWishList value) emptyStoresWishList,
+    required TResult Function(GetNumberOFStoresInWishList value)
+        getNumberOFStoresInWishList,
   }) {
     return initial(this);
   }
@@ -213,13 +201,12 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(WishlistLoading value)? wishlistLoading,
-    TResult? Function(WishlistLoaded value)? wishlistLoaded,
+    TResult? Function(WishlistStoresLoading value)? wishlistStoresLoading,
     TResult? Function(WishlistStoresLoaded value)? wishlistStoresLoaded,
-    TResult? Function(WishlistFaluire value)? wishlistFaluire,
-    TResult? Function(EmptyWishList value)? emptyWishList,
-    TResult? Function(AddToWishList value)? addToWishList,
-    TResult? Function(RemoveFromWishList value)? removeToWishList,
+    TResult? Function(WishlistStoresFaluire value)? wishlistStoresFaluire,
+    TResult? Function(EmptyStoresWishList value)? emptyStoresWishList,
+    TResult? Function(GetNumberOFStoresInWishList value)?
+        getNumberOFStoresInWishList,
   }) {
     return initial?.call(this);
   }
@@ -228,13 +215,12 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(WishlistLoading value)? wishlistLoading,
-    TResult Function(WishlistLoaded value)? wishlistLoaded,
+    TResult Function(WishlistStoresLoading value)? wishlistStoresLoading,
     TResult Function(WishlistStoresLoaded value)? wishlistStoresLoaded,
-    TResult Function(WishlistFaluire value)? wishlistFaluire,
-    TResult Function(EmptyWishList value)? emptyWishList,
-    TResult Function(AddToWishList value)? addToWishList,
-    TResult Function(RemoveFromWishList value)? removeToWishList,
+    TResult Function(WishlistStoresFaluire value)? wishlistStoresFaluire,
+    TResult Function(EmptyStoresWishList value)? emptyStoresWishList,
+    TResult Function(GetNumberOFStoresInWishList value)?
+        getNumberOFStoresInWishList,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -244,40 +230,42 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements WishlistState {
+abstract class _Initial implements WishListStoresState {
   const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$WishlistLoadingImplCopyWith<$Res> {
-  factory _$$WishlistLoadingImplCopyWith(_$WishlistLoadingImpl value,
-          $Res Function(_$WishlistLoadingImpl) then) =
-      __$$WishlistLoadingImplCopyWithImpl<$Res>;
+abstract class _$$WishlistStoresLoadingImplCopyWith<$Res> {
+  factory _$$WishlistStoresLoadingImplCopyWith(
+          _$WishlistStoresLoadingImpl value,
+          $Res Function(_$WishlistStoresLoadingImpl) then) =
+      __$$WishlistStoresLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$WishlistLoadingImplCopyWithImpl<$Res>
-    extends _$WishlistStateCopyWithImpl<$Res, _$WishlistLoadingImpl>
-    implements _$$WishlistLoadingImplCopyWith<$Res> {
-  __$$WishlistLoadingImplCopyWithImpl(
-      _$WishlistLoadingImpl _value, $Res Function(_$WishlistLoadingImpl) _then)
+class __$$WishlistStoresLoadingImplCopyWithImpl<$Res>
+    extends _$WishListStoresStateCopyWithImpl<$Res, _$WishlistStoresLoadingImpl>
+    implements _$$WishlistStoresLoadingImplCopyWith<$Res> {
+  __$$WishlistStoresLoadingImplCopyWithImpl(_$WishlistStoresLoadingImpl _value,
+      $Res Function(_$WishlistStoresLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$WishlistLoadingImpl implements WishlistLoading {
-  const _$WishlistLoadingImpl();
+class _$WishlistStoresLoadingImpl implements WishlistStoresLoading {
+  const _$WishlistStoresLoadingImpl();
 
   @override
   String toString() {
-    return 'WishlistState.wishlistLoading()';
+    return 'WishListStoresState.wishlistStoresLoading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$WishlistLoadingImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$WishlistStoresLoadingImpl);
   }
 
   @override
@@ -287,47 +275,41 @@ class _$WishlistLoadingImpl implements WishlistLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() wishlistLoading,
-    required TResult Function(List<Coupon> coupons) wishlistLoaded,
+    required TResult Function() wishlistStoresLoading,
     required TResult Function(List<UserModel> stores) wishlistStoresLoaded,
-    required TResult Function(String error) wishlistFaluire,
-    required TResult Function() emptyWishList,
-    required TResult Function(Coupon coupon) addToWishList,
-    required TResult Function(Coupon coupon) removeToWishList,
+    required TResult Function(String error) wishlistStoresFaluire,
+    required TResult Function() emptyStoresWishList,
+    required TResult Function(int count) getNumberOFStoresInWishList,
   }) {
-    return wishlistLoading();
+    return wishlistStoresLoading();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? wishlistLoading,
-    TResult? Function(List<Coupon> coupons)? wishlistLoaded,
+    TResult? Function()? wishlistStoresLoading,
     TResult? Function(List<UserModel> stores)? wishlistStoresLoaded,
-    TResult? Function(String error)? wishlistFaluire,
-    TResult? Function()? emptyWishList,
-    TResult? Function(Coupon coupon)? addToWishList,
-    TResult? Function(Coupon coupon)? removeToWishList,
+    TResult? Function(String error)? wishlistStoresFaluire,
+    TResult? Function()? emptyStoresWishList,
+    TResult? Function(int count)? getNumberOFStoresInWishList,
   }) {
-    return wishlistLoading?.call();
+    return wishlistStoresLoading?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? wishlistLoading,
-    TResult Function(List<Coupon> coupons)? wishlistLoaded,
+    TResult Function()? wishlistStoresLoading,
     TResult Function(List<UserModel> stores)? wishlistStoresLoaded,
-    TResult Function(String error)? wishlistFaluire,
-    TResult Function()? emptyWishList,
-    TResult Function(Coupon coupon)? addToWishList,
-    TResult Function(Coupon coupon)? removeToWishList,
+    TResult Function(String error)? wishlistStoresFaluire,
+    TResult Function()? emptyStoresWishList,
+    TResult Function(int count)? getNumberOFStoresInWishList,
     required TResult orElse(),
   }) {
-    if (wishlistLoading != null) {
-      return wishlistLoading();
+    if (wishlistStoresLoading != null) {
+      return wishlistStoresLoading();
     }
     return orElse();
   }
@@ -336,232 +318,53 @@ class _$WishlistLoadingImpl implements WishlistLoading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(WishlistLoading value) wishlistLoading,
-    required TResult Function(WishlistLoaded value) wishlistLoaded,
+    required TResult Function(WishlistStoresLoading value)
+        wishlistStoresLoading,
     required TResult Function(WishlistStoresLoaded value) wishlistStoresLoaded,
-    required TResult Function(WishlistFaluire value) wishlistFaluire,
-    required TResult Function(EmptyWishList value) emptyWishList,
-    required TResult Function(AddToWishList value) addToWishList,
-    required TResult Function(RemoveFromWishList value) removeToWishList,
+    required TResult Function(WishlistStoresFaluire value)
+        wishlistStoresFaluire,
+    required TResult Function(EmptyStoresWishList value) emptyStoresWishList,
+    required TResult Function(GetNumberOFStoresInWishList value)
+        getNumberOFStoresInWishList,
   }) {
-    return wishlistLoading(this);
+    return wishlistStoresLoading(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(WishlistLoading value)? wishlistLoading,
-    TResult? Function(WishlistLoaded value)? wishlistLoaded,
+    TResult? Function(WishlistStoresLoading value)? wishlistStoresLoading,
     TResult? Function(WishlistStoresLoaded value)? wishlistStoresLoaded,
-    TResult? Function(WishlistFaluire value)? wishlistFaluire,
-    TResult? Function(EmptyWishList value)? emptyWishList,
-    TResult? Function(AddToWishList value)? addToWishList,
-    TResult? Function(RemoveFromWishList value)? removeToWishList,
+    TResult? Function(WishlistStoresFaluire value)? wishlistStoresFaluire,
+    TResult? Function(EmptyStoresWishList value)? emptyStoresWishList,
+    TResult? Function(GetNumberOFStoresInWishList value)?
+        getNumberOFStoresInWishList,
   }) {
-    return wishlistLoading?.call(this);
+    return wishlistStoresLoading?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(WishlistLoading value)? wishlistLoading,
-    TResult Function(WishlistLoaded value)? wishlistLoaded,
+    TResult Function(WishlistStoresLoading value)? wishlistStoresLoading,
     TResult Function(WishlistStoresLoaded value)? wishlistStoresLoaded,
-    TResult Function(WishlistFaluire value)? wishlistFaluire,
-    TResult Function(EmptyWishList value)? emptyWishList,
-    TResult Function(AddToWishList value)? addToWishList,
-    TResult Function(RemoveFromWishList value)? removeToWishList,
+    TResult Function(WishlistStoresFaluire value)? wishlistStoresFaluire,
+    TResult Function(EmptyStoresWishList value)? emptyStoresWishList,
+    TResult Function(GetNumberOFStoresInWishList value)?
+        getNumberOFStoresInWishList,
     required TResult orElse(),
   }) {
-    if (wishlistLoading != null) {
-      return wishlistLoading(this);
+    if (wishlistStoresLoading != null) {
+      return wishlistStoresLoading(this);
     }
     return orElse();
   }
 }
 
-abstract class WishlistLoading implements WishlistState {
-  const factory WishlistLoading() = _$WishlistLoadingImpl;
-}
-
-/// @nodoc
-abstract class _$$WishlistLoadedImplCopyWith<$Res> {
-  factory _$$WishlistLoadedImplCopyWith(_$WishlistLoadedImpl value,
-          $Res Function(_$WishlistLoadedImpl) then) =
-      __$$WishlistLoadedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({List<Coupon> coupons});
-}
-
-/// @nodoc
-class __$$WishlistLoadedImplCopyWithImpl<$Res>
-    extends _$WishlistStateCopyWithImpl<$Res, _$WishlistLoadedImpl>
-    implements _$$WishlistLoadedImplCopyWith<$Res> {
-  __$$WishlistLoadedImplCopyWithImpl(
-      _$WishlistLoadedImpl _value, $Res Function(_$WishlistLoadedImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? coupons = null,
-  }) {
-    return _then(_$WishlistLoadedImpl(
-      coupons: null == coupons
-          ? _value._coupons
-          : coupons // ignore: cast_nullable_to_non_nullable
-              as List<Coupon>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$WishlistLoadedImpl implements WishlistLoaded {
-  const _$WishlistLoadedImpl({required final List<Coupon> coupons})
-      : _coupons = coupons;
-
-  final List<Coupon> _coupons;
-  @override
-  List<Coupon> get coupons {
-    if (_coupons is EqualUnmodifiableListView) return _coupons;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_coupons);
-  }
-
-  @override
-  String toString() {
-    return 'WishlistState.wishlistLoaded(coupons: $coupons)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$WishlistLoadedImpl &&
-            const DeepCollectionEquality().equals(other._coupons, _coupons));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_coupons));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$WishlistLoadedImplCopyWith<_$WishlistLoadedImpl> get copyWith =>
-      __$$WishlistLoadedImplCopyWithImpl<_$WishlistLoadedImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() wishlistLoading,
-    required TResult Function(List<Coupon> coupons) wishlistLoaded,
-    required TResult Function(List<UserModel> stores) wishlistStoresLoaded,
-    required TResult Function(String error) wishlistFaluire,
-    required TResult Function() emptyWishList,
-    required TResult Function(Coupon coupon) addToWishList,
-    required TResult Function(Coupon coupon) removeToWishList,
-  }) {
-    return wishlistLoaded(coupons);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? wishlistLoading,
-    TResult? Function(List<Coupon> coupons)? wishlistLoaded,
-    TResult? Function(List<UserModel> stores)? wishlistStoresLoaded,
-    TResult? Function(String error)? wishlistFaluire,
-    TResult? Function()? emptyWishList,
-    TResult? Function(Coupon coupon)? addToWishList,
-    TResult? Function(Coupon coupon)? removeToWishList,
-  }) {
-    return wishlistLoaded?.call(coupons);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? wishlistLoading,
-    TResult Function(List<Coupon> coupons)? wishlistLoaded,
-    TResult Function(List<UserModel> stores)? wishlistStoresLoaded,
-    TResult Function(String error)? wishlistFaluire,
-    TResult Function()? emptyWishList,
-    TResult Function(Coupon coupon)? addToWishList,
-    TResult Function(Coupon coupon)? removeToWishList,
-    required TResult orElse(),
-  }) {
-    if (wishlistLoaded != null) {
-      return wishlistLoaded(coupons);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(WishlistLoading value) wishlistLoading,
-    required TResult Function(WishlistLoaded value) wishlistLoaded,
-    required TResult Function(WishlistStoresLoaded value) wishlistStoresLoaded,
-    required TResult Function(WishlistFaluire value) wishlistFaluire,
-    required TResult Function(EmptyWishList value) emptyWishList,
-    required TResult Function(AddToWishList value) addToWishList,
-    required TResult Function(RemoveFromWishList value) removeToWishList,
-  }) {
-    return wishlistLoaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(WishlistLoading value)? wishlistLoading,
-    TResult? Function(WishlistLoaded value)? wishlistLoaded,
-    TResult? Function(WishlistStoresLoaded value)? wishlistStoresLoaded,
-    TResult? Function(WishlistFaluire value)? wishlistFaluire,
-    TResult? Function(EmptyWishList value)? emptyWishList,
-    TResult? Function(AddToWishList value)? addToWishList,
-    TResult? Function(RemoveFromWishList value)? removeToWishList,
-  }) {
-    return wishlistLoaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(WishlistLoading value)? wishlistLoading,
-    TResult Function(WishlistLoaded value)? wishlistLoaded,
-    TResult Function(WishlistStoresLoaded value)? wishlistStoresLoaded,
-    TResult Function(WishlistFaluire value)? wishlistFaluire,
-    TResult Function(EmptyWishList value)? emptyWishList,
-    TResult Function(AddToWishList value)? addToWishList,
-    TResult Function(RemoveFromWishList value)? removeToWishList,
-    required TResult orElse(),
-  }) {
-    if (wishlistLoaded != null) {
-      return wishlistLoaded(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class WishlistLoaded implements WishlistState {
-  const factory WishlistLoaded({required final List<Coupon> coupons}) =
-      _$WishlistLoadedImpl;
-
-  List<Coupon> get coupons;
-  @JsonKey(ignore: true)
-  _$$WishlistLoadedImplCopyWith<_$WishlistLoadedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class WishlistStoresLoading implements WishListStoresState {
+  const factory WishlistStoresLoading() = _$WishlistStoresLoadingImpl;
 }
 
 /// @nodoc
@@ -575,7 +378,7 @@ abstract class _$$WishlistStoresLoadedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$WishlistStoresLoadedImplCopyWithImpl<$Res>
-    extends _$WishlistStateCopyWithImpl<$Res, _$WishlistStoresLoadedImpl>
+    extends _$WishListStoresStateCopyWithImpl<$Res, _$WishlistStoresLoadedImpl>
     implements _$$WishlistStoresLoadedImplCopyWith<$Res> {
   __$$WishlistStoresLoadedImplCopyWithImpl(_$WishlistStoresLoadedImpl _value,
       $Res Function(_$WishlistStoresLoadedImpl) _then)
@@ -611,7 +414,7 @@ class _$WishlistStoresLoadedImpl implements WishlistStoresLoaded {
 
   @override
   String toString() {
-    return 'WishlistState.wishlistStoresLoaded(stores: $stores)';
+    return 'WishListStoresState.wishlistStoresLoaded(stores: $stores)';
   }
 
   @override
@@ -638,13 +441,11 @@ class _$WishlistStoresLoadedImpl implements WishlistStoresLoaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() wishlistLoading,
-    required TResult Function(List<Coupon> coupons) wishlistLoaded,
+    required TResult Function() wishlistStoresLoading,
     required TResult Function(List<UserModel> stores) wishlistStoresLoaded,
-    required TResult Function(String error) wishlistFaluire,
-    required TResult Function() emptyWishList,
-    required TResult Function(Coupon coupon) addToWishList,
-    required TResult Function(Coupon coupon) removeToWishList,
+    required TResult Function(String error) wishlistStoresFaluire,
+    required TResult Function() emptyStoresWishList,
+    required TResult Function(int count) getNumberOFStoresInWishList,
   }) {
     return wishlistStoresLoaded(stores);
   }
@@ -653,13 +454,11 @@ class _$WishlistStoresLoadedImpl implements WishlistStoresLoaded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? wishlistLoading,
-    TResult? Function(List<Coupon> coupons)? wishlistLoaded,
+    TResult? Function()? wishlistStoresLoading,
     TResult? Function(List<UserModel> stores)? wishlistStoresLoaded,
-    TResult? Function(String error)? wishlistFaluire,
-    TResult? Function()? emptyWishList,
-    TResult? Function(Coupon coupon)? addToWishList,
-    TResult? Function(Coupon coupon)? removeToWishList,
+    TResult? Function(String error)? wishlistStoresFaluire,
+    TResult? Function()? emptyStoresWishList,
+    TResult? Function(int count)? getNumberOFStoresInWishList,
   }) {
     return wishlistStoresLoaded?.call(stores);
   }
@@ -668,13 +467,11 @@ class _$WishlistStoresLoadedImpl implements WishlistStoresLoaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? wishlistLoading,
-    TResult Function(List<Coupon> coupons)? wishlistLoaded,
+    TResult Function()? wishlistStoresLoading,
     TResult Function(List<UserModel> stores)? wishlistStoresLoaded,
-    TResult Function(String error)? wishlistFaluire,
-    TResult Function()? emptyWishList,
-    TResult Function(Coupon coupon)? addToWishList,
-    TResult Function(Coupon coupon)? removeToWishList,
+    TResult Function(String error)? wishlistStoresFaluire,
+    TResult Function()? emptyStoresWishList,
+    TResult Function(int count)? getNumberOFStoresInWishList,
     required TResult orElse(),
   }) {
     if (wishlistStoresLoaded != null) {
@@ -687,13 +484,14 @@ class _$WishlistStoresLoadedImpl implements WishlistStoresLoaded {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(WishlistLoading value) wishlistLoading,
-    required TResult Function(WishlistLoaded value) wishlistLoaded,
+    required TResult Function(WishlistStoresLoading value)
+        wishlistStoresLoading,
     required TResult Function(WishlistStoresLoaded value) wishlistStoresLoaded,
-    required TResult Function(WishlistFaluire value) wishlistFaluire,
-    required TResult Function(EmptyWishList value) emptyWishList,
-    required TResult Function(AddToWishList value) addToWishList,
-    required TResult Function(RemoveFromWishList value) removeToWishList,
+    required TResult Function(WishlistStoresFaluire value)
+        wishlistStoresFaluire,
+    required TResult Function(EmptyStoresWishList value) emptyStoresWishList,
+    required TResult Function(GetNumberOFStoresInWishList value)
+        getNumberOFStoresInWishList,
   }) {
     return wishlistStoresLoaded(this);
   }
@@ -702,13 +500,12 @@ class _$WishlistStoresLoadedImpl implements WishlistStoresLoaded {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(WishlistLoading value)? wishlistLoading,
-    TResult? Function(WishlistLoaded value)? wishlistLoaded,
+    TResult? Function(WishlistStoresLoading value)? wishlistStoresLoading,
     TResult? Function(WishlistStoresLoaded value)? wishlistStoresLoaded,
-    TResult? Function(WishlistFaluire value)? wishlistFaluire,
-    TResult? Function(EmptyWishList value)? emptyWishList,
-    TResult? Function(AddToWishList value)? addToWishList,
-    TResult? Function(RemoveFromWishList value)? removeToWishList,
+    TResult? Function(WishlistStoresFaluire value)? wishlistStoresFaluire,
+    TResult? Function(EmptyStoresWishList value)? emptyStoresWishList,
+    TResult? Function(GetNumberOFStoresInWishList value)?
+        getNumberOFStoresInWishList,
   }) {
     return wishlistStoresLoaded?.call(this);
   }
@@ -717,13 +514,12 @@ class _$WishlistStoresLoadedImpl implements WishlistStoresLoaded {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(WishlistLoading value)? wishlistLoading,
-    TResult Function(WishlistLoaded value)? wishlistLoaded,
+    TResult Function(WishlistStoresLoading value)? wishlistStoresLoading,
     TResult Function(WishlistStoresLoaded value)? wishlistStoresLoaded,
-    TResult Function(WishlistFaluire value)? wishlistFaluire,
-    TResult Function(EmptyWishList value)? emptyWishList,
-    TResult Function(AddToWishList value)? addToWishList,
-    TResult Function(RemoveFromWishList value)? removeToWishList,
+    TResult Function(WishlistStoresFaluire value)? wishlistStoresFaluire,
+    TResult Function(EmptyStoresWishList value)? emptyStoresWishList,
+    TResult Function(GetNumberOFStoresInWishList value)?
+        getNumberOFStoresInWishList,
     required TResult orElse(),
   }) {
     if (wishlistStoresLoaded != null) {
@@ -733,7 +529,7 @@ class _$WishlistStoresLoadedImpl implements WishlistStoresLoaded {
   }
 }
 
-abstract class WishlistStoresLoaded implements WishlistState {
+abstract class WishlistStoresLoaded implements WishListStoresState {
   const factory WishlistStoresLoaded({required final List<UserModel> stores}) =
       _$WishlistStoresLoadedImpl;
 
@@ -744,20 +540,21 @@ abstract class WishlistStoresLoaded implements WishlistState {
 }
 
 /// @nodoc
-abstract class _$$WishlistFaluireImplCopyWith<$Res> {
-  factory _$$WishlistFaluireImplCopyWith(_$WishlistFaluireImpl value,
-          $Res Function(_$WishlistFaluireImpl) then) =
-      __$$WishlistFaluireImplCopyWithImpl<$Res>;
+abstract class _$$WishlistStoresFaluireImplCopyWith<$Res> {
+  factory _$$WishlistStoresFaluireImplCopyWith(
+          _$WishlistStoresFaluireImpl value,
+          $Res Function(_$WishlistStoresFaluireImpl) then) =
+      __$$WishlistStoresFaluireImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$$WishlistFaluireImplCopyWithImpl<$Res>
-    extends _$WishlistStateCopyWithImpl<$Res, _$WishlistFaluireImpl>
-    implements _$$WishlistFaluireImplCopyWith<$Res> {
-  __$$WishlistFaluireImplCopyWithImpl(
-      _$WishlistFaluireImpl _value, $Res Function(_$WishlistFaluireImpl) _then)
+class __$$WishlistStoresFaluireImplCopyWithImpl<$Res>
+    extends _$WishListStoresStateCopyWithImpl<$Res, _$WishlistStoresFaluireImpl>
+    implements _$$WishlistStoresFaluireImplCopyWith<$Res> {
+  __$$WishlistStoresFaluireImplCopyWithImpl(_$WishlistStoresFaluireImpl _value,
+      $Res Function(_$WishlistStoresFaluireImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -765,7 +562,7 @@ class __$$WishlistFaluireImplCopyWithImpl<$Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_$WishlistFaluireImpl(
+    return _then(_$WishlistStoresFaluireImpl(
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -776,22 +573,22 @@ class __$$WishlistFaluireImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$WishlistFaluireImpl implements WishlistFaluire {
-  const _$WishlistFaluireImpl({required this.error});
+class _$WishlistStoresFaluireImpl implements WishlistStoresFaluire {
+  const _$WishlistStoresFaluireImpl({required this.error});
 
   @override
   final String error;
 
   @override
   String toString() {
-    return 'WishlistState.wishlistFaluire(error: $error)';
+    return 'WishListStoresState.wishlistStoresFaluire(error: $error)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WishlistFaluireImpl &&
+            other is _$WishlistStoresFaluireImpl &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -801,55 +598,49 @@ class _$WishlistFaluireImpl implements WishlistFaluire {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$WishlistFaluireImplCopyWith<_$WishlistFaluireImpl> get copyWith =>
-      __$$WishlistFaluireImplCopyWithImpl<_$WishlistFaluireImpl>(
-          this, _$identity);
+  _$$WishlistStoresFaluireImplCopyWith<_$WishlistStoresFaluireImpl>
+      get copyWith => __$$WishlistStoresFaluireImplCopyWithImpl<
+          _$WishlistStoresFaluireImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() wishlistLoading,
-    required TResult Function(List<Coupon> coupons) wishlistLoaded,
+    required TResult Function() wishlistStoresLoading,
     required TResult Function(List<UserModel> stores) wishlistStoresLoaded,
-    required TResult Function(String error) wishlistFaluire,
-    required TResult Function() emptyWishList,
-    required TResult Function(Coupon coupon) addToWishList,
-    required TResult Function(Coupon coupon) removeToWishList,
+    required TResult Function(String error) wishlistStoresFaluire,
+    required TResult Function() emptyStoresWishList,
+    required TResult Function(int count) getNumberOFStoresInWishList,
   }) {
-    return wishlistFaluire(error);
+    return wishlistStoresFaluire(error);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? wishlistLoading,
-    TResult? Function(List<Coupon> coupons)? wishlistLoaded,
+    TResult? Function()? wishlistStoresLoading,
     TResult? Function(List<UserModel> stores)? wishlistStoresLoaded,
-    TResult? Function(String error)? wishlistFaluire,
-    TResult? Function()? emptyWishList,
-    TResult? Function(Coupon coupon)? addToWishList,
-    TResult? Function(Coupon coupon)? removeToWishList,
+    TResult? Function(String error)? wishlistStoresFaluire,
+    TResult? Function()? emptyStoresWishList,
+    TResult? Function(int count)? getNumberOFStoresInWishList,
   }) {
-    return wishlistFaluire?.call(error);
+    return wishlistStoresFaluire?.call(error);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? wishlistLoading,
-    TResult Function(List<Coupon> coupons)? wishlistLoaded,
+    TResult Function()? wishlistStoresLoading,
     TResult Function(List<UserModel> stores)? wishlistStoresLoaded,
-    TResult Function(String error)? wishlistFaluire,
-    TResult Function()? emptyWishList,
-    TResult Function(Coupon coupon)? addToWishList,
-    TResult Function(Coupon coupon)? removeToWishList,
+    TResult Function(String error)? wishlistStoresFaluire,
+    TResult Function()? emptyStoresWishList,
+    TResult Function(int count)? getNumberOFStoresInWishList,
     required TResult orElse(),
   }) {
-    if (wishlistFaluire != null) {
-      return wishlistFaluire(error);
+    if (wishlistStoresFaluire != null) {
+      return wishlistStoresFaluire(error);
     }
     return orElse();
   }
@@ -858,92 +649,92 @@ class _$WishlistFaluireImpl implements WishlistFaluire {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(WishlistLoading value) wishlistLoading,
-    required TResult Function(WishlistLoaded value) wishlistLoaded,
+    required TResult Function(WishlistStoresLoading value)
+        wishlistStoresLoading,
     required TResult Function(WishlistStoresLoaded value) wishlistStoresLoaded,
-    required TResult Function(WishlistFaluire value) wishlistFaluire,
-    required TResult Function(EmptyWishList value) emptyWishList,
-    required TResult Function(AddToWishList value) addToWishList,
-    required TResult Function(RemoveFromWishList value) removeToWishList,
+    required TResult Function(WishlistStoresFaluire value)
+        wishlistStoresFaluire,
+    required TResult Function(EmptyStoresWishList value) emptyStoresWishList,
+    required TResult Function(GetNumberOFStoresInWishList value)
+        getNumberOFStoresInWishList,
   }) {
-    return wishlistFaluire(this);
+    return wishlistStoresFaluire(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(WishlistLoading value)? wishlistLoading,
-    TResult? Function(WishlistLoaded value)? wishlistLoaded,
+    TResult? Function(WishlistStoresLoading value)? wishlistStoresLoading,
     TResult? Function(WishlistStoresLoaded value)? wishlistStoresLoaded,
-    TResult? Function(WishlistFaluire value)? wishlistFaluire,
-    TResult? Function(EmptyWishList value)? emptyWishList,
-    TResult? Function(AddToWishList value)? addToWishList,
-    TResult? Function(RemoveFromWishList value)? removeToWishList,
+    TResult? Function(WishlistStoresFaluire value)? wishlistStoresFaluire,
+    TResult? Function(EmptyStoresWishList value)? emptyStoresWishList,
+    TResult? Function(GetNumberOFStoresInWishList value)?
+        getNumberOFStoresInWishList,
   }) {
-    return wishlistFaluire?.call(this);
+    return wishlistStoresFaluire?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(WishlistLoading value)? wishlistLoading,
-    TResult Function(WishlistLoaded value)? wishlistLoaded,
+    TResult Function(WishlistStoresLoading value)? wishlistStoresLoading,
     TResult Function(WishlistStoresLoaded value)? wishlistStoresLoaded,
-    TResult Function(WishlistFaluire value)? wishlistFaluire,
-    TResult Function(EmptyWishList value)? emptyWishList,
-    TResult Function(AddToWishList value)? addToWishList,
-    TResult Function(RemoveFromWishList value)? removeToWishList,
+    TResult Function(WishlistStoresFaluire value)? wishlistStoresFaluire,
+    TResult Function(EmptyStoresWishList value)? emptyStoresWishList,
+    TResult Function(GetNumberOFStoresInWishList value)?
+        getNumberOFStoresInWishList,
     required TResult orElse(),
   }) {
-    if (wishlistFaluire != null) {
-      return wishlistFaluire(this);
+    if (wishlistStoresFaluire != null) {
+      return wishlistStoresFaluire(this);
     }
     return orElse();
   }
 }
 
-abstract class WishlistFaluire implements WishlistState {
-  const factory WishlistFaluire({required final String error}) =
-      _$WishlistFaluireImpl;
+abstract class WishlistStoresFaluire implements WishListStoresState {
+  const factory WishlistStoresFaluire({required final String error}) =
+      _$WishlistStoresFaluireImpl;
 
   String get error;
   @JsonKey(ignore: true)
-  _$$WishlistFaluireImplCopyWith<_$WishlistFaluireImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$WishlistStoresFaluireImplCopyWith<_$WishlistStoresFaluireImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$EmptyWishListImplCopyWith<$Res> {
-  factory _$$EmptyWishListImplCopyWith(
-          _$EmptyWishListImpl value, $Res Function(_$EmptyWishListImpl) then) =
-      __$$EmptyWishListImplCopyWithImpl<$Res>;
+abstract class _$$EmptyStoresWishListImplCopyWith<$Res> {
+  factory _$$EmptyStoresWishListImplCopyWith(_$EmptyStoresWishListImpl value,
+          $Res Function(_$EmptyStoresWishListImpl) then) =
+      __$$EmptyStoresWishListImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$EmptyWishListImplCopyWithImpl<$Res>
-    extends _$WishlistStateCopyWithImpl<$Res, _$EmptyWishListImpl>
-    implements _$$EmptyWishListImplCopyWith<$Res> {
-  __$$EmptyWishListImplCopyWithImpl(
-      _$EmptyWishListImpl _value, $Res Function(_$EmptyWishListImpl) _then)
+class __$$EmptyStoresWishListImplCopyWithImpl<$Res>
+    extends _$WishListStoresStateCopyWithImpl<$Res, _$EmptyStoresWishListImpl>
+    implements _$$EmptyStoresWishListImplCopyWith<$Res> {
+  __$$EmptyStoresWishListImplCopyWithImpl(_$EmptyStoresWishListImpl _value,
+      $Res Function(_$EmptyStoresWishListImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$EmptyWishListImpl implements EmptyWishList {
-  const _$EmptyWishListImpl();
+class _$EmptyStoresWishListImpl implements EmptyStoresWishList {
+  const _$EmptyStoresWishListImpl();
 
   @override
   String toString() {
-    return 'WishlistState.emptyWishList()';
+    return 'WishListStoresState.emptyStoresWishList()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EmptyWishListImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$EmptyStoresWishListImpl);
   }
 
   @override
@@ -953,47 +744,41 @@ class _$EmptyWishListImpl implements EmptyWishList {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() wishlistLoading,
-    required TResult Function(List<Coupon> coupons) wishlistLoaded,
+    required TResult Function() wishlistStoresLoading,
     required TResult Function(List<UserModel> stores) wishlistStoresLoaded,
-    required TResult Function(String error) wishlistFaluire,
-    required TResult Function() emptyWishList,
-    required TResult Function(Coupon coupon) addToWishList,
-    required TResult Function(Coupon coupon) removeToWishList,
+    required TResult Function(String error) wishlistStoresFaluire,
+    required TResult Function() emptyStoresWishList,
+    required TResult Function(int count) getNumberOFStoresInWishList,
   }) {
-    return emptyWishList();
+    return emptyStoresWishList();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? wishlistLoading,
-    TResult? Function(List<Coupon> coupons)? wishlistLoaded,
+    TResult? Function()? wishlistStoresLoading,
     TResult? Function(List<UserModel> stores)? wishlistStoresLoaded,
-    TResult? Function(String error)? wishlistFaluire,
-    TResult? Function()? emptyWishList,
-    TResult? Function(Coupon coupon)? addToWishList,
-    TResult? Function(Coupon coupon)? removeToWishList,
+    TResult? Function(String error)? wishlistStoresFaluire,
+    TResult? Function()? emptyStoresWishList,
+    TResult? Function(int count)? getNumberOFStoresInWishList,
   }) {
-    return emptyWishList?.call();
+    return emptyStoresWishList?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? wishlistLoading,
-    TResult Function(List<Coupon> coupons)? wishlistLoaded,
+    TResult Function()? wishlistStoresLoading,
     TResult Function(List<UserModel> stores)? wishlistStoresLoaded,
-    TResult Function(String error)? wishlistFaluire,
-    TResult Function()? emptyWishList,
-    TResult Function(Coupon coupon)? addToWishList,
-    TResult Function(Coupon coupon)? removeToWishList,
+    TResult Function(String error)? wishlistStoresFaluire,
+    TResult Function()? emptyStoresWishList,
+    TResult Function(int count)? getNumberOFStoresInWishList,
     required TResult orElse(),
   }) {
-    if (emptyWishList != null) {
-      return emptyWishList();
+    if (emptyStoresWishList != null) {
+      return emptyStoresWishList();
     }
     return orElse();
   }
@@ -1002,162 +787,159 @@ class _$EmptyWishListImpl implements EmptyWishList {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(WishlistLoading value) wishlistLoading,
-    required TResult Function(WishlistLoaded value) wishlistLoaded,
+    required TResult Function(WishlistStoresLoading value)
+        wishlistStoresLoading,
     required TResult Function(WishlistStoresLoaded value) wishlistStoresLoaded,
-    required TResult Function(WishlistFaluire value) wishlistFaluire,
-    required TResult Function(EmptyWishList value) emptyWishList,
-    required TResult Function(AddToWishList value) addToWishList,
-    required TResult Function(RemoveFromWishList value) removeToWishList,
+    required TResult Function(WishlistStoresFaluire value)
+        wishlistStoresFaluire,
+    required TResult Function(EmptyStoresWishList value) emptyStoresWishList,
+    required TResult Function(GetNumberOFStoresInWishList value)
+        getNumberOFStoresInWishList,
   }) {
-    return emptyWishList(this);
+    return emptyStoresWishList(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(WishlistLoading value)? wishlistLoading,
-    TResult? Function(WishlistLoaded value)? wishlistLoaded,
+    TResult? Function(WishlistStoresLoading value)? wishlistStoresLoading,
     TResult? Function(WishlistStoresLoaded value)? wishlistStoresLoaded,
-    TResult? Function(WishlistFaluire value)? wishlistFaluire,
-    TResult? Function(EmptyWishList value)? emptyWishList,
-    TResult? Function(AddToWishList value)? addToWishList,
-    TResult? Function(RemoveFromWishList value)? removeToWishList,
+    TResult? Function(WishlistStoresFaluire value)? wishlistStoresFaluire,
+    TResult? Function(EmptyStoresWishList value)? emptyStoresWishList,
+    TResult? Function(GetNumberOFStoresInWishList value)?
+        getNumberOFStoresInWishList,
   }) {
-    return emptyWishList?.call(this);
+    return emptyStoresWishList?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(WishlistLoading value)? wishlistLoading,
-    TResult Function(WishlistLoaded value)? wishlistLoaded,
+    TResult Function(WishlistStoresLoading value)? wishlistStoresLoading,
     TResult Function(WishlistStoresLoaded value)? wishlistStoresLoaded,
-    TResult Function(WishlistFaluire value)? wishlistFaluire,
-    TResult Function(EmptyWishList value)? emptyWishList,
-    TResult Function(AddToWishList value)? addToWishList,
-    TResult Function(RemoveFromWishList value)? removeToWishList,
+    TResult Function(WishlistStoresFaluire value)? wishlistStoresFaluire,
+    TResult Function(EmptyStoresWishList value)? emptyStoresWishList,
+    TResult Function(GetNumberOFStoresInWishList value)?
+        getNumberOFStoresInWishList,
     required TResult orElse(),
   }) {
-    if (emptyWishList != null) {
-      return emptyWishList(this);
+    if (emptyStoresWishList != null) {
+      return emptyStoresWishList(this);
     }
     return orElse();
   }
 }
 
-abstract class EmptyWishList implements WishlistState {
-  const factory EmptyWishList() = _$EmptyWishListImpl;
+abstract class EmptyStoresWishList implements WishListStoresState {
+  const factory EmptyStoresWishList() = _$EmptyStoresWishListImpl;
 }
 
 /// @nodoc
-abstract class _$$AddToWishListImplCopyWith<$Res> {
-  factory _$$AddToWishListImplCopyWith(
-          _$AddToWishListImpl value, $Res Function(_$AddToWishListImpl) then) =
-      __$$AddToWishListImplCopyWithImpl<$Res>;
+abstract class _$$GetNumberOFStoresInWishListImplCopyWith<$Res> {
+  factory _$$GetNumberOFStoresInWishListImplCopyWith(
+          _$GetNumberOFStoresInWishListImpl value,
+          $Res Function(_$GetNumberOFStoresInWishListImpl) then) =
+      __$$GetNumberOFStoresInWishListImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Coupon coupon});
+  $Res call({int count});
 }
 
 /// @nodoc
-class __$$AddToWishListImplCopyWithImpl<$Res>
-    extends _$WishlistStateCopyWithImpl<$Res, _$AddToWishListImpl>
-    implements _$$AddToWishListImplCopyWith<$Res> {
-  __$$AddToWishListImplCopyWithImpl(
-      _$AddToWishListImpl _value, $Res Function(_$AddToWishListImpl) _then)
+class __$$GetNumberOFStoresInWishListImplCopyWithImpl<$Res>
+    extends _$WishListStoresStateCopyWithImpl<$Res,
+        _$GetNumberOFStoresInWishListImpl>
+    implements _$$GetNumberOFStoresInWishListImplCopyWith<$Res> {
+  __$$GetNumberOFStoresInWishListImplCopyWithImpl(
+      _$GetNumberOFStoresInWishListImpl _value,
+      $Res Function(_$GetNumberOFStoresInWishListImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? coupon = null,
+    Object? count = null,
   }) {
-    return _then(_$AddToWishListImpl(
-      coupon: null == coupon
-          ? _value.coupon
-          : coupon // ignore: cast_nullable_to_non_nullable
-              as Coupon,
+    return _then(_$GetNumberOFStoresInWishListImpl(
+      count: null == count
+          ? _value.count
+          : count // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
 /// @nodoc
 
-class _$AddToWishListImpl implements AddToWishList {
-  const _$AddToWishListImpl({required this.coupon});
+class _$GetNumberOFStoresInWishListImpl implements GetNumberOFStoresInWishList {
+  const _$GetNumberOFStoresInWishListImpl({required this.count});
 
   @override
-  final Coupon coupon;
+  final int count;
 
   @override
   String toString() {
-    return 'WishlistState.addToWishList(coupon: $coupon)';
+    return 'WishListStoresState.getNumberOFStoresInWishList(count: $count)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddToWishListImpl &&
-            (identical(other.coupon, coupon) || other.coupon == coupon));
+            other is _$GetNumberOFStoresInWishListImpl &&
+            (identical(other.count, count) || other.count == count));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, coupon);
+  int get hashCode => Object.hash(runtimeType, count);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddToWishListImplCopyWith<_$AddToWishListImpl> get copyWith =>
-      __$$AddToWishListImplCopyWithImpl<_$AddToWishListImpl>(this, _$identity);
+  _$$GetNumberOFStoresInWishListImplCopyWith<_$GetNumberOFStoresInWishListImpl>
+      get copyWith => __$$GetNumberOFStoresInWishListImplCopyWithImpl<
+          _$GetNumberOFStoresInWishListImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() wishlistLoading,
-    required TResult Function(List<Coupon> coupons) wishlistLoaded,
+    required TResult Function() wishlistStoresLoading,
     required TResult Function(List<UserModel> stores) wishlistStoresLoaded,
-    required TResult Function(String error) wishlistFaluire,
-    required TResult Function() emptyWishList,
-    required TResult Function(Coupon coupon) addToWishList,
-    required TResult Function(Coupon coupon) removeToWishList,
+    required TResult Function(String error) wishlistStoresFaluire,
+    required TResult Function() emptyStoresWishList,
+    required TResult Function(int count) getNumberOFStoresInWishList,
   }) {
-    return addToWishList(coupon);
+    return getNumberOFStoresInWishList(count);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? wishlistLoading,
-    TResult? Function(List<Coupon> coupons)? wishlistLoaded,
+    TResult? Function()? wishlistStoresLoading,
     TResult? Function(List<UserModel> stores)? wishlistStoresLoaded,
-    TResult? Function(String error)? wishlistFaluire,
-    TResult? Function()? emptyWishList,
-    TResult? Function(Coupon coupon)? addToWishList,
-    TResult? Function(Coupon coupon)? removeToWishList,
+    TResult? Function(String error)? wishlistStoresFaluire,
+    TResult? Function()? emptyStoresWishList,
+    TResult? Function(int count)? getNumberOFStoresInWishList,
   }) {
-    return addToWishList?.call(coupon);
+    return getNumberOFStoresInWishList?.call(count);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? wishlistLoading,
-    TResult Function(List<Coupon> coupons)? wishlistLoaded,
+    TResult Function()? wishlistStoresLoading,
     TResult Function(List<UserModel> stores)? wishlistStoresLoaded,
-    TResult Function(String error)? wishlistFaluire,
-    TResult Function()? emptyWishList,
-    TResult Function(Coupon coupon)? addToWishList,
-    TResult Function(Coupon coupon)? removeToWishList,
+    TResult Function(String error)? wishlistStoresFaluire,
+    TResult Function()? emptyStoresWishList,
+    TResult Function(int count)? getNumberOFStoresInWishList,
     required TResult orElse(),
   }) {
-    if (addToWishList != null) {
-      return addToWishList(coupon);
+    if (getNumberOFStoresInWishList != null) {
+      return getNumberOFStoresInWishList(count);
     }
     return orElse();
   }
@@ -1166,229 +948,57 @@ class _$AddToWishListImpl implements AddToWishList {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(WishlistLoading value) wishlistLoading,
-    required TResult Function(WishlistLoaded value) wishlistLoaded,
+    required TResult Function(WishlistStoresLoading value)
+        wishlistStoresLoading,
     required TResult Function(WishlistStoresLoaded value) wishlistStoresLoaded,
-    required TResult Function(WishlistFaluire value) wishlistFaluire,
-    required TResult Function(EmptyWishList value) emptyWishList,
-    required TResult Function(AddToWishList value) addToWishList,
-    required TResult Function(RemoveFromWishList value) removeToWishList,
+    required TResult Function(WishlistStoresFaluire value)
+        wishlistStoresFaluire,
+    required TResult Function(EmptyStoresWishList value) emptyStoresWishList,
+    required TResult Function(GetNumberOFStoresInWishList value)
+        getNumberOFStoresInWishList,
   }) {
-    return addToWishList(this);
+    return getNumberOFStoresInWishList(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(WishlistLoading value)? wishlistLoading,
-    TResult? Function(WishlistLoaded value)? wishlistLoaded,
+    TResult? Function(WishlistStoresLoading value)? wishlistStoresLoading,
     TResult? Function(WishlistStoresLoaded value)? wishlistStoresLoaded,
-    TResult? Function(WishlistFaluire value)? wishlistFaluire,
-    TResult? Function(EmptyWishList value)? emptyWishList,
-    TResult? Function(AddToWishList value)? addToWishList,
-    TResult? Function(RemoveFromWishList value)? removeToWishList,
+    TResult? Function(WishlistStoresFaluire value)? wishlistStoresFaluire,
+    TResult? Function(EmptyStoresWishList value)? emptyStoresWishList,
+    TResult? Function(GetNumberOFStoresInWishList value)?
+        getNumberOFStoresInWishList,
   }) {
-    return addToWishList?.call(this);
+    return getNumberOFStoresInWishList?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(WishlistLoading value)? wishlistLoading,
-    TResult Function(WishlistLoaded value)? wishlistLoaded,
+    TResult Function(WishlistStoresLoading value)? wishlistStoresLoading,
     TResult Function(WishlistStoresLoaded value)? wishlistStoresLoaded,
-    TResult Function(WishlistFaluire value)? wishlistFaluire,
-    TResult Function(EmptyWishList value)? emptyWishList,
-    TResult Function(AddToWishList value)? addToWishList,
-    TResult Function(RemoveFromWishList value)? removeToWishList,
+    TResult Function(WishlistStoresFaluire value)? wishlistStoresFaluire,
+    TResult Function(EmptyStoresWishList value)? emptyStoresWishList,
+    TResult Function(GetNumberOFStoresInWishList value)?
+        getNumberOFStoresInWishList,
     required TResult orElse(),
   }) {
-    if (addToWishList != null) {
-      return addToWishList(this);
+    if (getNumberOFStoresInWishList != null) {
+      return getNumberOFStoresInWishList(this);
     }
     return orElse();
   }
 }
 
-abstract class AddToWishList implements WishlistState {
-  const factory AddToWishList({required final Coupon coupon}) =
-      _$AddToWishListImpl;
+abstract class GetNumberOFStoresInWishList implements WishListStoresState {
+  const factory GetNumberOFStoresInWishList({required final int count}) =
+      _$GetNumberOFStoresInWishListImpl;
 
-  Coupon get coupon;
+  int get count;
   @JsonKey(ignore: true)
-  _$$AddToWishListImplCopyWith<_$AddToWishListImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$RemoveFromWishListImplCopyWith<$Res> {
-  factory _$$RemoveFromWishListImplCopyWith(_$RemoveFromWishListImpl value,
-          $Res Function(_$RemoveFromWishListImpl) then) =
-      __$$RemoveFromWishListImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Coupon coupon});
-}
-
-/// @nodoc
-class __$$RemoveFromWishListImplCopyWithImpl<$Res>
-    extends _$WishlistStateCopyWithImpl<$Res, _$RemoveFromWishListImpl>
-    implements _$$RemoveFromWishListImplCopyWith<$Res> {
-  __$$RemoveFromWishListImplCopyWithImpl(_$RemoveFromWishListImpl _value,
-      $Res Function(_$RemoveFromWishListImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? coupon = null,
-  }) {
-    return _then(_$RemoveFromWishListImpl(
-      coupon: null == coupon
-          ? _value.coupon
-          : coupon // ignore: cast_nullable_to_non_nullable
-              as Coupon,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$RemoveFromWishListImpl implements RemoveFromWishList {
-  const _$RemoveFromWishListImpl({required this.coupon});
-
-  @override
-  final Coupon coupon;
-
-  @override
-  String toString() {
-    return 'WishlistState.removeToWishList(coupon: $coupon)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RemoveFromWishListImpl &&
-            (identical(other.coupon, coupon) || other.coupon == coupon));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, coupon);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RemoveFromWishListImplCopyWith<_$RemoveFromWishListImpl> get copyWith =>
-      __$$RemoveFromWishListImplCopyWithImpl<_$RemoveFromWishListImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() wishlistLoading,
-    required TResult Function(List<Coupon> coupons) wishlistLoaded,
-    required TResult Function(List<UserModel> stores) wishlistStoresLoaded,
-    required TResult Function(String error) wishlistFaluire,
-    required TResult Function() emptyWishList,
-    required TResult Function(Coupon coupon) addToWishList,
-    required TResult Function(Coupon coupon) removeToWishList,
-  }) {
-    return removeToWishList(coupon);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? wishlistLoading,
-    TResult? Function(List<Coupon> coupons)? wishlistLoaded,
-    TResult? Function(List<UserModel> stores)? wishlistStoresLoaded,
-    TResult? Function(String error)? wishlistFaluire,
-    TResult? Function()? emptyWishList,
-    TResult? Function(Coupon coupon)? addToWishList,
-    TResult? Function(Coupon coupon)? removeToWishList,
-  }) {
-    return removeToWishList?.call(coupon);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? wishlistLoading,
-    TResult Function(List<Coupon> coupons)? wishlistLoaded,
-    TResult Function(List<UserModel> stores)? wishlistStoresLoaded,
-    TResult Function(String error)? wishlistFaluire,
-    TResult Function()? emptyWishList,
-    TResult Function(Coupon coupon)? addToWishList,
-    TResult Function(Coupon coupon)? removeToWishList,
-    required TResult orElse(),
-  }) {
-    if (removeToWishList != null) {
-      return removeToWishList(coupon);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(WishlistLoading value) wishlistLoading,
-    required TResult Function(WishlistLoaded value) wishlistLoaded,
-    required TResult Function(WishlistStoresLoaded value) wishlistStoresLoaded,
-    required TResult Function(WishlistFaluire value) wishlistFaluire,
-    required TResult Function(EmptyWishList value) emptyWishList,
-    required TResult Function(AddToWishList value) addToWishList,
-    required TResult Function(RemoveFromWishList value) removeToWishList,
-  }) {
-    return removeToWishList(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(WishlistLoading value)? wishlistLoading,
-    TResult? Function(WishlistLoaded value)? wishlistLoaded,
-    TResult? Function(WishlistStoresLoaded value)? wishlistStoresLoaded,
-    TResult? Function(WishlistFaluire value)? wishlistFaluire,
-    TResult? Function(EmptyWishList value)? emptyWishList,
-    TResult? Function(AddToWishList value)? addToWishList,
-    TResult? Function(RemoveFromWishList value)? removeToWishList,
-  }) {
-    return removeToWishList?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(WishlistLoading value)? wishlistLoading,
-    TResult Function(WishlistLoaded value)? wishlistLoaded,
-    TResult Function(WishlistStoresLoaded value)? wishlistStoresLoaded,
-    TResult Function(WishlistFaluire value)? wishlistFaluire,
-    TResult Function(EmptyWishList value)? emptyWishList,
-    TResult Function(AddToWishList value)? addToWishList,
-    TResult Function(RemoveFromWishList value)? removeToWishList,
-    required TResult orElse(),
-  }) {
-    if (removeToWishList != null) {
-      return removeToWishList(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class RemoveFromWishList implements WishlistState {
-  const factory RemoveFromWishList({required final Coupon coupon}) =
-      _$RemoveFromWishListImpl;
-
-  Coupon get coupon;
-  @JsonKey(ignore: true)
-  _$$RemoveFromWishListImplCopyWith<_$RemoveFromWishListImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GetNumberOFStoresInWishListImplCopyWith<_$GetNumberOFStoresInWishListImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

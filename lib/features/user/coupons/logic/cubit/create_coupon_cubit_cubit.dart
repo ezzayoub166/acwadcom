@@ -1,11 +1,8 @@
-import 'package:acwadcom/features/admin/logic/edit_screen/cubit/edit_code_cubit.dart';
-import 'package:acwadcom/features/admin/srvices/coupon_request_services.dart';
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:acwadcom/features/user/authtication/data/user_repositry.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
-import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:acwadcom/acwadcom_packges.dart';
