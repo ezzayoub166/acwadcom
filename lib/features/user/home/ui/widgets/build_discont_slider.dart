@@ -10,7 +10,7 @@ class _DiscountSliderState extends State<DiscountSlider> {
   int _currentIndex = 1; // 1 corresponds to 15%
 
   // List of discount options
-  final List<int> _discountOptions = [5, 15, 30];
+  final List<int> _discountOptions = [5,10, 15, 30];
 
   @override
   Widget build(BuildContext context) {

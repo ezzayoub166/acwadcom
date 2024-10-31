@@ -157,5 +157,9 @@
   "The special request on this coupon has been removed.": "The special request on this coupon has been removed.",
   "The request is being deleted.": "The request is being deleted.",
   "Stores": "Stores",
-  "Coupons": "Coupons"
+  "Coupons": "Coupons",
+  "Add Offers Page" : "Add Offers Page",
+  "Does not contain any coupons.":"Does not contain any coupons.",
+    "No internet Conection":  "No internet Conection",
+    "Please check your ( Wi-Fi / Data) internetc onnection and try again.":"Please check your ( Wi-Fi / Data) internetc onnection and try again."
 }

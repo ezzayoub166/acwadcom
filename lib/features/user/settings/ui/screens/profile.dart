@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'dart:math';
-
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/user/authtication/data/authentication_repository.dart';
 import 'package:acwadcom/features/user/coupons/ui/widgets/build_app_bar_with_back_button.dart';

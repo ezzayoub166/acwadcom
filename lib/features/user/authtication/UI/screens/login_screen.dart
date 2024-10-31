@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/user/authtication/UI/widgets/login_bloc_listener.dart';
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
 
 class LoginScreen extends StatefulWidget {
@@ -12,11 +15,43 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  @override
+    bool isConnectedToInternt = false;
+
+   StreamSubscription? _intrenetConnectionStreamSubscription ; 
+   @override
   void initState() {
     // TODO: implement initState
+    //     _intrenetConnectionStreamSubscription = InternetConnection().onStatusChange.listen((event){
+    //   switch (event){
+    //     case InternetStatus.connected:
+    //     setState(() {
+    //       isConnectedToInternt =  true;
+    //     });
+    //     break;
+    //     case InternetStatus.disconnected:
+    //     setState(() {
+    //       isConnectedToInternt = false ;
+    //     });
+    //     break;
+    //     default:
+    //     setState(() {
+    //       isConnectedToInternt = false;
+    //     });
+    //   }
+    // });
     super.initState();
-    // addTestData();
+
+        // BlocProvider.of<ProfileCubit>(context).emitLoadingProfileData();
+
+
+  }
+
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    // _intrenetConnectionStreamSubscription?.cancel();
   }
 
   Widget buildRegisterNewAccount(context) {

@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, body_might_complete_normally_nullable, unused_local_variable
 
+import 'package:acwadcom/acwadcom.dart';
 import 'package:acwadcom/features/admin/logic/edit_screen/cubit/edit_code_cubit.dart';
 import 'package:acwadcom/features/admin/logic/request/cubit/control_coupons_cubit.dart';
 import 'package:acwadcom/features/admin/ui/screens/discount_code_deatils_admin.dart';
@@ -20,8 +21,11 @@ import 'package:acwadcom/features/user/coupons/ui/screens/add_coupon_screen.dart
 import 'package:acwadcom/features/user/coupons/ui/screens/revison_response_screen.dart';
 import 'package:acwadcom/features/user/explore/data/store_model.dart';
 import 'package:acwadcom/features/user/explore/logic/cubit/explore_cubit.dart';
+import 'package:acwadcom/features/user/home/logic/filter/cubit/filter_coupons_cubit.dart';
 import 'package:acwadcom/features/user/home/logic/home/cubit/home_cubit.dart';
 import 'package:acwadcom/features/user/home/logic/search/cubit/search_cubit.dart';
+import 'package:acwadcom/features/user/home/ui/filter_list_coupons.dart';
+import 'package:acwadcom/features/user/home/ui/list_coupons_screen.dart';
 import 'package:acwadcom/features/user/home/ui/search_screen.dart';
 import 'package:acwadcom/features/user/onboarding/ui/screens/onboarding_screen.dart';
 import 'package:acwadcom/features/user/onboarding/ui/screens/userOrStore.dart';
@@ -59,8 +63,8 @@ class AppRouter {
             builder: (_) => BlocProvider(
                   create: (context) => getIt<LoginCubit>(),
                   child: LoginScreen(
-                    // tYPEUSER: tYPEUSER,
-                  ),
+                      // tYPEUSER: tYPEUSER,
+                      ),
                 ));
       case Routes.signUpScreen:
         final selectStatus = settings.arguments as String;
@@ -76,7 +80,8 @@ class AppRouter {
       case Routes.profileScreen:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
-                  create: (context) => getIt<ProfileCubit>()..emitLoadingProfileData(),
+                  create: (context) =>
+                      getIt<ProfileCubit>()..emitLoadingProfileData(),
                   child: ProfileScreen(),
                 ));
       case Routes.contactUs:
@@ -112,7 +117,9 @@ class AppRouter {
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
                   create: (context) => getIt<RegisterOwnerStoreCubit>(),
-                  child: RegisterOwnerStore(selectStatus: tYPEUSER,),
+                  child: RegisterOwnerStore(
+                    selectStatus: tYPEUSER,
+                  ),
                 ));
       case Routes.homeScreenForOwenerStore:
         return MaterialPageRoute(builder: (context) => HomeScreenOwner());
@@ -178,12 +185,34 @@ class AppRouter {
                   child: SearchScreen(),
                 ));
 
-
       case Routes.listOfStoresScreen:
-        return MaterialPageRoute(builder: (context) => BlocProvider(
-              create:(context) => getIt<ExploreCubit>()..fetchStores() ,
-             child: ListStoresScreen()
-    ));
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                create: (context) => getIt<ExploreCubit>()..fetchStores(),
+                child: ListStoresScreen()));
+      case Routes.listOfCoupons:
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => getIt<HomeCubit>()..emitGetAllCoupons(),
+                  child: ListCouponsScreen(),
+                ));
+
+
+                case Routes.listOfFilterdCouponsScreen:
+                final argument = settings.arguments as FilterItem; 
+                return MaterialPageRoute(builder: (context) => BlocProvider(
+                  create: (context) => getIt<FilterCouponsCubit>()..emitFilterCoupons(argument.categoryID, argument.rate),
+                  child: FilterListCoupons(categoryID: argument.categoryID, rate: argument.rate)));
+
+                //  case Routes.noInterntScreen:
+                //  return MaterialPageRoute(builder:(context) => NoInterntScreen()); 
     }
   }
+}
+
+class FilterItem {
+  final String categoryID;
+  final int rate ;
+
+  FilterItem({required this.categoryID, required this.rate});
 }

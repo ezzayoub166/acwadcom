@@ -15,13 +15,40 @@ class ExploreCubit extends Cubit<ExploreState> {
   final StoreRepository storeRepository;
   final CouponRepository couponRepository;
 
-  Future<List<Coupon>> fetchMostUsedCoupons() async {
-    return [Coupon.empty()];
+
+
+//** Most Used Coupons  */
+   Future<void> fetchMostUsedCoupons() async{
+    try{
+      emit(const ExploreState.loadingGetMostUsedCoupons());
+      final coupons = await couponRepository.fetchMostUsedCoupons();
+      emit(ExploreState.successGetMostUsedCoupons(mostUsedCoupons: coupons));
+    }catch(onError){
+      emit(ExploreState.errorGetMostUsedCoupons(erro: onError.toString()));
+
+    }
   }
+
+  //** Recntly Added Coupons */
+
+   Future<void> fetchCouponsAddedRecently() async {
+    try{
+      emit(const ExploreState.loadingGetCoupons());
+      await couponRepository.fetchRecentlyAddedCoupons().then((coupons){
+        emit(ExploreState.successGetCoupon(coupons: coupons));
+      });
+    }catch(error){
+      emit(ExploreState.errorGetCoupons(error: error.toString()));
+
+    }
+  }
+
+
+//** Special Stories  */
 
   fetchSpecialStores()async{
     try {
-      emit(const ExploreState.loadingStores());
+      emit(const ExploreState.loadingSpecialStores());
       final List<UserModel> stores =
           await storeRepository.featchSpecialStores();
       emit(ExploreState.sucessGetSpecialStores(stores: stores));
@@ -29,6 +56,7 @@ class ExploreCubit extends Cubit<ExploreState> {
       emit(ExploreState.faluireGetStores(error: error.toString()));
     }
   }
+  //** all Stories */
 
   fetchStores()async{
     try {
@@ -39,6 +67,8 @@ class ExploreCubit extends Cubit<ExploreState> {
       emit(ExploreState.faluireGetStores(error: error.toString()));
     }
   }
+
+ 
 
   Future<void> getCouponsForSelectedStore(String ownerID) async {
     emit(const ExploreState.loadingGetCoupons());
@@ -57,15 +87,5 @@ class ExploreCubit extends Cubit<ExploreState> {
   }
 
 
-  Future<void> fetchCouponsAddedRecently() async {
-    try{
-      emit(const ExploreState.loadingGetCoupons());
-      await couponRepository.fetchRecentlyAddedCoupons().then((coupons){
-        emit(ExploreState.successGetCoupon(coupons: coupons));
-      });
-    }catch(error){
-      emit(ExploreState.errorGetCoupons(error: error.toString()));
-
-    }
-  }
+ 
 }

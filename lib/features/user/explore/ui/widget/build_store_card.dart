@@ -1,5 +1,6 @@
 
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/common/widgets/build_extended_image.dart';
 import 'package:acwadcom/features/user/explore/data/store_model.dart';
 import 'package:acwadcom/models/user_model.dart';
 
@@ -10,49 +11,48 @@ class StoreCard extends StatelessWidget {
   const StoreCard({super.key, required this.store});
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
+    return 
         Container(
-          height: 100,
+          height: 120,
            width: 130.w, // Fixed responsive width
           // width: double.infinity,
-          padding: EdgeInsets.all(8.w),
+          // padding: EdgeInsets.all(5),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(16.0),
+            border: Border.all(color: Colors.grey , width: 0.5)
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              myText(store.userName , fontSize: 15 , fontWeight: FontWeightEnum.SemiBold.fontWeight),
-              myText(
-                //!!! TODO create the deatis for store owner ,,,,, when create account
-                store.deatilsForStore??"أكواد خصم تصل إلى %",
-                  fontSize: 15.0,
-                  maxLines: 2,
-                  color: Colors.grey[700],
-                textAlign: TextAlign.center,
+              Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                        15), // Adjust the radius as needed
+                  ),
+                  clipBehavior: Clip.antiAlias,
+                  elevation: 5.0,
+                  child: extendedImageWgt(
+                      store.profilePicture, 100, 140, BoxFit.cover)),
+              Expanded(
+                child: Column(
+                  children: [
+                    myText(store.userName , fontSize: 15 , fontWeight: FontWeightEnum.SemiBold.fontWeight),
+                    buildSpacerH(5.0),
+                    myText(
+                  //!!! TODO create the deatis for store owner ,,,,, when create account
+                  store.deatilsForStore??"أكواد خصم تصل إلى %",
+                    fontSize: 12.0,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    
+                    color: Colors.grey[700],
+                  textAlign: TextAlign.center,
+                ),
+                  ],
+                ),
               ),
-
-            ],
-          ),
-        ),
-        
-        Positioned(
-          top:0,
-          left: 30.w,
-          right: 30.w,
-          child: CircleAvatar(
-            radius: 30,
-            backgroundColor: ManagerColors.kCustomColor,
-             backgroundImage: store.profilePicture != "" ?  CachedNetworkImageProvider(store.profilePicture) : AssetImage("assets/images/user.png"),
-                onBackgroundImageError: (error, stackTrace) {
-                  print("Error loading image: $error");
-                }
-            ),
-        ),
-      ],
-    );
+              
+          ]
+    ));
   }
 }

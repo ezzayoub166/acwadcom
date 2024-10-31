@@ -1,5 +1,4 @@
 
-import 'package:acwadcom/features/user/wishlist/logic/coupons_wishlist/cubit/wihslist_coupons_cubit.dart';
 
 import '../../../../../acwadcom_packges.dart';
 import '../../../../../models/coupon_model.dart';

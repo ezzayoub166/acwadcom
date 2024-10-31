@@ -9,7 +9,7 @@ class WishListStoresState with _$WishListStoresState {
 
   const factory WishListStoresState.wishlistStoresFaluire({required String error}) = WishlistStoresFaluire;
   const factory WishListStoresState.emptyStoresWishList() = EmptyStoresWishList;
-    const factory WishListStoresState.getNumberOFStoresInWishList({required int count}) = GetNumberOFStoresInWishList;
+  const factory WishListStoresState.getNumberOFStoresInWishList({required int count}) = GetNumberOFStoresInWishList;
 
 
 

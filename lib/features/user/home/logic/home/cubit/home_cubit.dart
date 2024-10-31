@@ -3,6 +3,7 @@ import 'package:acwadcom/features/user/home/data/coupon_repository.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/models/category_model.dart';
 import 'package:acwadcom/models/coupon_model.dart';
+import 'package:acwadcom/models/offer_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -32,12 +33,42 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  
 
-  void emitGetCoupons()async{
+  void emitGetOffers()async{
+    try{
+      emit(const HomeState.loadingGetOffers());
+      List<OfferModel> offers = await _categoryRepository.getTheOffers();
+      if(offers.isNotEmpty){
+      emit(HomeState.successGetOffers(offers: offers));
+
+      }else{
+        emit(const HomeState.emptyOffers());
+
+      }
+    }catch(error){
+      emit(HomeState.faluireGetOffers(error: error.toString()));
+
+    }
+  }
+
+
+  void emitGetDiscoverCoupons()async{
     try{
       emit(const HomeState.loadingCoupons());
-        await _couponRepository.fetchCoupons().then((coupons){
+        await _couponRepository.fetchDiscoverCoupons().then((coupons){
+          featchedCoupons = coupons;
+     emit(HomeState.successFeatchedCoupons(coupons: coupons));
+      });
+    }catch(onError){
+      emit(HomeState.errorFeatchedCoupons(error: onError.toString()));
+    }
+  }
+
+
+  void emitGetAllCoupons()async{
+    try{
+      emit(const HomeState.loadingCoupons());
+        await _couponRepository.fetchAllCoupons().then((coupons){
           featchedCoupons = coupons;
      emit(HomeState.successFeatchedCoupons(coupons: coupons));
       });
@@ -71,7 +102,6 @@ filteredCoupons = featchedCoupons
   // Emit the updated state with selected index and filtered coupons
   emit(HomeState.categorySelected(index: index, listofCategories: featchedCategories, listofCoupns: filteredCoupons));///! remove the third parm...
 }
-
 
   
 }

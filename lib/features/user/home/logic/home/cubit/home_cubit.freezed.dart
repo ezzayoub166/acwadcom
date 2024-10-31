@@ -29,6 +29,10 @@ mixin _$HomeState {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() loadingGetOffers,
+    required TResult Function(List<OfferModel> offers) successGetOffers,
+    required TResult Function(String error) faluireGetOffers,
+    required TResult Function() emptyOffers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,6 +47,10 @@ mixin _$HomeState {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? loadingGetOffers,
+    TResult? Function(List<OfferModel> offers)? successGetOffers,
+    TResult? Function(String error)? faluireGetOffers,
+    TResult? Function()? emptyOffers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +65,10 @@ mixin _$HomeState {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? loadingGetOffers,
+    TResult Function(List<OfferModel> offers)? successGetOffers,
+    TResult Function(String error)? faluireGetOffers,
+    TResult Function()? emptyOffers,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -73,6 +85,10 @@ mixin _$HomeState {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(LoadingGetOffers value) loadingGetOffers,
+    required TResult Function(SuccessGetOffers value) successGetOffers,
+    required TResult Function(FaluireGetOffers value) faluireGetOffers,
+    required TResult Function(EmptyOffers value) emptyOffers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -85,6 +101,10 @@ mixin _$HomeState {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult? Function(SuccessGetOffers value)? successGetOffers,
+    TResult? Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult? Function(EmptyOffers value)? emptyOffers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -97,6 +117,10 @@ mixin _$HomeState {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult Function(SuccessGetOffers value)? successGetOffers,
+    TResult Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult Function(EmptyOffers value)? emptyOffers,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -168,6 +192,10 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() loadingGetOffers,
+    required TResult Function(List<OfferModel> offers) successGetOffers,
+    required TResult Function(String error) faluireGetOffers,
+    required TResult Function() emptyOffers,
   }) {
     return initial();
   }
@@ -185,6 +213,10 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? loadingGetOffers,
+    TResult? Function(List<OfferModel> offers)? successGetOffers,
+    TResult? Function(String error)? faluireGetOffers,
+    TResult? Function()? emptyOffers,
   }) {
     return initial?.call();
   }
@@ -202,6 +234,10 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? loadingGetOffers,
+    TResult Function(List<OfferModel> offers)? successGetOffers,
+    TResult Function(String error)? faluireGetOffers,
+    TResult Function()? emptyOffers,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -224,6 +260,10 @@ class _$InitialImpl implements _Initial {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(LoadingGetOffers value) loadingGetOffers,
+    required TResult Function(SuccessGetOffers value) successGetOffers,
+    required TResult Function(FaluireGetOffers value) faluireGetOffers,
+    required TResult Function(EmptyOffers value) emptyOffers,
   }) {
     return initial(this);
   }
@@ -239,6 +279,10 @@ class _$InitialImpl implements _Initial {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult? Function(SuccessGetOffers value)? successGetOffers,
+    TResult? Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult? Function(EmptyOffers value)? emptyOffers,
   }) {
     return initial?.call(this);
   }
@@ -254,6 +298,10 @@ class _$InitialImpl implements _Initial {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult Function(SuccessGetOffers value)? successGetOffers,
+    TResult Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult Function(EmptyOffers value)? emptyOffers,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -316,6 +364,10 @@ class _$LoadingCatgoriesImpl implements LoadingCatgories {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() loadingGetOffers,
+    required TResult Function(List<OfferModel> offers) successGetOffers,
+    required TResult Function(String error) faluireGetOffers,
+    required TResult Function() emptyOffers,
   }) {
     return loadingCatgories();
   }
@@ -333,6 +385,10 @@ class _$LoadingCatgoriesImpl implements LoadingCatgories {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? loadingGetOffers,
+    TResult? Function(List<OfferModel> offers)? successGetOffers,
+    TResult? Function(String error)? faluireGetOffers,
+    TResult? Function()? emptyOffers,
   }) {
     return loadingCatgories?.call();
   }
@@ -350,6 +406,10 @@ class _$LoadingCatgoriesImpl implements LoadingCatgories {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? loadingGetOffers,
+    TResult Function(List<OfferModel> offers)? successGetOffers,
+    TResult Function(String error)? faluireGetOffers,
+    TResult Function()? emptyOffers,
     required TResult orElse(),
   }) {
     if (loadingCatgories != null) {
@@ -372,6 +432,10 @@ class _$LoadingCatgoriesImpl implements LoadingCatgories {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(LoadingGetOffers value) loadingGetOffers,
+    required TResult Function(SuccessGetOffers value) successGetOffers,
+    required TResult Function(FaluireGetOffers value) faluireGetOffers,
+    required TResult Function(EmptyOffers value) emptyOffers,
   }) {
     return loadingCatgories(this);
   }
@@ -387,6 +451,10 @@ class _$LoadingCatgoriesImpl implements LoadingCatgories {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult? Function(SuccessGetOffers value)? successGetOffers,
+    TResult? Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult? Function(EmptyOffers value)? emptyOffers,
   }) {
     return loadingCatgories?.call(this);
   }
@@ -402,6 +470,10 @@ class _$LoadingCatgoriesImpl implements LoadingCatgories {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult Function(SuccessGetOffers value)? successGetOffers,
+    TResult Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult Function(EmptyOffers value)? emptyOffers,
     required TResult orElse(),
   }) {
     if (loadingCatgories != null) {
@@ -502,6 +574,10 @@ class _$SuccessFeatchedCatgoriesImpl implements SuccessFeatchedCatgories {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() loadingGetOffers,
+    required TResult Function(List<OfferModel> offers) successGetOffers,
+    required TResult Function(String error) faluireGetOffers,
+    required TResult Function() emptyOffers,
   }) {
     return successFeatchedCatgories(categories);
   }
@@ -519,6 +595,10 @@ class _$SuccessFeatchedCatgoriesImpl implements SuccessFeatchedCatgories {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? loadingGetOffers,
+    TResult? Function(List<OfferModel> offers)? successGetOffers,
+    TResult? Function(String error)? faluireGetOffers,
+    TResult? Function()? emptyOffers,
   }) {
     return successFeatchedCatgories?.call(categories);
   }
@@ -536,6 +616,10 @@ class _$SuccessFeatchedCatgoriesImpl implements SuccessFeatchedCatgories {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? loadingGetOffers,
+    TResult Function(List<OfferModel> offers)? successGetOffers,
+    TResult Function(String error)? faluireGetOffers,
+    TResult Function()? emptyOffers,
     required TResult orElse(),
   }) {
     if (successFeatchedCatgories != null) {
@@ -558,6 +642,10 @@ class _$SuccessFeatchedCatgoriesImpl implements SuccessFeatchedCatgories {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(LoadingGetOffers value) loadingGetOffers,
+    required TResult Function(SuccessGetOffers value) successGetOffers,
+    required TResult Function(FaluireGetOffers value) faluireGetOffers,
+    required TResult Function(EmptyOffers value) emptyOffers,
   }) {
     return successFeatchedCatgories(this);
   }
@@ -573,6 +661,10 @@ class _$SuccessFeatchedCatgoriesImpl implements SuccessFeatchedCatgories {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult? Function(SuccessGetOffers value)? successGetOffers,
+    TResult? Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult? Function(EmptyOffers value)? emptyOffers,
   }) {
     return successFeatchedCatgories?.call(this);
   }
@@ -588,6 +680,10 @@ class _$SuccessFeatchedCatgoriesImpl implements SuccessFeatchedCatgories {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult Function(SuccessGetOffers value)? successGetOffers,
+    TResult Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult Function(EmptyOffers value)? emptyOffers,
     required TResult orElse(),
   }) {
     if (successFeatchedCatgories != null) {
@@ -726,6 +822,10 @@ class _$CategorySelectedImpl implements CategorySelected {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() loadingGetOffers,
+    required TResult Function(List<OfferModel> offers) successGetOffers,
+    required TResult Function(String error) faluireGetOffers,
+    required TResult Function() emptyOffers,
   }) {
     return categorySelected(index, listofCategories, listofCoupns);
   }
@@ -743,6 +843,10 @@ class _$CategorySelectedImpl implements CategorySelected {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? loadingGetOffers,
+    TResult? Function(List<OfferModel> offers)? successGetOffers,
+    TResult? Function(String error)? faluireGetOffers,
+    TResult? Function()? emptyOffers,
   }) {
     return categorySelected?.call(index, listofCategories, listofCoupns);
   }
@@ -760,6 +864,10 @@ class _$CategorySelectedImpl implements CategorySelected {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? loadingGetOffers,
+    TResult Function(List<OfferModel> offers)? successGetOffers,
+    TResult Function(String error)? faluireGetOffers,
+    TResult Function()? emptyOffers,
     required TResult orElse(),
   }) {
     if (categorySelected != null) {
@@ -782,6 +890,10 @@ class _$CategorySelectedImpl implements CategorySelected {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(LoadingGetOffers value) loadingGetOffers,
+    required TResult Function(SuccessGetOffers value) successGetOffers,
+    required TResult Function(FaluireGetOffers value) faluireGetOffers,
+    required TResult Function(EmptyOffers value) emptyOffers,
   }) {
     return categorySelected(this);
   }
@@ -797,6 +909,10 @@ class _$CategorySelectedImpl implements CategorySelected {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult? Function(SuccessGetOffers value)? successGetOffers,
+    TResult? Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult? Function(EmptyOffers value)? emptyOffers,
   }) {
     return categorySelected?.call(this);
   }
@@ -812,6 +928,10 @@ class _$CategorySelectedImpl implements CategorySelected {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult Function(SuccessGetOffers value)? successGetOffers,
+    TResult Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult Function(EmptyOffers value)? emptyOffers,
     required TResult orElse(),
   }) {
     if (categorySelected != null) {
@@ -913,6 +1033,10 @@ class _$ErrorFeatchedCatgoriesImpl implements ErrorFeatchedCatgories {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() loadingGetOffers,
+    required TResult Function(List<OfferModel> offers) successGetOffers,
+    required TResult Function(String error) faluireGetOffers,
+    required TResult Function() emptyOffers,
   }) {
     return errorFeatchedCatgories(error);
   }
@@ -930,6 +1054,10 @@ class _$ErrorFeatchedCatgoriesImpl implements ErrorFeatchedCatgories {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? loadingGetOffers,
+    TResult? Function(List<OfferModel> offers)? successGetOffers,
+    TResult? Function(String error)? faluireGetOffers,
+    TResult? Function()? emptyOffers,
   }) {
     return errorFeatchedCatgories?.call(error);
   }
@@ -947,6 +1075,10 @@ class _$ErrorFeatchedCatgoriesImpl implements ErrorFeatchedCatgories {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? loadingGetOffers,
+    TResult Function(List<OfferModel> offers)? successGetOffers,
+    TResult Function(String error)? faluireGetOffers,
+    TResult Function()? emptyOffers,
     required TResult orElse(),
   }) {
     if (errorFeatchedCatgories != null) {
@@ -969,6 +1101,10 @@ class _$ErrorFeatchedCatgoriesImpl implements ErrorFeatchedCatgories {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(LoadingGetOffers value) loadingGetOffers,
+    required TResult Function(SuccessGetOffers value) successGetOffers,
+    required TResult Function(FaluireGetOffers value) faluireGetOffers,
+    required TResult Function(EmptyOffers value) emptyOffers,
   }) {
     return errorFeatchedCatgories(this);
   }
@@ -984,6 +1120,10 @@ class _$ErrorFeatchedCatgoriesImpl implements ErrorFeatchedCatgories {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult? Function(SuccessGetOffers value)? successGetOffers,
+    TResult? Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult? Function(EmptyOffers value)? emptyOffers,
   }) {
     return errorFeatchedCatgories?.call(this);
   }
@@ -999,6 +1139,10 @@ class _$ErrorFeatchedCatgoriesImpl implements ErrorFeatchedCatgories {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult Function(SuccessGetOffers value)? successGetOffers,
+    TResult Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult Function(EmptyOffers value)? emptyOffers,
     required TResult orElse(),
   }) {
     if (errorFeatchedCatgories != null) {
@@ -1067,6 +1211,10 @@ class _$LoadingCouponsImpl implements LoadingCoupons {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() loadingGetOffers,
+    required TResult Function(List<OfferModel> offers) successGetOffers,
+    required TResult Function(String error) faluireGetOffers,
+    required TResult Function() emptyOffers,
   }) {
     return loadingCoupons();
   }
@@ -1084,6 +1232,10 @@ class _$LoadingCouponsImpl implements LoadingCoupons {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? loadingGetOffers,
+    TResult? Function(List<OfferModel> offers)? successGetOffers,
+    TResult? Function(String error)? faluireGetOffers,
+    TResult? Function()? emptyOffers,
   }) {
     return loadingCoupons?.call();
   }
@@ -1101,6 +1253,10 @@ class _$LoadingCouponsImpl implements LoadingCoupons {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? loadingGetOffers,
+    TResult Function(List<OfferModel> offers)? successGetOffers,
+    TResult Function(String error)? faluireGetOffers,
+    TResult Function()? emptyOffers,
     required TResult orElse(),
   }) {
     if (loadingCoupons != null) {
@@ -1123,6 +1279,10 @@ class _$LoadingCouponsImpl implements LoadingCoupons {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(LoadingGetOffers value) loadingGetOffers,
+    required TResult Function(SuccessGetOffers value) successGetOffers,
+    required TResult Function(FaluireGetOffers value) faluireGetOffers,
+    required TResult Function(EmptyOffers value) emptyOffers,
   }) {
     return loadingCoupons(this);
   }
@@ -1138,6 +1298,10 @@ class _$LoadingCouponsImpl implements LoadingCoupons {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult? Function(SuccessGetOffers value)? successGetOffers,
+    TResult? Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult? Function(EmptyOffers value)? emptyOffers,
   }) {
     return loadingCoupons?.call(this);
   }
@@ -1153,6 +1317,10 @@ class _$LoadingCouponsImpl implements LoadingCoupons {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult Function(SuccessGetOffers value)? successGetOffers,
+    TResult Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult Function(EmptyOffers value)? emptyOffers,
     required TResult orElse(),
   }) {
     if (loadingCoupons != null) {
@@ -1251,6 +1419,10 @@ class _$SuccessFeatchedCouponsImpl implements SuccessFeatchedCoupons {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() loadingGetOffers,
+    required TResult Function(List<OfferModel> offers) successGetOffers,
+    required TResult Function(String error) faluireGetOffers,
+    required TResult Function() emptyOffers,
   }) {
     return successFeatchedCoupons(coupons);
   }
@@ -1268,6 +1440,10 @@ class _$SuccessFeatchedCouponsImpl implements SuccessFeatchedCoupons {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? loadingGetOffers,
+    TResult? Function(List<OfferModel> offers)? successGetOffers,
+    TResult? Function(String error)? faluireGetOffers,
+    TResult? Function()? emptyOffers,
   }) {
     return successFeatchedCoupons?.call(coupons);
   }
@@ -1285,6 +1461,10 @@ class _$SuccessFeatchedCouponsImpl implements SuccessFeatchedCoupons {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? loadingGetOffers,
+    TResult Function(List<OfferModel> offers)? successGetOffers,
+    TResult Function(String error)? faluireGetOffers,
+    TResult Function()? emptyOffers,
     required TResult orElse(),
   }) {
     if (successFeatchedCoupons != null) {
@@ -1307,6 +1487,10 @@ class _$SuccessFeatchedCouponsImpl implements SuccessFeatchedCoupons {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(LoadingGetOffers value) loadingGetOffers,
+    required TResult Function(SuccessGetOffers value) successGetOffers,
+    required TResult Function(FaluireGetOffers value) faluireGetOffers,
+    required TResult Function(EmptyOffers value) emptyOffers,
   }) {
     return successFeatchedCoupons(this);
   }
@@ -1322,6 +1506,10 @@ class _$SuccessFeatchedCouponsImpl implements SuccessFeatchedCoupons {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult? Function(SuccessGetOffers value)? successGetOffers,
+    TResult? Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult? Function(EmptyOffers value)? emptyOffers,
   }) {
     return successFeatchedCoupons?.call(this);
   }
@@ -1337,6 +1525,10 @@ class _$SuccessFeatchedCouponsImpl implements SuccessFeatchedCoupons {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult Function(SuccessGetOffers value)? successGetOffers,
+    TResult Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult Function(EmptyOffers value)? emptyOffers,
     required TResult orElse(),
   }) {
     if (successFeatchedCoupons != null) {
@@ -1433,6 +1625,10 @@ class _$ErrorFeatchedCouponsImpl implements ErrorFeatchedCoupons {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() loadingGetOffers,
+    required TResult Function(List<OfferModel> offers) successGetOffers,
+    required TResult Function(String error) faluireGetOffers,
+    required TResult Function() emptyOffers,
   }) {
     return errorFeatchedCoupons(error);
   }
@@ -1450,6 +1646,10 @@ class _$ErrorFeatchedCouponsImpl implements ErrorFeatchedCoupons {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? loadingGetOffers,
+    TResult? Function(List<OfferModel> offers)? successGetOffers,
+    TResult? Function(String error)? faluireGetOffers,
+    TResult? Function()? emptyOffers,
   }) {
     return errorFeatchedCoupons?.call(error);
   }
@@ -1467,6 +1667,10 @@ class _$ErrorFeatchedCouponsImpl implements ErrorFeatchedCoupons {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? loadingGetOffers,
+    TResult Function(List<OfferModel> offers)? successGetOffers,
+    TResult Function(String error)? faluireGetOffers,
+    TResult Function()? emptyOffers,
     required TResult orElse(),
   }) {
     if (errorFeatchedCoupons != null) {
@@ -1489,6 +1693,10 @@ class _$ErrorFeatchedCouponsImpl implements ErrorFeatchedCoupons {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(LoadingGetOffers value) loadingGetOffers,
+    required TResult Function(SuccessGetOffers value) successGetOffers,
+    required TResult Function(FaluireGetOffers value) faluireGetOffers,
+    required TResult Function(EmptyOffers value) emptyOffers,
   }) {
     return errorFeatchedCoupons(this);
   }
@@ -1504,6 +1712,10 @@ class _$ErrorFeatchedCouponsImpl implements ErrorFeatchedCoupons {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult? Function(SuccessGetOffers value)? successGetOffers,
+    TResult? Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult? Function(EmptyOffers value)? emptyOffers,
   }) {
     return errorFeatchedCoupons?.call(this);
   }
@@ -1519,6 +1731,10 @@ class _$ErrorFeatchedCouponsImpl implements ErrorFeatchedCoupons {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult Function(SuccessGetOffers value)? successGetOffers,
+    TResult Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult Function(EmptyOffers value)? emptyOffers,
     required TResult orElse(),
   }) {
     if (errorFeatchedCoupons != null) {
@@ -1536,4 +1752,765 @@ abstract class ErrorFeatchedCoupons implements HomeState {
   @JsonKey(ignore: true)
   _$$ErrorFeatchedCouponsImplCopyWith<_$ErrorFeatchedCouponsImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadingGetOffersImplCopyWith<$Res> {
+  factory _$$LoadingGetOffersImplCopyWith(_$LoadingGetOffersImpl value,
+          $Res Function(_$LoadingGetOffersImpl) then) =
+      __$$LoadingGetOffersImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingGetOffersImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$LoadingGetOffersImpl>
+    implements _$$LoadingGetOffersImplCopyWith<$Res> {
+  __$$LoadingGetOffersImplCopyWithImpl(_$LoadingGetOffersImpl _value,
+      $Res Function(_$LoadingGetOffersImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadingGetOffersImpl implements LoadingGetOffers {
+  const _$LoadingGetOffersImpl();
+
+  @override
+  String toString() {
+    return 'HomeState.loadingGetOffers()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadingGetOffersImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingCatgories,
+    required TResult Function(List<CategoryModel> categories)
+        successFeatchedCatgories,
+    required TResult Function(int index, List<CategoryModel> listofCategories,
+            List<Coupon> listofCoupns)
+        categorySelected,
+    required TResult Function(String error) errorFeatchedCatgories,
+    required TResult Function() loadingCoupons,
+    required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
+    required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() loadingGetOffers,
+    required TResult Function(List<OfferModel> offers) successGetOffers,
+    required TResult Function(String error) faluireGetOffers,
+    required TResult Function() emptyOffers,
+  }) {
+    return loadingGetOffers();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingCatgories,
+    TResult? Function(List<CategoryModel> categories)? successFeatchedCatgories,
+    TResult? Function(int index, List<CategoryModel> listofCategories,
+            List<Coupon> listofCoupns)?
+        categorySelected,
+    TResult? Function(String error)? errorFeatchedCatgories,
+    TResult? Function()? loadingCoupons,
+    TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
+    TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? loadingGetOffers,
+    TResult? Function(List<OfferModel> offers)? successGetOffers,
+    TResult? Function(String error)? faluireGetOffers,
+    TResult? Function()? emptyOffers,
+  }) {
+    return loadingGetOffers?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingCatgories,
+    TResult Function(List<CategoryModel> categories)? successFeatchedCatgories,
+    TResult Function(int index, List<CategoryModel> listofCategories,
+            List<Coupon> listofCoupns)?
+        categorySelected,
+    TResult Function(String error)? errorFeatchedCatgories,
+    TResult Function()? loadingCoupons,
+    TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
+    TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? loadingGetOffers,
+    TResult Function(List<OfferModel> offers)? successGetOffers,
+    TResult Function(String error)? faluireGetOffers,
+    TResult Function()? emptyOffers,
+    required TResult orElse(),
+  }) {
+    if (loadingGetOffers != null) {
+      return loadingGetOffers();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingCatgories value) loadingCatgories,
+    required TResult Function(SuccessFeatchedCatgories value)
+        successFeatchedCatgories,
+    required TResult Function(CategorySelected value) categorySelected,
+    required TResult Function(ErrorFeatchedCatgories value)
+        errorFeatchedCatgories,
+    required TResult Function(LoadingCoupons value) loadingCoupons,
+    required TResult Function(SuccessFeatchedCoupons value)
+        successFeatchedCoupons,
+    required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(LoadingGetOffers value) loadingGetOffers,
+    required TResult Function(SuccessGetOffers value) successGetOffers,
+    required TResult Function(FaluireGetOffers value) faluireGetOffers,
+    required TResult Function(EmptyOffers value) emptyOffers,
+  }) {
+    return loadingGetOffers(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingCatgories value)? loadingCatgories,
+    TResult? Function(SuccessFeatchedCatgories value)? successFeatchedCatgories,
+    TResult? Function(CategorySelected value)? categorySelected,
+    TResult? Function(ErrorFeatchedCatgories value)? errorFeatchedCatgories,
+    TResult? Function(LoadingCoupons value)? loadingCoupons,
+    TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
+    TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult? Function(SuccessGetOffers value)? successGetOffers,
+    TResult? Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult? Function(EmptyOffers value)? emptyOffers,
+  }) {
+    return loadingGetOffers?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(LoadingCatgories value)? loadingCatgories,
+    TResult Function(SuccessFeatchedCatgories value)? successFeatchedCatgories,
+    TResult Function(CategorySelected value)? categorySelected,
+    TResult Function(ErrorFeatchedCatgories value)? errorFeatchedCatgories,
+    TResult Function(LoadingCoupons value)? loadingCoupons,
+    TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
+    TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult Function(SuccessGetOffers value)? successGetOffers,
+    TResult Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult Function(EmptyOffers value)? emptyOffers,
+    required TResult orElse(),
+  }) {
+    if (loadingGetOffers != null) {
+      return loadingGetOffers(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoadingGetOffers implements HomeState {
+  const factory LoadingGetOffers() = _$LoadingGetOffersImpl;
+}
+
+/// @nodoc
+abstract class _$$SuccessGetOffersImplCopyWith<$Res> {
+  factory _$$SuccessGetOffersImplCopyWith(_$SuccessGetOffersImpl value,
+          $Res Function(_$SuccessGetOffersImpl) then) =
+      __$$SuccessGetOffersImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<OfferModel> offers});
+}
+
+/// @nodoc
+class __$$SuccessGetOffersImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$SuccessGetOffersImpl>
+    implements _$$SuccessGetOffersImplCopyWith<$Res> {
+  __$$SuccessGetOffersImplCopyWithImpl(_$SuccessGetOffersImpl _value,
+      $Res Function(_$SuccessGetOffersImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? offers = null,
+  }) {
+    return _then(_$SuccessGetOffersImpl(
+      offers: null == offers
+          ? _value._offers
+          : offers // ignore: cast_nullable_to_non_nullable
+              as List<OfferModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SuccessGetOffersImpl implements SuccessGetOffers {
+  const _$SuccessGetOffersImpl({required final List<OfferModel> offers})
+      : _offers = offers;
+
+  final List<OfferModel> _offers;
+  @override
+  List<OfferModel> get offers {
+    if (_offers is EqualUnmodifiableListView) return _offers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_offers);
+  }
+
+  @override
+  String toString() {
+    return 'HomeState.successGetOffers(offers: $offers)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessGetOffersImpl &&
+            const DeepCollectionEquality().equals(other._offers, _offers));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_offers));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessGetOffersImplCopyWith<_$SuccessGetOffersImpl> get copyWith =>
+      __$$SuccessGetOffersImplCopyWithImpl<_$SuccessGetOffersImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingCatgories,
+    required TResult Function(List<CategoryModel> categories)
+        successFeatchedCatgories,
+    required TResult Function(int index, List<CategoryModel> listofCategories,
+            List<Coupon> listofCoupns)
+        categorySelected,
+    required TResult Function(String error) errorFeatchedCatgories,
+    required TResult Function() loadingCoupons,
+    required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
+    required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() loadingGetOffers,
+    required TResult Function(List<OfferModel> offers) successGetOffers,
+    required TResult Function(String error) faluireGetOffers,
+    required TResult Function() emptyOffers,
+  }) {
+    return successGetOffers(offers);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingCatgories,
+    TResult? Function(List<CategoryModel> categories)? successFeatchedCatgories,
+    TResult? Function(int index, List<CategoryModel> listofCategories,
+            List<Coupon> listofCoupns)?
+        categorySelected,
+    TResult? Function(String error)? errorFeatchedCatgories,
+    TResult? Function()? loadingCoupons,
+    TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
+    TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? loadingGetOffers,
+    TResult? Function(List<OfferModel> offers)? successGetOffers,
+    TResult? Function(String error)? faluireGetOffers,
+    TResult? Function()? emptyOffers,
+  }) {
+    return successGetOffers?.call(offers);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingCatgories,
+    TResult Function(List<CategoryModel> categories)? successFeatchedCatgories,
+    TResult Function(int index, List<CategoryModel> listofCategories,
+            List<Coupon> listofCoupns)?
+        categorySelected,
+    TResult Function(String error)? errorFeatchedCatgories,
+    TResult Function()? loadingCoupons,
+    TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
+    TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? loadingGetOffers,
+    TResult Function(List<OfferModel> offers)? successGetOffers,
+    TResult Function(String error)? faluireGetOffers,
+    TResult Function()? emptyOffers,
+    required TResult orElse(),
+  }) {
+    if (successGetOffers != null) {
+      return successGetOffers(offers);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingCatgories value) loadingCatgories,
+    required TResult Function(SuccessFeatchedCatgories value)
+        successFeatchedCatgories,
+    required TResult Function(CategorySelected value) categorySelected,
+    required TResult Function(ErrorFeatchedCatgories value)
+        errorFeatchedCatgories,
+    required TResult Function(LoadingCoupons value) loadingCoupons,
+    required TResult Function(SuccessFeatchedCoupons value)
+        successFeatchedCoupons,
+    required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(LoadingGetOffers value) loadingGetOffers,
+    required TResult Function(SuccessGetOffers value) successGetOffers,
+    required TResult Function(FaluireGetOffers value) faluireGetOffers,
+    required TResult Function(EmptyOffers value) emptyOffers,
+  }) {
+    return successGetOffers(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingCatgories value)? loadingCatgories,
+    TResult? Function(SuccessFeatchedCatgories value)? successFeatchedCatgories,
+    TResult? Function(CategorySelected value)? categorySelected,
+    TResult? Function(ErrorFeatchedCatgories value)? errorFeatchedCatgories,
+    TResult? Function(LoadingCoupons value)? loadingCoupons,
+    TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
+    TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult? Function(SuccessGetOffers value)? successGetOffers,
+    TResult? Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult? Function(EmptyOffers value)? emptyOffers,
+  }) {
+    return successGetOffers?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(LoadingCatgories value)? loadingCatgories,
+    TResult Function(SuccessFeatchedCatgories value)? successFeatchedCatgories,
+    TResult Function(CategorySelected value)? categorySelected,
+    TResult Function(ErrorFeatchedCatgories value)? errorFeatchedCatgories,
+    TResult Function(LoadingCoupons value)? loadingCoupons,
+    TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
+    TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult Function(SuccessGetOffers value)? successGetOffers,
+    TResult Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult Function(EmptyOffers value)? emptyOffers,
+    required TResult orElse(),
+  }) {
+    if (successGetOffers != null) {
+      return successGetOffers(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SuccessGetOffers implements HomeState {
+  const factory SuccessGetOffers({required final List<OfferModel> offers}) =
+      _$SuccessGetOffersImpl;
+
+  List<OfferModel> get offers;
+  @JsonKey(ignore: true)
+  _$$SuccessGetOffersImplCopyWith<_$SuccessGetOffersImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FaluireGetOffersImplCopyWith<$Res> {
+  factory _$$FaluireGetOffersImplCopyWith(_$FaluireGetOffersImpl value,
+          $Res Function(_$FaluireGetOffersImpl) then) =
+      __$$FaluireGetOffersImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$FaluireGetOffersImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$FaluireGetOffersImpl>
+    implements _$$FaluireGetOffersImplCopyWith<$Res> {
+  __$$FaluireGetOffersImplCopyWithImpl(_$FaluireGetOffersImpl _value,
+      $Res Function(_$FaluireGetOffersImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$FaluireGetOffersImpl(
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FaluireGetOffersImpl implements FaluireGetOffers {
+  const _$FaluireGetOffersImpl({required this.error});
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'HomeState.faluireGetOffers(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FaluireGetOffersImpl &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FaluireGetOffersImplCopyWith<_$FaluireGetOffersImpl> get copyWith =>
+      __$$FaluireGetOffersImplCopyWithImpl<_$FaluireGetOffersImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingCatgories,
+    required TResult Function(List<CategoryModel> categories)
+        successFeatchedCatgories,
+    required TResult Function(int index, List<CategoryModel> listofCategories,
+            List<Coupon> listofCoupns)
+        categorySelected,
+    required TResult Function(String error) errorFeatchedCatgories,
+    required TResult Function() loadingCoupons,
+    required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
+    required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() loadingGetOffers,
+    required TResult Function(List<OfferModel> offers) successGetOffers,
+    required TResult Function(String error) faluireGetOffers,
+    required TResult Function() emptyOffers,
+  }) {
+    return faluireGetOffers(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingCatgories,
+    TResult? Function(List<CategoryModel> categories)? successFeatchedCatgories,
+    TResult? Function(int index, List<CategoryModel> listofCategories,
+            List<Coupon> listofCoupns)?
+        categorySelected,
+    TResult? Function(String error)? errorFeatchedCatgories,
+    TResult? Function()? loadingCoupons,
+    TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
+    TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? loadingGetOffers,
+    TResult? Function(List<OfferModel> offers)? successGetOffers,
+    TResult? Function(String error)? faluireGetOffers,
+    TResult? Function()? emptyOffers,
+  }) {
+    return faluireGetOffers?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingCatgories,
+    TResult Function(List<CategoryModel> categories)? successFeatchedCatgories,
+    TResult Function(int index, List<CategoryModel> listofCategories,
+            List<Coupon> listofCoupns)?
+        categorySelected,
+    TResult Function(String error)? errorFeatchedCatgories,
+    TResult Function()? loadingCoupons,
+    TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
+    TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? loadingGetOffers,
+    TResult Function(List<OfferModel> offers)? successGetOffers,
+    TResult Function(String error)? faluireGetOffers,
+    TResult Function()? emptyOffers,
+    required TResult orElse(),
+  }) {
+    if (faluireGetOffers != null) {
+      return faluireGetOffers(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingCatgories value) loadingCatgories,
+    required TResult Function(SuccessFeatchedCatgories value)
+        successFeatchedCatgories,
+    required TResult Function(CategorySelected value) categorySelected,
+    required TResult Function(ErrorFeatchedCatgories value)
+        errorFeatchedCatgories,
+    required TResult Function(LoadingCoupons value) loadingCoupons,
+    required TResult Function(SuccessFeatchedCoupons value)
+        successFeatchedCoupons,
+    required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(LoadingGetOffers value) loadingGetOffers,
+    required TResult Function(SuccessGetOffers value) successGetOffers,
+    required TResult Function(FaluireGetOffers value) faluireGetOffers,
+    required TResult Function(EmptyOffers value) emptyOffers,
+  }) {
+    return faluireGetOffers(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingCatgories value)? loadingCatgories,
+    TResult? Function(SuccessFeatchedCatgories value)? successFeatchedCatgories,
+    TResult? Function(CategorySelected value)? categorySelected,
+    TResult? Function(ErrorFeatchedCatgories value)? errorFeatchedCatgories,
+    TResult? Function(LoadingCoupons value)? loadingCoupons,
+    TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
+    TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult? Function(SuccessGetOffers value)? successGetOffers,
+    TResult? Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult? Function(EmptyOffers value)? emptyOffers,
+  }) {
+    return faluireGetOffers?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(LoadingCatgories value)? loadingCatgories,
+    TResult Function(SuccessFeatchedCatgories value)? successFeatchedCatgories,
+    TResult Function(CategorySelected value)? categorySelected,
+    TResult Function(ErrorFeatchedCatgories value)? errorFeatchedCatgories,
+    TResult Function(LoadingCoupons value)? loadingCoupons,
+    TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
+    TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult Function(SuccessGetOffers value)? successGetOffers,
+    TResult Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult Function(EmptyOffers value)? emptyOffers,
+    required TResult orElse(),
+  }) {
+    if (faluireGetOffers != null) {
+      return faluireGetOffers(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FaluireGetOffers implements HomeState {
+  const factory FaluireGetOffers({required final String error}) =
+      _$FaluireGetOffersImpl;
+
+  String get error;
+  @JsonKey(ignore: true)
+  _$$FaluireGetOffersImplCopyWith<_$FaluireGetOffersImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$EmptyOffersImplCopyWith<$Res> {
+  factory _$$EmptyOffersImplCopyWith(
+          _$EmptyOffersImpl value, $Res Function(_$EmptyOffersImpl) then) =
+      __$$EmptyOffersImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EmptyOffersImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$EmptyOffersImpl>
+    implements _$$EmptyOffersImplCopyWith<$Res> {
+  __$$EmptyOffersImplCopyWithImpl(
+      _$EmptyOffersImpl _value, $Res Function(_$EmptyOffersImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$EmptyOffersImpl implements EmptyOffers {
+  const _$EmptyOffersImpl();
+
+  @override
+  String toString() {
+    return 'HomeState.emptyOffers()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EmptyOffersImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingCatgories,
+    required TResult Function(List<CategoryModel> categories)
+        successFeatchedCatgories,
+    required TResult Function(int index, List<CategoryModel> listofCategories,
+            List<Coupon> listofCoupns)
+        categorySelected,
+    required TResult Function(String error) errorFeatchedCatgories,
+    required TResult Function() loadingCoupons,
+    required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
+    required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() loadingGetOffers,
+    required TResult Function(List<OfferModel> offers) successGetOffers,
+    required TResult Function(String error) faluireGetOffers,
+    required TResult Function() emptyOffers,
+  }) {
+    return emptyOffers();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingCatgories,
+    TResult? Function(List<CategoryModel> categories)? successFeatchedCatgories,
+    TResult? Function(int index, List<CategoryModel> listofCategories,
+            List<Coupon> listofCoupns)?
+        categorySelected,
+    TResult? Function(String error)? errorFeatchedCatgories,
+    TResult? Function()? loadingCoupons,
+    TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
+    TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? loadingGetOffers,
+    TResult? Function(List<OfferModel> offers)? successGetOffers,
+    TResult? Function(String error)? faluireGetOffers,
+    TResult? Function()? emptyOffers,
+  }) {
+    return emptyOffers?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingCatgories,
+    TResult Function(List<CategoryModel> categories)? successFeatchedCatgories,
+    TResult Function(int index, List<CategoryModel> listofCategories,
+            List<Coupon> listofCoupns)?
+        categorySelected,
+    TResult Function(String error)? errorFeatchedCatgories,
+    TResult Function()? loadingCoupons,
+    TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
+    TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? loadingGetOffers,
+    TResult Function(List<OfferModel> offers)? successGetOffers,
+    TResult Function(String error)? faluireGetOffers,
+    TResult Function()? emptyOffers,
+    required TResult orElse(),
+  }) {
+    if (emptyOffers != null) {
+      return emptyOffers();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingCatgories value) loadingCatgories,
+    required TResult Function(SuccessFeatchedCatgories value)
+        successFeatchedCatgories,
+    required TResult Function(CategorySelected value) categorySelected,
+    required TResult Function(ErrorFeatchedCatgories value)
+        errorFeatchedCatgories,
+    required TResult Function(LoadingCoupons value) loadingCoupons,
+    required TResult Function(SuccessFeatchedCoupons value)
+        successFeatchedCoupons,
+    required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(LoadingGetOffers value) loadingGetOffers,
+    required TResult Function(SuccessGetOffers value) successGetOffers,
+    required TResult Function(FaluireGetOffers value) faluireGetOffers,
+    required TResult Function(EmptyOffers value) emptyOffers,
+  }) {
+    return emptyOffers(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingCatgories value)? loadingCatgories,
+    TResult? Function(SuccessFeatchedCatgories value)? successFeatchedCatgories,
+    TResult? Function(CategorySelected value)? categorySelected,
+    TResult? Function(ErrorFeatchedCatgories value)? errorFeatchedCatgories,
+    TResult? Function(LoadingCoupons value)? loadingCoupons,
+    TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
+    TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult? Function(SuccessGetOffers value)? successGetOffers,
+    TResult? Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult? Function(EmptyOffers value)? emptyOffers,
+  }) {
+    return emptyOffers?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(LoadingCatgories value)? loadingCatgories,
+    TResult Function(SuccessFeatchedCatgories value)? successFeatchedCatgories,
+    TResult Function(CategorySelected value)? categorySelected,
+    TResult Function(ErrorFeatchedCatgories value)? errorFeatchedCatgories,
+    TResult Function(LoadingCoupons value)? loadingCoupons,
+    TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
+    TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult Function(SuccessGetOffers value)? successGetOffers,
+    TResult Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult Function(EmptyOffers value)? emptyOffers,
+    required TResult orElse(),
+  }) {
+    if (emptyOffers != null) {
+      return emptyOffers(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class EmptyOffers implements HomeState {
+  const factory EmptyOffers() = _$EmptyOffersImpl;
 }

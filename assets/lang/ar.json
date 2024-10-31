@@ -156,5 +156,9 @@
   "Coupon title required": "عنوان للكوبون مطلوب",
   "The title must not exceed 20 characters and be short.": ".يجب أن يكون العنوان لا يتجاوز 20 حرف ومختصر",
   "The special request on this coupon has been removed.": "تم حذف الطلب الخاص في هذا الكوبون",
-  "The request is being deleted.": "جاري حذف الطلب"
+  "The request is being deleted.": "جاري حذف الطلب",
+  "Add Offers Page":"صفحة إضافة العروض",
+  "Does not contain any coupons.":"لا يحتوي على كوبونات بعد.",
+  "No internet Conection":"لا يوجد اتصال بالإنترنت",
+  "Please check your ( Wi-Fi / Data) internetc onnection and try again.":"يرجى التحقق من اتصالك بالإنترنت (Wi-Fi / Data) ثم حاول مرة أخرى."
 }

@@ -42,6 +42,8 @@ bool isOpenApp = false;
 String tYPEUSER = "";
 UserModel currentUser = UserModel.empty();
 List<CategoryModel> bLISTOFCATEGORY = [];
+  // Set to track copied coupons for this session
+  final Set<String> copiedCoupons = {};
 
 
 

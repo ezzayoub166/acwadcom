@@ -29,7 +29,7 @@ class CreateCouponCubit extends Cubit<CreateCouponState> {
   // TextEditingController categoryController = TextEditingController();
   TextEditingController dateController = TextEditingController();
   TextEditingController additionalTerms = TextEditingController();
-  TextEditingController numberOfUseController = TextEditingController();
+  // TextEditingController numberOfUseController = TextEditingController();
 
   OptionItem? optionItemSelected;
   DateTime? dateItem;
@@ -98,7 +98,7 @@ class CreateCouponCubit extends Cubit<CreateCouponState> {
         image: "",
         categoryId: optionItemSelected?.id),
         endData: dateItem != null ? Timestamp.fromDate(dateItem!) : Timestamp.now(),
-        numberOfUse: int.parse(numberOfUseController.text.trim()),
+        numberOfUse: 20 ,
         additionalTerms: additionalTerms.text,
          code: codeTextController.text,
          uploadDate: Timestamp.now(),

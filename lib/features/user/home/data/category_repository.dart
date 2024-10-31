@@ -2,6 +2,7 @@ import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/helpers/services/fireabse_storage_services.dart';
 import 'package:acwadcom/models/category_model.dart';
+import 'package:acwadcom/models/offer_model.dart';
 
 class CategoryRepository {
   // static CategoryRepository get instance => Get.find();
@@ -34,6 +35,25 @@ class CategoryRepository {
     final snapshot = await _db.collection('Categories').where('ParentId',isEqualTo: categoryId).get();
     final list = snapshot.docs.map((document) => CategoryModel.fromSnapshot(document)).toList();
     return list;
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'something went wrong. Please try again';
+    }
+  }
+
+
+  Future<List<OfferModel>> getTheOffers()async{
+    try{
+      final ref = await _db.collection("Offers").get();
+      final offers = ref.docs.map((offer) => OfferModel.fromSnapshot(offer)).toList();
+      return offers;
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {

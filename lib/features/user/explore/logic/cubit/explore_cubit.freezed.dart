@@ -19,81 +19,113 @@ mixin _$ExploreState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loadingStores,
+    required TResult Function() loadingSpecialStores,
     required TResult Function(List<UserModel> stores) sucessGetStores,
     required TResult Function(List<UserModel> stores) sucessGetSpecialStores,
     required TResult Function(String error) faluireGetStores,
+    required TResult Function() loadingStores,
     required TResult Function() loadingGetCoupons,
     required TResult Function(List<Coupon> coupons) successGetCoupon,
     required TResult Function(String error) errorGetCoupons,
     required TResult Function() emptyListCoupons,
+    required TResult Function() loadingGetMostUsedCoupons,
+    required TResult Function(List<Coupon> mostUsedCoupons)
+        successGetMostUsedCoupons,
+    required TResult Function(String erro) errorGetMostUsedCoupons,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loadingStores,
+    TResult? Function()? loadingSpecialStores,
     TResult? Function(List<UserModel> stores)? sucessGetStores,
     TResult? Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult? Function(String error)? faluireGetStores,
+    TResult? Function()? loadingStores,
     TResult? Function()? loadingGetCoupons,
     TResult? Function(List<Coupon> coupons)? successGetCoupon,
     TResult? Function(String error)? errorGetCoupons,
     TResult? Function()? emptyListCoupons,
+    TResult? Function()? loadingGetMostUsedCoupons,
+    TResult? Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult? Function(String erro)? errorGetMostUsedCoupons,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loadingStores,
+    TResult Function()? loadingSpecialStores,
     TResult Function(List<UserModel> stores)? sucessGetStores,
     TResult Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult Function(String error)? faluireGetStores,
+    TResult Function()? loadingStores,
     TResult Function()? loadingGetCoupons,
     TResult Function(List<Coupon> coupons)? successGetCoupon,
     TResult Function(String error)? errorGetCoupons,
     TResult Function()? emptyListCoupons,
+    TResult Function()? loadingGetMostUsedCoupons,
+    TResult Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult Function(String erro)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(LoadingStores value) loadingStores,
+    required TResult Function(LoadingSpecialStores value) loadingSpecialStores,
     required TResult Function(SucessGetStores value) sucessGetStores,
     required TResult Function(SucessGetSpecialStores value)
         sucessGetSpecialStores,
     required TResult Function(FaluireGetStores value) faluireGetStores,
+    required TResult Function(LoadingStores value) loadingStores,
     required TResult Function(LoadingGetCoupons value) loadingGetCoupons,
     required TResult Function(SuccessGetCoupon value) successGetCoupon,
     required TResult Function(ErrorGetCoupons value) errorGetCoupons,
     required TResult Function(EmptyListCoupons value) emptyListCoupons,
+    required TResult Function(LoadingGetMostUsedCoupons value)
+        loadingGetMostUsedCoupons,
+    required TResult Function(SuccessGetMostUsedCoupons value)
+        successGetMostUsedCoupons,
+    required TResult Function(ErrorGetMostUsedCoupons value)
+        errorGetMostUsedCoupons,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(LoadingStores value)? loadingStores,
+    TResult? Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult? Function(SucessGetStores value)? sucessGetStores,
     TResult? Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult? Function(FaluireGetStores value)? faluireGetStores,
+    TResult? Function(LoadingStores value)? loadingStores,
     TResult? Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult? Function(SuccessGetCoupon value)? successGetCoupon,
     TResult? Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult? Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult? Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult? Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult? Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(LoadingStores value)? loadingStores,
+    TResult Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult Function(SucessGetStores value)? sucessGetStores,
     TResult Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult Function(FaluireGetStores value)? faluireGetStores,
+    TResult Function(LoadingStores value)? loadingStores,
     TResult Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult Function(SuccessGetCoupon value)? successGetCoupon,
     TResult Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -156,14 +188,19 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loadingStores,
+    required TResult Function() loadingSpecialStores,
     required TResult Function(List<UserModel> stores) sucessGetStores,
     required TResult Function(List<UserModel> stores) sucessGetSpecialStores,
     required TResult Function(String error) faluireGetStores,
+    required TResult Function() loadingStores,
     required TResult Function() loadingGetCoupons,
     required TResult Function(List<Coupon> coupons) successGetCoupon,
     required TResult Function(String error) errorGetCoupons,
     required TResult Function() emptyListCoupons,
+    required TResult Function() loadingGetMostUsedCoupons,
+    required TResult Function(List<Coupon> mostUsedCoupons)
+        successGetMostUsedCoupons,
+    required TResult Function(String erro) errorGetMostUsedCoupons,
   }) {
     return initial();
   }
@@ -172,14 +209,18 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loadingStores,
+    TResult? Function()? loadingSpecialStores,
     TResult? Function(List<UserModel> stores)? sucessGetStores,
     TResult? Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult? Function(String error)? faluireGetStores,
+    TResult? Function()? loadingStores,
     TResult? Function()? loadingGetCoupons,
     TResult? Function(List<Coupon> coupons)? successGetCoupon,
     TResult? Function(String error)? errorGetCoupons,
     TResult? Function()? emptyListCoupons,
+    TResult? Function()? loadingGetMostUsedCoupons,
+    TResult? Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult? Function(String erro)? errorGetMostUsedCoupons,
   }) {
     return initial?.call();
   }
@@ -188,14 +229,18 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loadingStores,
+    TResult Function()? loadingSpecialStores,
     TResult Function(List<UserModel> stores)? sucessGetStores,
     TResult Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult Function(String error)? faluireGetStores,
+    TResult Function()? loadingStores,
     TResult Function()? loadingGetCoupons,
     TResult Function(List<Coupon> coupons)? successGetCoupon,
     TResult Function(String error)? errorGetCoupons,
     TResult Function()? emptyListCoupons,
+    TResult Function()? loadingGetMostUsedCoupons,
+    TResult Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult Function(String erro)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -208,15 +253,22 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(LoadingStores value) loadingStores,
+    required TResult Function(LoadingSpecialStores value) loadingSpecialStores,
     required TResult Function(SucessGetStores value) sucessGetStores,
     required TResult Function(SucessGetSpecialStores value)
         sucessGetSpecialStores,
     required TResult Function(FaluireGetStores value) faluireGetStores,
+    required TResult Function(LoadingStores value) loadingStores,
     required TResult Function(LoadingGetCoupons value) loadingGetCoupons,
     required TResult Function(SuccessGetCoupon value) successGetCoupon,
     required TResult Function(ErrorGetCoupons value) errorGetCoupons,
     required TResult Function(EmptyListCoupons value) emptyListCoupons,
+    required TResult Function(LoadingGetMostUsedCoupons value)
+        loadingGetMostUsedCoupons,
+    required TResult Function(SuccessGetMostUsedCoupons value)
+        successGetMostUsedCoupons,
+    required TResult Function(ErrorGetMostUsedCoupons value)
+        errorGetMostUsedCoupons,
   }) {
     return initial(this);
   }
@@ -225,14 +277,20 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(LoadingStores value)? loadingStores,
+    TResult? Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult? Function(SucessGetStores value)? sucessGetStores,
     TResult? Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult? Function(FaluireGetStores value)? faluireGetStores,
+    TResult? Function(LoadingStores value)? loadingStores,
     TResult? Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult? Function(SuccessGetCoupon value)? successGetCoupon,
     TResult? Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult? Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult? Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult? Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult? Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
   }) {
     return initial?.call(this);
   }
@@ -241,14 +299,20 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(LoadingStores value)? loadingStores,
+    TResult Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult Function(SucessGetStores value)? sucessGetStores,
     TResult Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult Function(FaluireGetStores value)? faluireGetStores,
+    TResult Function(LoadingStores value)? loadingStores,
     TResult Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult Function(SuccessGetCoupon value)? successGetCoupon,
     TResult Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -263,35 +327,36 @@ abstract class _Initial implements ExploreState {
 }
 
 /// @nodoc
-abstract class _$$LoadingStoresImplCopyWith<$Res> {
-  factory _$$LoadingStoresImplCopyWith(
-          _$LoadingStoresImpl value, $Res Function(_$LoadingStoresImpl) then) =
-      __$$LoadingStoresImplCopyWithImpl<$Res>;
+abstract class _$$LoadingSpecialStoresImplCopyWith<$Res> {
+  factory _$$LoadingSpecialStoresImplCopyWith(_$LoadingSpecialStoresImpl value,
+          $Res Function(_$LoadingSpecialStoresImpl) then) =
+      __$$LoadingSpecialStoresImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadingStoresImplCopyWithImpl<$Res>
-    extends _$ExploreStateCopyWithImpl<$Res, _$LoadingStoresImpl>
-    implements _$$LoadingStoresImplCopyWith<$Res> {
-  __$$LoadingStoresImplCopyWithImpl(
-      _$LoadingStoresImpl _value, $Res Function(_$LoadingStoresImpl) _then)
+class __$$LoadingSpecialStoresImplCopyWithImpl<$Res>
+    extends _$ExploreStateCopyWithImpl<$Res, _$LoadingSpecialStoresImpl>
+    implements _$$LoadingSpecialStoresImplCopyWith<$Res> {
+  __$$LoadingSpecialStoresImplCopyWithImpl(_$LoadingSpecialStoresImpl _value,
+      $Res Function(_$LoadingSpecialStoresImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$LoadingStoresImpl implements LoadingStores {
-  const _$LoadingStoresImpl();
+class _$LoadingSpecialStoresImpl implements LoadingSpecialStores {
+  const _$LoadingSpecialStoresImpl();
 
   @override
   String toString() {
-    return 'ExploreState.loadingStores()';
+    return 'ExploreState.loadingSpecialStores()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingStoresImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$LoadingSpecialStoresImpl);
   }
 
   @override
@@ -301,50 +366,63 @@ class _$LoadingStoresImpl implements LoadingStores {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loadingStores,
+    required TResult Function() loadingSpecialStores,
     required TResult Function(List<UserModel> stores) sucessGetStores,
     required TResult Function(List<UserModel> stores) sucessGetSpecialStores,
     required TResult Function(String error) faluireGetStores,
+    required TResult Function() loadingStores,
     required TResult Function() loadingGetCoupons,
     required TResult Function(List<Coupon> coupons) successGetCoupon,
     required TResult Function(String error) errorGetCoupons,
     required TResult Function() emptyListCoupons,
+    required TResult Function() loadingGetMostUsedCoupons,
+    required TResult Function(List<Coupon> mostUsedCoupons)
+        successGetMostUsedCoupons,
+    required TResult Function(String erro) errorGetMostUsedCoupons,
   }) {
-    return loadingStores();
+    return loadingSpecialStores();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loadingStores,
+    TResult? Function()? loadingSpecialStores,
     TResult? Function(List<UserModel> stores)? sucessGetStores,
     TResult? Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult? Function(String error)? faluireGetStores,
+    TResult? Function()? loadingStores,
     TResult? Function()? loadingGetCoupons,
     TResult? Function(List<Coupon> coupons)? successGetCoupon,
     TResult? Function(String error)? errorGetCoupons,
     TResult? Function()? emptyListCoupons,
+    TResult? Function()? loadingGetMostUsedCoupons,
+    TResult? Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult? Function(String erro)? errorGetMostUsedCoupons,
   }) {
-    return loadingStores?.call();
+    return loadingSpecialStores?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loadingStores,
+    TResult Function()? loadingSpecialStores,
     TResult Function(List<UserModel> stores)? sucessGetStores,
     TResult Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult Function(String error)? faluireGetStores,
+    TResult Function()? loadingStores,
     TResult Function()? loadingGetCoupons,
     TResult Function(List<Coupon> coupons)? successGetCoupon,
     TResult Function(String error)? errorGetCoupons,
     TResult Function()? emptyListCoupons,
+    TResult Function()? loadingGetMostUsedCoupons,
+    TResult Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult Function(String erro)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) {
-    if (loadingStores != null) {
-      return loadingStores();
+    if (loadingSpecialStores != null) {
+      return loadingSpecialStores();
     }
     return orElse();
   }
@@ -353,58 +431,77 @@ class _$LoadingStoresImpl implements LoadingStores {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(LoadingStores value) loadingStores,
+    required TResult Function(LoadingSpecialStores value) loadingSpecialStores,
     required TResult Function(SucessGetStores value) sucessGetStores,
     required TResult Function(SucessGetSpecialStores value)
         sucessGetSpecialStores,
     required TResult Function(FaluireGetStores value) faluireGetStores,
+    required TResult Function(LoadingStores value) loadingStores,
     required TResult Function(LoadingGetCoupons value) loadingGetCoupons,
     required TResult Function(SuccessGetCoupon value) successGetCoupon,
     required TResult Function(ErrorGetCoupons value) errorGetCoupons,
     required TResult Function(EmptyListCoupons value) emptyListCoupons,
+    required TResult Function(LoadingGetMostUsedCoupons value)
+        loadingGetMostUsedCoupons,
+    required TResult Function(SuccessGetMostUsedCoupons value)
+        successGetMostUsedCoupons,
+    required TResult Function(ErrorGetMostUsedCoupons value)
+        errorGetMostUsedCoupons,
   }) {
-    return loadingStores(this);
+    return loadingSpecialStores(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(LoadingStores value)? loadingStores,
+    TResult? Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult? Function(SucessGetStores value)? sucessGetStores,
     TResult? Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult? Function(FaluireGetStores value)? faluireGetStores,
+    TResult? Function(LoadingStores value)? loadingStores,
     TResult? Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult? Function(SuccessGetCoupon value)? successGetCoupon,
     TResult? Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult? Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult? Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult? Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult? Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
   }) {
-    return loadingStores?.call(this);
+    return loadingSpecialStores?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(LoadingStores value)? loadingStores,
+    TResult Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult Function(SucessGetStores value)? sucessGetStores,
     TResult Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult Function(FaluireGetStores value)? faluireGetStores,
+    TResult Function(LoadingStores value)? loadingStores,
     TResult Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult Function(SuccessGetCoupon value)? successGetCoupon,
     TResult Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) {
-    if (loadingStores != null) {
-      return loadingStores(this);
+    if (loadingSpecialStores != null) {
+      return loadingSpecialStores(this);
     }
     return orElse();
   }
 }
 
-abstract class LoadingStores implements ExploreState {
-  const factory LoadingStores() = _$LoadingStoresImpl;
+abstract class LoadingSpecialStores implements ExploreState {
+  const factory LoadingSpecialStores() = _$LoadingSpecialStoresImpl;
 }
 
 /// @nodoc
@@ -480,14 +577,19 @@ class _$SucessGetStoresImpl implements SucessGetStores {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loadingStores,
+    required TResult Function() loadingSpecialStores,
     required TResult Function(List<UserModel> stores) sucessGetStores,
     required TResult Function(List<UserModel> stores) sucessGetSpecialStores,
     required TResult Function(String error) faluireGetStores,
+    required TResult Function() loadingStores,
     required TResult Function() loadingGetCoupons,
     required TResult Function(List<Coupon> coupons) successGetCoupon,
     required TResult Function(String error) errorGetCoupons,
     required TResult Function() emptyListCoupons,
+    required TResult Function() loadingGetMostUsedCoupons,
+    required TResult Function(List<Coupon> mostUsedCoupons)
+        successGetMostUsedCoupons,
+    required TResult Function(String erro) errorGetMostUsedCoupons,
   }) {
     return sucessGetStores(stores);
   }
@@ -496,14 +598,18 @@ class _$SucessGetStoresImpl implements SucessGetStores {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loadingStores,
+    TResult? Function()? loadingSpecialStores,
     TResult? Function(List<UserModel> stores)? sucessGetStores,
     TResult? Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult? Function(String error)? faluireGetStores,
+    TResult? Function()? loadingStores,
     TResult? Function()? loadingGetCoupons,
     TResult? Function(List<Coupon> coupons)? successGetCoupon,
     TResult? Function(String error)? errorGetCoupons,
     TResult? Function()? emptyListCoupons,
+    TResult? Function()? loadingGetMostUsedCoupons,
+    TResult? Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult? Function(String erro)? errorGetMostUsedCoupons,
   }) {
     return sucessGetStores?.call(stores);
   }
@@ -512,14 +618,18 @@ class _$SucessGetStoresImpl implements SucessGetStores {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loadingStores,
+    TResult Function()? loadingSpecialStores,
     TResult Function(List<UserModel> stores)? sucessGetStores,
     TResult Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult Function(String error)? faluireGetStores,
+    TResult Function()? loadingStores,
     TResult Function()? loadingGetCoupons,
     TResult Function(List<Coupon> coupons)? successGetCoupon,
     TResult Function(String error)? errorGetCoupons,
     TResult Function()? emptyListCoupons,
+    TResult Function()? loadingGetMostUsedCoupons,
+    TResult Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult Function(String erro)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) {
     if (sucessGetStores != null) {
@@ -532,15 +642,22 @@ class _$SucessGetStoresImpl implements SucessGetStores {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(LoadingStores value) loadingStores,
+    required TResult Function(LoadingSpecialStores value) loadingSpecialStores,
     required TResult Function(SucessGetStores value) sucessGetStores,
     required TResult Function(SucessGetSpecialStores value)
         sucessGetSpecialStores,
     required TResult Function(FaluireGetStores value) faluireGetStores,
+    required TResult Function(LoadingStores value) loadingStores,
     required TResult Function(LoadingGetCoupons value) loadingGetCoupons,
     required TResult Function(SuccessGetCoupon value) successGetCoupon,
     required TResult Function(ErrorGetCoupons value) errorGetCoupons,
     required TResult Function(EmptyListCoupons value) emptyListCoupons,
+    required TResult Function(LoadingGetMostUsedCoupons value)
+        loadingGetMostUsedCoupons,
+    required TResult Function(SuccessGetMostUsedCoupons value)
+        successGetMostUsedCoupons,
+    required TResult Function(ErrorGetMostUsedCoupons value)
+        errorGetMostUsedCoupons,
   }) {
     return sucessGetStores(this);
   }
@@ -549,14 +666,20 @@ class _$SucessGetStoresImpl implements SucessGetStores {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(LoadingStores value)? loadingStores,
+    TResult? Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult? Function(SucessGetStores value)? sucessGetStores,
     TResult? Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult? Function(FaluireGetStores value)? faluireGetStores,
+    TResult? Function(LoadingStores value)? loadingStores,
     TResult? Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult? Function(SuccessGetCoupon value)? successGetCoupon,
     TResult? Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult? Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult? Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult? Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult? Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
   }) {
     return sucessGetStores?.call(this);
   }
@@ -565,14 +688,20 @@ class _$SucessGetStoresImpl implements SucessGetStores {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(LoadingStores value)? loadingStores,
+    TResult Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult Function(SucessGetStores value)? sucessGetStores,
     TResult Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult Function(FaluireGetStores value)? faluireGetStores,
+    TResult Function(LoadingStores value)? loadingStores,
     TResult Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult Function(SuccessGetCoupon value)? successGetCoupon,
     TResult Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) {
     if (sucessGetStores != null) {
@@ -667,14 +796,19 @@ class _$SucessGetSpecialStoresImpl implements SucessGetSpecialStores {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loadingStores,
+    required TResult Function() loadingSpecialStores,
     required TResult Function(List<UserModel> stores) sucessGetStores,
     required TResult Function(List<UserModel> stores) sucessGetSpecialStores,
     required TResult Function(String error) faluireGetStores,
+    required TResult Function() loadingStores,
     required TResult Function() loadingGetCoupons,
     required TResult Function(List<Coupon> coupons) successGetCoupon,
     required TResult Function(String error) errorGetCoupons,
     required TResult Function() emptyListCoupons,
+    required TResult Function() loadingGetMostUsedCoupons,
+    required TResult Function(List<Coupon> mostUsedCoupons)
+        successGetMostUsedCoupons,
+    required TResult Function(String erro) errorGetMostUsedCoupons,
   }) {
     return sucessGetSpecialStores(stores);
   }
@@ -683,14 +817,18 @@ class _$SucessGetSpecialStoresImpl implements SucessGetSpecialStores {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loadingStores,
+    TResult? Function()? loadingSpecialStores,
     TResult? Function(List<UserModel> stores)? sucessGetStores,
     TResult? Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult? Function(String error)? faluireGetStores,
+    TResult? Function()? loadingStores,
     TResult? Function()? loadingGetCoupons,
     TResult? Function(List<Coupon> coupons)? successGetCoupon,
     TResult? Function(String error)? errorGetCoupons,
     TResult? Function()? emptyListCoupons,
+    TResult? Function()? loadingGetMostUsedCoupons,
+    TResult? Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult? Function(String erro)? errorGetMostUsedCoupons,
   }) {
     return sucessGetSpecialStores?.call(stores);
   }
@@ -699,14 +837,18 @@ class _$SucessGetSpecialStoresImpl implements SucessGetSpecialStores {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loadingStores,
+    TResult Function()? loadingSpecialStores,
     TResult Function(List<UserModel> stores)? sucessGetStores,
     TResult Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult Function(String error)? faluireGetStores,
+    TResult Function()? loadingStores,
     TResult Function()? loadingGetCoupons,
     TResult Function(List<Coupon> coupons)? successGetCoupon,
     TResult Function(String error)? errorGetCoupons,
     TResult Function()? emptyListCoupons,
+    TResult Function()? loadingGetMostUsedCoupons,
+    TResult Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult Function(String erro)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) {
     if (sucessGetSpecialStores != null) {
@@ -719,15 +861,22 @@ class _$SucessGetSpecialStoresImpl implements SucessGetSpecialStores {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(LoadingStores value) loadingStores,
+    required TResult Function(LoadingSpecialStores value) loadingSpecialStores,
     required TResult Function(SucessGetStores value) sucessGetStores,
     required TResult Function(SucessGetSpecialStores value)
         sucessGetSpecialStores,
     required TResult Function(FaluireGetStores value) faluireGetStores,
+    required TResult Function(LoadingStores value) loadingStores,
     required TResult Function(LoadingGetCoupons value) loadingGetCoupons,
     required TResult Function(SuccessGetCoupon value) successGetCoupon,
     required TResult Function(ErrorGetCoupons value) errorGetCoupons,
     required TResult Function(EmptyListCoupons value) emptyListCoupons,
+    required TResult Function(LoadingGetMostUsedCoupons value)
+        loadingGetMostUsedCoupons,
+    required TResult Function(SuccessGetMostUsedCoupons value)
+        successGetMostUsedCoupons,
+    required TResult Function(ErrorGetMostUsedCoupons value)
+        errorGetMostUsedCoupons,
   }) {
     return sucessGetSpecialStores(this);
   }
@@ -736,14 +885,20 @@ class _$SucessGetSpecialStoresImpl implements SucessGetSpecialStores {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(LoadingStores value)? loadingStores,
+    TResult? Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult? Function(SucessGetStores value)? sucessGetStores,
     TResult? Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult? Function(FaluireGetStores value)? faluireGetStores,
+    TResult? Function(LoadingStores value)? loadingStores,
     TResult? Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult? Function(SuccessGetCoupon value)? successGetCoupon,
     TResult? Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult? Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult? Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult? Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult? Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
   }) {
     return sucessGetSpecialStores?.call(this);
   }
@@ -752,14 +907,20 @@ class _$SucessGetSpecialStoresImpl implements SucessGetSpecialStores {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(LoadingStores value)? loadingStores,
+    TResult Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult Function(SucessGetStores value)? sucessGetStores,
     TResult Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult Function(FaluireGetStores value)? faluireGetStores,
+    TResult Function(LoadingStores value)? loadingStores,
     TResult Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult Function(SuccessGetCoupon value)? successGetCoupon,
     TResult Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) {
     if (sucessGetSpecialStores != null) {
@@ -845,14 +1006,19 @@ class _$FaluireGetStoresImpl implements FaluireGetStores {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loadingStores,
+    required TResult Function() loadingSpecialStores,
     required TResult Function(List<UserModel> stores) sucessGetStores,
     required TResult Function(List<UserModel> stores) sucessGetSpecialStores,
     required TResult Function(String error) faluireGetStores,
+    required TResult Function() loadingStores,
     required TResult Function() loadingGetCoupons,
     required TResult Function(List<Coupon> coupons) successGetCoupon,
     required TResult Function(String error) errorGetCoupons,
     required TResult Function() emptyListCoupons,
+    required TResult Function() loadingGetMostUsedCoupons,
+    required TResult Function(List<Coupon> mostUsedCoupons)
+        successGetMostUsedCoupons,
+    required TResult Function(String erro) errorGetMostUsedCoupons,
   }) {
     return faluireGetStores(error);
   }
@@ -861,14 +1027,18 @@ class _$FaluireGetStoresImpl implements FaluireGetStores {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loadingStores,
+    TResult? Function()? loadingSpecialStores,
     TResult? Function(List<UserModel> stores)? sucessGetStores,
     TResult? Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult? Function(String error)? faluireGetStores,
+    TResult? Function()? loadingStores,
     TResult? Function()? loadingGetCoupons,
     TResult? Function(List<Coupon> coupons)? successGetCoupon,
     TResult? Function(String error)? errorGetCoupons,
     TResult? Function()? emptyListCoupons,
+    TResult? Function()? loadingGetMostUsedCoupons,
+    TResult? Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult? Function(String erro)? errorGetMostUsedCoupons,
   }) {
     return faluireGetStores?.call(error);
   }
@@ -877,14 +1047,18 @@ class _$FaluireGetStoresImpl implements FaluireGetStores {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loadingStores,
+    TResult Function()? loadingSpecialStores,
     TResult Function(List<UserModel> stores)? sucessGetStores,
     TResult Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult Function(String error)? faluireGetStores,
+    TResult Function()? loadingStores,
     TResult Function()? loadingGetCoupons,
     TResult Function(List<Coupon> coupons)? successGetCoupon,
     TResult Function(String error)? errorGetCoupons,
     TResult Function()? emptyListCoupons,
+    TResult Function()? loadingGetMostUsedCoupons,
+    TResult Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult Function(String erro)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) {
     if (faluireGetStores != null) {
@@ -897,15 +1071,22 @@ class _$FaluireGetStoresImpl implements FaluireGetStores {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(LoadingStores value) loadingStores,
+    required TResult Function(LoadingSpecialStores value) loadingSpecialStores,
     required TResult Function(SucessGetStores value) sucessGetStores,
     required TResult Function(SucessGetSpecialStores value)
         sucessGetSpecialStores,
     required TResult Function(FaluireGetStores value) faluireGetStores,
+    required TResult Function(LoadingStores value) loadingStores,
     required TResult Function(LoadingGetCoupons value) loadingGetCoupons,
     required TResult Function(SuccessGetCoupon value) successGetCoupon,
     required TResult Function(ErrorGetCoupons value) errorGetCoupons,
     required TResult Function(EmptyListCoupons value) emptyListCoupons,
+    required TResult Function(LoadingGetMostUsedCoupons value)
+        loadingGetMostUsedCoupons,
+    required TResult Function(SuccessGetMostUsedCoupons value)
+        successGetMostUsedCoupons,
+    required TResult Function(ErrorGetMostUsedCoupons value)
+        errorGetMostUsedCoupons,
   }) {
     return faluireGetStores(this);
   }
@@ -914,14 +1095,20 @@ class _$FaluireGetStoresImpl implements FaluireGetStores {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(LoadingStores value)? loadingStores,
+    TResult? Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult? Function(SucessGetStores value)? sucessGetStores,
     TResult? Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult? Function(FaluireGetStores value)? faluireGetStores,
+    TResult? Function(LoadingStores value)? loadingStores,
     TResult? Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult? Function(SuccessGetCoupon value)? successGetCoupon,
     TResult? Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult? Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult? Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult? Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult? Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
   }) {
     return faluireGetStores?.call(this);
   }
@@ -930,14 +1117,20 @@ class _$FaluireGetStoresImpl implements FaluireGetStores {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(LoadingStores value)? loadingStores,
+    TResult Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult Function(SucessGetStores value)? sucessGetStores,
     TResult Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult Function(FaluireGetStores value)? faluireGetStores,
+    TResult Function(LoadingStores value)? loadingStores,
     TResult Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult Function(SuccessGetCoupon value)? successGetCoupon,
     TResult Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) {
     if (faluireGetStores != null) {
@@ -955,6 +1148,183 @@ abstract class FaluireGetStores implements ExploreState {
   @JsonKey(ignore: true)
   _$$FaluireGetStoresImplCopyWith<_$FaluireGetStoresImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadingStoresImplCopyWith<$Res> {
+  factory _$$LoadingStoresImplCopyWith(
+          _$LoadingStoresImpl value, $Res Function(_$LoadingStoresImpl) then) =
+      __$$LoadingStoresImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingStoresImplCopyWithImpl<$Res>
+    extends _$ExploreStateCopyWithImpl<$Res, _$LoadingStoresImpl>
+    implements _$$LoadingStoresImplCopyWith<$Res> {
+  __$$LoadingStoresImplCopyWithImpl(
+      _$LoadingStoresImpl _value, $Res Function(_$LoadingStoresImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadingStoresImpl implements LoadingStores {
+  const _$LoadingStoresImpl();
+
+  @override
+  String toString() {
+    return 'ExploreState.loadingStores()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadingStoresImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingSpecialStores,
+    required TResult Function(List<UserModel> stores) sucessGetStores,
+    required TResult Function(List<UserModel> stores) sucessGetSpecialStores,
+    required TResult Function(String error) faluireGetStores,
+    required TResult Function() loadingStores,
+    required TResult Function() loadingGetCoupons,
+    required TResult Function(List<Coupon> coupons) successGetCoupon,
+    required TResult Function(String error) errorGetCoupons,
+    required TResult Function() emptyListCoupons,
+    required TResult Function() loadingGetMostUsedCoupons,
+    required TResult Function(List<Coupon> mostUsedCoupons)
+        successGetMostUsedCoupons,
+    required TResult Function(String erro) errorGetMostUsedCoupons,
+  }) {
+    return loadingStores();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingSpecialStores,
+    TResult? Function(List<UserModel> stores)? sucessGetStores,
+    TResult? Function(List<UserModel> stores)? sucessGetSpecialStores,
+    TResult? Function(String error)? faluireGetStores,
+    TResult? Function()? loadingStores,
+    TResult? Function()? loadingGetCoupons,
+    TResult? Function(List<Coupon> coupons)? successGetCoupon,
+    TResult? Function(String error)? errorGetCoupons,
+    TResult? Function()? emptyListCoupons,
+    TResult? Function()? loadingGetMostUsedCoupons,
+    TResult? Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult? Function(String erro)? errorGetMostUsedCoupons,
+  }) {
+    return loadingStores?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingSpecialStores,
+    TResult Function(List<UserModel> stores)? sucessGetStores,
+    TResult Function(List<UserModel> stores)? sucessGetSpecialStores,
+    TResult Function(String error)? faluireGetStores,
+    TResult Function()? loadingStores,
+    TResult Function()? loadingGetCoupons,
+    TResult Function(List<Coupon> coupons)? successGetCoupon,
+    TResult Function(String error)? errorGetCoupons,
+    TResult Function()? emptyListCoupons,
+    TResult Function()? loadingGetMostUsedCoupons,
+    TResult Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult Function(String erro)? errorGetMostUsedCoupons,
+    required TResult orElse(),
+  }) {
+    if (loadingStores != null) {
+      return loadingStores();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingSpecialStores value) loadingSpecialStores,
+    required TResult Function(SucessGetStores value) sucessGetStores,
+    required TResult Function(SucessGetSpecialStores value)
+        sucessGetSpecialStores,
+    required TResult Function(FaluireGetStores value) faluireGetStores,
+    required TResult Function(LoadingStores value) loadingStores,
+    required TResult Function(LoadingGetCoupons value) loadingGetCoupons,
+    required TResult Function(SuccessGetCoupon value) successGetCoupon,
+    required TResult Function(ErrorGetCoupons value) errorGetCoupons,
+    required TResult Function(EmptyListCoupons value) emptyListCoupons,
+    required TResult Function(LoadingGetMostUsedCoupons value)
+        loadingGetMostUsedCoupons,
+    required TResult Function(SuccessGetMostUsedCoupons value)
+        successGetMostUsedCoupons,
+    required TResult Function(ErrorGetMostUsedCoupons value)
+        errorGetMostUsedCoupons,
+  }) {
+    return loadingStores(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingSpecialStores value)? loadingSpecialStores,
+    TResult? Function(SucessGetStores value)? sucessGetStores,
+    TResult? Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
+    TResult? Function(FaluireGetStores value)? faluireGetStores,
+    TResult? Function(LoadingStores value)? loadingStores,
+    TResult? Function(LoadingGetCoupons value)? loadingGetCoupons,
+    TResult? Function(SuccessGetCoupon value)? successGetCoupon,
+    TResult? Function(ErrorGetCoupons value)? errorGetCoupons,
+    TResult? Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult? Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult? Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult? Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
+  }) {
+    return loadingStores?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(LoadingSpecialStores value)? loadingSpecialStores,
+    TResult Function(SucessGetStores value)? sucessGetStores,
+    TResult Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
+    TResult Function(FaluireGetStores value)? faluireGetStores,
+    TResult Function(LoadingStores value)? loadingStores,
+    TResult Function(LoadingGetCoupons value)? loadingGetCoupons,
+    TResult Function(SuccessGetCoupon value)? successGetCoupon,
+    TResult Function(ErrorGetCoupons value)? errorGetCoupons,
+    TResult Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
+    required TResult orElse(),
+  }) {
+    if (loadingStores != null) {
+      return loadingStores(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoadingStores implements ExploreState {
+  const factory LoadingStores() = _$LoadingStoresImpl;
 }
 
 /// @nodoc
@@ -996,14 +1366,19 @@ class _$LoadingGetCouponsImpl implements LoadingGetCoupons {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loadingStores,
+    required TResult Function() loadingSpecialStores,
     required TResult Function(List<UserModel> stores) sucessGetStores,
     required TResult Function(List<UserModel> stores) sucessGetSpecialStores,
     required TResult Function(String error) faluireGetStores,
+    required TResult Function() loadingStores,
     required TResult Function() loadingGetCoupons,
     required TResult Function(List<Coupon> coupons) successGetCoupon,
     required TResult Function(String error) errorGetCoupons,
     required TResult Function() emptyListCoupons,
+    required TResult Function() loadingGetMostUsedCoupons,
+    required TResult Function(List<Coupon> mostUsedCoupons)
+        successGetMostUsedCoupons,
+    required TResult Function(String erro) errorGetMostUsedCoupons,
   }) {
     return loadingGetCoupons();
   }
@@ -1012,14 +1387,18 @@ class _$LoadingGetCouponsImpl implements LoadingGetCoupons {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loadingStores,
+    TResult? Function()? loadingSpecialStores,
     TResult? Function(List<UserModel> stores)? sucessGetStores,
     TResult? Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult? Function(String error)? faluireGetStores,
+    TResult? Function()? loadingStores,
     TResult? Function()? loadingGetCoupons,
     TResult? Function(List<Coupon> coupons)? successGetCoupon,
     TResult? Function(String error)? errorGetCoupons,
     TResult? Function()? emptyListCoupons,
+    TResult? Function()? loadingGetMostUsedCoupons,
+    TResult? Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult? Function(String erro)? errorGetMostUsedCoupons,
   }) {
     return loadingGetCoupons?.call();
   }
@@ -1028,14 +1407,18 @@ class _$LoadingGetCouponsImpl implements LoadingGetCoupons {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loadingStores,
+    TResult Function()? loadingSpecialStores,
     TResult Function(List<UserModel> stores)? sucessGetStores,
     TResult Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult Function(String error)? faluireGetStores,
+    TResult Function()? loadingStores,
     TResult Function()? loadingGetCoupons,
     TResult Function(List<Coupon> coupons)? successGetCoupon,
     TResult Function(String error)? errorGetCoupons,
     TResult Function()? emptyListCoupons,
+    TResult Function()? loadingGetMostUsedCoupons,
+    TResult Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult Function(String erro)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) {
     if (loadingGetCoupons != null) {
@@ -1048,15 +1431,22 @@ class _$LoadingGetCouponsImpl implements LoadingGetCoupons {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(LoadingStores value) loadingStores,
+    required TResult Function(LoadingSpecialStores value) loadingSpecialStores,
     required TResult Function(SucessGetStores value) sucessGetStores,
     required TResult Function(SucessGetSpecialStores value)
         sucessGetSpecialStores,
     required TResult Function(FaluireGetStores value) faluireGetStores,
+    required TResult Function(LoadingStores value) loadingStores,
     required TResult Function(LoadingGetCoupons value) loadingGetCoupons,
     required TResult Function(SuccessGetCoupon value) successGetCoupon,
     required TResult Function(ErrorGetCoupons value) errorGetCoupons,
     required TResult Function(EmptyListCoupons value) emptyListCoupons,
+    required TResult Function(LoadingGetMostUsedCoupons value)
+        loadingGetMostUsedCoupons,
+    required TResult Function(SuccessGetMostUsedCoupons value)
+        successGetMostUsedCoupons,
+    required TResult Function(ErrorGetMostUsedCoupons value)
+        errorGetMostUsedCoupons,
   }) {
     return loadingGetCoupons(this);
   }
@@ -1065,14 +1455,20 @@ class _$LoadingGetCouponsImpl implements LoadingGetCoupons {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(LoadingStores value)? loadingStores,
+    TResult? Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult? Function(SucessGetStores value)? sucessGetStores,
     TResult? Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult? Function(FaluireGetStores value)? faluireGetStores,
+    TResult? Function(LoadingStores value)? loadingStores,
     TResult? Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult? Function(SuccessGetCoupon value)? successGetCoupon,
     TResult? Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult? Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult? Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult? Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult? Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
   }) {
     return loadingGetCoupons?.call(this);
   }
@@ -1081,14 +1477,20 @@ class _$LoadingGetCouponsImpl implements LoadingGetCoupons {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(LoadingStores value)? loadingStores,
+    TResult Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult Function(SucessGetStores value)? sucessGetStores,
     TResult Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult Function(FaluireGetStores value)? faluireGetStores,
+    TResult Function(LoadingStores value)? loadingStores,
     TResult Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult Function(SuccessGetCoupon value)? successGetCoupon,
     TResult Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) {
     if (loadingGetCoupons != null) {
@@ -1175,14 +1577,19 @@ class _$SuccessGetCouponImpl implements SuccessGetCoupon {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loadingStores,
+    required TResult Function() loadingSpecialStores,
     required TResult Function(List<UserModel> stores) sucessGetStores,
     required TResult Function(List<UserModel> stores) sucessGetSpecialStores,
     required TResult Function(String error) faluireGetStores,
+    required TResult Function() loadingStores,
     required TResult Function() loadingGetCoupons,
     required TResult Function(List<Coupon> coupons) successGetCoupon,
     required TResult Function(String error) errorGetCoupons,
     required TResult Function() emptyListCoupons,
+    required TResult Function() loadingGetMostUsedCoupons,
+    required TResult Function(List<Coupon> mostUsedCoupons)
+        successGetMostUsedCoupons,
+    required TResult Function(String erro) errorGetMostUsedCoupons,
   }) {
     return successGetCoupon(coupons);
   }
@@ -1191,14 +1598,18 @@ class _$SuccessGetCouponImpl implements SuccessGetCoupon {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loadingStores,
+    TResult? Function()? loadingSpecialStores,
     TResult? Function(List<UserModel> stores)? sucessGetStores,
     TResult? Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult? Function(String error)? faluireGetStores,
+    TResult? Function()? loadingStores,
     TResult? Function()? loadingGetCoupons,
     TResult? Function(List<Coupon> coupons)? successGetCoupon,
     TResult? Function(String error)? errorGetCoupons,
     TResult? Function()? emptyListCoupons,
+    TResult? Function()? loadingGetMostUsedCoupons,
+    TResult? Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult? Function(String erro)? errorGetMostUsedCoupons,
   }) {
     return successGetCoupon?.call(coupons);
   }
@@ -1207,14 +1618,18 @@ class _$SuccessGetCouponImpl implements SuccessGetCoupon {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loadingStores,
+    TResult Function()? loadingSpecialStores,
     TResult Function(List<UserModel> stores)? sucessGetStores,
     TResult Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult Function(String error)? faluireGetStores,
+    TResult Function()? loadingStores,
     TResult Function()? loadingGetCoupons,
     TResult Function(List<Coupon> coupons)? successGetCoupon,
     TResult Function(String error)? errorGetCoupons,
     TResult Function()? emptyListCoupons,
+    TResult Function()? loadingGetMostUsedCoupons,
+    TResult Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult Function(String erro)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) {
     if (successGetCoupon != null) {
@@ -1227,15 +1642,22 @@ class _$SuccessGetCouponImpl implements SuccessGetCoupon {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(LoadingStores value) loadingStores,
+    required TResult Function(LoadingSpecialStores value) loadingSpecialStores,
     required TResult Function(SucessGetStores value) sucessGetStores,
     required TResult Function(SucessGetSpecialStores value)
         sucessGetSpecialStores,
     required TResult Function(FaluireGetStores value) faluireGetStores,
+    required TResult Function(LoadingStores value) loadingStores,
     required TResult Function(LoadingGetCoupons value) loadingGetCoupons,
     required TResult Function(SuccessGetCoupon value) successGetCoupon,
     required TResult Function(ErrorGetCoupons value) errorGetCoupons,
     required TResult Function(EmptyListCoupons value) emptyListCoupons,
+    required TResult Function(LoadingGetMostUsedCoupons value)
+        loadingGetMostUsedCoupons,
+    required TResult Function(SuccessGetMostUsedCoupons value)
+        successGetMostUsedCoupons,
+    required TResult Function(ErrorGetMostUsedCoupons value)
+        errorGetMostUsedCoupons,
   }) {
     return successGetCoupon(this);
   }
@@ -1244,14 +1666,20 @@ class _$SuccessGetCouponImpl implements SuccessGetCoupon {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(LoadingStores value)? loadingStores,
+    TResult? Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult? Function(SucessGetStores value)? sucessGetStores,
     TResult? Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult? Function(FaluireGetStores value)? faluireGetStores,
+    TResult? Function(LoadingStores value)? loadingStores,
     TResult? Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult? Function(SuccessGetCoupon value)? successGetCoupon,
     TResult? Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult? Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult? Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult? Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult? Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
   }) {
     return successGetCoupon?.call(this);
   }
@@ -1260,14 +1688,20 @@ class _$SuccessGetCouponImpl implements SuccessGetCoupon {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(LoadingStores value)? loadingStores,
+    TResult Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult Function(SucessGetStores value)? sucessGetStores,
     TResult Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult Function(FaluireGetStores value)? faluireGetStores,
+    TResult Function(LoadingStores value)? loadingStores,
     TResult Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult Function(SuccessGetCoupon value)? successGetCoupon,
     TResult Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) {
     if (successGetCoupon != null) {
@@ -1353,14 +1787,19 @@ class _$ErrorGetCouponsImpl implements ErrorGetCoupons {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loadingStores,
+    required TResult Function() loadingSpecialStores,
     required TResult Function(List<UserModel> stores) sucessGetStores,
     required TResult Function(List<UserModel> stores) sucessGetSpecialStores,
     required TResult Function(String error) faluireGetStores,
+    required TResult Function() loadingStores,
     required TResult Function() loadingGetCoupons,
     required TResult Function(List<Coupon> coupons) successGetCoupon,
     required TResult Function(String error) errorGetCoupons,
     required TResult Function() emptyListCoupons,
+    required TResult Function() loadingGetMostUsedCoupons,
+    required TResult Function(List<Coupon> mostUsedCoupons)
+        successGetMostUsedCoupons,
+    required TResult Function(String erro) errorGetMostUsedCoupons,
   }) {
     return errorGetCoupons(error);
   }
@@ -1369,14 +1808,18 @@ class _$ErrorGetCouponsImpl implements ErrorGetCoupons {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loadingStores,
+    TResult? Function()? loadingSpecialStores,
     TResult? Function(List<UserModel> stores)? sucessGetStores,
     TResult? Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult? Function(String error)? faluireGetStores,
+    TResult? Function()? loadingStores,
     TResult? Function()? loadingGetCoupons,
     TResult? Function(List<Coupon> coupons)? successGetCoupon,
     TResult? Function(String error)? errorGetCoupons,
     TResult? Function()? emptyListCoupons,
+    TResult? Function()? loadingGetMostUsedCoupons,
+    TResult? Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult? Function(String erro)? errorGetMostUsedCoupons,
   }) {
     return errorGetCoupons?.call(error);
   }
@@ -1385,14 +1828,18 @@ class _$ErrorGetCouponsImpl implements ErrorGetCoupons {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loadingStores,
+    TResult Function()? loadingSpecialStores,
     TResult Function(List<UserModel> stores)? sucessGetStores,
     TResult Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult Function(String error)? faluireGetStores,
+    TResult Function()? loadingStores,
     TResult Function()? loadingGetCoupons,
     TResult Function(List<Coupon> coupons)? successGetCoupon,
     TResult Function(String error)? errorGetCoupons,
     TResult Function()? emptyListCoupons,
+    TResult Function()? loadingGetMostUsedCoupons,
+    TResult Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult Function(String erro)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) {
     if (errorGetCoupons != null) {
@@ -1405,15 +1852,22 @@ class _$ErrorGetCouponsImpl implements ErrorGetCoupons {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(LoadingStores value) loadingStores,
+    required TResult Function(LoadingSpecialStores value) loadingSpecialStores,
     required TResult Function(SucessGetStores value) sucessGetStores,
     required TResult Function(SucessGetSpecialStores value)
         sucessGetSpecialStores,
     required TResult Function(FaluireGetStores value) faluireGetStores,
+    required TResult Function(LoadingStores value) loadingStores,
     required TResult Function(LoadingGetCoupons value) loadingGetCoupons,
     required TResult Function(SuccessGetCoupon value) successGetCoupon,
     required TResult Function(ErrorGetCoupons value) errorGetCoupons,
     required TResult Function(EmptyListCoupons value) emptyListCoupons,
+    required TResult Function(LoadingGetMostUsedCoupons value)
+        loadingGetMostUsedCoupons,
+    required TResult Function(SuccessGetMostUsedCoupons value)
+        successGetMostUsedCoupons,
+    required TResult Function(ErrorGetMostUsedCoupons value)
+        errorGetMostUsedCoupons,
   }) {
     return errorGetCoupons(this);
   }
@@ -1422,14 +1876,20 @@ class _$ErrorGetCouponsImpl implements ErrorGetCoupons {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(LoadingStores value)? loadingStores,
+    TResult? Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult? Function(SucessGetStores value)? sucessGetStores,
     TResult? Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult? Function(FaluireGetStores value)? faluireGetStores,
+    TResult? Function(LoadingStores value)? loadingStores,
     TResult? Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult? Function(SuccessGetCoupon value)? successGetCoupon,
     TResult? Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult? Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult? Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult? Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult? Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
   }) {
     return errorGetCoupons?.call(this);
   }
@@ -1438,14 +1898,20 @@ class _$ErrorGetCouponsImpl implements ErrorGetCoupons {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(LoadingStores value)? loadingStores,
+    TResult Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult Function(SucessGetStores value)? sucessGetStores,
     TResult Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult Function(FaluireGetStores value)? faluireGetStores,
+    TResult Function(LoadingStores value)? loadingStores,
     TResult Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult Function(SuccessGetCoupon value)? successGetCoupon,
     TResult Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) {
     if (errorGetCoupons != null) {
@@ -1504,14 +1970,19 @@ class _$EmptyListCouponsImpl implements EmptyListCoupons {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loadingStores,
+    required TResult Function() loadingSpecialStores,
     required TResult Function(List<UserModel> stores) sucessGetStores,
     required TResult Function(List<UserModel> stores) sucessGetSpecialStores,
     required TResult Function(String error) faluireGetStores,
+    required TResult Function() loadingStores,
     required TResult Function() loadingGetCoupons,
     required TResult Function(List<Coupon> coupons) successGetCoupon,
     required TResult Function(String error) errorGetCoupons,
     required TResult Function() emptyListCoupons,
+    required TResult Function() loadingGetMostUsedCoupons,
+    required TResult Function(List<Coupon> mostUsedCoupons)
+        successGetMostUsedCoupons,
+    required TResult Function(String erro) errorGetMostUsedCoupons,
   }) {
     return emptyListCoupons();
   }
@@ -1520,14 +1991,18 @@ class _$EmptyListCouponsImpl implements EmptyListCoupons {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loadingStores,
+    TResult? Function()? loadingSpecialStores,
     TResult? Function(List<UserModel> stores)? sucessGetStores,
     TResult? Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult? Function(String error)? faluireGetStores,
+    TResult? Function()? loadingStores,
     TResult? Function()? loadingGetCoupons,
     TResult? Function(List<Coupon> coupons)? successGetCoupon,
     TResult? Function(String error)? errorGetCoupons,
     TResult? Function()? emptyListCoupons,
+    TResult? Function()? loadingGetMostUsedCoupons,
+    TResult? Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult? Function(String erro)? errorGetMostUsedCoupons,
   }) {
     return emptyListCoupons?.call();
   }
@@ -1536,14 +2011,18 @@ class _$EmptyListCouponsImpl implements EmptyListCoupons {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loadingStores,
+    TResult Function()? loadingSpecialStores,
     TResult Function(List<UserModel> stores)? sucessGetStores,
     TResult Function(List<UserModel> stores)? sucessGetSpecialStores,
     TResult Function(String error)? faluireGetStores,
+    TResult Function()? loadingStores,
     TResult Function()? loadingGetCoupons,
     TResult Function(List<Coupon> coupons)? successGetCoupon,
     TResult Function(String error)? errorGetCoupons,
     TResult Function()? emptyListCoupons,
+    TResult Function()? loadingGetMostUsedCoupons,
+    TResult Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult Function(String erro)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) {
     if (emptyListCoupons != null) {
@@ -1556,15 +2035,22 @@ class _$EmptyListCouponsImpl implements EmptyListCoupons {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(LoadingStores value) loadingStores,
+    required TResult Function(LoadingSpecialStores value) loadingSpecialStores,
     required TResult Function(SucessGetStores value) sucessGetStores,
     required TResult Function(SucessGetSpecialStores value)
         sucessGetSpecialStores,
     required TResult Function(FaluireGetStores value) faluireGetStores,
+    required TResult Function(LoadingStores value) loadingStores,
     required TResult Function(LoadingGetCoupons value) loadingGetCoupons,
     required TResult Function(SuccessGetCoupon value) successGetCoupon,
     required TResult Function(ErrorGetCoupons value) errorGetCoupons,
     required TResult Function(EmptyListCoupons value) emptyListCoupons,
+    required TResult Function(LoadingGetMostUsedCoupons value)
+        loadingGetMostUsedCoupons,
+    required TResult Function(SuccessGetMostUsedCoupons value)
+        successGetMostUsedCoupons,
+    required TResult Function(ErrorGetMostUsedCoupons value)
+        errorGetMostUsedCoupons,
   }) {
     return emptyListCoupons(this);
   }
@@ -1573,14 +2059,20 @@ class _$EmptyListCouponsImpl implements EmptyListCoupons {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(LoadingStores value)? loadingStores,
+    TResult? Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult? Function(SucessGetStores value)? sucessGetStores,
     TResult? Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult? Function(FaluireGetStores value)? faluireGetStores,
+    TResult? Function(LoadingStores value)? loadingStores,
     TResult? Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult? Function(SuccessGetCoupon value)? successGetCoupon,
     TResult? Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult? Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult? Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult? Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult? Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
   }) {
     return emptyListCoupons?.call(this);
   }
@@ -1589,14 +2081,20 @@ class _$EmptyListCouponsImpl implements EmptyListCoupons {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(LoadingStores value)? loadingStores,
+    TResult Function(LoadingSpecialStores value)? loadingSpecialStores,
     TResult Function(SucessGetStores value)? sucessGetStores,
     TResult Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
     TResult Function(FaluireGetStores value)? faluireGetStores,
+    TResult Function(LoadingStores value)? loadingStores,
     TResult Function(LoadingGetCoupons value)? loadingGetCoupons,
     TResult Function(SuccessGetCoupon value)? successGetCoupon,
     TResult Function(ErrorGetCoupons value)? errorGetCoupons,
     TResult Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
     required TResult orElse(),
   }) {
     if (emptyListCoupons != null) {
@@ -1608,4 +2106,618 @@ class _$EmptyListCouponsImpl implements EmptyListCoupons {
 
 abstract class EmptyListCoupons implements ExploreState {
   const factory EmptyListCoupons() = _$EmptyListCouponsImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadingGetMostUsedCouponsImplCopyWith<$Res> {
+  factory _$$LoadingGetMostUsedCouponsImplCopyWith(
+          _$LoadingGetMostUsedCouponsImpl value,
+          $Res Function(_$LoadingGetMostUsedCouponsImpl) then) =
+      __$$LoadingGetMostUsedCouponsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingGetMostUsedCouponsImplCopyWithImpl<$Res>
+    extends _$ExploreStateCopyWithImpl<$Res, _$LoadingGetMostUsedCouponsImpl>
+    implements _$$LoadingGetMostUsedCouponsImplCopyWith<$Res> {
+  __$$LoadingGetMostUsedCouponsImplCopyWithImpl(
+      _$LoadingGetMostUsedCouponsImpl _value,
+      $Res Function(_$LoadingGetMostUsedCouponsImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadingGetMostUsedCouponsImpl implements LoadingGetMostUsedCoupons {
+  const _$LoadingGetMostUsedCouponsImpl();
+
+  @override
+  String toString() {
+    return 'ExploreState.loadingGetMostUsedCoupons()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadingGetMostUsedCouponsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingSpecialStores,
+    required TResult Function(List<UserModel> stores) sucessGetStores,
+    required TResult Function(List<UserModel> stores) sucessGetSpecialStores,
+    required TResult Function(String error) faluireGetStores,
+    required TResult Function() loadingStores,
+    required TResult Function() loadingGetCoupons,
+    required TResult Function(List<Coupon> coupons) successGetCoupon,
+    required TResult Function(String error) errorGetCoupons,
+    required TResult Function() emptyListCoupons,
+    required TResult Function() loadingGetMostUsedCoupons,
+    required TResult Function(List<Coupon> mostUsedCoupons)
+        successGetMostUsedCoupons,
+    required TResult Function(String erro) errorGetMostUsedCoupons,
+  }) {
+    return loadingGetMostUsedCoupons();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingSpecialStores,
+    TResult? Function(List<UserModel> stores)? sucessGetStores,
+    TResult? Function(List<UserModel> stores)? sucessGetSpecialStores,
+    TResult? Function(String error)? faluireGetStores,
+    TResult? Function()? loadingStores,
+    TResult? Function()? loadingGetCoupons,
+    TResult? Function(List<Coupon> coupons)? successGetCoupon,
+    TResult? Function(String error)? errorGetCoupons,
+    TResult? Function()? emptyListCoupons,
+    TResult? Function()? loadingGetMostUsedCoupons,
+    TResult? Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult? Function(String erro)? errorGetMostUsedCoupons,
+  }) {
+    return loadingGetMostUsedCoupons?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingSpecialStores,
+    TResult Function(List<UserModel> stores)? sucessGetStores,
+    TResult Function(List<UserModel> stores)? sucessGetSpecialStores,
+    TResult Function(String error)? faluireGetStores,
+    TResult Function()? loadingStores,
+    TResult Function()? loadingGetCoupons,
+    TResult Function(List<Coupon> coupons)? successGetCoupon,
+    TResult Function(String error)? errorGetCoupons,
+    TResult Function()? emptyListCoupons,
+    TResult Function()? loadingGetMostUsedCoupons,
+    TResult Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult Function(String erro)? errorGetMostUsedCoupons,
+    required TResult orElse(),
+  }) {
+    if (loadingGetMostUsedCoupons != null) {
+      return loadingGetMostUsedCoupons();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingSpecialStores value) loadingSpecialStores,
+    required TResult Function(SucessGetStores value) sucessGetStores,
+    required TResult Function(SucessGetSpecialStores value)
+        sucessGetSpecialStores,
+    required TResult Function(FaluireGetStores value) faluireGetStores,
+    required TResult Function(LoadingStores value) loadingStores,
+    required TResult Function(LoadingGetCoupons value) loadingGetCoupons,
+    required TResult Function(SuccessGetCoupon value) successGetCoupon,
+    required TResult Function(ErrorGetCoupons value) errorGetCoupons,
+    required TResult Function(EmptyListCoupons value) emptyListCoupons,
+    required TResult Function(LoadingGetMostUsedCoupons value)
+        loadingGetMostUsedCoupons,
+    required TResult Function(SuccessGetMostUsedCoupons value)
+        successGetMostUsedCoupons,
+    required TResult Function(ErrorGetMostUsedCoupons value)
+        errorGetMostUsedCoupons,
+  }) {
+    return loadingGetMostUsedCoupons(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingSpecialStores value)? loadingSpecialStores,
+    TResult? Function(SucessGetStores value)? sucessGetStores,
+    TResult? Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
+    TResult? Function(FaluireGetStores value)? faluireGetStores,
+    TResult? Function(LoadingStores value)? loadingStores,
+    TResult? Function(LoadingGetCoupons value)? loadingGetCoupons,
+    TResult? Function(SuccessGetCoupon value)? successGetCoupon,
+    TResult? Function(ErrorGetCoupons value)? errorGetCoupons,
+    TResult? Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult? Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult? Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult? Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
+  }) {
+    return loadingGetMostUsedCoupons?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(LoadingSpecialStores value)? loadingSpecialStores,
+    TResult Function(SucessGetStores value)? sucessGetStores,
+    TResult Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
+    TResult Function(FaluireGetStores value)? faluireGetStores,
+    TResult Function(LoadingStores value)? loadingStores,
+    TResult Function(LoadingGetCoupons value)? loadingGetCoupons,
+    TResult Function(SuccessGetCoupon value)? successGetCoupon,
+    TResult Function(ErrorGetCoupons value)? errorGetCoupons,
+    TResult Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
+    required TResult orElse(),
+  }) {
+    if (loadingGetMostUsedCoupons != null) {
+      return loadingGetMostUsedCoupons(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoadingGetMostUsedCoupons implements ExploreState {
+  const factory LoadingGetMostUsedCoupons() = _$LoadingGetMostUsedCouponsImpl;
+}
+
+/// @nodoc
+abstract class _$$SuccessGetMostUsedCouponsImplCopyWith<$Res> {
+  factory _$$SuccessGetMostUsedCouponsImplCopyWith(
+          _$SuccessGetMostUsedCouponsImpl value,
+          $Res Function(_$SuccessGetMostUsedCouponsImpl) then) =
+      __$$SuccessGetMostUsedCouponsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Coupon> mostUsedCoupons});
+}
+
+/// @nodoc
+class __$$SuccessGetMostUsedCouponsImplCopyWithImpl<$Res>
+    extends _$ExploreStateCopyWithImpl<$Res, _$SuccessGetMostUsedCouponsImpl>
+    implements _$$SuccessGetMostUsedCouponsImplCopyWith<$Res> {
+  __$$SuccessGetMostUsedCouponsImplCopyWithImpl(
+      _$SuccessGetMostUsedCouponsImpl _value,
+      $Res Function(_$SuccessGetMostUsedCouponsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? mostUsedCoupons = null,
+  }) {
+    return _then(_$SuccessGetMostUsedCouponsImpl(
+      mostUsedCoupons: null == mostUsedCoupons
+          ? _value._mostUsedCoupons
+          : mostUsedCoupons // ignore: cast_nullable_to_non_nullable
+              as List<Coupon>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SuccessGetMostUsedCouponsImpl implements SuccessGetMostUsedCoupons {
+  const _$SuccessGetMostUsedCouponsImpl(
+      {required final List<Coupon> mostUsedCoupons})
+      : _mostUsedCoupons = mostUsedCoupons;
+
+  final List<Coupon> _mostUsedCoupons;
+  @override
+  List<Coupon> get mostUsedCoupons {
+    if (_mostUsedCoupons is EqualUnmodifiableListView) return _mostUsedCoupons;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_mostUsedCoupons);
+  }
+
+  @override
+  String toString() {
+    return 'ExploreState.successGetMostUsedCoupons(mostUsedCoupons: $mostUsedCoupons)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessGetMostUsedCouponsImpl &&
+            const DeepCollectionEquality()
+                .equals(other._mostUsedCoupons, _mostUsedCoupons));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_mostUsedCoupons));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessGetMostUsedCouponsImplCopyWith<_$SuccessGetMostUsedCouponsImpl>
+      get copyWith => __$$SuccessGetMostUsedCouponsImplCopyWithImpl<
+          _$SuccessGetMostUsedCouponsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingSpecialStores,
+    required TResult Function(List<UserModel> stores) sucessGetStores,
+    required TResult Function(List<UserModel> stores) sucessGetSpecialStores,
+    required TResult Function(String error) faluireGetStores,
+    required TResult Function() loadingStores,
+    required TResult Function() loadingGetCoupons,
+    required TResult Function(List<Coupon> coupons) successGetCoupon,
+    required TResult Function(String error) errorGetCoupons,
+    required TResult Function() emptyListCoupons,
+    required TResult Function() loadingGetMostUsedCoupons,
+    required TResult Function(List<Coupon> mostUsedCoupons)
+        successGetMostUsedCoupons,
+    required TResult Function(String erro) errorGetMostUsedCoupons,
+  }) {
+    return successGetMostUsedCoupons(mostUsedCoupons);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingSpecialStores,
+    TResult? Function(List<UserModel> stores)? sucessGetStores,
+    TResult? Function(List<UserModel> stores)? sucessGetSpecialStores,
+    TResult? Function(String error)? faluireGetStores,
+    TResult? Function()? loadingStores,
+    TResult? Function()? loadingGetCoupons,
+    TResult? Function(List<Coupon> coupons)? successGetCoupon,
+    TResult? Function(String error)? errorGetCoupons,
+    TResult? Function()? emptyListCoupons,
+    TResult? Function()? loadingGetMostUsedCoupons,
+    TResult? Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult? Function(String erro)? errorGetMostUsedCoupons,
+  }) {
+    return successGetMostUsedCoupons?.call(mostUsedCoupons);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingSpecialStores,
+    TResult Function(List<UserModel> stores)? sucessGetStores,
+    TResult Function(List<UserModel> stores)? sucessGetSpecialStores,
+    TResult Function(String error)? faluireGetStores,
+    TResult Function()? loadingStores,
+    TResult Function()? loadingGetCoupons,
+    TResult Function(List<Coupon> coupons)? successGetCoupon,
+    TResult Function(String error)? errorGetCoupons,
+    TResult Function()? emptyListCoupons,
+    TResult Function()? loadingGetMostUsedCoupons,
+    TResult Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult Function(String erro)? errorGetMostUsedCoupons,
+    required TResult orElse(),
+  }) {
+    if (successGetMostUsedCoupons != null) {
+      return successGetMostUsedCoupons(mostUsedCoupons);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingSpecialStores value) loadingSpecialStores,
+    required TResult Function(SucessGetStores value) sucessGetStores,
+    required TResult Function(SucessGetSpecialStores value)
+        sucessGetSpecialStores,
+    required TResult Function(FaluireGetStores value) faluireGetStores,
+    required TResult Function(LoadingStores value) loadingStores,
+    required TResult Function(LoadingGetCoupons value) loadingGetCoupons,
+    required TResult Function(SuccessGetCoupon value) successGetCoupon,
+    required TResult Function(ErrorGetCoupons value) errorGetCoupons,
+    required TResult Function(EmptyListCoupons value) emptyListCoupons,
+    required TResult Function(LoadingGetMostUsedCoupons value)
+        loadingGetMostUsedCoupons,
+    required TResult Function(SuccessGetMostUsedCoupons value)
+        successGetMostUsedCoupons,
+    required TResult Function(ErrorGetMostUsedCoupons value)
+        errorGetMostUsedCoupons,
+  }) {
+    return successGetMostUsedCoupons(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingSpecialStores value)? loadingSpecialStores,
+    TResult? Function(SucessGetStores value)? sucessGetStores,
+    TResult? Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
+    TResult? Function(FaluireGetStores value)? faluireGetStores,
+    TResult? Function(LoadingStores value)? loadingStores,
+    TResult? Function(LoadingGetCoupons value)? loadingGetCoupons,
+    TResult? Function(SuccessGetCoupon value)? successGetCoupon,
+    TResult? Function(ErrorGetCoupons value)? errorGetCoupons,
+    TResult? Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult? Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult? Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult? Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
+  }) {
+    return successGetMostUsedCoupons?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(LoadingSpecialStores value)? loadingSpecialStores,
+    TResult Function(SucessGetStores value)? sucessGetStores,
+    TResult Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
+    TResult Function(FaluireGetStores value)? faluireGetStores,
+    TResult Function(LoadingStores value)? loadingStores,
+    TResult Function(LoadingGetCoupons value)? loadingGetCoupons,
+    TResult Function(SuccessGetCoupon value)? successGetCoupon,
+    TResult Function(ErrorGetCoupons value)? errorGetCoupons,
+    TResult Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
+    required TResult orElse(),
+  }) {
+    if (successGetMostUsedCoupons != null) {
+      return successGetMostUsedCoupons(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SuccessGetMostUsedCoupons implements ExploreState {
+  const factory SuccessGetMostUsedCoupons(
+          {required final List<Coupon> mostUsedCoupons}) =
+      _$SuccessGetMostUsedCouponsImpl;
+
+  List<Coupon> get mostUsedCoupons;
+  @JsonKey(ignore: true)
+  _$$SuccessGetMostUsedCouponsImplCopyWith<_$SuccessGetMostUsedCouponsImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ErrorGetMostUsedCouponsImplCopyWith<$Res> {
+  factory _$$ErrorGetMostUsedCouponsImplCopyWith(
+          _$ErrorGetMostUsedCouponsImpl value,
+          $Res Function(_$ErrorGetMostUsedCouponsImpl) then) =
+      __$$ErrorGetMostUsedCouponsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String erro});
+}
+
+/// @nodoc
+class __$$ErrorGetMostUsedCouponsImplCopyWithImpl<$Res>
+    extends _$ExploreStateCopyWithImpl<$Res, _$ErrorGetMostUsedCouponsImpl>
+    implements _$$ErrorGetMostUsedCouponsImplCopyWith<$Res> {
+  __$$ErrorGetMostUsedCouponsImplCopyWithImpl(
+      _$ErrorGetMostUsedCouponsImpl _value,
+      $Res Function(_$ErrorGetMostUsedCouponsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? erro = null,
+  }) {
+    return _then(_$ErrorGetMostUsedCouponsImpl(
+      erro: null == erro
+          ? _value.erro
+          : erro // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ErrorGetMostUsedCouponsImpl implements ErrorGetMostUsedCoupons {
+  const _$ErrorGetMostUsedCouponsImpl({required this.erro});
+
+  @override
+  final String erro;
+
+  @override
+  String toString() {
+    return 'ExploreState.errorGetMostUsedCoupons(erro: $erro)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ErrorGetMostUsedCouponsImpl &&
+            (identical(other.erro, erro) || other.erro == erro));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, erro);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ErrorGetMostUsedCouponsImplCopyWith<_$ErrorGetMostUsedCouponsImpl>
+      get copyWith => __$$ErrorGetMostUsedCouponsImplCopyWithImpl<
+          _$ErrorGetMostUsedCouponsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingSpecialStores,
+    required TResult Function(List<UserModel> stores) sucessGetStores,
+    required TResult Function(List<UserModel> stores) sucessGetSpecialStores,
+    required TResult Function(String error) faluireGetStores,
+    required TResult Function() loadingStores,
+    required TResult Function() loadingGetCoupons,
+    required TResult Function(List<Coupon> coupons) successGetCoupon,
+    required TResult Function(String error) errorGetCoupons,
+    required TResult Function() emptyListCoupons,
+    required TResult Function() loadingGetMostUsedCoupons,
+    required TResult Function(List<Coupon> mostUsedCoupons)
+        successGetMostUsedCoupons,
+    required TResult Function(String erro) errorGetMostUsedCoupons,
+  }) {
+    return errorGetMostUsedCoupons(erro);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingSpecialStores,
+    TResult? Function(List<UserModel> stores)? sucessGetStores,
+    TResult? Function(List<UserModel> stores)? sucessGetSpecialStores,
+    TResult? Function(String error)? faluireGetStores,
+    TResult? Function()? loadingStores,
+    TResult? Function()? loadingGetCoupons,
+    TResult? Function(List<Coupon> coupons)? successGetCoupon,
+    TResult? Function(String error)? errorGetCoupons,
+    TResult? Function()? emptyListCoupons,
+    TResult? Function()? loadingGetMostUsedCoupons,
+    TResult? Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult? Function(String erro)? errorGetMostUsedCoupons,
+  }) {
+    return errorGetMostUsedCoupons?.call(erro);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingSpecialStores,
+    TResult Function(List<UserModel> stores)? sucessGetStores,
+    TResult Function(List<UserModel> stores)? sucessGetSpecialStores,
+    TResult Function(String error)? faluireGetStores,
+    TResult Function()? loadingStores,
+    TResult Function()? loadingGetCoupons,
+    TResult Function(List<Coupon> coupons)? successGetCoupon,
+    TResult Function(String error)? errorGetCoupons,
+    TResult Function()? emptyListCoupons,
+    TResult Function()? loadingGetMostUsedCoupons,
+    TResult Function(List<Coupon> mostUsedCoupons)? successGetMostUsedCoupons,
+    TResult Function(String erro)? errorGetMostUsedCoupons,
+    required TResult orElse(),
+  }) {
+    if (errorGetMostUsedCoupons != null) {
+      return errorGetMostUsedCoupons(erro);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingSpecialStores value) loadingSpecialStores,
+    required TResult Function(SucessGetStores value) sucessGetStores,
+    required TResult Function(SucessGetSpecialStores value)
+        sucessGetSpecialStores,
+    required TResult Function(FaluireGetStores value) faluireGetStores,
+    required TResult Function(LoadingStores value) loadingStores,
+    required TResult Function(LoadingGetCoupons value) loadingGetCoupons,
+    required TResult Function(SuccessGetCoupon value) successGetCoupon,
+    required TResult Function(ErrorGetCoupons value) errorGetCoupons,
+    required TResult Function(EmptyListCoupons value) emptyListCoupons,
+    required TResult Function(LoadingGetMostUsedCoupons value)
+        loadingGetMostUsedCoupons,
+    required TResult Function(SuccessGetMostUsedCoupons value)
+        successGetMostUsedCoupons,
+    required TResult Function(ErrorGetMostUsedCoupons value)
+        errorGetMostUsedCoupons,
+  }) {
+    return errorGetMostUsedCoupons(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingSpecialStores value)? loadingSpecialStores,
+    TResult? Function(SucessGetStores value)? sucessGetStores,
+    TResult? Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
+    TResult? Function(FaluireGetStores value)? faluireGetStores,
+    TResult? Function(LoadingStores value)? loadingStores,
+    TResult? Function(LoadingGetCoupons value)? loadingGetCoupons,
+    TResult? Function(SuccessGetCoupon value)? successGetCoupon,
+    TResult? Function(ErrorGetCoupons value)? errorGetCoupons,
+    TResult? Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult? Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult? Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult? Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
+  }) {
+    return errorGetMostUsedCoupons?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(LoadingSpecialStores value)? loadingSpecialStores,
+    TResult Function(SucessGetStores value)? sucessGetStores,
+    TResult Function(SucessGetSpecialStores value)? sucessGetSpecialStores,
+    TResult Function(FaluireGetStores value)? faluireGetStores,
+    TResult Function(LoadingStores value)? loadingStores,
+    TResult Function(LoadingGetCoupons value)? loadingGetCoupons,
+    TResult Function(SuccessGetCoupon value)? successGetCoupon,
+    TResult Function(ErrorGetCoupons value)? errorGetCoupons,
+    TResult Function(EmptyListCoupons value)? emptyListCoupons,
+    TResult Function(LoadingGetMostUsedCoupons value)?
+        loadingGetMostUsedCoupons,
+    TResult Function(SuccessGetMostUsedCoupons value)?
+        successGetMostUsedCoupons,
+    TResult Function(ErrorGetMostUsedCoupons value)? errorGetMostUsedCoupons,
+    required TResult orElse(),
+  }) {
+    if (errorGetMostUsedCoupons != null) {
+      return errorGetMostUsedCoupons(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ErrorGetMostUsedCoupons implements ExploreState {
+  const factory ErrorGetMostUsedCoupons({required final String erro}) =
+      _$ErrorGetMostUsedCouponsImpl;
+
+  String get erro;
+  @JsonKey(ignore: true)
+  _$$ErrorGetMostUsedCouponsImplCopyWith<_$ErrorGetMostUsedCouponsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

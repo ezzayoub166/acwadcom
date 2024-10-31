@@ -57,7 +57,6 @@ class ProfileCubit extends Cubit<ProfileState> {
       // TLoader.errorSnackBar(title: 'On Snap!',message: "Some thing wrong: $errorM");
         emit( ProfileState.changePictureImageError(error:error.toString()));
     }
-
     }
 
     Future<void> updateUserData()async{

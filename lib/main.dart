@@ -37,7 +37,8 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(MultiBlocProvider(
+  runApp(
+    MultiBlocProvider(
     providers: [
       BlocProvider<LocaleCubit>(
         create: (context) => LocaleCubit()..getSavedLanguage(),

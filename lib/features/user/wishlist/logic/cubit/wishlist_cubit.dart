@@ -1,5 +1,6 @@
 
 
+import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/user/wishlist/data/wihslist_repository.dart';
 import 'package:acwadcom/models/user_model.dart';
 import 'package:bloc/bloc.dart';
@@ -9,11 +10,15 @@ part 'wishlist_state.dart';
 part 'wishlist_cubit.freezed.dart';
 
 class WishlistStoresCubit extends Cubit<WishListStoresState> {
- WishlistStoresCubit(this._wihslistRepository) : super(const WishListStoresState.initial());
+ WishlistStoresCubit(this._wihslistRepository, this.cacheHelper) : super(const WishListStoresState.initial());
 
   final WihslistRepository _wihslistRepository;
 
+  final CacheHelper cacheHelper;
+
   List<UserModel> wishlistStores = [];
+
+  
 
 
 
@@ -43,6 +48,7 @@ class WishlistStoresCubit extends Cubit<WishListStoresState> {
   addStoreToWishList(UserModel store)async {
     try{
       await _wihslistRepository.addStoreToWishList(store);
+
       await fetchWishListForStores();
     }catch(error){
       emit(WishListStoresState.wishlistStoresFaluire(error: error.toString()));

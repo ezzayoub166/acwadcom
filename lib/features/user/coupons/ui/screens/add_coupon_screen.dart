@@ -170,18 +170,18 @@ class _CreateCodeScreenState extends State<CreateCodeScreen> {
                               buildSpacerH(10.0),
                               //** End Date ..... */
                               buildExpireDataWidget(context, selectedDate),
-                              buildSpacerH(10.0),
-                              RoundedInputField(
-                                  controller: context
-                                      .read<CreateCouponCubit>()
-                                      .numberOfUseController,
-                                  textInputType: TextInputType.number,
-                                  textInputAction: TextInputAction.done,
-                                  hintText: AText.numberOfuse.tr(context),
-                                  validator: (value) =>
-                                      ManagerValidator.validateNumberOfUser(
-                                          value ?? "", context)),
-                              buildSpacerH(10.0),
+                              // buildSpacerH(10.0),
+                              // RoundedInputField(
+                              //     controller: context
+                              //         .read<CreateCouponCubit>()
+                              //         .numberOfUseController,
+                              //     textInputType: TextInputType.number,
+                              //     textInputAction: TextInputAction.done,
+                              //     hintText: AText.numberOfuse.tr(context),
+                              //     validator: (value) =>
+                              //         ManagerValidator.validateNumberOfUser(
+                              //             value ?? "", context)),
+                              // buildSpacerH(10.0),
                               buildSpacerH(10.0),
                               //* Additional Terms *
                               AdditionalTermsCardWidget(),

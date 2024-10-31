@@ -30,7 +30,8 @@ class _CouponsFavoritesScreenState extends State<CouponsFavoritesScreen> {
       buildWhen: (previous, current) =>
           current is WishlistLoading ||
           current is WishlistLoaded ||
-          current is WishlistFaluire,
+          current is WishlistFaluire||
+          current is EmptyWishList,
       builder: (context, state) {
         return state.maybeWhen(
           wishlistLoading: () => BuildCustomLoader(),

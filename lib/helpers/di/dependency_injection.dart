@@ -11,6 +11,7 @@ import 'package:acwadcom/features/user/explore/data/store_repository.dart';
 import 'package:acwadcom/features/user/explore/logic/cubit/explore_cubit.dart';
 import 'package:acwadcom/features/user/home/data/category_repository.dart';
 import 'package:acwadcom/features/user/home/data/coupon_repository.dart';
+import 'package:acwadcom/features/user/home/logic/filter/cubit/filter_coupons_cubit.dart';
 import 'package:acwadcom/features/user/home/logic/home/cubit/home_cubit.dart';
 import 'package:acwadcom/features/user/settings/logic/cubit/profile_cubit.dart';
 import 'package:acwadcom/features/user/wishlist/data/wihslist_repository.dart';
@@ -70,8 +71,15 @@ Future<void> setupGetIt() async {
          getIt.registerFactory<HomeOwnerCubit>(() => HomeOwnerCubit(
       getIt<CouponRepository>()));
 
+
+          getIt.registerFactory<FilterCouponsCubit>(() => FilterCouponsCubit(
+      getIt<CouponRepository>()));
+
+
+
+
         getIt.registerFactory<WishlistStoresCubit>(() => WishlistStoresCubit(
-      getIt<WihslistRepository>()));
+      getIt<WihslistRepository>(),getIt<CacheHelper>()));
 
   getIt.registerFactory<ProfileCubit>(
       () => ProfileCubit(getIt<UserRepository>()));

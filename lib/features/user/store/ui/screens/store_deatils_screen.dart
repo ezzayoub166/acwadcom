@@ -5,6 +5,7 @@ import 'package:acwadcom/features/user/wishlist/data/wihslist_repository.dart';
 import 'package:acwadcom/features/user/wishlist/logic/cubit/wishlist_cubit.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/models/user_model.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../home/ui/widgets/build_list_coupons.dart';
 
@@ -95,24 +96,21 @@ class _StoreDeatilsScreenState extends State<StoreDeatilsScreen> {
                                       isRtl: isRTL(context))
                                   : svgImage("_icGrayHeart",
                                       isRtl: isRTL(context)),
-                              onTap: () async{
+                              onTap: () async {
                                 //** TOTO heart Store.... */
                                 // Navigator.pop(context);
                                 // Handle adding/removing from wishlist on tap
                                 if (isWishList) {
-                                 await getIt<WihslistRepository>().removeStoreFromWishList(widget.store);
-                                
-
+                                  await getIt<WihslistRepository>()
+                                      .removeStoreFromWishList(widget.store);
                                 } else {
-                                  await getIt<WihslistRepository>().addStoreToWishList(widget.store);
-                                 
+                                  await getIt<WihslistRepository>()
+                                      .addStoreToWishList(widget.store);
                                 }
 
                                 setState(() {
                                   isWishList = !isWishList;
                                 });
-
-                               
                               },
                             ),
                           );
@@ -140,16 +138,23 @@ class _StoreDeatilsScreenState extends State<StoreDeatilsScreen> {
                         buildWhen: (previous, current) =>
                             current is SuccessGetCoupon ||
                             current is LoadingGetCoupons ||
-                            current is ErrorGetCoupons,
+                            current is ErrorGetCoupons ||
+                            current is EmptyListCoupons,
                         builder: (context, state) {
                           return state.maybeWhen(
                             loadingGetCoupons: () => BuildCustomLoader(),
                             successGetCoupon: (coupons) =>
-                                BuildListCoupons(coupons: coupons),
+                                BuildListMostUserCopuns(
+                              itemWidth: itemWidth,
+                              axis: Axis.vertical,
+                              coupons: coupons,
+                            ),
                             errorGetCoupons: (error) =>
                                 Center(child: myText(error)),
-                            emptyListCoupons: () =>
-                                Center(child: myText("No coupons available")),
+                            emptyListCoupons: () => SizedBox(
+                              width: MediaQuery.of(context).size.width / 1.2,
+                              child: LottieBuilder.asset("assets/animations/53207-empty-file.json"),
+                            ),
                             orElse: () => Center(
                                 child: myText("not contain Coupons yet..")),
                           );

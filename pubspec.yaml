@@ -26,6 +26,7 @@ dependencies:
   cached_network_svg_image: ^1.1.0
 
 
+
   #State Managment
   bloc: ^8.1.4
   flutter_bloc: ^8.1.6
@@ -33,7 +34,7 @@ dependencies:
   freezed_annotation: ^2.4.2
 
   #Check Internt
-  flutter_offline: ^4.0.0
+  flutter_offline: 3.0.1
 
 
   #local Storage 
@@ -48,6 +49,7 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   capped_progress_indicator: ^0.0.2
   internet_connection_checker_plus: ^2.0.0
+  connectivity_plus: 5.0.2
 
 
   # Firebase
@@ -85,6 +87,7 @@ flutter:
     - assets/fonts/
     - assets/lang/
     - assets/lottie/
+    - assets/animations/
     
 
 

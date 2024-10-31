@@ -23,11 +23,13 @@ class Coupon {
   final Timestamp uploadDate;
   final UserModel ownerCoupon;
   final String ownerCouponId ;
+  final String categoryID;
 
   Coupon(
       {
       this.isFeatured = false,
       this.isMostUsed = false,
+       this.categoryID = "",
       required this.code,
       required this.ownerCouponId,
       required this.title, 
@@ -62,7 +64,9 @@ class Coupon {
       'isMostUsed':isMostUsed,
       'uploadDate':uploadDate,
       'ownerCoupon':ownerCoupon.toJson(),
-      'ownerCouponId':ownerCouponId
+      'ownerCouponId':ownerCouponId,
+      'categoryID':category?.categoryId ?? "PI6L0IN9nDARotHfJNaW"
+
     };
   }
 
@@ -85,7 +89,9 @@ class Coupon {
         isFeatured: data["isFeatured"],
         isMostUsed:data["isMostUsed"],
         ownerCouponId: data["ownerCouponId"],
-         uploadDate: data["uploadDate"] ?? Timestamp.now(), ownerCoupon: UserModel.fromJson(data["ownerCoupon"])
+         uploadDate: data["uploadDate"] ?? Timestamp.now(), ownerCoupon: UserModel.fromJson(data["ownerCoupon"]),
+         categoryID:data["categoryID"]
+
         );
   }
 
@@ -111,6 +117,7 @@ class Coupon {
           // userIDAdded: data["userIDAdded"],
           isFeatured: data['isFeatured'] ?? false,
           isMostUsed: data['isMostUsed'] ?? false,
+           categoryID:data["categoryID"],
            uploadDate: data["uploadDate"] ?? Timestamp.now(), ownerCoupon: UserModel.fromJson(data["ownerCoupon"]) 
           );
     } else {}
@@ -139,6 +146,7 @@ class Coupon {
       numberOfUse: 0,
       additionalTerms: "", 
       title: '',
+      categoryID: "",
       // userIDAdded: "",
       // mobileNumberOwner: "",
       // emailNumberOwner: "",

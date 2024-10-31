@@ -25,5 +25,8 @@ class Routes {
   static const String forgetPassword = "/ForgetPassword";
   static const String resetPassword = "/ResetPassword";
   static const String searchScreen = "/SearchScreen";
+  static const String listOfCoupons = "/listOfCoupons";
   static const String listOfStoresScreen = '/listOfStoresScreen';
+  static const String listOfFilterdCouponsScreen = "/ListOfFilterdCouponsScreen";
+  static const String noInterntScreen = "/NoInterntScreen";
 }

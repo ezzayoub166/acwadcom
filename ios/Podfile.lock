@@ -1163,7 +1163,7 @@ PODS:
     - Flutter
   - connectivity_plus (0.0.1):
     - Flutter
-    - FlutterMacOS
+    - ReachabilitySwift
   - Firebase/Auth (11.0.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 11.0.0)
@@ -1378,6 +1378,7 @@ PODS:
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
+  - ReachabilitySwift (5.2.3)
   - RecaptchaInterop (100.0.0)
   - shared_preferences_foundation (0.0.1):
     - Flutter
@@ -1390,7 +1391,7 @@ PODS:
 
 DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
-  - connectivity_plus (from `.symlinks/plugins/connectivity_plus/darwin`)
+  - connectivity_plus (from `.symlinks/plugins/connectivity_plus/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_storage (from `.symlinks/plugins/firebase_storage/ios`)
@@ -1428,13 +1429,14 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - ReachabilitySwift
     - RecaptchaInterop
 
 EXTERNAL SOURCES:
   cloud_firestore:
     :path: ".symlinks/plugins/cloud_firestore/ios"
   connectivity_plus:
-    :path: ".symlinks/plugins/connectivity_plus/darwin"
+    :path: ".symlinks/plugins/connectivity_plus/ios"
   firebase_auth:
     :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_core:
@@ -1465,7 +1467,7 @@ SPEC CHECKSUMS:
   AppAuth: 501c04eda8a8d11f179dbe8637b7a91bb7e5d2fa
   BoringSSL-GRPC: ca6a8e5d04812fce8ffd6437810c2d46f925eaeb
   cloud_firestore: 6e3caf23a764c0ca66606ce8034d3f395f4d8c64
-  connectivity_plus: ddd7f30999e1faaef5967c23d5b6d503d10434db
+  connectivity_plus: bf0076dd84a130856aa636df1c71ccaff908fa1d
   Firebase: 9f574c08c2396885b5e7e100ed4293d956218af9
   firebase_auth: 78dab5e2826921865b33799c66ce7868542beed0
   firebase_core: ba84e940cf5cbbc601095f86556560937419195c
@@ -1492,8 +1494,9 @@ SPEC CHECKSUMS:
   image_picker_ios: c560581cceedb403a6ff17f2f816d7fea1421fc1
   leveldb-library: e8eadf9008a61f9e1dde3978c086d2b6d9b9dc28
   nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
-  network_info_plus: 9d930145451916919786087c4173226363616071
+  network_info_plus: 6d0c3eb8367b8164fa3fb0c19875e3f59d49697f
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
+  ReachabilitySwift: 7f151ff156cea1481a8411701195ac6a984f4979
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
   shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
   sqflite: 673a0e54cc04b7d6dba8d24fb8095b31c3a99eec

@@ -1,30 +1,32 @@
+import 'dart:async';
+
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/admin/logic/home_admin_cubit/cubit/home_admin_cubit.dart';
 import 'package:acwadcom/common/widgets/build_custom_loader.dart';
+import 'package:acwadcom/features/admin/ui/widgets/build_app_bar_for_admin.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/build_featured_code.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
-class HomeScreenAdmin extends StatelessWidget {
+class HomeScreenAdmin extends StatefulWidget {
   const HomeScreenAdmin({super.key});
+
+  @override
+  State<HomeScreenAdmin> createState() => _HomeScreenAdminState();
+}
+
+class _HomeScreenAdminState extends State<HomeScreenAdmin> {
+
 
   @override
   Widget build(BuildContext context) {
     // List<Coupon> yourCoupons = [];
     //
 
-    return BlocProvider(
+    return  BlocProvider(
       create: (context) => getIt<HomeAdminCubit>()..emitGetCoupons(),
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: ManagerColors.kCustomColor,
-          title: myText(
-            "All Coupons in App".tr(context),
-            color: ManagerColors.myWhite,
-          ),
-          actions:[ IconButton(onPressed: (){
-            navigateAndFinishNamed(context, Routes.loginScreen);
-          }, icon: const Icon(Iconsax.logout , color: Colors.white,))],
-        ),
+        appBar: buildAppBarForAdmin(context , "All Coupons in App"),
         body: BlocBuilder<HomeAdminCubit, HomeAdminState>(
           buildWhen: (previous, current) =>
               current is SuccessGetCoupons ||

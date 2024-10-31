@@ -1,21 +1,23 @@
-
-
 import 'package:acwadcom/acwadcom_packges.dart';
-import 'package:acwadcom/features/user/home/ui/widgets/rounder_border_cancel_button.dart';
+import 'package:acwadcom/helpers/Routing/app_router.dart';
 
 class ButtonRowApplyCancle extends StatelessWidget {
+  final String categoryID;
+  final int rate;
+
+  const ButtonRowApplyCancle(
+      {super.key, required this.categoryID, this.rate = 0});
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
       children: [
         // Cancel Button (Outlined)
         RounderBorderCancelButton(
           height: 60,
           width: 140.w,
         ),
-        SizedBox(width: 10), // Spacing between buttons
+        const SizedBox(width: 10), // Spacing between buttons
         // Apply Button (Filled)
         SizedBox(
           height: 60,
@@ -26,10 +28,21 @@ class ButtonRowApplyCancle extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30), // Rounded border
               ),
-              padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15), // Padding
+              padding:
+                  EdgeInsets.symmetric(horizontal: 40, vertical: 15), // Padding
             ),
             onPressed: () {
               // Action for the Apply button
+              if (categoryID.isNotEmpty && rate != 0) {
+                
+                    // BlocProvider.of<FilterCouponsCubit>(context).emitFilterCoupons(categoryID, rate);
+                    // context.read<FilterCouponsCubit>().emitFilterCoupons(categoryID,rate);
+                    var obj = FilterItem(categoryID: categoryID, rate: rate);
+                    navigateNamedTo(context, Routes.listOfFilterdCouponsScreen,obj);
+              } else {
+                TLoader.showWarningSnackBar(context,
+                    title: "some values is empty , must filled it.");
+              }
             },
             child: Text(
               AText.apply.tr(context),

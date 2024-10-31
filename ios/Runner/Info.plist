@@ -47,6 +47,8 @@
 		<true/>
 		<key>UIApplicationSupportsIndirectInputEvents</key>
 		<true/>
+		<key>com.apple.security.network.client</key>
+        <true/>
 		<key>UIStatusBarHidden</key>
 		<false/>
 			<key>CFBundleURLTypes</key>

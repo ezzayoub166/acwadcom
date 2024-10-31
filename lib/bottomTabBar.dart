@@ -1,15 +1,17 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:async';
+
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/common/widgets/no_internt_screen.dart';
 import 'package:acwadcom/features/user/explore/ui/screens/explpre_screen.dart';
 import 'package:acwadcom/features/user/home/logic/avatar/avatar_cubit.dart';
 import 'package:acwadcom/features/user/home/ui/home_screen.dart';
-import 'package:acwadcom/features/user/settings/logic/cubit/profile_cubit.dart';
+import 'package:acwadcom/features/user/home/ui/widgets/show_required_dialog.dart';
 import 'package:acwadcom/features/user/settings/ui/screens/settings.dart';
 import 'package:acwadcom/features/user/wishlist/ui/wishlist_screen.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
-import 'package:acwadcom/features/ownerStore/features/home/widgets/custom_pop_dialog_require_login.dart';
-import 'package:acwadcom/helpers/di/dependency_injection.dart';
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
 class Bottomtabbar extends StatefulWidget {
   const Bottomtabbar({super.key});
@@ -20,6 +22,10 @@ class Bottomtabbar extends StatefulWidget {
 
 class _BottomtabbarState extends State<Bottomtabbar> {
   int _selectedIndex = 0;
+
+   bool isConnectedToInternt = true;
+
+   StreamSubscription? _intrenetConnectionStreamSubscription ; 
 
   void _onItemTapped(int index) {
     setState(() {
@@ -36,28 +42,48 @@ class _BottomtabbarState extends State<Bottomtabbar> {
 
   @override
   void initState() {
-    // TODO: implement initState
+        _intrenetConnectionStreamSubscription = InternetConnection().onStatusChange.listen((event){
+      switch (event){
+        case InternetStatus.connected:
+        setState(() {
+          isConnectedToInternt =  true;
+        });
+        break;
+        case InternetStatus.disconnected:
+        setState(() {
+          isConnectedToInternt = false ;
+        });
+        break;
+        default:
+        setState(() {
+          isConnectedToInternt = false;
+        });
+      }
+    });
     super.initState();
         BlocProvider.of<AvatarCubit>(context).loadProfileData();
+
 
         // BlocProvider.of<ProfileCubit>(context).emitLoadingProfileData();
 
 
   }
 
-  // Function to show the dialog
-  void showRequireLoginDialog(context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return ConfirmRequireLoginDialog();
-      },
-    );
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _intrenetConnectionStreamSubscription?.cancel();
   }
+
+
+
+  
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return isConnectedToInternt ?  Scaffold(
         // appBar: AppBar(
         //   title: Text('Navigation Bar with Shadow'),
         // ),
@@ -99,7 +125,7 @@ class _BottomtabbarState extends State<Bottomtabbar> {
                   "assets/images/_icprofile.svg", AText.profile.tr(context), 3),
             ],
           ),
-        ));
+        )) : NoNetWorkScreen();
   }
 
   Widget buildNavItem(String iconImg, String label, int index) {

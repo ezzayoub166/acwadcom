@@ -26,7 +26,7 @@ class BuildListFeaturedStores extends StatelessWidget {
           // print(availableHeight.);
           if(availableHeight > 600){
    return SizedBox(
-         height: 150,
+         height: 160,
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemCount: stores.length,
@@ -41,8 +41,8 @@ class BuildListFeaturedStores extends StatelessWidget {
       )
           );
           }else{
-               return SizedBox(
-         height: 160,
+               return Container(
+         height: 170,
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemCount: stores.length,

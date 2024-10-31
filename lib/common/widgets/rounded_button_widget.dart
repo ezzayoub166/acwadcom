@@ -17,7 +17,7 @@ class RoundedButtonWgt extends StatelessWidget {
   final Color borderColor;
   final double fontSize;
 
-  const RoundedButtonWgt({super.key, required this.title, required this.onPressed,  this.backgroundColor = ManagerColors.yellowColor,  this.foregroundColor = Colors.white, this.icon, this.height = 60, this.width = double.infinity, this.raduis = 30.0, this.isBorder = false,this.borderColor = Colors.black,  this.fontSize = 16// Default border color
+  const RoundedButtonWgt({super.key, required this.title, required this.onPressed,  this.backgroundColor = ManagerColors.yellowColor,  this.foregroundColor = Colors.white, this.icon, this.height = 60, this.width = double.infinity, this.raduis = 30.0, this.isBorder = false,this.borderColor = Colors.black,  this.fontSize = 16
 });
 
   @override

@@ -1,5 +1,9 @@
 
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/features/user/home/data/coupon_repository.dart';
+import 'package:acwadcom/helpers/constants/extenstions.dart';
+import 'package:acwadcom/helpers/di/dependency_injection.dart';
+import 'package:acwadcom/models/coupon_model.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -93,6 +97,39 @@ String convertTimestampToDateString(String timestamp) {
   String formattedDate = "${dateTime.year}-${dateTime.month.toString().padLeft(2, '0')}-${dateTime.day.toString().padLeft(2, '0')}";
   return formattedDate;
 }
+
+
+//   void copyToClipboard(String discountCode, BuildContext context) {
+//   Clipboard.setData(ClipboardData(text: discountCode)); // Copy to clipboard
+//   TLoader.showSuccessSnackBar(context, title: "Code copied".tr(context));
+// }
+
+  // Function to copy the discount code
+  void copyToClipboard(Coupon coupon, BuildContext context) {
+    Clipboard.setData(ClipboardData(text: coupon.code)); // Copy to clipboard
+    if(!copiedCoupons.contains(coupon.code)){
+      getIt<CouponRepository>().updateStringFiled(json: {"numberOfUse":coupon.numberOfUse+1}, couponID: coupon.couponId);
+          TLoader.showSuccessSnackBar(context, title: "Code copied".tr(context));
+    }else{
+    TLoader.showSuccessSnackBar(context, title: "Code copied".tr(context));
+
+    }
+  }
+
+ void launchURL(BuildContext context, String url) async {
+    final Uri uri = Uri.parse(url); // Ensure the URL is parsed correctly
+
+    if (await canLaunchUrl(uri)) {
+      // Open the URL in the browser
+      await launchUrl(uri, mode: LaunchMode.externalApplication); 
+    } else {
+      // If the URL cannot be opened, show an error
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   SnackBar(content: Text('Could not open the link!')),
+      // );
+      return TLoader.showErrorSnackBar(context, title: 'Could not open the link!');
+    }
+  }
 
 
 // extension StringExtension on String? {

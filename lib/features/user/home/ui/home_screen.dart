@@ -2,17 +2,15 @@
 
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/common/widgets/build_custom_loader.dart';
-import 'package:acwadcom/features/user/coupons/ui/screens/coupon_deatls_screen.dart';
-import 'package:acwadcom/features/user/home/logic/avatar/avatar_cubit.dart';
+import 'package:acwadcom/features/admin/ui/widgets/build_offer_item.dart';
 import 'package:acwadcom/features/user/home/logic/home/cubit/home_cubit.dart';
-import 'package:acwadcom/features/user/home/ui/widgets/build_featured_code.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/build_list_categories_shimer.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/build_list_coupons.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/home_categories.dart';
-import 'package:acwadcom/features/user/wishlist/logic/coupons_wishlist/cubit/wihslist_coupons_cubit.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
-import 'package:intl/intl.dart';
+import 'package:acwadcom/helpers/shimmer/shimmer_effect.dart';
+import 'package:acwadcom/models/offer_model.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,35 +21,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  @override
-  void initState() {
-    // TODO: implement initState    
-    super.initState();
- // The string you have
-  String dateString = "October 24, 2024 at 10:20:00 PM UTC+3";
-
-  // Define a pattern matching the format of your date string
-  DateFormat dateFormat = DateFormat("MMMM d, y 'at' h:mm:ss a 'UTC+3'");
-
-  try {
-    // Parse the date string
-    DateTime parsedDate = dateFormat.parse(dateString);
-
-    // Format the date as 'dd/MM/yyyy'
-    String formattedDate = DateFormat('dd/MM/yyyy').format(parsedDate);
-
-    print(formattedDate); // Output: 24/10/2024
-  } catch (e) {
-    print('Error parsing date: $e');
-  }
-     
-
-  }
-
-
-  @override
-  Widget build(BuildContext context) {
-    final pageController = PageController();
+  final pageController = PageController();
     int currentPageIndex = 0;
 
     void updatePageIndicator(int index) {
@@ -60,13 +30,13 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     }
 
-    Widget buildSmoothIndicator() {
+    Widget buildSmoothIndicator(int countOffers) {
       return Align(
         alignment: Alignment.center,
         child: SmoothPageIndicator(
           controller: pageController,
           onDotClicked: (index) {},
-          count: 3,
+          count: countOffers,
           effect: ExpandingDotsEffect(
             dotWidth: 10.w,
             activeDotColor: ManagerColors.yellowColor,
@@ -76,19 +46,22 @@ class _HomeScreenState extends State<HomeScreen> {
       );
     }
 
-    Widget buildOffersWgt() {
+    Widget buildOffersWgt(List<OfferModel> offers) {
       return SizedBox(
-        height: 180,
+        height: 150,
+        
         width: double.infinity,
-        // width: MediaQuery.of(context).size.width,
         child: PageView.builder(
+          itemCount: offers.length,
           allowImplicitScrolling: true,
           reverse: true,
           controller: pageController,
           onPageChanged: updatePageIndicator,
-          itemBuilder: (context, index) =>
-              Padding(padding: EdgeInsets.zero, child: myImage("offer")),
-        ),
+          itemBuilder: (context, index) {
+            return BuildOfferItem(offer: offers[index]);
+          }
+           
+              ),
       );
     }
 
@@ -121,13 +94,16 @@ class _HomeScreenState extends State<HomeScreen> {
       );
     }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
         // appBar: customAppBar(context),
         body: BlocProvider(
           create: (context) => getIt<HomeCubit>()
             ..emitGetCategories()
-            ..emitGetCoupons(),
+            ..emitGetDiscoverCoupons()
+            ..emitGetOffers(),
           child: Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: TSizes.defaultSpace,
@@ -140,85 +116,134 @@ class _HomeScreenState extends State<HomeScreen> {
                       : SizedBox(
                           height: 1,
                         ),
-                  buildSpacerH(10.0),
+                  buildSpacerH(TSizes.spaceBtwItems),
                   ASearchContainer(
                     text: AText.search.tr(context),
                     onPressed: () =>  navigateNamedTo(context,Routes.searchScreen),
                   ),
-                  buildSpacerH(5.0),
-                  buildOffersWgt(),
                   buildSpacerH(TSizes.spaceBtwItems),
-                  buildSmoothIndicator(),
+                  blocBuilderOffers(),
                   buildSpacerH(TSizes.spaceBtwItems),
-                  Column(
-                    children: [
-                      TSectionHeader(
-                        title: AText.categorieslbl.tr(context),
-                        textColor: ManagerColors.textColor,
-                      ),
-                      buildSpacerH(TSizes.spaceBtwItems),
-                      BlocBuilder<HomeCubit, HomeState>(
-                        buildWhen: (previous, current) =>
-                            current is LoadingCatgories         ||
-                            current is SuccessFeatchedCatgories ||
-                            current is ErrorFeatchedCatgories   ||
-                            current is CategorySelected,
-                        builder: (context, state) {
-                          return state.maybeWhen(
-                              loadingCatgories: () => ListShimmerCategoires(),
-                              successFeatchedCatgories: (categories) =>
-                                  ACWHomeCategoires(
-                                    arrayOfCategories: context.read<HomeCubit>().featchedCategories,
-                                  ),
-                              errorFeatchedCatgories: (error) =>
-                                  ListShimmerCategoires(),
-                              loadingCoupons: () =>
-                                  Center(child: BuildCustomLoader()),
-                              successFeatchedCoupons: (coupons) =>
-                                  BuildListCoupons(coupons: coupons),
-                                  categorySelected: (index, listofCategories ,listofCoupns) =>  ACWHomeCategoires(
-                                    arrayOfCategories: listofCategories
-                                  ),
-
-                              orElse: () {
-                                return ListShimmerCategoires();
-                              });
-                        },
-                      )
-                    ],
-                  ),
+                  buildCategories(),
                   buildSpacerH(TSizes.spaceBtwItems),
-                  Column(
-                    children: [
-                      TSectionHeader(
-                        title: AText.discoverOffers.tr(context),
-                        textColor: ManagerColors.textColor,
-                      ),
-                      buildSpacerH(TSizes.spaceBtwItems),
-                      BlocBuilder<HomeCubit, HomeState>(
-                        buildWhen: (previous, current) =>
-                            current is SuccessFeatchedCoupons ||
-                            current is LoadingCoupons,
-                        builder: (context, state) {
-                          return state.maybeWhen(
-                              loadingCoupons: () => Center(
-                                    child: BuildCustomLoader()
-                                  ),
-                              successFeatchedCoupons: (coupons) =>
-                                  BuildListCoupons(coupons: coupons),
-                              errorFeatchedCoupons: (error) => Container(
-                                    color: Colors.red,
-                                    child: Text(error.toString()),
-                                  ),
-                              orElse: () {
-                                return SizedBox();
-                              });
-                        },
-                      )
-                    ],
-                  )
+                  blocBuilderCoupons(context)
                 ]),
           ),
         ));
   }
+
+  ///MARK: Discover Coupons 
+
+  Widget blocBuilderCoupons(BuildContext context) {
+    return Column(
+                  children: [
+                    TSectionHeader(
+                      title: AText.discoverOffers.tr(context),
+                      textColor: ManagerColors.textColor,
+                      showActionButton: true,
+                      onPressed: ()=> navigateNamedTo(context,Routes.listOfCoupons),
+                    ),
+                    buildSpacerH(TSizes.spaceBtwItems),
+                    BlocBuilder<HomeCubit, HomeState>(
+                      buildWhen: (previous, current) =>
+                          current is SuccessFeatchedCoupons ||
+                          current is LoadingCoupons,
+                      builder: (context, state) {
+                        return state.maybeWhen(
+                            loadingCoupons: () => Center(
+                                  child: BuildCustomLoader()
+                                ),
+                            successFeatchedCoupons: (coupons) =>
+                                BuildListCoupons(coupons: coupons),
+                            errorFeatchedCoupons: (error) => Container(
+                                  color: Colors.red,
+                                  child: Text(error.toString()),
+                                ),
+                            orElse: () {
+                              return SizedBox();
+                            });
+                      },
+                    )
+                  ],
+                );
+  }
+
+  //Offers 
+
+  Widget blocBuilderOffers() {
+    return BlocBuilder<HomeCubit,HomeState>(
+                  buildWhen: (previous, current) => current is LoadingGetOffers || current is FaluireGetOffers || current is SuccessGetOffers || current is EmptyOffers,
+                  builder: (context,state){
+                    return state.maybeWhen(
+                      loadingGetOffers: () => OfferShimmerItenEffect(),
+                      successGetOffers: (offers) => Column(
+                        children: [
+                          buildOffersWgt(offers),
+                          buildSpacerH(TSizes.spaceBtwItems),
+                          buildSmoothIndicator(offers.length),
+                        ],
+                      ),
+                      faluireGetOffers: (error) {
+                        if(mounted){
+                           TLoader.showErrorSnackBar(context, title: error);
+                        }
+                        return SizedBox();
+                      } ,
+                      orElse: (){
+                         return SizedBox(height: 0);
+                    });
+
+                });
+  }
 }
+
+
+//Categories
+
+class BlocBuilderCategories extends StatelessWidget {
+  const BlocBuilderCategories({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        TSectionHeader(
+          title: AText.categorieslbl.tr(context),
+          textColor: ManagerColors.textColor,
+        ),
+        buildSpacerH(TSizes.spaceBtwItems),
+        BlocBuilder<HomeCubit, HomeState>(
+          buildWhen: (previous, current) =>
+              current is LoadingCatgories         ||
+              current is SuccessFeatchedCatgories ||
+              current is ErrorFeatchedCatgories   ||
+              current is CategorySelected,
+          builder: (context, state) {
+            return state.maybeWhen(
+                loadingCatgories: () =>  Center(child: BuildCustomLoader(),),
+                successFeatchedCatgories: (categories) =>
+                    ACWHomeCategoires(
+                      arrayOfCategories: context.read<HomeCubit>().featchedCategories,
+                    ),
+                errorFeatchedCatgories: (error) =>
+                    ListShimmerCategoires(),
+                loadingCoupons: () =>
+                    Center(child: BuildCustomLoader()),
+                successFeatchedCoupons: (coupons) =>
+                    BuildListCoupons(coupons: coupons),
+                    categorySelected: (index, listofCategories ,listofCoupns) =>  ACWHomeCategoires(
+                      arrayOfCategories: listofCategories
+                    ),
+    
+                orElse: () {
+                  return ListShimmerCategoires();
+                });
+          },
+        )
+      ],
+    );
+  }
+}
+

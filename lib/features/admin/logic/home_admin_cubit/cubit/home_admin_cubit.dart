@@ -15,7 +15,7 @@ class HomeAdminCubit extends Cubit<HomeAdminState> {
     void emitGetCoupons()async{
     try{
       emit(const HomeAdminState.loadingCoupons());
-        await _couponRepository.fetchCoupons().then((coupons){
+        await _couponRepository.fetchAllCoupons().then((coupons){
      emit(HomeAdminState.successGetCoupons(coupons: coupons));
     //  emit(HomeAdminState.getNumberOFCoubons(count: coupons.length));
       });

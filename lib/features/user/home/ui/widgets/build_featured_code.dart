@@ -1,6 +1,9 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/common/widgets/build_extended_image.dart';
+import 'package:acwadcom/features/user/home/ui/widgets/show_required_dialog.dart';
 import 'package:acwadcom/features/user/wishlist/logic/coupons_wishlist/cubit/wihslist_coupons_cubit.dart';
+import 'package:acwadcom/helpers/constants/extenstions.dart';
+
 import 'package:acwadcom/models/coupon_model.dart';
 import 'package:acwadcom/features/ownerStore/features/home/widgets/custom_pop_dialog_delete.dart';
 
@@ -90,7 +93,7 @@ class _BuildFeaturedCodeState extends State<BuildFeaturedCode> {
                           svgImage("profile-tick", height: 18, width: 18),
                           Text.rich(TextSpan(children: [
                             TextSpan(
-                                text: AText.numberOfuse,
+                                text: AText.numberOfuse.tr(context),
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium!
@@ -106,7 +109,7 @@ class _BuildFeaturedCodeState extends State<BuildFeaturedCode> {
                                         color:
                                             ManagerColors.textColorDarkDouble)),
                             TextSpan(
-                                text: " 100",
+                                text: widget.coupon.numberOfUse.toString(),
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium!
@@ -144,7 +147,9 @@ class _BuildFeaturedCodeState extends State<BuildFeaturedCode> {
                         },
                       ),
                       onTap: () {
-                        // Handle adding/removing from wishlist on tap
+
+                        if(isLoggedInUser){
+  // Handle adding/removing from wishlist on tap
                         if (wishlistCubit.isInWishlist(widget.coupon)) {
                           wishlistCubit.removeCouponFromWishlist(widget.coupon);
                           
@@ -155,6 +160,11 @@ class _BuildFeaturedCodeState extends State<BuildFeaturedCode> {
                         setState(() {
                           isFavorited !=isFavorited;
                         });
+                        }else{
+                          showRequireLoginDialog(context);
+                        }
+
+                      
                       },
                     )
                   

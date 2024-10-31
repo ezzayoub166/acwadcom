@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'dart:async';
+
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/common/widgets/build_custom_loader.dart';
+import 'package:acwadcom/common/widgets/no_internt_screen.dart';
 import 'package:acwadcom/features/ownerStore/features/home/logic/home_owner/home_owner_cubit.dart';
 import 'package:acwadcom/features/ownerStore/features/home/logic/home_owner/home_owner_state.dart';
 import 'package:acwadcom/features/user/explore/logic/cubit/explore_cubit.dart';
@@ -15,6 +18,7 @@ import 'package:acwadcom/models/coupon_model.dart';
 import 'package:acwadcom/features/ownerStore/features/home/no_coupon_screen.dart';
 import 'package:acwadcom/features/ownerStore/features/home/widgets/custom_drawer.dart';
 import 'package:acwadcom/features/ownerStore/features/home/widgets/custom_pop_dialog_delete.dart';
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
 class HomeScreenOwner extends StatefulWidget {
   const HomeScreenOwner({super.key});
@@ -25,6 +29,9 @@ class HomeScreenOwner extends StatefulWidget {
 
 class _HomeScreenOwnerState extends State<HomeScreenOwner> {
   List<String> items = [];
+    bool isConnectedToInternt = true;
+
+   StreamSubscription? _intrenetConnectionStreamSubscription ; 
 
 // Function to show the dialog
   void showConfirmDeleteDialog(BuildContext context, String codeName) {
@@ -39,12 +46,40 @@ class _HomeScreenOwnerState extends State<HomeScreenOwner> {
     );
   }
 
-  @override
+    @override
   void initState() {
     // TODO: implement initState
+        _intrenetConnectionStreamSubscription = InternetConnection().onStatusChange.listen((event){
+      switch (event){
+        case InternetStatus.connected:
+        setState(() {
+          isConnectedToInternt =  true;
+        });
+        break;
+        case InternetStatus.disconnected:
+        setState(() {
+          isConnectedToInternt = false ;
+        });
+        break;
+        default:
+        setState(() {
+          isConnectedToInternt = false;
+        });
+      }
+    });
     super.initState();
+        BlocProvider.of<AvatarCubit>(context).loadProfileData();
+
     BlocProvider.of<AvatarCubit>(context).loadProfileData();
     fetchCategories();
+  }
+
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _intrenetConnectionStreamSubscription?.cancel();
   }
 
   Future<void> fetchCategories() async {
@@ -57,7 +92,7 @@ class _HomeScreenOwnerState extends State<HomeScreenOwner> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<HomeOwnerCubit>()..emitGetCoupons(),
-      child: Scaffold(
+      child: isConnectedToInternt ?  Scaffold(
           backgroundColor: Colors.white,
           body: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
@@ -99,7 +134,7 @@ class _HomeScreenOwnerState extends State<HomeScreenOwner> {
               ],
             ),
           ),
-          drawer: CustomDrawer()),
+          drawer: CustomDrawer()) : NoNetWorkScreen(),
     );
   }
 

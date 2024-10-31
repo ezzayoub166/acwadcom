@@ -15,8 +15,6 @@ class AcwadcomApp extends StatelessWidget {
 
   const AcwadcomApp({super.key, required this.appRouter});
 
-  checkIfLoggedInUser() async {}
-
   @override
   Widget build(BuildContext context) {
     isOpenApp = CacheHelper.instance.getValueWithKey('OpenApp') ?? false;

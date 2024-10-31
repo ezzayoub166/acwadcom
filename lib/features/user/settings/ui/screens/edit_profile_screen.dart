@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/features/user/authtication/UI/widgets/login_bloc_listener.dart';
 import 'package:acwadcom/features/user/coupons/ui/widgets/build_app_bar_with_back_button.dart';
 import 'package:acwadcom/features/user/home/logic/avatar/avatar_cubit.dart';
 import 'package:acwadcom/features/user/settings/logic/cubit/profile_cubit.dart';
@@ -197,34 +198,4 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 ));
   }
 
-  void setupErrorState(BuildContext context, String error) {
-    pop(context);
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        icon: const Icon(
-          Icons.error,
-          color: Colors.red,
-          size: 32,
-        ),
-        content: myText(error,
-            fontSize: 15,
-            fontWeight: FontWeight.bold,
-            color: ManagerColors.kCustomColor
-            // style: TextStyles.font15DarkBlueMedium,
-            ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              pop(context);
-            },
-            child: myText('Got it',
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: ManagerColors.yellowColor),
-          ),
-        ],
-      ),
-    );
-  }
 }

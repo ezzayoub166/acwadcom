@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/models/coupon_model.dart';
@@ -44,6 +42,36 @@ class WihslistRepository {
           .doc(userId)
           .collection("wishlistStores")
           .doc(storeID);
+
+          final docSnapshot = await ref.get();
+
+          if(docSnapshot.exists){
+            return true;
+          }else{
+            return false;
+          }
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+
+     Future<bool> isWishListCoupon(String couponID) async {
+    try {
+      final userId = getIt<CacheHelper>().getValueWithKey("userID");
+      final ref =  _db
+          .collection("Users")
+          .doc(userId)
+          .collection("wishlist")
+          .doc(couponID);
 
           final docSnapshot = await ref.get();
 
