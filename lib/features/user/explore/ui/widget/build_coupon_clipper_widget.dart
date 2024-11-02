@@ -9,7 +9,7 @@ ClipPath buildCouponClipperItem(BuildContext context, Coupon coupon) {
   child: Container(
     padding: const  EdgeInsets.fromLTRB(10,10,10,0),
     height: 110,
-    // width: 400,
+    width: MediaQuery.of(context).size.width*0.9,
     alignment: Alignment.center,
     color: Colors.white,
     child: buildRowForItems(context, coupon) ,

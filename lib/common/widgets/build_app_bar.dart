@@ -58,20 +58,33 @@ BlocBuilder<dynamic, dynamic> customAppBar(BuildContext context) {
                   ],
                 ),
                 InkWell(
-                  child: svgImage("notification_light", height: 24, width: 24),
-                  onTap: () {
-                    //TODO / go to list notifcations ...
-                    navigateTo(
-                        context,
-                        SuccessScreen(
-                            image: LottieConstnts.loading_sing_up_animation,
-                            title: AText.msgForReview.tr(context),
-                            subTitle: "done opertion".tr(context),
-                            onPressed: () {
-                              context.pop();
-                            }));
-                  },
-                ),
+                    child:
+                        svgImage("notification_light", height: 24, width: 24),
+                    onTap: () {
+                      //TODO / go to list notifcations ...
+                      showDialog(
+                        barrierColor: ManagerColors.yellowColor,
+            
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            backgroundColor: ManagerColors.kCustomColor,
+                            title:  myText('Feature Unavailable'),
+                            content:  myText(
+                                'This feature is not available in this version. It will be available in the next version. Thank you!'),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context)
+                                      .pop(); // Close the dialog
+                                },
+                                child:  myText(AText.ok.tr(context)  , color: ManagerColors.myWhite),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    }),
               ],
             ),
           ),

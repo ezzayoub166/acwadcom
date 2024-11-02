@@ -108,7 +108,7 @@ String convertTimestampToDateString(String timestamp) {
   void copyToClipboard(Coupon coupon, BuildContext context) {
     Clipboard.setData(ClipboardData(text: coupon.code)); // Copy to clipboard
     if(!copiedCoupons.contains(coupon.code)){
-      getIt<CouponRepository>().updateStringFiled(json: {"numberOfUse":coupon.numberOfUse+1}, couponID: coupon.couponId);
+      getIt<CouponRepository>().updateStringFiled(json: {"NumberOfUse":coupon.numberOfUse+1}, couponID: coupon.couponId);
           TLoader.showSuccessSnackBar(context, title: "Code copied".tr(context));
     }else{
     TLoader.showSuccessSnackBar(context, title: "Code copied".tr(context));

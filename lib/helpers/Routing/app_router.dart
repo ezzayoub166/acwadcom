@@ -21,6 +21,7 @@ import 'package:acwadcom/features/user/coupons/ui/screens/add_coupon_screen.dart
 import 'package:acwadcom/features/user/coupons/ui/screens/revison_response_screen.dart';
 import 'package:acwadcom/features/user/explore/data/store_model.dart';
 import 'package:acwadcom/features/user/explore/logic/cubit/explore_cubit.dart';
+import 'package:acwadcom/features/user/explore/ui/screens/recently_added_screen.dart';
 import 'package:acwadcom/features/user/home/logic/filter/cubit/filter_coupons_cubit.dart';
 import 'package:acwadcom/features/user/home/logic/home/cubit/home_cubit.dart';
 import 'package:acwadcom/features/user/home/logic/search/cubit/search_cubit.dart';
@@ -197,22 +198,32 @@ class AppRouter {
                   child: ListCouponsScreen(),
                 ));
 
+      case Routes.listOfFilterdCouponsScreen:
+        final argument = settings.arguments as FilterItem;
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                create: (context) => getIt<FilterCouponsCubit>()
+                  ..emitFilterCoupons(argument.categoryID, argument.rate),
+                child: FilterListCoupons(
+                    categoryID: argument.categoryID, rate: argument.rate)));
 
-                case Routes.listOfFilterdCouponsScreen:
-                final argument = settings.arguments as FilterItem; 
-                return MaterialPageRoute(builder: (context) => BlocProvider(
-                  create: (context) => getIt<FilterCouponsCubit>()..emitFilterCoupons(argument.categoryID, argument.rate),
-                  child: FilterListCoupons(categoryID: argument.categoryID, rate: argument.rate)));
+      case Routes.listRecentlyAddedCouponsScreen:
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) =>
+                      getIt<ExploreCubit>()..fetchCouponsAddedRecently(30),
+                  child: ListRecentlyAddedCouponsScreen(),
+                ));
 
-                //  case Routes.noInterntScreen:
-                //  return MaterialPageRoute(builder:(context) => NoInterntScreen()); 
+      //  case Routes.noInterntScreen:
+      //  return MaterialPageRoute(builder:(context) => NoInterntScreen());
     }
   }
 }
 
 class FilterItem {
   final String categoryID;
-  final int rate ;
+  final int rate;
 
   FilterItem({required this.categoryID, required this.rate});
 }

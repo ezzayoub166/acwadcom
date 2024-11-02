@@ -16,10 +16,6 @@ class Coupon {
   final int numberOfUse;
   final String additionalTerms;
   final String? storeLogoURL;
-  // final String? mobileNumberOwner ; 
-  // final String? emailNumberOwner ; 
-  final bool isFeatured ;
-  final bool isMostUsed;
   final Timestamp uploadDate;
   final UserModel ownerCoupon;
   final String ownerCouponId ;
@@ -27,8 +23,6 @@ class Coupon {
 
   Coupon(
       {
-      this.isFeatured = false,
-      this.isMostUsed = false,
        this.categoryID = "",
       required this.code,
       required this.ownerCouponId,
@@ -41,31 +35,26 @@ class Coupon {
       required this.numberOfUse,
       required this.uploadDate, 
       required this.ownerCoupon, 
-      required this.additionalTerms, this. storeLogoURL
-      // ,this.mobileNumberOwner = "", this.emailNumberOwner ="" ,this.userIDAdded ="", 
+      required this.additionalTerms,
+       this. storeLogoURL
       });
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      'title':title,
-      'code':code,
-      'couponId': couponId,
+      'Title':title,
+      'Code':code,
+      'CouponId': couponId,
       'DiscountRate': discountRate,
       'StoreLink': storeLink,
       'Category': category?.toJson(),
-      'EndData': endData,
+      'EndDate': endData,
       'NumberOfUse': numberOfUse,
       'AdditionalTerms': additionalTerms,
-      'storeLogoURL':storeLogoURL,
-      // 'mobileNumberOwner':mobileNumberOwner,
-      // 'emailNumberOwner':emailNumberOwner,
-      // 'userIDAdded':userIDAdded,
-      'isFeatured':isFeatured,
-      'isMostUsed':isMostUsed,
-      'uploadDate':uploadDate,
-      'ownerCoupon':ownerCoupon.toJson(),
-      'ownerCouponId':ownerCouponId,
-      'categoryID':category?.categoryId ?? "PI6L0IN9nDARotHfJNaW"
+      'StoreLogoURL':storeLogoURL,
+      'UploadDate':uploadDate,
+      'OwnerCoupon':ownerCoupon.toJson(),
+      'OwnerCouponId':ownerCouponId,
+      'CategoryID':category?.categoryId ?? "PI6L0IN9nDARotHfJNaW"
 
     };
   }
@@ -73,24 +62,20 @@ class Coupon {
     factory Coupon.fromJson(Map<String, dynamic> document) {
     final data = document;
     if (data.isEmpty) return Coupon.empty();
-    return Coupon(code: data["code"],
-     title: data["title"], 
-     couponId: data["couponId"],
+    return Coupon(code: data["Code"],
+     title: data["Title"], 
+     couponId: data["CouponId"],
       discountRate: data["DiscountRate"], 
       storeLink: data["StoreLink"], 
       category: CategoryModel.fromJson(data["Category"]),
-       endData: data["EndData"], 
+       endData: data["EndDate"], 
        numberOfUse: data["NumberOfUse"],
         additionalTerms: data["AdditionalTerms"],
-        storeLogoURL: data["storeLogoURL"],
-        // mobileNumberOwner: data["mobileNumberOwner"],
-        // emailNumberOwner:data["emailNumberOwner"],
-        // userIDAdded: data["userIDAdded"],
-        isFeatured: data["isFeatured"],
-        isMostUsed:data["isMostUsed"],
-        ownerCouponId: data["ownerCouponId"],
-         uploadDate: data["uploadDate"] ?? Timestamp.now(), ownerCoupon: UserModel.fromJson(data["ownerCoupon"]),
-         categoryID:data["categoryID"]
+        storeLogoURL: data["StoreLogoURL"],
+        ownerCouponId: data["OwnerCouponId"],
+         uploadDate: data["UploadDate"] ?? Timestamp.now(),
+          ownerCoupon: UserModel.fromJson(data["OwnerCoupon"]),
+         categoryID:data["CategoryID"]
 
         );
   }
@@ -99,45 +84,29 @@ class Coupon {
     if (document.data() != null) {
       final data = document.data()!;
       return Coupon(
-        code: data["code"],
-        title: data["title"],
-        storeLogoURL :data["storeLogoURL"],
+        code: data["Code"],
+        title: data["Title"],
+        storeLogoURL :data["StoreLogoURL"],
           couponId: document.id,
           discountRate: data["DiscountRate"],
           storeLink: data["StoreLink"],
           category: CategoryModel.fromJson(data["Category"]),
-          endData: data["EndData"] is Timestamp 
-        ? data["EndData"] 
+          endData: data["EndDate"] is Timestamp 
+        ? data["EndDate"] 
         : Timestamp.now(), // Handling possible non-Timestamp
           numberOfUse: data["NumberOfUse"],
           additionalTerms: data["AdditionalTerms"],
-          ownerCouponId:data["ownerCouponId"],
-          // mobileNumberOwner: data["mobileNumberOwner"],
-          // emailNumberOwner: data["emailNumberOwner"],
-          // userIDAdded: data["userIDAdded"],
-          isFeatured: data['isFeatured'] ?? false,
-          isMostUsed: data['isMostUsed'] ?? false,
-           categoryID:data["categoryID"],
-           uploadDate: data["uploadDate"] ?? Timestamp.now(), ownerCoupon: UserModel.fromJson(data["ownerCoupon"]) 
+          ownerCouponId:data["OwnerCouponId"],
+           categoryID:data["CategoryID"],
+           uploadDate: data["UploadDate"] ?? Timestamp.now(),
+            ownerCoupon: UserModel.fromJson(data["OwnerCoupon"]) 
           );
     } else {}
     return Coupon.empty();
-
-    // return Coupon(
-    //   document['couponId'] as String,
-    //   document['discountRate'] as String,
-    //   document['storeLink'] as String,
-    //   CategoryModel.fromMap(map['category'] as Map<String,dynamic>),
-    //   Timestamp.fromMap(map['endData'] as Map<String,dynamic>),
-    //   document['numberOfUse'] as int,
-    //   document['additionalTerms'] as String,
-    // );
   }
 
   static Coupon empty() => Coupon(
       couponId: "",
-      isFeatured: false,
-      isMostUsed: false,
       code: "",
       discountRate: "",
       storeLink: "",

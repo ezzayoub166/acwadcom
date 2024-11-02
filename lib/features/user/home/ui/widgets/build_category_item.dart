@@ -6,14 +6,14 @@ import 'package:acwadcom/models/category_model.dart';
 import 'package:cached_network_svg_image/cached_network_svg_image.dart';
 
 Widget buildCategoryItem(
-    {required BuildContext context, required CategoryModel category}) {
+    {required BuildContext context, required CategoryModel category , required int selectedIndex , required int itemIndex}) {
   return Padding(
     padding: EdgeInsets.symmetric(horizontal: 10),
     child: Column(
       children: [
         CircleAvatar(
           radius: 30,
-            backgroundColor:  category.isSelected ? ManagerColors.yellowColor.withOpacity(0.8) : ManagerColors.greyBackGroundCategore,
+            backgroundColor:  itemIndex == selectedIndex ? ManagerColors.yellowColor.withOpacity(0.8) : ManagerColors.greyBackGroundCategore,
           child: CachedNetworkSVGImage(
             category.image,
             placeholder: const CircularProgressIndicator(color: ManagerColors.yellowColor),

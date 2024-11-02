@@ -31,10 +31,10 @@ class ExploreCubit extends Cubit<ExploreState> {
 
   //** Recntly Added Coupons */
 
-   Future<void> fetchCouponsAddedRecently() async {
+   Future<void> fetchCouponsAddedRecently(limit) async {
     try{
       emit(const ExploreState.loadingGetCoupons());
-      await couponRepository.fetchRecentlyAddedCoupons().then((coupons){
+      await couponRepository.fetchRecentlyAddedCoupons(limit).then((coupons){
         emit(ExploreState.successGetCoupon(coupons: coupons));
       });
     }catch(error){

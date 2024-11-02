@@ -86,8 +86,6 @@ class CreateCouponCubit extends Cubit<CreateCouponState> {
 
     var coupon = Coupon(
         title: titleController.text,
-        isFeatured: false,
-        isMostUsed: false,
         couponId: couponID,
         ownerCouponId: userId,
         discountRate: discountRateController.text.trim(),

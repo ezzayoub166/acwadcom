@@ -4,7 +4,6 @@ import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/models/coupon_model.dart';
 import 'package:acwadcom/models/coupon_request.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CouponRepository {
   final _db = FirebaseFirestore.instance;
@@ -12,22 +11,6 @@ class CouponRepository {
   final couponsConstant = "Coupons";
   final couponsRequestConstant = "couponsRequests";
 
-  Future<void> removeCoupon(String couponId) async {
-    try {
-      // Remove the coupon document from Firestore using the couponId
-      await _db.collection(couponsConstant).doc(couponId).delete();
-    } on FirebaseAuthException catch (e) {
-      throw TFirebaseAuthException(e.code).message;
-    } on FirebaseException catch (e) {
-      throw TFirebaseException(e.code).message;
-    } on FormatException catch (_) {
-      throw const TFormatException();
-    } on PlatformException catch (e) {
-      throw TPlatformException(e.code).message;
-    } catch (e) {
-      throw 'Something went wrong. Please try again';
-    }
-  }
 
   ///Upload any image
   Future<String> uploadImage(String path, XFile image) async {
@@ -57,7 +40,7 @@ class CouponRepository {
       Timestamp currentTimestamp = Timestamp.fromDate(currentDate);
       final ref = await _db
           .collection(couponsConstant)
-          .where('EndData', isGreaterThan: currentTimestamp)
+          .where('EndDate', isGreaterThan: currentTimestamp)
           .limit(10)
           .get();
       final coupons =
@@ -83,7 +66,7 @@ class CouponRepository {
       Timestamp currentTimestamp = Timestamp.fromDate(currentDate);
       final ref = await _db
           .collection(couponsConstant)
-          .where('EndData', isGreaterThan: currentTimestamp)
+          .where('EndDate', isGreaterThan: currentTimestamp)
           .get();
       final coupons =
           ref.docs.map((document) => Coupon.fromSnapshot(document)).toList();
@@ -101,7 +84,7 @@ class CouponRepository {
     }
   }
 
-  Future<List<Coupon>> fetchRecentlyAddedCoupons() async {
+  Future<List<Coupon>> fetchRecentlyAddedCoupons(int limit) async {
     try {
       // Get the current date and time
       DateTime currentDate = DateTime.now();
@@ -111,19 +94,23 @@ class CouponRepository {
       // and order them by uploadDate in descending order to get the most recent first
       final ref = await _db
           .collection(couponsConstant)
-          .where('EndData', isGreaterThan: currentTimestamp)
-          .orderBy('uploadDate',
-              descending: true) // Sort by the most recent uploads
-          .limit(10)
+          .where('EndDate', isGreaterThan: currentTimestamp)
           .get();
 
       // Convert the documents into Coupon objects
       final coupons =
           ref.docs.map((document) => Coupon.fromSnapshot(document)).toList();
-        
 
+
+ // Sort the coupons locally by uploadDate in descending order
+      coupons.sort((a, b) => b.uploadDate.compareTo(a.uploadDate));
+
+      final filterCoupons = coupons.take(limit).toList();
+
+
+        
       // Return only the most recent 10 coupons
-      return coupons;
+      return filterCoupons;
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
@@ -148,8 +135,8 @@ class CouponRepository {
       // and order them by uploadDate in descending order to get the most recent first
       final ref = await _db
           .collection(couponsConstant)
-          .where('EndData', isGreaterThan: currentTimestamp)
-          .where("NumberOfUse", isGreaterThan: 80)
+          .where('EndDate', isGreaterThan: currentTimestamp)
+          .where("NumberOfUse" , isGreaterThanOrEqualTo: 50)
           .limit(10)
           .get();
 
@@ -175,6 +162,9 @@ class CouponRepository {
     }
   }
 
+
+  //** Done Fetch Coupons For Owner. */
+
   Future<List<Coupon>> fetchCouponsForOwner() async {
     try {
       final storeOwnerId = getIt<CacheHelper>().getValueWithKey("userID");
@@ -184,8 +174,9 @@ class CouponRepository {
 
       final ref = await _db
           .collection(couponsConstant)
-          .where("ownerCoupon.id", isEqualTo: storeOwnerId)
-          .where('EndData', isGreaterThan: currentTimestamp)
+           .where("OwnerCouponId", isEqualTo: storeOwnerId)
+          .where('EndDate', isGreaterThan: currentTimestamp)
+         
           .get();
       final coupons =
           ref.docs.map((document) => Coupon.fromSnapshot(document)).toList();
@@ -200,6 +191,25 @@ class CouponRepository {
       throw TPlatformException(e.code).message;
     } catch (e) {
       throw 'something went wrong. Please try again';
+    }
+  }
+
+  //** Delete Coupon For Owner. */
+
+  Future<void> removeCoupon(String couponId) async {
+    try {
+      // Remove the coupon document from Firestore using the couponId
+      await _db.collection(couponsConstant).doc(couponId).delete();
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
     }
   }
 
@@ -270,7 +280,7 @@ class CouponRepository {
     // Add the coupon to the "acceptedCoupons" collection
     try {
       await Future.wait([
-        _db.collection('Coupons').add(coupon.toJson()),
+        _db.collection('Coupons').doc(coupon.couponId).set(coupon.toJson()),
 
         // Delete the coupon request from "couponsRequests"
         //the couponRequestId is same id for the coupon ...
@@ -337,9 +347,9 @@ class CouponRepository {
       // print(currentTimestamp);
       final ref = await _db
           .collection(couponsConstant)
-          .where("categoryID", isEqualTo: categoryID)
+          .where("CategoryID", isEqualTo: categoryID)
           .where("DiscountRate", isEqualTo: rate.toString())
-          .where('EndData', isGreaterThan: currentTimestamp)
+          .where('EndDate', isGreaterThan: currentTimestamp)
           .get();
       final coupons =
           ref.docs.map((document) => Coupon.fromSnapshot(document)).toList();
@@ -353,6 +363,7 @@ class CouponRepository {
     } on PlatformException catch (e) {
       throw TPlatformException(e.code).message;
     } catch (onError) {
+      print(onError.toString());
       throw 'something went wrong. Please try again : ${onError}';
     }
   }

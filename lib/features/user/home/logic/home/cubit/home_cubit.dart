@@ -96,7 +96,12 @@ void emitSelectedCategory(int index) {
 filteredCoupons = featchedCoupons
       .where((coupon) => coupon.category?.categoryId == selectedCategoryId)
       .toList();
+      if(filteredCoupons.isEmpty){
+        emit(const HomeState.emptyCoupons());
+      }else{
         emit(HomeState.successFeatchedCoupons(coupons: filteredCoupons));
+
+      }
 
   }
   // Emit the updated state with selected index and filtered coupons

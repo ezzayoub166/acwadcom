@@ -29,6 +29,7 @@ mixin _$HomeState {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() emptyCoupons,
     required TResult Function() loadingGetOffers,
     required TResult Function(List<OfferModel> offers) successGetOffers,
     required TResult Function(String error) faluireGetOffers,
@@ -47,6 +48,7 @@ mixin _$HomeState {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? emptyCoupons,
     TResult? Function()? loadingGetOffers,
     TResult? Function(List<OfferModel> offers)? successGetOffers,
     TResult? Function(String error)? faluireGetOffers,
@@ -65,6 +67,7 @@ mixin _$HomeState {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? emptyCoupons,
     TResult Function()? loadingGetOffers,
     TResult Function(List<OfferModel> offers)? successGetOffers,
     TResult Function(String error)? faluireGetOffers,
@@ -85,6 +88,7 @@ mixin _$HomeState {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(EmptyCoupons value) emptyCoupons,
     required TResult Function(LoadingGetOffers value) loadingGetOffers,
     required TResult Function(SuccessGetOffers value) successGetOffers,
     required TResult Function(FaluireGetOffers value) faluireGetOffers,
@@ -101,6 +105,7 @@ mixin _$HomeState {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(EmptyCoupons value)? emptyCoupons,
     TResult? Function(LoadingGetOffers value)? loadingGetOffers,
     TResult? Function(SuccessGetOffers value)? successGetOffers,
     TResult? Function(FaluireGetOffers value)? faluireGetOffers,
@@ -117,6 +122,7 @@ mixin _$HomeState {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(EmptyCoupons value)? emptyCoupons,
     TResult Function(LoadingGetOffers value)? loadingGetOffers,
     TResult Function(SuccessGetOffers value)? successGetOffers,
     TResult Function(FaluireGetOffers value)? faluireGetOffers,
@@ -192,6 +198,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() emptyCoupons,
     required TResult Function() loadingGetOffers,
     required TResult Function(List<OfferModel> offers) successGetOffers,
     required TResult Function(String error) faluireGetOffers,
@@ -213,6 +220,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? emptyCoupons,
     TResult? Function()? loadingGetOffers,
     TResult? Function(List<OfferModel> offers)? successGetOffers,
     TResult? Function(String error)? faluireGetOffers,
@@ -234,6 +242,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? emptyCoupons,
     TResult Function()? loadingGetOffers,
     TResult Function(List<OfferModel> offers)? successGetOffers,
     TResult Function(String error)? faluireGetOffers,
@@ -260,6 +269,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(EmptyCoupons value) emptyCoupons,
     required TResult Function(LoadingGetOffers value) loadingGetOffers,
     required TResult Function(SuccessGetOffers value) successGetOffers,
     required TResult Function(FaluireGetOffers value) faluireGetOffers,
@@ -279,6 +289,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(EmptyCoupons value)? emptyCoupons,
     TResult? Function(LoadingGetOffers value)? loadingGetOffers,
     TResult? Function(SuccessGetOffers value)? successGetOffers,
     TResult? Function(FaluireGetOffers value)? faluireGetOffers,
@@ -298,6 +309,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(EmptyCoupons value)? emptyCoupons,
     TResult Function(LoadingGetOffers value)? loadingGetOffers,
     TResult Function(SuccessGetOffers value)? successGetOffers,
     TResult Function(FaluireGetOffers value)? faluireGetOffers,
@@ -364,6 +376,7 @@ class _$LoadingCatgoriesImpl implements LoadingCatgories {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() emptyCoupons,
     required TResult Function() loadingGetOffers,
     required TResult Function(List<OfferModel> offers) successGetOffers,
     required TResult Function(String error) faluireGetOffers,
@@ -385,6 +398,7 @@ class _$LoadingCatgoriesImpl implements LoadingCatgories {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? emptyCoupons,
     TResult? Function()? loadingGetOffers,
     TResult? Function(List<OfferModel> offers)? successGetOffers,
     TResult? Function(String error)? faluireGetOffers,
@@ -406,6 +420,7 @@ class _$LoadingCatgoriesImpl implements LoadingCatgories {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? emptyCoupons,
     TResult Function()? loadingGetOffers,
     TResult Function(List<OfferModel> offers)? successGetOffers,
     TResult Function(String error)? faluireGetOffers,
@@ -432,6 +447,7 @@ class _$LoadingCatgoriesImpl implements LoadingCatgories {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(EmptyCoupons value) emptyCoupons,
     required TResult Function(LoadingGetOffers value) loadingGetOffers,
     required TResult Function(SuccessGetOffers value) successGetOffers,
     required TResult Function(FaluireGetOffers value) faluireGetOffers,
@@ -451,6 +467,7 @@ class _$LoadingCatgoriesImpl implements LoadingCatgories {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(EmptyCoupons value)? emptyCoupons,
     TResult? Function(LoadingGetOffers value)? loadingGetOffers,
     TResult? Function(SuccessGetOffers value)? successGetOffers,
     TResult? Function(FaluireGetOffers value)? faluireGetOffers,
@@ -470,6 +487,7 @@ class _$LoadingCatgoriesImpl implements LoadingCatgories {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(EmptyCoupons value)? emptyCoupons,
     TResult Function(LoadingGetOffers value)? loadingGetOffers,
     TResult Function(SuccessGetOffers value)? successGetOffers,
     TResult Function(FaluireGetOffers value)? faluireGetOffers,
@@ -574,6 +592,7 @@ class _$SuccessFeatchedCatgoriesImpl implements SuccessFeatchedCatgories {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() emptyCoupons,
     required TResult Function() loadingGetOffers,
     required TResult Function(List<OfferModel> offers) successGetOffers,
     required TResult Function(String error) faluireGetOffers,
@@ -595,6 +614,7 @@ class _$SuccessFeatchedCatgoriesImpl implements SuccessFeatchedCatgories {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? emptyCoupons,
     TResult? Function()? loadingGetOffers,
     TResult? Function(List<OfferModel> offers)? successGetOffers,
     TResult? Function(String error)? faluireGetOffers,
@@ -616,6 +636,7 @@ class _$SuccessFeatchedCatgoriesImpl implements SuccessFeatchedCatgories {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? emptyCoupons,
     TResult Function()? loadingGetOffers,
     TResult Function(List<OfferModel> offers)? successGetOffers,
     TResult Function(String error)? faluireGetOffers,
@@ -642,6 +663,7 @@ class _$SuccessFeatchedCatgoriesImpl implements SuccessFeatchedCatgories {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(EmptyCoupons value) emptyCoupons,
     required TResult Function(LoadingGetOffers value) loadingGetOffers,
     required TResult Function(SuccessGetOffers value) successGetOffers,
     required TResult Function(FaluireGetOffers value) faluireGetOffers,
@@ -661,6 +683,7 @@ class _$SuccessFeatchedCatgoriesImpl implements SuccessFeatchedCatgories {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(EmptyCoupons value)? emptyCoupons,
     TResult? Function(LoadingGetOffers value)? loadingGetOffers,
     TResult? Function(SuccessGetOffers value)? successGetOffers,
     TResult? Function(FaluireGetOffers value)? faluireGetOffers,
@@ -680,6 +703,7 @@ class _$SuccessFeatchedCatgoriesImpl implements SuccessFeatchedCatgories {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(EmptyCoupons value)? emptyCoupons,
     TResult Function(LoadingGetOffers value)? loadingGetOffers,
     TResult Function(SuccessGetOffers value)? successGetOffers,
     TResult Function(FaluireGetOffers value)? faluireGetOffers,
@@ -822,6 +846,7 @@ class _$CategorySelectedImpl implements CategorySelected {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() emptyCoupons,
     required TResult Function() loadingGetOffers,
     required TResult Function(List<OfferModel> offers) successGetOffers,
     required TResult Function(String error) faluireGetOffers,
@@ -843,6 +868,7 @@ class _$CategorySelectedImpl implements CategorySelected {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? emptyCoupons,
     TResult? Function()? loadingGetOffers,
     TResult? Function(List<OfferModel> offers)? successGetOffers,
     TResult? Function(String error)? faluireGetOffers,
@@ -864,6 +890,7 @@ class _$CategorySelectedImpl implements CategorySelected {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? emptyCoupons,
     TResult Function()? loadingGetOffers,
     TResult Function(List<OfferModel> offers)? successGetOffers,
     TResult Function(String error)? faluireGetOffers,
@@ -890,6 +917,7 @@ class _$CategorySelectedImpl implements CategorySelected {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(EmptyCoupons value) emptyCoupons,
     required TResult Function(LoadingGetOffers value) loadingGetOffers,
     required TResult Function(SuccessGetOffers value) successGetOffers,
     required TResult Function(FaluireGetOffers value) faluireGetOffers,
@@ -909,6 +937,7 @@ class _$CategorySelectedImpl implements CategorySelected {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(EmptyCoupons value)? emptyCoupons,
     TResult? Function(LoadingGetOffers value)? loadingGetOffers,
     TResult? Function(SuccessGetOffers value)? successGetOffers,
     TResult? Function(FaluireGetOffers value)? faluireGetOffers,
@@ -928,6 +957,7 @@ class _$CategorySelectedImpl implements CategorySelected {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(EmptyCoupons value)? emptyCoupons,
     TResult Function(LoadingGetOffers value)? loadingGetOffers,
     TResult Function(SuccessGetOffers value)? successGetOffers,
     TResult Function(FaluireGetOffers value)? faluireGetOffers,
@@ -1033,6 +1063,7 @@ class _$ErrorFeatchedCatgoriesImpl implements ErrorFeatchedCatgories {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() emptyCoupons,
     required TResult Function() loadingGetOffers,
     required TResult Function(List<OfferModel> offers) successGetOffers,
     required TResult Function(String error) faluireGetOffers,
@@ -1054,6 +1085,7 @@ class _$ErrorFeatchedCatgoriesImpl implements ErrorFeatchedCatgories {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? emptyCoupons,
     TResult? Function()? loadingGetOffers,
     TResult? Function(List<OfferModel> offers)? successGetOffers,
     TResult? Function(String error)? faluireGetOffers,
@@ -1075,6 +1107,7 @@ class _$ErrorFeatchedCatgoriesImpl implements ErrorFeatchedCatgories {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? emptyCoupons,
     TResult Function()? loadingGetOffers,
     TResult Function(List<OfferModel> offers)? successGetOffers,
     TResult Function(String error)? faluireGetOffers,
@@ -1101,6 +1134,7 @@ class _$ErrorFeatchedCatgoriesImpl implements ErrorFeatchedCatgories {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(EmptyCoupons value) emptyCoupons,
     required TResult Function(LoadingGetOffers value) loadingGetOffers,
     required TResult Function(SuccessGetOffers value) successGetOffers,
     required TResult Function(FaluireGetOffers value) faluireGetOffers,
@@ -1120,6 +1154,7 @@ class _$ErrorFeatchedCatgoriesImpl implements ErrorFeatchedCatgories {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(EmptyCoupons value)? emptyCoupons,
     TResult? Function(LoadingGetOffers value)? loadingGetOffers,
     TResult? Function(SuccessGetOffers value)? successGetOffers,
     TResult? Function(FaluireGetOffers value)? faluireGetOffers,
@@ -1139,6 +1174,7 @@ class _$ErrorFeatchedCatgoriesImpl implements ErrorFeatchedCatgories {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(EmptyCoupons value)? emptyCoupons,
     TResult Function(LoadingGetOffers value)? loadingGetOffers,
     TResult Function(SuccessGetOffers value)? successGetOffers,
     TResult Function(FaluireGetOffers value)? faluireGetOffers,
@@ -1211,6 +1247,7 @@ class _$LoadingCouponsImpl implements LoadingCoupons {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() emptyCoupons,
     required TResult Function() loadingGetOffers,
     required TResult Function(List<OfferModel> offers) successGetOffers,
     required TResult Function(String error) faluireGetOffers,
@@ -1232,6 +1269,7 @@ class _$LoadingCouponsImpl implements LoadingCoupons {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? emptyCoupons,
     TResult? Function()? loadingGetOffers,
     TResult? Function(List<OfferModel> offers)? successGetOffers,
     TResult? Function(String error)? faluireGetOffers,
@@ -1253,6 +1291,7 @@ class _$LoadingCouponsImpl implements LoadingCoupons {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? emptyCoupons,
     TResult Function()? loadingGetOffers,
     TResult Function(List<OfferModel> offers)? successGetOffers,
     TResult Function(String error)? faluireGetOffers,
@@ -1279,6 +1318,7 @@ class _$LoadingCouponsImpl implements LoadingCoupons {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(EmptyCoupons value) emptyCoupons,
     required TResult Function(LoadingGetOffers value) loadingGetOffers,
     required TResult Function(SuccessGetOffers value) successGetOffers,
     required TResult Function(FaluireGetOffers value) faluireGetOffers,
@@ -1298,6 +1338,7 @@ class _$LoadingCouponsImpl implements LoadingCoupons {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(EmptyCoupons value)? emptyCoupons,
     TResult? Function(LoadingGetOffers value)? loadingGetOffers,
     TResult? Function(SuccessGetOffers value)? successGetOffers,
     TResult? Function(FaluireGetOffers value)? faluireGetOffers,
@@ -1317,6 +1358,7 @@ class _$LoadingCouponsImpl implements LoadingCoupons {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(EmptyCoupons value)? emptyCoupons,
     TResult Function(LoadingGetOffers value)? loadingGetOffers,
     TResult Function(SuccessGetOffers value)? successGetOffers,
     TResult Function(FaluireGetOffers value)? faluireGetOffers,
@@ -1419,6 +1461,7 @@ class _$SuccessFeatchedCouponsImpl implements SuccessFeatchedCoupons {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() emptyCoupons,
     required TResult Function() loadingGetOffers,
     required TResult Function(List<OfferModel> offers) successGetOffers,
     required TResult Function(String error) faluireGetOffers,
@@ -1440,6 +1483,7 @@ class _$SuccessFeatchedCouponsImpl implements SuccessFeatchedCoupons {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? emptyCoupons,
     TResult? Function()? loadingGetOffers,
     TResult? Function(List<OfferModel> offers)? successGetOffers,
     TResult? Function(String error)? faluireGetOffers,
@@ -1461,6 +1505,7 @@ class _$SuccessFeatchedCouponsImpl implements SuccessFeatchedCoupons {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? emptyCoupons,
     TResult Function()? loadingGetOffers,
     TResult Function(List<OfferModel> offers)? successGetOffers,
     TResult Function(String error)? faluireGetOffers,
@@ -1487,6 +1532,7 @@ class _$SuccessFeatchedCouponsImpl implements SuccessFeatchedCoupons {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(EmptyCoupons value) emptyCoupons,
     required TResult Function(LoadingGetOffers value) loadingGetOffers,
     required TResult Function(SuccessGetOffers value) successGetOffers,
     required TResult Function(FaluireGetOffers value) faluireGetOffers,
@@ -1506,6 +1552,7 @@ class _$SuccessFeatchedCouponsImpl implements SuccessFeatchedCoupons {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(EmptyCoupons value)? emptyCoupons,
     TResult? Function(LoadingGetOffers value)? loadingGetOffers,
     TResult? Function(SuccessGetOffers value)? successGetOffers,
     TResult? Function(FaluireGetOffers value)? faluireGetOffers,
@@ -1525,6 +1572,7 @@ class _$SuccessFeatchedCouponsImpl implements SuccessFeatchedCoupons {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(EmptyCoupons value)? emptyCoupons,
     TResult Function(LoadingGetOffers value)? loadingGetOffers,
     TResult Function(SuccessGetOffers value)? successGetOffers,
     TResult Function(FaluireGetOffers value)? faluireGetOffers,
@@ -1625,6 +1673,7 @@ class _$ErrorFeatchedCouponsImpl implements ErrorFeatchedCoupons {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() emptyCoupons,
     required TResult Function() loadingGetOffers,
     required TResult Function(List<OfferModel> offers) successGetOffers,
     required TResult Function(String error) faluireGetOffers,
@@ -1646,6 +1695,7 @@ class _$ErrorFeatchedCouponsImpl implements ErrorFeatchedCoupons {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? emptyCoupons,
     TResult? Function()? loadingGetOffers,
     TResult? Function(List<OfferModel> offers)? successGetOffers,
     TResult? Function(String error)? faluireGetOffers,
@@ -1667,6 +1717,7 @@ class _$ErrorFeatchedCouponsImpl implements ErrorFeatchedCoupons {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? emptyCoupons,
     TResult Function()? loadingGetOffers,
     TResult Function(List<OfferModel> offers)? successGetOffers,
     TResult Function(String error)? faluireGetOffers,
@@ -1693,6 +1744,7 @@ class _$ErrorFeatchedCouponsImpl implements ErrorFeatchedCoupons {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(EmptyCoupons value) emptyCoupons,
     required TResult Function(LoadingGetOffers value) loadingGetOffers,
     required TResult Function(SuccessGetOffers value) successGetOffers,
     required TResult Function(FaluireGetOffers value) faluireGetOffers,
@@ -1712,6 +1764,7 @@ class _$ErrorFeatchedCouponsImpl implements ErrorFeatchedCoupons {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(EmptyCoupons value)? emptyCoupons,
     TResult? Function(LoadingGetOffers value)? loadingGetOffers,
     TResult? Function(SuccessGetOffers value)? successGetOffers,
     TResult? Function(FaluireGetOffers value)? faluireGetOffers,
@@ -1731,6 +1784,7 @@ class _$ErrorFeatchedCouponsImpl implements ErrorFeatchedCoupons {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(EmptyCoupons value)? emptyCoupons,
     TResult Function(LoadingGetOffers value)? loadingGetOffers,
     TResult Function(SuccessGetOffers value)? successGetOffers,
     TResult Function(FaluireGetOffers value)? faluireGetOffers,
@@ -1752,6 +1806,184 @@ abstract class ErrorFeatchedCoupons implements HomeState {
   @JsonKey(ignore: true)
   _$$ErrorFeatchedCouponsImplCopyWith<_$ErrorFeatchedCouponsImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$EmptyCouponsImplCopyWith<$Res> {
+  factory _$$EmptyCouponsImplCopyWith(
+          _$EmptyCouponsImpl value, $Res Function(_$EmptyCouponsImpl) then) =
+      __$$EmptyCouponsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EmptyCouponsImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$EmptyCouponsImpl>
+    implements _$$EmptyCouponsImplCopyWith<$Res> {
+  __$$EmptyCouponsImplCopyWithImpl(
+      _$EmptyCouponsImpl _value, $Res Function(_$EmptyCouponsImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$EmptyCouponsImpl implements EmptyCoupons {
+  const _$EmptyCouponsImpl();
+
+  @override
+  String toString() {
+    return 'HomeState.emptyCoupons()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EmptyCouponsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingCatgories,
+    required TResult Function(List<CategoryModel> categories)
+        successFeatchedCatgories,
+    required TResult Function(int index, List<CategoryModel> listofCategories,
+            List<Coupon> listofCoupns)
+        categorySelected,
+    required TResult Function(String error) errorFeatchedCatgories,
+    required TResult Function() loadingCoupons,
+    required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
+    required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() emptyCoupons,
+    required TResult Function() loadingGetOffers,
+    required TResult Function(List<OfferModel> offers) successGetOffers,
+    required TResult Function(String error) faluireGetOffers,
+    required TResult Function() emptyOffers,
+  }) {
+    return emptyCoupons();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingCatgories,
+    TResult? Function(List<CategoryModel> categories)? successFeatchedCatgories,
+    TResult? Function(int index, List<CategoryModel> listofCategories,
+            List<Coupon> listofCoupns)?
+        categorySelected,
+    TResult? Function(String error)? errorFeatchedCatgories,
+    TResult? Function()? loadingCoupons,
+    TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
+    TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? emptyCoupons,
+    TResult? Function()? loadingGetOffers,
+    TResult? Function(List<OfferModel> offers)? successGetOffers,
+    TResult? Function(String error)? faluireGetOffers,
+    TResult? Function()? emptyOffers,
+  }) {
+    return emptyCoupons?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingCatgories,
+    TResult Function(List<CategoryModel> categories)? successFeatchedCatgories,
+    TResult Function(int index, List<CategoryModel> listofCategories,
+            List<Coupon> listofCoupns)?
+        categorySelected,
+    TResult Function(String error)? errorFeatchedCatgories,
+    TResult Function()? loadingCoupons,
+    TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
+    TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? emptyCoupons,
+    TResult Function()? loadingGetOffers,
+    TResult Function(List<OfferModel> offers)? successGetOffers,
+    TResult Function(String error)? faluireGetOffers,
+    TResult Function()? emptyOffers,
+    required TResult orElse(),
+  }) {
+    if (emptyCoupons != null) {
+      return emptyCoupons();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingCatgories value) loadingCatgories,
+    required TResult Function(SuccessFeatchedCatgories value)
+        successFeatchedCatgories,
+    required TResult Function(CategorySelected value) categorySelected,
+    required TResult Function(ErrorFeatchedCatgories value)
+        errorFeatchedCatgories,
+    required TResult Function(LoadingCoupons value) loadingCoupons,
+    required TResult Function(SuccessFeatchedCoupons value)
+        successFeatchedCoupons,
+    required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(EmptyCoupons value) emptyCoupons,
+    required TResult Function(LoadingGetOffers value) loadingGetOffers,
+    required TResult Function(SuccessGetOffers value) successGetOffers,
+    required TResult Function(FaluireGetOffers value) faluireGetOffers,
+    required TResult Function(EmptyOffers value) emptyOffers,
+  }) {
+    return emptyCoupons(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingCatgories value)? loadingCatgories,
+    TResult? Function(SuccessFeatchedCatgories value)? successFeatchedCatgories,
+    TResult? Function(CategorySelected value)? categorySelected,
+    TResult? Function(ErrorFeatchedCatgories value)? errorFeatchedCatgories,
+    TResult? Function(LoadingCoupons value)? loadingCoupons,
+    TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
+    TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(EmptyCoupons value)? emptyCoupons,
+    TResult? Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult? Function(SuccessGetOffers value)? successGetOffers,
+    TResult? Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult? Function(EmptyOffers value)? emptyOffers,
+  }) {
+    return emptyCoupons?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(LoadingCatgories value)? loadingCatgories,
+    TResult Function(SuccessFeatchedCatgories value)? successFeatchedCatgories,
+    TResult Function(CategorySelected value)? categorySelected,
+    TResult Function(ErrorFeatchedCatgories value)? errorFeatchedCatgories,
+    TResult Function(LoadingCoupons value)? loadingCoupons,
+    TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
+    TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(EmptyCoupons value)? emptyCoupons,
+    TResult Function(LoadingGetOffers value)? loadingGetOffers,
+    TResult Function(SuccessGetOffers value)? successGetOffers,
+    TResult Function(FaluireGetOffers value)? faluireGetOffers,
+    TResult Function(EmptyOffers value)? emptyOffers,
+    required TResult orElse(),
+  }) {
+    if (emptyCoupons != null) {
+      return emptyCoupons(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class EmptyCoupons implements HomeState {
+  const factory EmptyCoupons() = _$EmptyCouponsImpl;
 }
 
 /// @nodoc
@@ -1803,6 +2035,7 @@ class _$LoadingGetOffersImpl implements LoadingGetOffers {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() emptyCoupons,
     required TResult Function() loadingGetOffers,
     required TResult Function(List<OfferModel> offers) successGetOffers,
     required TResult Function(String error) faluireGetOffers,
@@ -1824,6 +2057,7 @@ class _$LoadingGetOffersImpl implements LoadingGetOffers {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? emptyCoupons,
     TResult? Function()? loadingGetOffers,
     TResult? Function(List<OfferModel> offers)? successGetOffers,
     TResult? Function(String error)? faluireGetOffers,
@@ -1845,6 +2079,7 @@ class _$LoadingGetOffersImpl implements LoadingGetOffers {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? emptyCoupons,
     TResult Function()? loadingGetOffers,
     TResult Function(List<OfferModel> offers)? successGetOffers,
     TResult Function(String error)? faluireGetOffers,
@@ -1871,6 +2106,7 @@ class _$LoadingGetOffersImpl implements LoadingGetOffers {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(EmptyCoupons value) emptyCoupons,
     required TResult Function(LoadingGetOffers value) loadingGetOffers,
     required TResult Function(SuccessGetOffers value) successGetOffers,
     required TResult Function(FaluireGetOffers value) faluireGetOffers,
@@ -1890,6 +2126,7 @@ class _$LoadingGetOffersImpl implements LoadingGetOffers {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(EmptyCoupons value)? emptyCoupons,
     TResult? Function(LoadingGetOffers value)? loadingGetOffers,
     TResult? Function(SuccessGetOffers value)? successGetOffers,
     TResult? Function(FaluireGetOffers value)? faluireGetOffers,
@@ -1909,6 +2146,7 @@ class _$LoadingGetOffersImpl implements LoadingGetOffers {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(EmptyCoupons value)? emptyCoupons,
     TResult Function(LoadingGetOffers value)? loadingGetOffers,
     TResult Function(SuccessGetOffers value)? successGetOffers,
     TResult Function(FaluireGetOffers value)? faluireGetOffers,
@@ -2009,6 +2247,7 @@ class _$SuccessGetOffersImpl implements SuccessGetOffers {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() emptyCoupons,
     required TResult Function() loadingGetOffers,
     required TResult Function(List<OfferModel> offers) successGetOffers,
     required TResult Function(String error) faluireGetOffers,
@@ -2030,6 +2269,7 @@ class _$SuccessGetOffersImpl implements SuccessGetOffers {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? emptyCoupons,
     TResult? Function()? loadingGetOffers,
     TResult? Function(List<OfferModel> offers)? successGetOffers,
     TResult? Function(String error)? faluireGetOffers,
@@ -2051,6 +2291,7 @@ class _$SuccessGetOffersImpl implements SuccessGetOffers {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? emptyCoupons,
     TResult Function()? loadingGetOffers,
     TResult Function(List<OfferModel> offers)? successGetOffers,
     TResult Function(String error)? faluireGetOffers,
@@ -2077,6 +2318,7 @@ class _$SuccessGetOffersImpl implements SuccessGetOffers {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(EmptyCoupons value) emptyCoupons,
     required TResult Function(LoadingGetOffers value) loadingGetOffers,
     required TResult Function(SuccessGetOffers value) successGetOffers,
     required TResult Function(FaluireGetOffers value) faluireGetOffers,
@@ -2096,6 +2338,7 @@ class _$SuccessGetOffersImpl implements SuccessGetOffers {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(EmptyCoupons value)? emptyCoupons,
     TResult? Function(LoadingGetOffers value)? loadingGetOffers,
     TResult? Function(SuccessGetOffers value)? successGetOffers,
     TResult? Function(FaluireGetOffers value)? faluireGetOffers,
@@ -2115,6 +2358,7 @@ class _$SuccessGetOffersImpl implements SuccessGetOffers {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(EmptyCoupons value)? emptyCoupons,
     TResult Function(LoadingGetOffers value)? loadingGetOffers,
     TResult Function(SuccessGetOffers value)? successGetOffers,
     TResult Function(FaluireGetOffers value)? faluireGetOffers,
@@ -2214,6 +2458,7 @@ class _$FaluireGetOffersImpl implements FaluireGetOffers {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() emptyCoupons,
     required TResult Function() loadingGetOffers,
     required TResult Function(List<OfferModel> offers) successGetOffers,
     required TResult Function(String error) faluireGetOffers,
@@ -2235,6 +2480,7 @@ class _$FaluireGetOffersImpl implements FaluireGetOffers {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? emptyCoupons,
     TResult? Function()? loadingGetOffers,
     TResult? Function(List<OfferModel> offers)? successGetOffers,
     TResult? Function(String error)? faluireGetOffers,
@@ -2256,6 +2502,7 @@ class _$FaluireGetOffersImpl implements FaluireGetOffers {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? emptyCoupons,
     TResult Function()? loadingGetOffers,
     TResult Function(List<OfferModel> offers)? successGetOffers,
     TResult Function(String error)? faluireGetOffers,
@@ -2282,6 +2529,7 @@ class _$FaluireGetOffersImpl implements FaluireGetOffers {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(EmptyCoupons value) emptyCoupons,
     required TResult Function(LoadingGetOffers value) loadingGetOffers,
     required TResult Function(SuccessGetOffers value) successGetOffers,
     required TResult Function(FaluireGetOffers value) faluireGetOffers,
@@ -2301,6 +2549,7 @@ class _$FaluireGetOffersImpl implements FaluireGetOffers {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(EmptyCoupons value)? emptyCoupons,
     TResult? Function(LoadingGetOffers value)? loadingGetOffers,
     TResult? Function(SuccessGetOffers value)? successGetOffers,
     TResult? Function(FaluireGetOffers value)? faluireGetOffers,
@@ -2320,6 +2569,7 @@ class _$FaluireGetOffersImpl implements FaluireGetOffers {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(EmptyCoupons value)? emptyCoupons,
     TResult Function(LoadingGetOffers value)? loadingGetOffers,
     TResult Function(SuccessGetOffers value)? successGetOffers,
     TResult Function(FaluireGetOffers value)? faluireGetOffers,
@@ -2392,6 +2642,7 @@ class _$EmptyOffersImpl implements EmptyOffers {
     required TResult Function() loadingCoupons,
     required TResult Function(List<Coupon> coupons) successFeatchedCoupons,
     required TResult Function(String error) errorFeatchedCoupons,
+    required TResult Function() emptyCoupons,
     required TResult Function() loadingGetOffers,
     required TResult Function(List<OfferModel> offers) successGetOffers,
     required TResult Function(String error) faluireGetOffers,
@@ -2413,6 +2664,7 @@ class _$EmptyOffersImpl implements EmptyOffers {
     TResult? Function()? loadingCoupons,
     TResult? Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult? Function(String error)? errorFeatchedCoupons,
+    TResult? Function()? emptyCoupons,
     TResult? Function()? loadingGetOffers,
     TResult? Function(List<OfferModel> offers)? successGetOffers,
     TResult? Function(String error)? faluireGetOffers,
@@ -2434,6 +2686,7 @@ class _$EmptyOffersImpl implements EmptyOffers {
     TResult Function()? loadingCoupons,
     TResult Function(List<Coupon> coupons)? successFeatchedCoupons,
     TResult Function(String error)? errorFeatchedCoupons,
+    TResult Function()? emptyCoupons,
     TResult Function()? loadingGetOffers,
     TResult Function(List<OfferModel> offers)? successGetOffers,
     TResult Function(String error)? faluireGetOffers,
@@ -2460,6 +2713,7 @@ class _$EmptyOffersImpl implements EmptyOffers {
     required TResult Function(SuccessFeatchedCoupons value)
         successFeatchedCoupons,
     required TResult Function(ErrorFeatchedCoupons value) errorFeatchedCoupons,
+    required TResult Function(EmptyCoupons value) emptyCoupons,
     required TResult Function(LoadingGetOffers value) loadingGetOffers,
     required TResult Function(SuccessGetOffers value) successGetOffers,
     required TResult Function(FaluireGetOffers value) faluireGetOffers,
@@ -2479,6 +2733,7 @@ class _$EmptyOffersImpl implements EmptyOffers {
     TResult? Function(LoadingCoupons value)? loadingCoupons,
     TResult? Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult? Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult? Function(EmptyCoupons value)? emptyCoupons,
     TResult? Function(LoadingGetOffers value)? loadingGetOffers,
     TResult? Function(SuccessGetOffers value)? successGetOffers,
     TResult? Function(FaluireGetOffers value)? faluireGetOffers,
@@ -2498,6 +2753,7 @@ class _$EmptyOffersImpl implements EmptyOffers {
     TResult Function(LoadingCoupons value)? loadingCoupons,
     TResult Function(SuccessFeatchedCoupons value)? successFeatchedCoupons,
     TResult Function(ErrorFeatchedCoupons value)? errorFeatchedCoupons,
+    TResult Function(EmptyCoupons value)? emptyCoupons,
     TResult Function(LoadingGetOffers value)? loadingGetOffers,
     TResult Function(SuccessGetOffers value)? successGetOffers,
     TResult Function(FaluireGetOffers value)? faluireGetOffers,

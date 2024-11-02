@@ -29,4 +29,5 @@ class Routes {
   static const String listOfStoresScreen = '/listOfStoresScreen';
   static const String listOfFilterdCouponsScreen = "/ListOfFilterdCouponsScreen";
   static const String noInterntScreen = "/NoInterntScreen";
+  static const String listRecentlyAddedCouponsScreen = "/ListRecentlyAddedCouponsScreen";
 }

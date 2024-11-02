@@ -160,5 +160,7 @@
   "Add Offers Page":"صفحة إضافة العروض",
   "Does not contain any coupons.":"لا يحتوي على كوبونات بعد.",
   "No internet Conection":"لا يوجد اتصال بالإنترنت",
-  "Please check your ( Wi-Fi / Data) internetc onnection and try again.":"يرجى التحقق من اتصالك بالإنترنت (Wi-Fi / Data) ثم حاول مرة أخرى."
+  "Please check your ( Wi-Fi / Data) internetc onnection and try again.":"يرجى التحقق من اتصالك بالإنترنت (Wi-Fi / Data) ثم حاول مرة أخرى.",
+  "There are no coupons for this Category":"لا يوجد كوبونات لهذه الفئة",
+  "Ok":"موافق"
 }

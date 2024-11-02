@@ -1,37 +1,39 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/common/widgets/build_custom_loader.dart';
+import 'package:acwadcom/features/user/explore/logic/cubit/explore_cubit.dart';
 import 'package:acwadcom/features/user/home/logic/home/cubit/home_cubit.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/build_list_coupons.dart';
 import 'package:acwadcom/helpers/shimmer/shimmer_loading.dart';
 
-class ListCouponsScreen extends StatefulWidget {
-  const ListCouponsScreen({super.key});
+class ListRecentlyAddedCouponsScreen extends StatefulWidget {
+  const ListRecentlyAddedCouponsScreen({super.key});
 
   @override
-  State<ListCouponsScreen> createState() => _ListCouponsScreenState();
+  State<ListRecentlyAddedCouponsScreen> createState() => _ListCouponsScreenState();
 }
 
-class _ListCouponsScreenState extends State<ListCouponsScreen> {
+class _ListCouponsScreenState extends State<ListRecentlyAddedCouponsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: myText(AText.discoverOffers.tr(context)),
+        title: myText(AText.recntlyAdded.tr(context)),
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
         child: Column(
           children: [
-            BlocBuilder<HomeCubit, HomeState>(
+            BlocBuilder<ExploreCubit, ExploreState>(
               buildWhen: (previous, current) =>
-                  current is SuccessFeatchedCoupons ||
-                  current is LoadingCoupons,
+                  current is LoadingGetCoupons ||
+                  current is SuccessGetCoupon || 
+                  current is ErrorGetCoupons,
               builder: (context, state) {
                 return state.maybeWhen(
-                    loadingCoupons: () => const buildLoaderShimmerList(),
-                    successFeatchedCoupons: (coupons) =>
+                    loadingGetCoupons: () => const buildLoaderShimmerList(),
+                    successGetCoupon: (coupons) =>
                         BuildListCoupons(coupons: coupons),
-                    errorFeatchedCoupons: (error) => Container(
+                  errorGetCoupons: (error) => Container(
                           color: Colors.red,
                           child: Text(error.toString()),
                         ),

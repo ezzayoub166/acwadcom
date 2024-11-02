@@ -161,5 +161,7 @@
   "Add Offers Page" : "Add Offers Page",
   "Does not contain any coupons.":"Does not contain any coupons.",
     "No internet Conection":  "No internet Conection",
-    "Please check your ( Wi-Fi / Data) internetc onnection and try again.":"Please check your ( Wi-Fi / Data) internetc onnection and try again."
+    "Please check your ( Wi-Fi / Data) internetc onnection and try again.":"Please check your ( Wi-Fi / Data) internetc onnection and try again.",
+      "There are no coupons for this Category":"There are no coupons for this Category",
+      "Ok":"Ok"
 }

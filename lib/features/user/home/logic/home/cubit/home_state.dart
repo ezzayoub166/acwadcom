@@ -17,6 +17,7 @@ class HomeState with _$HomeState {
       {required List<Coupon> coupons}) = SuccessFeatchedCoupons;
   const factory HomeState.errorFeatchedCoupons({required String error}) =
       ErrorFeatchedCoupons;
+      const factory HomeState.emptyCoupons() = EmptyCoupons;
 
   const factory HomeState.loadingGetOffers() = LoadingGetOffers;
   const factory HomeState.successGetOffers({required List<OfferModel> offers}) =

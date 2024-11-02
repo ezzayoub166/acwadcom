@@ -2,12 +2,15 @@
 
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/common/widgets/build_custom_loader.dart';
+import 'package:acwadcom/features/user/coupons/ui/screens/coupon_deatls_screen.dart';
 import 'package:acwadcom/features/user/explore/logic/cubit/explore_cubit.dart';
 import 'package:acwadcom/features/user/explore/ui/widget/build_coupon_clipper_widget.dart';
 import 'package:acwadcom/features/user/explore/ui/widget/build_list_featured_stores.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
-import 'package:lottie/lottie.dart';
+import 'package:acwadcom/helpers/shimmer/shimmer_loading.dart';
+import 'package:acwadcom/helpers/shimmer/shimmer_store_card.dart';
+import 'package:acwadcom/models/coupon_model.dart';
 
 class ExplpreScreen extends StatefulWidget {
   const ExplpreScreen({super.key});
@@ -18,12 +21,6 @@ class ExplpreScreen extends StatefulWidget {
 
 class _ExplpreScreenState extends State<ExplpreScreen> {
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final double itemWidth = MediaQuery.of(context).size.width * 0.8;
 
@@ -31,7 +28,7 @@ class _ExplpreScreenState extends State<ExplpreScreen> {
       create: (context) => getIt<ExploreCubit>()
         ..fetchMostUsedCoupons()
         ..fetchSpecialStores()
-        ..fetchCouponsAddedRecently(),
+        ..fetchCouponsAddedRecently(5),
       child: Scaffold(
           backgroundColor: Color(0xffF5F5F5),
           body: Padding(
@@ -52,6 +49,7 @@ class _ExplpreScreenState extends State<ExplpreScreen> {
                 title: AText.mostUsedCopuns.tr(context),
                 textColor: ManagerColors.kCustomColor,
               ),
+              buildSpacerH(10.0),
               //** The most used Copuns  */
               BlocBuilder<ExploreCubit, ExploreState>(
                 buildWhen: (previous, current) =>
@@ -60,28 +58,13 @@ class _ExplpreScreenState extends State<ExplpreScreen> {
                     current is ErrorGetMostUsedCoupons,
                 builder: (context, state) {
                   return state.maybeWhen(
-                      loadingGetMostUsedCoupons: () => BuildCustomLoader(),
-                      successGetMostUsedCoupons: (mostUsedCoupons) => SizedBox(
-                            height: 200,
-                            child: ListView.separated(
-                              physics: const NeverScrollableScrollPhysics(),
-                              scrollDirection: Axis.horizontal,
-                              itemCount: mostUsedCoupons.length,
-                              separatorBuilder: (ctx, index) =>
-                                  buildSpacerH(10.0),
-                              itemBuilder: (context, index) {
-                                //  bool isFav =  checkIfCouponsIsFav(coupons[index]);
-
-                                return buildCouponClipperItem(
-                                    context, mostUsedCoupons[index]);
-                              },
-                            ),
-                          ),
+                      loadingGetMostUsedCoupons: () =>
+                         shimmerLoadingCoupons(),
+                      successGetMostUsedCoupons: (mostUsedCoupons) => buildListMostUsedCoupons(mostUsedCoupons),
                       errorGetMostUsedCoupons: (erro) =>
                           Center(child: myText(erro)),
-                      orElse: () {
-                        return SizedBox.shrink();
-                      });
+                      orElse: () =>
+                          shimmerLoadingCoupons());
                 },
               ),
               //** The Special Stores */
@@ -96,16 +79,23 @@ class _ExplpreScreenState extends State<ExplpreScreen> {
               BlocBuilder<ExploreCubit, ExploreState>(
                 buildWhen: (previous, current) =>
                     current is LoadingSpecialStores ||
-                    current is SucessGetSpecialStores,
+                    current is SucessGetSpecialStores ||
+                    current is FaluireGetStores,
                 builder: (context, state) {
                   return state.maybeWhen(
-                      loadingSpecialStores: () => BuildCustomLoader(),
+                      loadingSpecialStores: () => StoreCardShimmer(),
                       sucessGetSpecialStores: (stores) {
                         return BuildListFeaturedStores(
                           stores: stores,
                         );
                       },
-                      orElse: () => BuildCustomLoader());
+                      faluireGetStores: (error) {
+                        if (mounted) {
+                          TLoader.showErrorSnackBar(context, title: error);
+                        }
+                        return SizedBox.shrink();
+                      },
+                      orElse: () => StoreCardShimmer());
                 },
               ),
 
@@ -115,6 +105,7 @@ class _ExplpreScreenState extends State<ExplpreScreen> {
                 title: AText.recntlyAdded.tr(context),
                 textColor: ManagerColors.kCustomColor,
                 showActionButton: true,
+                onPressed: ()=>navigateNamedTo(context,Routes.listRecentlyAddedCouponsScreen),
               ),
               buildSpacerH(5.0),
               BlocBuilder<ExploreCubit, ExploreState>(
@@ -124,9 +115,7 @@ class _ExplpreScreenState extends State<ExplpreScreen> {
                     current is ErrorGetCoupons,
                 builder: (context, state) {
                   return state.maybeWhen(
-                      loadingGetCoupons: () => Center(
-                            child: BuildCustomLoader(),
-                          ),
+                      loadingGetCoupons: () => shimmerLoadingCoupons(),
                       successGetCoupon: (coupons) {
                         return BuildListMostUserCopuns(
                           itemWidth: itemWidth,
@@ -136,13 +125,40 @@ class _ExplpreScreenState extends State<ExplpreScreen> {
                       },
                       errorGetCoupons: (error) => setUpError(error),
                       orElse: () {
-                        return SizedBox.shrink();
+                        return shimmerLoadingCoupons();
                       });
                 },
               ),
             ]),
           )),
     );
+  }
+
+  SizedBox shimmerLoadingCoupons() => SizedBox(height: 150, child: const CouponShimerLoader());
+
+  SizedBox buildListMostUsedCoupons(List<Coupon> mostUsedCoupons) {
+    return SizedBox(
+                          height: 120,
+                          child: ListView.separated(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: mostUsedCoupons.length,
+                            separatorBuilder: (ctx, index) =>
+                                buildSpacerW(10.0),
+                            itemBuilder: (context, index) {
+
+                              return GestureDetector(
+                                onTap: () {
+                                  navigateTo(
+                                      context,
+                                      CouponDeatlsScreen(
+                                          coupon: mostUsedCoupons[index]));
+                                },
+                                child: buildCouponClipperItem(
+                                    context, mostUsedCoupons[index]),
+                              );
+                            },
+                          ),
+                        );
   }
 
   Widget setUpError(error) {

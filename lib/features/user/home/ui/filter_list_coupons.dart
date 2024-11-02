@@ -29,7 +29,7 @@ class _FilterListCouponsState extends State<FilterListCoupons> {
    
     return Scaffold(
       appBar: AppBar(
-        title: myText(AText.discoverOffers.tr(context)),
+        title: myText(AText.coupons.tr(context)),
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),

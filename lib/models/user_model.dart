@@ -17,6 +17,7 @@ class UserModel {
   final String userType ;
   final String? storeLink;
   final String? deatilsForStore;
+  final bool? isFeaturedStore;
 
   Map<String, dynamic> toJson() {
     return {
@@ -27,7 +28,8 @@ class UserModel {
       "profilePicture": profilePicture,
       "storeLink":storeLink,
       "userType": userType ,
-      "deatilsForStore":deatilsForStore
+      "deatilsForStore":deatilsForStore,
+      "isFeaturedStore":isFeaturedStore??false
     };
   }
 
@@ -36,6 +38,7 @@ class UserModel {
        this.storeLink = "", 
        this.deatilsForStore = "",
      required this.userType,
+     this.isFeaturedStore = false,
       // required this.lastName,
       required this.userName,
       required this.email,
@@ -77,7 +80,8 @@ class UserModel {
            phoneNumber: doc["phoneNumber"] ?? "",
            profilePicture: doc["profilePicture"] ?? "",
             storeLink: doc["storeLink"] ?? "",
-            deatilsForStore: doc["deatilsForStore"] ?? ""
+            deatilsForStore: doc["deatilsForStore"] ?? "",
+            isFeaturedStore: doc["isFeaturedStore"] ?? false
            );
      }
        else{
@@ -91,9 +95,11 @@ class UserModel {
      userName: json["userName"],
       email: json["email"], 
       phoneNumber: json["phoneNumber"], 
-      profilePicture: json["profilePicture"], userType: json["userType"]?? "",
+      profilePicture: json["profilePicture"], 
+      userType: json["userType"]?? "",
       storeLink:json["storeLink"],
-      deatilsForStore: json["deatilsForStore"] ?? ""
+      deatilsForStore: json["deatilsForStore"] ?? "",
+      isFeaturedStore: json["this.isFeaturedStore"] ?? false
       );
   }
 }

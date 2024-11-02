@@ -7,6 +7,7 @@ import 'package:acwadcom/common/widgets/no_internt_screen.dart';
 import 'package:acwadcom/features/admin/ui/screens/add_offer_screen.dart';
 import 'package:acwadcom/features/admin/ui/screens/home_screen_admi.dart';
 import 'package:acwadcom/features/admin/ui/screens/request_screen_admin.dart';
+import 'package:acwadcom/features/admin/ui/screens/stores_screen.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 class BottomTabBarAdmin extends StatefulWidget {
   const BottomTabBarAdmin({super.key});
@@ -65,7 +66,9 @@ class _BottomtabbarState extends State<BottomTabBarAdmin> {
   var screens = [
     HomeScreenAdmin(),
     RequestScreenAdmin(),
-    AddOfferScreen()
+    AddOfferScreen(),
+    StoresForAdmin()
+
   ];
 
   @override
@@ -87,6 +90,8 @@ class _BottomtabbarState extends State<BottomTabBarAdmin> {
                buildNavItem( "assets/images/_ichomefilled.svg", AText.home.tr(context), 0),
                buildNavItem("assets/images/_icTicket.svg", AText.requests.tr(context), 1),
                buildNavItem("assets/images/_icAddNewCoupon.svg", AText.requests.tr(context), 2),
+                buildNavItem("assets/images/bag-svgrepo-com.svg", AText.stores.tr(context), 3),
+
 
 
               
