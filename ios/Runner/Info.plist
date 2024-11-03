@@ -7,7 +7,7 @@
 		<key>NSPhotoLibraryUsageDescription</key>
         <string>This app requires access to your photo library to allow you to select and upload photos.</string> 
 		<key>CFBundleDisplayName</key>
-		<string>Acwadcom</string>
+		<string>أكوادكم</string>
 		<key>CFBundleExecutable</key>
 		<string>$(EXECUTABLE_NAME)</string>
 		<key>CFBundleIdentifier</key>
@@ -26,6 +26,13 @@
 		<string>$(FLUTTER_BUILD_NUMBER)</string>
 		<key>LSRequiresIPhoneOS</key>
 		<true/>
+		<key>LSApplicationQueriesSchemes</key>
+	    <array>
+		    <string>sms</string>
+		    <string>tel</string>
+		    <string>whatsapp</string>
+		    <string>instagram</string>
+	    </array>
 		<key>UILaunchStoryboardName</key>
 		<string>LaunchScreen</string>
 		<key>UIMainStoryboardFile</key>

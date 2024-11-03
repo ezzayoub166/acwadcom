@@ -18,6 +18,7 @@ class AText {
   static const email = "e-mail";
   static const yourPassword = "your password";
   static const forgetPass = "Foreget Password ?";
+  static const deatilsStore = "Details less 20 words";
   static const forgetPasswordSubTitle =
       "Don’t worry sometimes people can forget too, enter your email and we will send you a password reset link.";
   static const nohaveAccount = "Don't have an account?";

@@ -1,6 +1,7 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/app_localizations.dart';
 import 'package:acwadcom/common/widgets/build_spacer_height.dart';
+import 'package:acwadcom/common/widgets/featured_not_avalible_dialog.dart';
 import 'package:acwadcom/features/user/authtication/UI/screens/verify_email_screen.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/localiztion_cubit/locale_cubit.dart';
@@ -63,25 +64,9 @@ BlocBuilder<dynamic, dynamic> customAppBar(BuildContext context) {
                     onTap: () {
                       //TODO / go to list notifcations ...
                       showDialog(
-                        barrierColor: ManagerColors.yellowColor,
-            
                         context: context,
                         builder: (BuildContext context) {
-                          return AlertDialog(
-                            backgroundColor: ManagerColors.kCustomColor,
-                            title:  myText('Feature Unavailable'),
-                            content:  myText(
-                                'This feature is not available in this version. It will be available in the next version. Thank you!'),
-                            actions: [
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.of(context)
-                                      .pop(); // Close the dialog
-                                },
-                                child:  myText(AText.ok.tr(context)  , color: ManagerColors.myWhite),
-                              ),
-                            ],
-                          );
+                          return const FeaturedNotAvalibleDialog();
                         },
                       );
                     }),

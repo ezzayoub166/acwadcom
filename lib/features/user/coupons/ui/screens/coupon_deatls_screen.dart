@@ -127,7 +127,7 @@ class _CouponDeatlsScreenState extends State<CouponDeatlsScreen> {
           _launchURL(context, widget.coupon.storeLink);
         },
         child: Text(
-          "Go To Store",
+          "Go To Store".tr(context),
           style: Theme.of(context)
               .textTheme
               .bodyMedium!
@@ -143,7 +143,7 @@ class _CouponDeatlsScreenState extends State<CouponDeatlsScreen> {
       raduis: 4,
       width: 226.w,
       // width:  ,
-      title: "copy",
+      title: "copy".tr(context),
       onPressed: () {
         //** copy the code and show bottom sheet.. */
         copyToClipboard(widget.coupon, context);
@@ -153,7 +153,7 @@ class _CouponDeatlsScreenState extends State<CouponDeatlsScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "copy",
+            "copy".tr(context),
             style: Theme.of(context)
                 .textTheme
                 .bodyMedium!

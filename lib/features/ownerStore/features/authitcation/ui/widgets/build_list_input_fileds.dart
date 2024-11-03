@@ -32,6 +32,14 @@ Widget buildInputFields(BuildContext context) {
             controller: cubit.emailController,
           ),
           SizedBox(height: 16.h),
+          RoundedInputField(
+            validator: (value) => ManagerValidator.validateTitleForCoupon(value??"", context) ,
+            // context:  context,
+            hintText:  AText.deatilsStore.tr(context),
+            textInputType:  TextInputType.text,
+            controller: cubit.deatilsStore,
+          ),
+          SizedBox(height: 16.h),
 
            RoundedInputField(
             validator: (value) => ManagerValidator.validatePhoneNumber(value,context: context), 

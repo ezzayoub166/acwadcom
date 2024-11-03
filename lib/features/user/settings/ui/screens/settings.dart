@@ -4,6 +4,7 @@ import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/app_localizations.dart';
 import 'package:acwadcom/common/widgets/build_spacer_height.dart';
 import 'package:acwadcom/features/ownerStore/features/home/widgets/custom_pop_dialog_require_login.dart';
+import 'package:acwadcom/features/user/settings/ui/screens/terms_condions.dart';
 import 'package:acwadcom/localiztion_cubit/locale_cubit.dart';
 import 'package:acwadcom/features/user/home/logic/avatar/avatar_cubit.dart';
 import 'package:acwadcom/helpers/Routing/routes.dart';
@@ -106,6 +107,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         trailing: Icon(Icons.arrow_forward_ios, color: Colors.black),
         onTap: () {
           // Navigate to terms and conditions
+          navigateTo(context,TermsAndConditionsScreen());
         },
       ),
     );

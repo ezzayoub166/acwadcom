@@ -20,6 +20,7 @@ class RegisterOwnerStoreCubit extends Cubit<RegisterOwnerStoreState> {
       TextEditingController();
   // other Atrribute for Login For Stotr Owener ...
   TextEditingController linkOfStore = TextEditingController();
+  TextEditingController deatilsStore = TextEditingController();
   final formKey = GlobalKey<FormState>();
   final ImagePicker _picker = ImagePicker();
   XFile? _selectedImage;
@@ -50,7 +51,8 @@ class RegisterOwnerStoreCubit extends Cubit<RegisterOwnerStoreState> {
           phoneNumber: phoneController.text.trim(),
           profilePicture:url,
           userType: "STOREOWNER",
-          storeLink: linkOfStore.text
+          storeLink: linkOfStore.text,
+          deatilsForStore: deatilsStore.text.trim()
           );
       // final userRepostiry = getIt<UserRepository>();
       await _userRepository.storeUserRecord(newUser);
