@@ -23,6 +23,7 @@ mixin _$HomeOwnerState {
     required TResult Function(List<Coupon> coupons) successGetCouponsForOwner,
     required TResult Function(String error) faluireGetCouponsForOwner,
     required TResult Function(int number) getNumberOfCoupons,
+    required TResult Function(int sum) getSumUsedOfCoupons,
     required TResult Function() emptyCouponsForOwner,
   }) =>
       throw _privateConstructorUsedError;
@@ -33,6 +34,7 @@ mixin _$HomeOwnerState {
     TResult? Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult? Function(String error)? faluireGetCouponsForOwner,
     TResult? Function(int number)? getNumberOfCoupons,
+    TResult? Function(int sum)? getSumUsedOfCoupons,
     TResult? Function()? emptyCouponsForOwner,
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +45,7 @@ mixin _$HomeOwnerState {
     TResult Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult Function(String error)? faluireGetCouponsForOwner,
     TResult Function(int number)? getNumberOfCoupons,
+    TResult Function(int sum)? getSumUsedOfCoupons,
     TResult Function()? emptyCouponsForOwner,
     required TResult orElse(),
   }) =>
@@ -57,6 +60,7 @@ mixin _$HomeOwnerState {
     required TResult Function(FaluireGetCouponsForOwner value)
         faluireGetCouponsForOwner,
     required TResult Function(GetNumberOfCoupons value) getNumberOfCoupons,
+    required TResult Function(GetSumUsedOfCoupons value) getSumUsedOfCoupons,
     required TResult Function(EmptyCouponsForOwner value) emptyCouponsForOwner,
   }) =>
       throw _privateConstructorUsedError;
@@ -70,6 +74,7 @@ mixin _$HomeOwnerState {
     TResult? Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
     TResult? Function(GetNumberOfCoupons value)? getNumberOfCoupons,
+    TResult? Function(GetSumUsedOfCoupons value)? getSumUsedOfCoupons,
     TResult? Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
   }) =>
       throw _privateConstructorUsedError;
@@ -83,6 +88,7 @@ mixin _$HomeOwnerState {
     TResult Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
     TResult Function(GetNumberOfCoupons value)? getNumberOfCoupons,
+    TResult Function(GetSumUsedOfCoupons value)? getSumUsedOfCoupons,
     TResult Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
     required TResult orElse(),
   }) =>
@@ -150,6 +156,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(List<Coupon> coupons) successGetCouponsForOwner,
     required TResult Function(String error) faluireGetCouponsForOwner,
     required TResult Function(int number) getNumberOfCoupons,
+    required TResult Function(int sum) getSumUsedOfCoupons,
     required TResult Function() emptyCouponsForOwner,
   }) {
     return initial();
@@ -163,6 +170,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult? Function(String error)? faluireGetCouponsForOwner,
     TResult? Function(int number)? getNumberOfCoupons,
+    TResult? Function(int sum)? getSumUsedOfCoupons,
     TResult? Function()? emptyCouponsForOwner,
   }) {
     return initial?.call();
@@ -176,6 +184,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult Function(String error)? faluireGetCouponsForOwner,
     TResult Function(int number)? getNumberOfCoupons,
+    TResult Function(int sum)? getSumUsedOfCoupons,
     TResult Function()? emptyCouponsForOwner,
     required TResult orElse(),
   }) {
@@ -196,6 +205,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(FaluireGetCouponsForOwner value)
         faluireGetCouponsForOwner,
     required TResult Function(GetNumberOfCoupons value) getNumberOfCoupons,
+    required TResult Function(GetSumUsedOfCoupons value) getSumUsedOfCoupons,
     required TResult Function(EmptyCouponsForOwner value) emptyCouponsForOwner,
   }) {
     return initial(this);
@@ -212,6 +222,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
     TResult? Function(GetNumberOfCoupons value)? getNumberOfCoupons,
+    TResult? Function(GetSumUsedOfCoupons value)? getSumUsedOfCoupons,
     TResult? Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
   }) {
     return initial?.call(this);
@@ -228,6 +239,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
     TResult Function(GetNumberOfCoupons value)? getNumberOfCoupons,
+    TResult Function(GetSumUsedOfCoupons value)? getSumUsedOfCoupons,
     TResult Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
     required TResult orElse(),
   }) {
@@ -288,6 +300,7 @@ class _$LoadingGetCouponsForOwnerImpl implements LoadingGetCouponsForOwner {
     required TResult Function(List<Coupon> coupons) successGetCouponsForOwner,
     required TResult Function(String error) faluireGetCouponsForOwner,
     required TResult Function(int number) getNumberOfCoupons,
+    required TResult Function(int sum) getSumUsedOfCoupons,
     required TResult Function() emptyCouponsForOwner,
   }) {
     return loadingGetCouponsForOwner();
@@ -301,6 +314,7 @@ class _$LoadingGetCouponsForOwnerImpl implements LoadingGetCouponsForOwner {
     TResult? Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult? Function(String error)? faluireGetCouponsForOwner,
     TResult? Function(int number)? getNumberOfCoupons,
+    TResult? Function(int sum)? getSumUsedOfCoupons,
     TResult? Function()? emptyCouponsForOwner,
   }) {
     return loadingGetCouponsForOwner?.call();
@@ -314,6 +328,7 @@ class _$LoadingGetCouponsForOwnerImpl implements LoadingGetCouponsForOwner {
     TResult Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult Function(String error)? faluireGetCouponsForOwner,
     TResult Function(int number)? getNumberOfCoupons,
+    TResult Function(int sum)? getSumUsedOfCoupons,
     TResult Function()? emptyCouponsForOwner,
     required TResult orElse(),
   }) {
@@ -334,6 +349,7 @@ class _$LoadingGetCouponsForOwnerImpl implements LoadingGetCouponsForOwner {
     required TResult Function(FaluireGetCouponsForOwner value)
         faluireGetCouponsForOwner,
     required TResult Function(GetNumberOfCoupons value) getNumberOfCoupons,
+    required TResult Function(GetSumUsedOfCoupons value) getSumUsedOfCoupons,
     required TResult Function(EmptyCouponsForOwner value) emptyCouponsForOwner,
   }) {
     return loadingGetCouponsForOwner(this);
@@ -350,6 +366,7 @@ class _$LoadingGetCouponsForOwnerImpl implements LoadingGetCouponsForOwner {
     TResult? Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
     TResult? Function(GetNumberOfCoupons value)? getNumberOfCoupons,
+    TResult? Function(GetSumUsedOfCoupons value)? getSumUsedOfCoupons,
     TResult? Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
   }) {
     return loadingGetCouponsForOwner?.call(this);
@@ -366,6 +383,7 @@ class _$LoadingGetCouponsForOwnerImpl implements LoadingGetCouponsForOwner {
     TResult Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
     TResult Function(GetNumberOfCoupons value)? getNumberOfCoupons,
+    TResult Function(GetSumUsedOfCoupons value)? getSumUsedOfCoupons,
     TResult Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
     required TResult orElse(),
   }) {
@@ -459,6 +477,7 @@ class _$SuccessGetCouponsForOwnerImpl implements SuccessGetCouponsForOwner {
     required TResult Function(List<Coupon> coupons) successGetCouponsForOwner,
     required TResult Function(String error) faluireGetCouponsForOwner,
     required TResult Function(int number) getNumberOfCoupons,
+    required TResult Function(int sum) getSumUsedOfCoupons,
     required TResult Function() emptyCouponsForOwner,
   }) {
     return successGetCouponsForOwner(coupons);
@@ -472,6 +491,7 @@ class _$SuccessGetCouponsForOwnerImpl implements SuccessGetCouponsForOwner {
     TResult? Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult? Function(String error)? faluireGetCouponsForOwner,
     TResult? Function(int number)? getNumberOfCoupons,
+    TResult? Function(int sum)? getSumUsedOfCoupons,
     TResult? Function()? emptyCouponsForOwner,
   }) {
     return successGetCouponsForOwner?.call(coupons);
@@ -485,6 +505,7 @@ class _$SuccessGetCouponsForOwnerImpl implements SuccessGetCouponsForOwner {
     TResult Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult Function(String error)? faluireGetCouponsForOwner,
     TResult Function(int number)? getNumberOfCoupons,
+    TResult Function(int sum)? getSumUsedOfCoupons,
     TResult Function()? emptyCouponsForOwner,
     required TResult orElse(),
   }) {
@@ -505,6 +526,7 @@ class _$SuccessGetCouponsForOwnerImpl implements SuccessGetCouponsForOwner {
     required TResult Function(FaluireGetCouponsForOwner value)
         faluireGetCouponsForOwner,
     required TResult Function(GetNumberOfCoupons value) getNumberOfCoupons,
+    required TResult Function(GetSumUsedOfCoupons value) getSumUsedOfCoupons,
     required TResult Function(EmptyCouponsForOwner value) emptyCouponsForOwner,
   }) {
     return successGetCouponsForOwner(this);
@@ -521,6 +543,7 @@ class _$SuccessGetCouponsForOwnerImpl implements SuccessGetCouponsForOwner {
     TResult? Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
     TResult? Function(GetNumberOfCoupons value)? getNumberOfCoupons,
+    TResult? Function(GetSumUsedOfCoupons value)? getSumUsedOfCoupons,
     TResult? Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
   }) {
     return successGetCouponsForOwner?.call(this);
@@ -537,6 +560,7 @@ class _$SuccessGetCouponsForOwnerImpl implements SuccessGetCouponsForOwner {
     TResult Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
     TResult Function(GetNumberOfCoupons value)? getNumberOfCoupons,
+    TResult Function(GetSumUsedOfCoupons value)? getSumUsedOfCoupons,
     TResult Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
     required TResult orElse(),
   }) {
@@ -629,6 +653,7 @@ class _$FaluireGetCouponsForOwnerImpl implements FaluireGetCouponsForOwner {
     required TResult Function(List<Coupon> coupons) successGetCouponsForOwner,
     required TResult Function(String error) faluireGetCouponsForOwner,
     required TResult Function(int number) getNumberOfCoupons,
+    required TResult Function(int sum) getSumUsedOfCoupons,
     required TResult Function() emptyCouponsForOwner,
   }) {
     return faluireGetCouponsForOwner(error);
@@ -642,6 +667,7 @@ class _$FaluireGetCouponsForOwnerImpl implements FaluireGetCouponsForOwner {
     TResult? Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult? Function(String error)? faluireGetCouponsForOwner,
     TResult? Function(int number)? getNumberOfCoupons,
+    TResult? Function(int sum)? getSumUsedOfCoupons,
     TResult? Function()? emptyCouponsForOwner,
   }) {
     return faluireGetCouponsForOwner?.call(error);
@@ -655,6 +681,7 @@ class _$FaluireGetCouponsForOwnerImpl implements FaluireGetCouponsForOwner {
     TResult Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult Function(String error)? faluireGetCouponsForOwner,
     TResult Function(int number)? getNumberOfCoupons,
+    TResult Function(int sum)? getSumUsedOfCoupons,
     TResult Function()? emptyCouponsForOwner,
     required TResult orElse(),
   }) {
@@ -675,6 +702,7 @@ class _$FaluireGetCouponsForOwnerImpl implements FaluireGetCouponsForOwner {
     required TResult Function(FaluireGetCouponsForOwner value)
         faluireGetCouponsForOwner,
     required TResult Function(GetNumberOfCoupons value) getNumberOfCoupons,
+    required TResult Function(GetSumUsedOfCoupons value) getSumUsedOfCoupons,
     required TResult Function(EmptyCouponsForOwner value) emptyCouponsForOwner,
   }) {
     return faluireGetCouponsForOwner(this);
@@ -691,6 +719,7 @@ class _$FaluireGetCouponsForOwnerImpl implements FaluireGetCouponsForOwner {
     TResult? Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
     TResult? Function(GetNumberOfCoupons value)? getNumberOfCoupons,
+    TResult? Function(GetSumUsedOfCoupons value)? getSumUsedOfCoupons,
     TResult? Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
   }) {
     return faluireGetCouponsForOwner?.call(this);
@@ -707,6 +736,7 @@ class _$FaluireGetCouponsForOwnerImpl implements FaluireGetCouponsForOwner {
     TResult Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
     TResult Function(GetNumberOfCoupons value)? getNumberOfCoupons,
+    TResult Function(GetSumUsedOfCoupons value)? getSumUsedOfCoupons,
     TResult Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
     required TResult orElse(),
   }) {
@@ -797,6 +827,7 @@ class _$GetNumberOfCouponsImpl implements GetNumberOfCoupons {
     required TResult Function(List<Coupon> coupons) successGetCouponsForOwner,
     required TResult Function(String error) faluireGetCouponsForOwner,
     required TResult Function(int number) getNumberOfCoupons,
+    required TResult Function(int sum) getSumUsedOfCoupons,
     required TResult Function() emptyCouponsForOwner,
   }) {
     return getNumberOfCoupons(number);
@@ -810,6 +841,7 @@ class _$GetNumberOfCouponsImpl implements GetNumberOfCoupons {
     TResult? Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult? Function(String error)? faluireGetCouponsForOwner,
     TResult? Function(int number)? getNumberOfCoupons,
+    TResult? Function(int sum)? getSumUsedOfCoupons,
     TResult? Function()? emptyCouponsForOwner,
   }) {
     return getNumberOfCoupons?.call(number);
@@ -823,6 +855,7 @@ class _$GetNumberOfCouponsImpl implements GetNumberOfCoupons {
     TResult Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult Function(String error)? faluireGetCouponsForOwner,
     TResult Function(int number)? getNumberOfCoupons,
+    TResult Function(int sum)? getSumUsedOfCoupons,
     TResult Function()? emptyCouponsForOwner,
     required TResult orElse(),
   }) {
@@ -843,6 +876,7 @@ class _$GetNumberOfCouponsImpl implements GetNumberOfCoupons {
     required TResult Function(FaluireGetCouponsForOwner value)
         faluireGetCouponsForOwner,
     required TResult Function(GetNumberOfCoupons value) getNumberOfCoupons,
+    required TResult Function(GetSumUsedOfCoupons value) getSumUsedOfCoupons,
     required TResult Function(EmptyCouponsForOwner value) emptyCouponsForOwner,
   }) {
     return getNumberOfCoupons(this);
@@ -859,6 +893,7 @@ class _$GetNumberOfCouponsImpl implements GetNumberOfCoupons {
     TResult? Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
     TResult? Function(GetNumberOfCoupons value)? getNumberOfCoupons,
+    TResult? Function(GetSumUsedOfCoupons value)? getSumUsedOfCoupons,
     TResult? Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
   }) {
     return getNumberOfCoupons?.call(this);
@@ -875,6 +910,7 @@ class _$GetNumberOfCouponsImpl implements GetNumberOfCoupons {
     TResult Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
     TResult Function(GetNumberOfCoupons value)? getNumberOfCoupons,
+    TResult Function(GetSumUsedOfCoupons value)? getSumUsedOfCoupons,
     TResult Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
     required TResult orElse(),
   }) {
@@ -892,6 +928,180 @@ abstract class GetNumberOfCoupons implements HomeOwnerState {
   int get number;
   @JsonKey(ignore: true)
   _$$GetNumberOfCouponsImplCopyWith<_$GetNumberOfCouponsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetSumUsedOfCouponsImplCopyWith<$Res> {
+  factory _$$GetSumUsedOfCouponsImplCopyWith(_$GetSumUsedOfCouponsImpl value,
+          $Res Function(_$GetSumUsedOfCouponsImpl) then) =
+      __$$GetSumUsedOfCouponsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int sum});
+}
+
+/// @nodoc
+class __$$GetSumUsedOfCouponsImplCopyWithImpl<$Res>
+    extends _$HomeOwnerStateCopyWithImpl<$Res, _$GetSumUsedOfCouponsImpl>
+    implements _$$GetSumUsedOfCouponsImplCopyWith<$Res> {
+  __$$GetSumUsedOfCouponsImplCopyWithImpl(_$GetSumUsedOfCouponsImpl _value,
+      $Res Function(_$GetSumUsedOfCouponsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? sum = null,
+  }) {
+    return _then(_$GetSumUsedOfCouponsImpl(
+      sum: null == sum
+          ? _value.sum
+          : sum // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetSumUsedOfCouponsImpl implements GetSumUsedOfCoupons {
+  const _$GetSumUsedOfCouponsImpl({required this.sum});
+
+  @override
+  final int sum;
+
+  @override
+  String toString() {
+    return 'HomeOwnerState.getSumUsedOfCoupons(sum: $sum)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetSumUsedOfCouponsImpl &&
+            (identical(other.sum, sum) || other.sum == sum));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, sum);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetSumUsedOfCouponsImplCopyWith<_$GetSumUsedOfCouponsImpl> get copyWith =>
+      __$$GetSumUsedOfCouponsImplCopyWithImpl<_$GetSumUsedOfCouponsImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingGetCouponsForOwner,
+    required TResult Function(List<Coupon> coupons) successGetCouponsForOwner,
+    required TResult Function(String error) faluireGetCouponsForOwner,
+    required TResult Function(int number) getNumberOfCoupons,
+    required TResult Function(int sum) getSumUsedOfCoupons,
+    required TResult Function() emptyCouponsForOwner,
+  }) {
+    return getSumUsedOfCoupons(sum);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingGetCouponsForOwner,
+    TResult? Function(List<Coupon> coupons)? successGetCouponsForOwner,
+    TResult? Function(String error)? faluireGetCouponsForOwner,
+    TResult? Function(int number)? getNumberOfCoupons,
+    TResult? Function(int sum)? getSumUsedOfCoupons,
+    TResult? Function()? emptyCouponsForOwner,
+  }) {
+    return getSumUsedOfCoupons?.call(sum);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingGetCouponsForOwner,
+    TResult Function(List<Coupon> coupons)? successGetCouponsForOwner,
+    TResult Function(String error)? faluireGetCouponsForOwner,
+    TResult Function(int number)? getNumberOfCoupons,
+    TResult Function(int sum)? getSumUsedOfCoupons,
+    TResult Function()? emptyCouponsForOwner,
+    required TResult orElse(),
+  }) {
+    if (getSumUsedOfCoupons != null) {
+      return getSumUsedOfCoupons(sum);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingGetCouponsForOwner value)
+        loadingGetCouponsForOwner,
+    required TResult Function(SuccessGetCouponsForOwner value)
+        successGetCouponsForOwner,
+    required TResult Function(FaluireGetCouponsForOwner value)
+        faluireGetCouponsForOwner,
+    required TResult Function(GetNumberOfCoupons value) getNumberOfCoupons,
+    required TResult Function(GetSumUsedOfCoupons value) getSumUsedOfCoupons,
+    required TResult Function(EmptyCouponsForOwner value) emptyCouponsForOwner,
+  }) {
+    return getSumUsedOfCoupons(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingGetCouponsForOwner value)?
+        loadingGetCouponsForOwner,
+    TResult? Function(SuccessGetCouponsForOwner value)?
+        successGetCouponsForOwner,
+    TResult? Function(FaluireGetCouponsForOwner value)?
+        faluireGetCouponsForOwner,
+    TResult? Function(GetNumberOfCoupons value)? getNumberOfCoupons,
+    TResult? Function(GetSumUsedOfCoupons value)? getSumUsedOfCoupons,
+    TResult? Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
+  }) {
+    return getSumUsedOfCoupons?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(LoadingGetCouponsForOwner value)?
+        loadingGetCouponsForOwner,
+    TResult Function(SuccessGetCouponsForOwner value)?
+        successGetCouponsForOwner,
+    TResult Function(FaluireGetCouponsForOwner value)?
+        faluireGetCouponsForOwner,
+    TResult Function(GetNumberOfCoupons value)? getNumberOfCoupons,
+    TResult Function(GetSumUsedOfCoupons value)? getSumUsedOfCoupons,
+    TResult Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
+    required TResult orElse(),
+  }) {
+    if (getSumUsedOfCoupons != null) {
+      return getSumUsedOfCoupons(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetSumUsedOfCoupons implements HomeOwnerState {
+  const factory GetSumUsedOfCoupons({required final int sum}) =
+      _$GetSumUsedOfCouponsImpl;
+
+  int get sum;
+  @JsonKey(ignore: true)
+  _$$GetSumUsedOfCouponsImplCopyWith<_$GetSumUsedOfCouponsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -939,6 +1149,7 @@ class _$EmptyCouponsForOwnerImpl implements EmptyCouponsForOwner {
     required TResult Function(List<Coupon> coupons) successGetCouponsForOwner,
     required TResult Function(String error) faluireGetCouponsForOwner,
     required TResult Function(int number) getNumberOfCoupons,
+    required TResult Function(int sum) getSumUsedOfCoupons,
     required TResult Function() emptyCouponsForOwner,
   }) {
     return emptyCouponsForOwner();
@@ -952,6 +1163,7 @@ class _$EmptyCouponsForOwnerImpl implements EmptyCouponsForOwner {
     TResult? Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult? Function(String error)? faluireGetCouponsForOwner,
     TResult? Function(int number)? getNumberOfCoupons,
+    TResult? Function(int sum)? getSumUsedOfCoupons,
     TResult? Function()? emptyCouponsForOwner,
   }) {
     return emptyCouponsForOwner?.call();
@@ -965,6 +1177,7 @@ class _$EmptyCouponsForOwnerImpl implements EmptyCouponsForOwner {
     TResult Function(List<Coupon> coupons)? successGetCouponsForOwner,
     TResult Function(String error)? faluireGetCouponsForOwner,
     TResult Function(int number)? getNumberOfCoupons,
+    TResult Function(int sum)? getSumUsedOfCoupons,
     TResult Function()? emptyCouponsForOwner,
     required TResult orElse(),
   }) {
@@ -985,6 +1198,7 @@ class _$EmptyCouponsForOwnerImpl implements EmptyCouponsForOwner {
     required TResult Function(FaluireGetCouponsForOwner value)
         faluireGetCouponsForOwner,
     required TResult Function(GetNumberOfCoupons value) getNumberOfCoupons,
+    required TResult Function(GetSumUsedOfCoupons value) getSumUsedOfCoupons,
     required TResult Function(EmptyCouponsForOwner value) emptyCouponsForOwner,
   }) {
     return emptyCouponsForOwner(this);
@@ -1001,6 +1215,7 @@ class _$EmptyCouponsForOwnerImpl implements EmptyCouponsForOwner {
     TResult? Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
     TResult? Function(GetNumberOfCoupons value)? getNumberOfCoupons,
+    TResult? Function(GetSumUsedOfCoupons value)? getSumUsedOfCoupons,
     TResult? Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
   }) {
     return emptyCouponsForOwner?.call(this);
@@ -1017,6 +1232,7 @@ class _$EmptyCouponsForOwnerImpl implements EmptyCouponsForOwner {
     TResult Function(FaluireGetCouponsForOwner value)?
         faluireGetCouponsForOwner,
     TResult Function(GetNumberOfCoupons value)? getNumberOfCoupons,
+    TResult Function(GetSumUsedOfCoupons value)? getSumUsedOfCoupons,
     TResult Function(EmptyCouponsForOwner value)? emptyCouponsForOwner,
     required TResult orElse(),
   }) {

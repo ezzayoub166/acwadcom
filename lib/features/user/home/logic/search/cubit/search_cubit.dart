@@ -1,7 +1,5 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/models/coupon_model.dart';
-import 'package:bloc/bloc.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'search_state.dart';

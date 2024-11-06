@@ -1,11 +1,11 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/common/widgets/build_extended_image.dart';
+import 'package:acwadcom/features/ownerStore/features/home/logic/home_owner/home_owner_cubit.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/show_required_dialog.dart';
 import 'package:acwadcom/features/user/wishlist/logic/coupons_wishlist/cubit/wihslist_coupons_cubit.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
 
 import 'package:acwadcom/models/coupon_model.dart';
-import 'package:acwadcom/features/ownerStore/features/home/widgets/custom_pop_dialog_delete.dart';
 
 class BuildFeaturedCode extends StatefulWidget {
   final Coupon coupon;
@@ -23,15 +23,6 @@ class BuildFeaturedCode extends StatefulWidget {
 
 class _BuildFeaturedCodeState extends State<BuildFeaturedCode> {
 
-  bool isFavorited = false;
-
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    
-  }
 
   
   @override
@@ -124,32 +115,28 @@ class _BuildFeaturedCodeState extends State<BuildFeaturedCode> {
                     InkWell(
                       child: svgImage("_icRemove", height: 20, width: 20),
                       onTap: () {
-                        showConfirmDeleteDialog(context, widget.coupon.title);
+                        _showDeleteDialog(context,widget.coupon);
                       },
                     )
                   else
                          InkWell(
                       // Using BlocBuilder to update the heart icon based on the wishlist state
-                      child: BlocBuilder<WishListCouponsCubit, WishListCouponsState>(
-                        buildWhen: (previous, current) => current is WishlistLoaded,
-                        builder: (context, state) {
-                          if(state is WishlistLoaded){
-                          isFavorited = 
-                              state.coupons.any((c) => c.couponId == widget.coupon.couponId);
-
-
-                          return isFavorited ? svgImage("_icHeart_click" , height: 30 , width: 30) :svgImage("_icFavorites" , height: 30 , width: 30);
-
-                          }
-                          return svgImage("_icFavorites" , height: 30 , width: 30);
-                       
-
-                        },
-                      ),
+                      child:  BlocBuilder<WishListCouponsCubit, WishListCouponsState>(
+                      buildWhen: (previous, current) => current is WishlistLoaded,
+                      builder: (context, state) {
+                        bool isFavorited = false;
+                        if (state is WishlistLoaded) {
+                          isFavorited = state.coupons.any((c) => c.couponId == widget.coupon.couponId);
+                        }
+                        return isFavorited
+                            ? svgImage("_icHeart_click", height: 30, width: 30)
+                            : svgImage("_icFavorites", height: 30, width: 30);
+                      },
+                    ),
                       onTap: () {
 
                         if(isLoggedInUser){
-  // Handle adding/removing from wishlist on tap
+                      // Handle adding/removing from wishlist on tap
                         if (wishlistCubit.isInWishlist(widget.coupon)) {
                           wishlistCubit.removeCouponFromWishlist(widget.coupon);
                           
@@ -157,9 +144,6 @@ class _BuildFeaturedCodeState extends State<BuildFeaturedCode> {
                           wishlistCubit.addToWishList(widget.coupon);
                         }
 
-                        setState(() {
-                          isFavorited !=isFavorited;
-                        });
                         }else{
                           showRequireLoginDialog(context);
                         }
@@ -176,15 +160,84 @@ class _BuildFeaturedCodeState extends State<BuildFeaturedCode> {
   }
 
   // Function to show the dialog
-  void showConfirmDeleteDialog(BuildContext context, String codeName) {
+  void _showDeleteDialog(BuildContext context , Coupon coupon) {
     showDialog(
       context: context,
-      builder: (BuildContext context) {
-        return ConfirmDeleteDialog(
-          codeName: codeName,
-          couponID: widget.coupon.couponId,
+      builder: (BuildContext dialogContext) {
+        return AlertDialog(
+          backgroundColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          contentPadding: EdgeInsets.all(24),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 100,
+                height: 100,
+                child: svgImage("icDeleteIcom", fit: BoxFit.fill),
+              ),
+              SizedBox(height: 16),
+              myText(
+                "Are you sure you delete the code?".tr(context),
+                textAlign: TextAlign.center,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+              myText(
+                coupon.title,
+                textAlign: TextAlign.center,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+              SizedBox(height: 24),
+              _buildDialogButtons(context, dialogContext),
+            ],
+          ),
         );
       },
+    );
+  }
+
+
+  Widget _buildDialogButtons(BuildContext context, BuildContext dialogContext) {
+    return Row(
+      children: [
+        Expanded(
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: ManagerColors.yellowColor,
+              foregroundColor: Colors.white,
+              padding: EdgeInsets.symmetric(vertical: 12),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+            ),
+            onPressed: () => Navigator.of(dialogContext).pop(),
+            child: Text(AText.cancel.tr(context)),
+          ),
+        ),
+        SizedBox(width: 12),
+        Expanded(
+          child: OutlinedButton(
+            style: OutlinedButton.styleFrom(
+              padding: EdgeInsets.symmetric(vertical: 12),
+              side: BorderSide(color: Colors.black),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+            ),
+            onPressed: () {
+              context.read<HomeOwnerCubit>().emitRemoveCoupon(widget.coupon.couponId);
+              Navigator.of(dialogContext).pop();
+            },
+            child: myText(AText.delete.tr(context), color: Colors.black),
+          ),
+        ),
+      ],
     );
   }
 }

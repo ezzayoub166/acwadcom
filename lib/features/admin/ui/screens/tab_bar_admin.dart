@@ -89,7 +89,7 @@ class _BottomtabbarState extends State<BottomTabBarAdmin> {
             children: <Widget>[
                buildNavItem( "assets/images/_ichomefilled.svg", AText.home.tr(context), 0),
                buildNavItem("assets/images/_icTicket.svg", AText.requests.tr(context), 1),
-               buildNavItem("assets/images/_icAddNewCoupon.svg", AText.requests.tr(context), 2),
+               buildNavItem("assets/images/_icAddNewCoupon.svg", AText.offfers.tr(context), 2),
                 buildNavItem("assets/images/bag-svgrepo-com.svg", AText.stores.tr(context), 3),
 
 

@@ -1,5 +1,7 @@
 
 
+import 'package:acwadcom/features/user/wishlist/logic/coupons_wishlist/cubit/wihslist_coupons_cubit.dart';
+
 import '../../../../../acwadcom_packges.dart';
 import '../../../../../models/coupon_model.dart';
 import '../../../coupons/ui/screens/coupon_deatls_screen.dart';
@@ -24,12 +26,10 @@ class _BuildListCouponsState extends State<BuildListCoupons> {
     super.initState();
     ///!! important i called the wishlist in here ,,, in list of Coupons ... 
     ///** so not call again in wishlist Screen or home screen or in wishlistCoupons Widget */
-      //  context.read<WishListCouponsCubit>().fetchFavoriteCoupons();
 
   }
   @override
   Widget build(BuildContext context) {
-
     return ListView.separated(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,

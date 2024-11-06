@@ -154,6 +154,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 buildAbleTextField(
+                                  hintText: AText.username.tr(context),
                                     controller:
                                         context.read<ProfileCubit>().nameC,
                                     // text: user.userName,
@@ -162,6 +163,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                             "Name", "Izzdine Atallah")),
                                 buildSpacerH(10.0),
                                 buildAbleTextField(
+                                  hintText: AText.phoneNumber.tr(context),
+                                  
                                     controller: context
                                         .read<ProfileCubit>()
                                         .mobileNumberC,

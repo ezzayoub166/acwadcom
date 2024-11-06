@@ -2,7 +2,6 @@ import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/user/authtication/data/user_repositry.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/models/user_model.dart';
-import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'profile_state.dart';
@@ -25,8 +24,8 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(const ProfileState.profileLoading());
 
     // Fetch user details from repository
-    final user = await _userRepository.fetchUserDetails();
-    print(user.email);
+  var uSerToken= getIt<CacheHelper>().getValueWithKey("userID");
+      UserModel user = await _userRepository.fetchStableData(uSerToken);
 
     // If the fetch is successful, emit the loaded state with the user data
     emit(ProfileState.profileSuccess(user: user));
@@ -82,6 +81,10 @@ class ProfileCubit extends Cubit<ProfileState> {
       }
 
     }
+
+     void clearUserData() {
+    emit(ProfileState.initial());
+  }
 
   
 

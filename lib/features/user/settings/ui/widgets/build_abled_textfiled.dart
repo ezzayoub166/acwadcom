@@ -6,6 +6,7 @@ Widget buildAbleTextField({
    String? text = "", // النص الافتراضي الذي سيتم عرضه
   required String? Function(String?)? validator, // الدالة للتحقق من صحة المدخلات
   required TextEditingController controller ,
+  required String hintText 
   // required TextEditingController? controller
 }) {
   return SizedBox(
@@ -22,7 +23,7 @@ Widget buildAbleTextField({
       // initialValue: text, // النص المعروض في البداية
       validator: validator, // دالة التحقق من صحة المدخلات
       decoration: InputDecoration(        
-        hintText: 'Enter text here', // نص المساعدة
+        hintText: hintText, // نص المساعدة
         hintStyle: TextStyle(
           color: Colors.black54, // لون نص المساعدة
           fontWeight: FontWeight.bold, // نمط الخط

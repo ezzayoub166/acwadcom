@@ -1,9 +1,10 @@
 // ignore_for_file: prefer_const_constructors, use_build_context_synchronously, constant_pattern_never_matches_value_type
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/features/ownerStore/features/store_data/logic/store_data_cubit.dart';
 import 'package:acwadcom/features/user/home/logic/avatar/avatar_cubit.dart';
+import 'package:acwadcom/features/user/settings/logic/cubit/profile_cubit.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
-import 'package:acwadcom/models/user_model.dart';
 
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -14,27 +15,18 @@ class AuthenticationRepository {
   final _auth = FirebaseAuth.instance;
   User? get authUser => _auth.currentUser;
 
-  // ///Called from main.dart on app lunch
-  // @override
-  // void onReady() {
-  //   // TODO: implement onReady
-  //   FlutterNativeSplash.remove();
-  //   screenRedirect();
-  // }
 
   screenRedirect(context) {
     final user = _auth.currentUser;
     if (user != null) {
       if (user.emailVerified) {
-        // await TLocalStorage.init(user.uid);
-        // Get.offAll(() => NavigationMenu());
         getIt<CacheHelper>().saveValueWithKey("userID", user.uid);
-        var typeUser = getIt<CacheHelper>().getValueWithKey("tYPEUSER");
-        // print(typeUser);
-        if (typeUser == "USER") {
+        if (tYPEUSER == "USER") {
           navigateAndFinishNamed(context, Routes.bottomTabBarScreen);
-        } else {
+        } else if (tYPEUSER == "STOREOWNER") {
           navigateAndFinishNamed(context, Routes.homeScreenForOwenerStore);
+        }else{
+          TLoader.showWarningSnackBar(context, title: AText.thresProblem.tr(context));
         }
       } else {
         navigateAndFinishNamed(
@@ -158,6 +150,7 @@ class AuthenticationRepository {
     }
   }
 
+
   /// [Email Authentication] = MAIL Verification
   Future<void> sendEmailVerification() async {
     try {
@@ -174,29 +167,26 @@ class AuthenticationRepository {
       throw 'something went wrong. Please try again';
     }
   }
+         // getIt<CacheHelper>().removeValueWithKey("userID"),
+        // getIt<CacheHelper>().removeValueWithKey("tYPEUSER"),
+        // getIt<CacheHelper>().removeValueWithKey("USERNAME"),
+        // getIt<CacheHelper>().removeValueWithKey("IMAGEURL"),
+        // getIt<CacheHelper>().removeValueWithKey("EMAIL"),
+        // getIt<CacheHelper>().removeValueWithKey("MOBILENUMBER"),
 
   /// [Email Authentication] = valid for any Authntication
   Future<void> logout(BuildContext context) async {
     try {
       await Future.wait([
         GoogleSignIn().signOut(),
-        _auth.signOut(),
-        // getIt<CacheHelper>().removeValueWithKey("userID"),
-        // getIt<CacheHelper>().removeValueWithKey("tYPEUSER"),
-        // getIt<CacheHelper>().removeValueWithKey("USERNAME"),
-        // getIt<CacheHelper>().removeValueWithKey("IMAGEURL"),
-        // getIt<CacheHelper>().removeValueWithKey("EMAIL"),
-        // getIt<CacheHelper>().removeValueWithKey("MOBILENUMBER"),
+        _auth.signOut(), 
           getIt<CacheHelper>().clearAll()
 
       ]);
         // Debugging: Check if cache is cleared
-    //  print(await getIt<CacheHelper>().getValueWithKey("USERNAME")); // Should print null
-    //  print(await getIt<CacheHelper>().getValueWithKey("IMAGEURL")); // Should print null
-
 
       isLoggedInUser = false;
-      tYPEUSER = "";
+      tYPEUSER = "USER";
       context.read<AvatarCubit>().clearProfileData();
       //!! Some Things Need to Edit
       //  Get.offAll(() => LoginScreen());

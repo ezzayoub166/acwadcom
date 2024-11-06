@@ -9,6 +9,10 @@ import 'package:acwadcom/features/admin/ui/screens/home_screen_admi.dart';
 import 'package:acwadcom/features/admin/ui/screens/request_screen_admin.dart';
 import 'package:acwadcom/features/admin/ui/screens/tab_bar_admin.dart';
 import 'package:acwadcom/bottomTabBar.dart';
+import 'package:acwadcom/features/ownerStore/features/authitcation/logic/delete_store/cubit/delete_store_cubit.dart';
+import 'package:acwadcom/features/ownerStore/features/home/delete_store.dart';
+import 'package:acwadcom/features/ownerStore/features/store_data/logic/store_data_cubit.dart';
+import 'package:acwadcom/features/ownerStore/features/store_data/ui/store_data.dart';
 import 'package:acwadcom/features/user/authtication/UI/screens/forget_password.dart';
 import 'package:acwadcom/features/user/authtication/UI/screens/login_screen.dart';
 import 'package:acwadcom/features/user/authtication/UI/screens/register_screen.dart';
@@ -93,7 +97,18 @@ class AppRouter {
                   create: (context) => getIt<CreateCouponCubit>(),
                   child: CreateCodeScreen(),
                 ));
-
+      case Routes.deleteStoreScreen:
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => getIt<DeleteStoreCubit>(),
+                  child: DeleteStore(),
+                ));
+      case Routes.storeDataProfile:
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => StoreDataCubit(getIt()),
+                  child: StoreDataScreen(),
+                ));
       // case Routes.storeDeatilsScreen:
       //   final store = settings.arguments as UserModel;
       //   return MaterialPageRoute(
@@ -125,8 +140,9 @@ class AppRouter {
       case Routes.homeScreenForOwenerStore:
         return MaterialPageRoute(builder: (context) => HomeScreenOwner());
       case Routes.storeOwnerDiscountCodeDetails:
+      final coupon = settings.arguments as Coupon;
         return MaterialPageRoute(
-            builder: (context) => StoreOwnerDiscountCodeDetails());
+            builder: (context) => StoreOwnerDiscountCodeDetails(coupon: coupon,));
       case Routes.statisticsPage:
         return MaterialPageRoute(
             builder: (context) => MerchantStatisticsPage());

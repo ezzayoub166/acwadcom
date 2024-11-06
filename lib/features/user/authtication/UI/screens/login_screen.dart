@@ -1,9 +1,7 @@
 import 'dart:async';
-
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/user/authtication/UI/widgets/login_bloc_listener.dart';
-import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
-
+import 'package:acwadcom/helpers/constants/extenstions.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -15,43 +13,13 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-    bool isConnectedToInternt = false;
+  bool isConnectedToInternt = false;
 
-   StreamSubscription? _intrenetConnectionStreamSubscription ; 
-   @override
+  StreamSubscription? _intrenetConnectionStreamSubscription;
+  @override
   void initState() {
     // TODO: implement initState
-    //     _intrenetConnectionStreamSubscription = InternetConnection().onStatusChange.listen((event){
-    //   switch (event){
-    //     case InternetStatus.connected:
-    //     setState(() {
-    //       isConnectedToInternt =  true;
-    //     });
-    //     break;
-    //     case InternetStatus.disconnected:
-    //     setState(() {
-    //       isConnectedToInternt = false ;
-    //     });
-    //     break;
-    //     default:
-    //     setState(() {
-    //       isConnectedToInternt = false;
-    //     });
-    //   }
-    // });
     super.initState();
-
-        // BlocProvider.of<ProfileCubit>(context).emitLoadingProfileData();
-
-
-  }
-
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    // _intrenetConnectionStreamSubscription?.cancel();
   }
 
   Widget buildRegisterNewAccount(context) {
@@ -68,22 +36,15 @@ class _LoginScreenState extends State<LoginScreen> {
             overflow: TextOverflow.ellipsis, // Avoid overflow
           ),
         ),
-        // SizedBox(width: 1), // Add some spacing between the two widgets
         TextButton(
           onPressed: () {
             //TODO: Go to the chosen user or Shop owner
-            // if (widget.tYPEUSER == "USER") {
-            //   navigateNamedTo(context, Routes.signUpScreen, widget.tYPEUSER);
-            // } else {
-            //   navigateNamedTo(
-            //       context, Routes.registerOwnerStore, widget.tYPEUSER);
-            // }
             navigateAndFinishNamed(context, Routes.chosenStatusScreen);
           },
           child: myText(
             AText.regiserNewAccount.tr(context),
             color: ManagerColors.yellowColor,
-            fontSize: 16,
+            fontSize: 12,
           ),
         ),
       ],
@@ -111,7 +72,8 @@ class _LoginScreenState extends State<LoginScreen> {
       child: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30, bottom: 30, top: 50),
+            padding:
+                const EdgeInsets.only(left: 30, right: 30, bottom: 30, top: 50),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -165,19 +127,103 @@ class _LoginScreenState extends State<LoginScreen> {
                   foregroundColor: Colors.black,
                   title: "",
                   onPressed: () async {
-                    await context.read<LoginCubit>().emitLogInByGoogle(context);
-                    // if (widget.tYPEUSER == "USER") {
-                    //   getIt<CacheHelper>().saveValueWithKey("tYPEUSER", "USER");
-                    //   await context
-                    //       .read<LoginCubit>()
-                    //       .emitLogInByGoogle(context);
-                    // } else {
-                    //   getIt<CacheHelper>()
-                    //       .saveValueWithKey("tYPEUSER", "STOREOWNER");
-                    //   await context
-                    //       .read<LoginCubit>()
-                    //       .emitLogInByGoogle(context);
-                    // }
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext dialogContext) {
+                          return AlertDialog(
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            contentPadding: EdgeInsets.all(24),
+                            content: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                // Icon at the top
+                                SizedBox(
+                                  width: 100,
+                                  height: 100,
+                                  child:
+                                      svgImage("icBuildLogo", fit: BoxFit.fill),
+                                ),
+                                SizedBox(height: 16),
+
+                                // Confirmation Text
+                                Column(
+                                  children: [
+                                    myText(
+                                      "sign in as ?",
+                                          // .tr(context),
+                                      textAlign: TextAlign.center,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black87,
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 24),
+
+                                // Buttons: Cancel and Delete
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor:
+                                              ManagerColors.yellowColor,
+                                          foregroundColor: Colors.white,
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 12),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(30),
+                                          ),
+                                        ),
+                                        onPressed: () async{
+                                          //sign in as user action here ...
+                                          tYPEUSER = "USER";
+                                          print(tYPEUSER);
+                                          context.pop();
+                                           await context.read<LoginCubit>().emitLogInByGoogle(context);
+
+
+                                        },
+                                        child: Text(AText.user
+                                            .tr(context)), //loclaiztion
+                                      ),
+                                    ),
+                                    SizedBox(width: 12),
+                                    Expanded(
+                                      child: OutlinedButton(
+                                        style: OutlinedButton.styleFrom(
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 12),
+                                          side: BorderSide(color: Colors.black),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(30),
+                                          ),
+                                        ),
+                                        onPressed: () async{
+                                          // Handle sing as store action here..
+                                            tYPEUSER = "STOREOWNER";
+                                            context.pop();
+                                            print(tYPEUSER);
+                                           await context.read<LoginCubit>().emitLogInByGoogle(context);
+                                     
+                                        },
+                                        child: myText(
+                                            AText.shopOwner.tr(context),
+                                            color: Colors.black),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          );
+                        });
+                   
                   },
                   icon: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -194,8 +240,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       svgImage("google_brand_branding_logo_network_icon",
                           height: 24.h, width: 24.w),
-                      // SvgPicture.asset(
-                      //   "assets/images/google_brand_branding_logo_network_icon.svg"),
                     ],
                   ),
                 ),
@@ -249,4 +293,6 @@ class _LoginScreenState extends State<LoginScreen> {
           body: buildBlocWidget(context)),
     );
   }
+
+  
 }

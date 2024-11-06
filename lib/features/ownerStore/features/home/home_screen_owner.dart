@@ -7,7 +7,6 @@ import 'package:acwadcom/common/widgets/build_custom_loader.dart';
 import 'package:acwadcom/common/widgets/no_internt_screen.dart';
 import 'package:acwadcom/features/ownerStore/features/home/logic/home_owner/home_owner_cubit.dart';
 import 'package:acwadcom/features/ownerStore/features/home/logic/home_owner/home_owner_state.dart';
-import 'package:acwadcom/features/user/explore/logic/cubit/explore_cubit.dart';
 import 'package:acwadcom/features/user/home/data/category_repository.dart';
 import 'package:acwadcom/features/user/home/logic/avatar/avatar_cubit.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/build_featured_code.dart';
@@ -34,13 +33,13 @@ class _HomeScreenOwnerState extends State<HomeScreenOwner> {
    StreamSubscription? _intrenetConnectionStreamSubscription ; 
 
 // Function to show the dialog
-  void showConfirmDeleteDialog(BuildContext context, String codeName) {
+  void showConfirmDeleteDialog(BuildContext context, Coupon coupon) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return ConfirmDeleteDialog(
-          codeName: codeName,
-          couponID: '',
+        return buildAlertDelete(
+          context:context,
+          coupon:coupon 
         );
       },
     );
@@ -113,7 +112,7 @@ class _HomeScreenOwnerState extends State<HomeScreenOwner> {
                                   current is LoadingGetCouponsForOwner ||
                                   current is SuccessGetCouponsForOwner ||
                                   current is FaluireGetCouponsForOwner ||
-                                  current is EmptyCouponsForOwner,
+                                  current is EmptyCouponsForOwner ,
                               builder: (context, state) {
                                 return state.maybeWhen(
                                     loadingGetCouponsForOwner: () =>
@@ -148,9 +147,6 @@ class _HomeScreenOwnerState extends State<HomeScreenOwner> {
               state.username,
             ),
             actions: [
-              // SizedBox(
-              //   width: 20,
-              // ),
               if (state.imageUrl == "")
                 CircleAvatar(
                     backgroundImage: AssetImage("assets/images/user.png"))
@@ -178,7 +174,7 @@ class _HomeScreenOwnerState extends State<HomeScreenOwner> {
         itemBuilder: (ctx, index) {
           return InkWell(
               onTap: () {
-                navigateNamedTo(context, Routes.storeOwnerDiscountCodeDetails);
+                navigateNamedTo(context, Routes.storeOwnerDiscountCodeDetails,coupons[index]);
               },
               child: BuildFeaturedCode(
                 coupon: coupons[index],
@@ -188,4 +184,5 @@ class _HomeScreenOwnerState extends State<HomeScreenOwner> {
         separatorBuilder: (ctx, index) => buildSpacerH(10.0),
         itemCount: coupons.length);
   }
+
 }

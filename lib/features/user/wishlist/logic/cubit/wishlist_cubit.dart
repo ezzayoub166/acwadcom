@@ -32,8 +32,8 @@ class WishlistStoresCubit extends Cubit<WishListStoresState> {
         emit(const WishListStoresState.getNumberOFStoresInWishList(count: 0));
       } else {
         wishlistStores = wishlist;
+       emit(WishListStoresState.getNumberOFStoresInWishList(count: wishlist.length));
         emit(WishListStoresState.wishlistStoresLoaded(stores: wishlist));
-        emit(WishListStoresState.getNumberOFStoresInWishList(count: wishlist.length));
         
       }
     } catch (error) {

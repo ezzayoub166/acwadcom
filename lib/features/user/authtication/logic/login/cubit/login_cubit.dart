@@ -7,6 +7,7 @@ import 'package:acwadcom/features/user/authtication/data/authentication_reposito
 import 'package:acwadcom/features/user/authtication/data/user_repositry.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
+import 'package:acwadcom/models/user_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'login_state.dart';
@@ -29,9 +30,11 @@ class LoginCubit extends Cubit<LoginState> {
   emitLogIn(context) async {
     try {
       emit(const LoginState.loading());
-      final UserCredential userCredential =  await _authenticationRepository.loginWithEmilAndPassword(
-          emailController.text.trim(), passwordController.text.trim());
-      final fetchedUser = await _userRepository.fetchStableData(userCredential.user?.uid);
+      final UserCredential userCredential =
+          await _authenticationRepository.loginWithEmilAndPassword(
+              emailController.text.trim(), passwordController.text.trim());
+      final fetchedUser =
+          await _userRepository.fetchStableData(userCredential.user?.uid);
       print(fetchedUser.email);
 
       // Save user details in cache concurrently
@@ -42,18 +45,11 @@ class LoginCubit extends Cubit<LoginState> {
         getIt<CacheHelper>().saveValueWithKey("EMAIL", fetchedUser.email),
         getIt<CacheHelper>()
             .saveValueWithKey("MOBILENUMBER", fetchedUser.phoneNumber),
-            getIt<CacheHelper>()
-            .saveValueWithKey("tYPEUSER", fetchedUser.userType),
-
-            // getIt<CacheHelper>()
-            // .saveValueWithKey("MOBILENUMBER", fetchedUser.userType)
+        getIt<CacheHelper>().saveValueWithKey("tYPEUSER", fetchedUser.userType),
       ]);
 
       isLoggedInUser = true;
       tYPEUSER = fetchedUser.userType;
-      // tYPEUSER
-
-      // }
       emit(const LoginState.success());
     } catch (errorMsg) {
       emit(LoginState.faluire(error: errorMsg.toString()));
@@ -64,10 +60,11 @@ class LoginCubit extends Cubit<LoginState> {
     try {
       emit(const LoginState.loading());
 
-      UserCredential user =  await _authenticationRepository.loginWithEmilAndPassword(
-          emailController.text.trim(), passwordController.text.trim());
-          String userId = user.user!.uid;
-          emit( LoginState.successForOwner(userId: userId));
+      UserCredential user =
+          await _authenticationRepository.loginWithEmilAndPassword(
+              emailController.text.trim(), passwordController.text.trim());
+      String userId = user.user!.uid;
+      emit(LoginState.successForOwner(userId: userId));
     } catch (onError) {
       emit(LoginState.faluire(error: onError.toString()));
     }
@@ -76,10 +73,52 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> emitLogInByGoogle(context) async {
     try {
       emit(const LoginState.loading());
-      final user = await _authenticationRepository.singInWithGoogle();
-      _userRepository.saveUserRecord(user);
-      // _authenticationRepository.screenRedirect(context);
+      final userCredential = await _authenticationRepository.singInWithGoogle();
+
+      final isRegister =  await _userRepository.checkIFLoggedBefore(userCredential?.user?.uid);
+
+      if(isRegister == false){
+        //For Sing in first time and new User .....
+       
+       // Save user details in cache concurrently
+      await _userRepository.saveUserRecord(userCredential);
+      await Future.wait([
+        getIt<CacheHelper>().saveValueWithKey("USERNAME", userCredential?.user?.displayName),
+        getIt<CacheHelper>()
+            .saveValueWithKey("IMAGEURL", userCredential?.user?.photoURL),
+        getIt<CacheHelper>().saveValueWithKey("EMAIL", userCredential?.user?.email),
+        getIt<CacheHelper>()
+            .saveValueWithKey("MOBILENUMBER", userCredential?.user?.phoneNumber ?? ""),
+        getIt<CacheHelper>().saveValueWithKey("tYPEUSER", tYPEUSER),
+      ]);
+
+      isLoggedInUser = true;
       emit(const LoginState.success());
+      }else{
+
+        //this user is exist 
+        //and we deal on his attribute .... not dialog 
+      UserModel existUser = await _userRepository.fetchStableData(userCredential?.user?.uid);
+
+        
+
+      await Future.wait([
+        getIt<CacheHelper>().saveValueWithKey("USERNAME", existUser.userName),
+            getIt<CacheHelper>().saveValueWithKey("IMAGEURL", existUser.profilePicture),
+        getIt<CacheHelper>().saveValueWithKey("EMAIL", existUser.email),
+        getIt<CacheHelper>()
+            .saveValueWithKey("MOBILENUMBER",existUser.phoneNumber),
+        getIt<CacheHelper>().saveValueWithKey("tYPEUSER", existUser.userType),
+      ]);
+
+      isLoggedInUser = true;
+      tYPEUSER = existUser.userType;
+      emit(const LoginState.success());
+
+      }
+
+     
+    
     } catch (error) {
       emit(LoginState.faluire(error: error.toString()));
     }

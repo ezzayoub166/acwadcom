@@ -19,8 +19,13 @@ emitGetCoupons()async{
   emit(const HomeOwnerState.loadingGetCouponsForOwner());
   try{
     final List<Coupon> coupons = await couponRepository.fetchCouponsForOwner();
+    var sumsOFUseCoupons = 0;
+    coupons.forEach((element) {
+      sumsOFUseCoupons += element.numberOfUse;
+    },);
     emit(HomeOwnerState.successGetCouponsForOwner(coupons: coupons));
 emit(HomeOwnerState.getNumberOfCoupons(number: coupons.length));
+ emit(HomeOwnerState.getSumUsedOfCoupons(sum: sumsOFUseCoupons));
   }catch(error){
     emit(HomeOwnerState.faluireGetCouponsForOwner(error: error.toString()));
   }
@@ -30,6 +35,17 @@ emit(HomeOwnerState.getNumberOfCoupons(number: coupons.length));
 emitNumberOfItems(){
       emit(HomeOwnerState.getNumberOfCoupons(number: numberOfItems));
 }
+
+
+
+void emitRemoveCoupon(String couponId)async{
+    try{
+      await couponRepository.removeCoupon(couponId).then((_){
+        emitGetCoupons();
+      });
+    }catch(error){
+    } 
+  }
   
 
 }

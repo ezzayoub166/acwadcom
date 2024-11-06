@@ -129,9 +129,9 @@ class _AddOfferScreenState extends State<AddOfferScreen> {
                 ),
                 child: _selectedImage != null
                     ? Image.file(File(_selectedImage!.path), fit: BoxFit.cover)
-                    : const Center(
+                    :  Center(
                         child: Text(
-                          "Add the offer image",
+                          "Add the offer image".tr(context),
                           style: TextStyle(
                             fontSize: 16,
                             color: ManagerColors.yellowColor,
@@ -147,7 +147,7 @@ class _AddOfferScreenState extends State<AddOfferScreen> {
               child: RoundedInputField(
                   controller: urlController,
                   // key: formKey,
-                  hintText: "linke of Offer",
+                  hintText: "linke of Offer".tr(context),
                   validator: (value) =>
                       ManagerValidator.validateURL(value, context)),
             ),
@@ -155,14 +155,14 @@ class _AddOfferScreenState extends State<AddOfferScreen> {
             ElevatedButton(
               onPressed:
                   _isUploadingImage && _isAddedURL ? null : uploadOfferPicture,
-              child: const Text("Upload Offer Image"),
+              child:  Text("Upload Offer Image".tr(context)),
             ),
             buildSpacerH(10.0),
             ElevatedButton(
               onPressed: () {
                 navigateTo(context, ListOffersScreen());
               },
-              child: const Text("Show All Offers."),
+              child:  Text("Show All Offers.".tr(context)),
             ),
             buildSpacerH(10.0),
           ],

@@ -20,6 +20,7 @@ class AText {
   static const forgetPass = "Foreget Password ?";
   static const deatilsStore = "Details less 20 words";
   static const forgetPasswordSubTitle =
+  
       "Don’t worry sometimes people can forget too, enter your email and we will send you a password reset link.";
   static const nohaveAccount = "Don't have an account?";
   static const haveAccount = "Do you have an account?";
@@ -28,6 +29,7 @@ class AText {
   static const loginByApple = "Sign in with Apple ID";
   static const loginByFacebook = "Log in with Facebook";
   static const creatNewAccountlbl = "Create an account";
+  static const offfers = "Offers";
   static const insertYourUserNamlbl = "Enter your full Name";
   static const confirmPassword = "Confirm your password";
   static const user = "User";
@@ -212,4 +214,5 @@ class AText {
       "The coupon has been successfully added to the app.";
   static const msgSuccessDeleteRrequestForAdin =
       "The special request on this coupon has been removed.";
+      static const remaingTimeForDiscountCode = "Discount code expires";
 }

@@ -2,21 +2,21 @@ import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/models/coupon_model.dart';
 import 'package:acwadcom/models/user_model.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class WihslistRepository {
   final _db = FirebaseFirestore.instance;
 
   Future<List<Coupon>> feathcoWishList() async {
     try {
-           // Get the current date and time
+         // Get the current date and time
   DateTime currentDate = DateTime.now();
   Timestamp currentTimestamp = Timestamp.fromDate(currentDate);
       final userId = getIt<CacheHelper>().getValueWithKey("userID");
       final ref = await _db
           .collection("Users")
           .doc(userId)
-          .collection("wishlist").where('EndData', isGreaterThan: currentTimestamp)
+          .collection("wishlist")
+          .where('EndDate', isGreaterThan: currentTimestamp)
           .get();
       final coupons =
           ref.docs.map((document) => Coupon.fromSnapshot(document)).toList();

@@ -112,10 +112,24 @@ class MerchantStatisticsPage extends StatelessWidget {
                         children: [
                           myText(AText.numberOfuse.tr(context),
                               fontSize: 16, color: ManagerColors.yellowColor),
-                          myText(
-                            "100",
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                          BlocBuilder<HomeOwnerCubit, HomeOwnerState>(
+                            buildWhen: (previous, current) => current is GetSumUsedOfCoupons,
+                            builder: (context, state) {
+                              return state.maybeWhen(
+                                getSumUsedOfCoupons: (sum) =>   myText(
+                                  sum.toString(),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                                orElse:() {
+                                 return myText(
+                                 "0",
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              );
+                              });
+                             
+                            },
                           ),
                         ],
                       ),

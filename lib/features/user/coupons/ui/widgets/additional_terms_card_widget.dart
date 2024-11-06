@@ -2,6 +2,10 @@ import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/user/coupons/logic/cubit/create_coupon_cubit_cubit.dart';
 
 class AdditionalTermsCardWidget extends StatelessWidget {
+
+  final String text;
+
+  const AdditionalTermsCardWidget({super.key,  this.text = ""}); 
   
   @override
   Widget build(BuildContext context) {
@@ -15,9 +19,9 @@ class AdditionalTermsCardWidget extends StatelessWidget {
       // padding: const EdgeInsets.all(20.0),
       child: TextFormField(
         textInputAction: TextInputAction.done,
-        controller: context.read<CreateCouponCubit>().additionalTerms,
+        controller: text==""? context.read<CreateCouponCubit>().additionalTerms : TextEditingController(text: text),
         validator:(value) => ManagerValidator.validateEmptyText("Additional Terms".tr(context), value??""),
-        maxLines: null, // Allows the text field to expand vertically
+        maxLines: 3, // Allows the text field to expand vertically
         keyboardType: TextInputType.multiline,
         // textAlign: TextAlign.right, // Align text to the right for Arabic or RTL languages
         decoration: InputDecoration(

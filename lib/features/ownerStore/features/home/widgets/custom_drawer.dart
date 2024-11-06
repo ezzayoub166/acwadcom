@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/common/widgets/featured_not_avalible_dialog.dart';
 import 'package:acwadcom/features/user/authtication/data/authentication_repository.dart';
+import 'package:acwadcom/features/user/authtication/data/user_repositry.dart';
 import 'package:acwadcom/features/user/home/logic/avatar/avatar_cubit.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 
@@ -49,15 +51,21 @@ class CustomDrawer extends StatelessWidget {
                   ListTile(
                     leading: Icon(Icons.notifications),
                     title: myText(AText.notification.tr(context)),
-                    onTap: () {
-                      // Handle Notifications navigation
+                   onTap: () {
+                      //TODO / go to list notifcations ...
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const FeaturedNotAvalibleDialog();
+                        },
+                      );
                     },
                   ),
                   ListTile(
                     leading: Icon(Icons.settings),
                     title: myText(AText.storeData.tr(context)),
                     onTap: () {
-                      navigateNamedTo(context, Routes.editProfileScreen);
+                      navigateNamedTo(context, Routes.storeDataProfile);
                       // Handle Store Info navigation
                     },
                   ),
@@ -75,6 +83,8 @@ class CustomDrawer extends StatelessWidget {
                         color: Colors.red),
                     onTap: () {
                       // Handle Delete Store action
+                      navigateNamedTo(context, Routes.deleteStoreScreen);
+                     
                     },
                   ),
                   ListTile(

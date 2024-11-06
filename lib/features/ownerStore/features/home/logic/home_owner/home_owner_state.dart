@@ -10,6 +10,7 @@ class HomeOwnerState with _$HomeOwnerState {
   const factory HomeOwnerState.successGetCouponsForOwner({required List<Coupon> coupons}) = SuccessGetCouponsForOwner;
   const factory HomeOwnerState.faluireGetCouponsForOwner({required String error}) = FaluireGetCouponsForOwner;
   const factory HomeOwnerState.getNumberOfCoupons({required int number}) = GetNumberOfCoupons;
+  const factory HomeOwnerState.getSumUsedOfCoupons({required int sum}) = GetSumUsedOfCoupons;
   const factory HomeOwnerState.emptyCouponsForOwner() = EmptyCouponsForOwner;
 
 

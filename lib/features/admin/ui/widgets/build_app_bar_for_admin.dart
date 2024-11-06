@@ -2,6 +2,11 @@
 
 AppBar buildAppBarForAdmin(BuildContext context, String title) {
     return AppBar(
+      leading: IconButton(icon: Icon(Iconsax.translate),onPressed: () {
+            navigateNamedTo(context, Routes.languageSelectionPage);
+
+        
+      },),
         backgroundColor: ManagerColors.kCustomColor,
         title: myText(
           title.tr(context),

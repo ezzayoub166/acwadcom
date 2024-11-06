@@ -1,6 +1,7 @@
 import 'package:acwadcom/features/admin/logic/home_admin_cubit/cubit/home_admin_cubit.dart';
 import 'package:acwadcom/features/admin/logic/request/cubit/control_coupons_cubit.dart';
 import 'package:acwadcom/features/admin/srvices/coupon_request_services.dart';
+import 'package:acwadcom/features/ownerStore/features/authitcation/logic/delete_store/cubit/delete_store_cubit.dart';
 import 'package:acwadcom/features/ownerStore/features/home/logic/home_owner/home_owner_cubit.dart';
 import 'package:acwadcom/features/user/authtication/data/authentication_repository.dart';
 import 'package:acwadcom/features/user/authtication/data/user_repositry.dart';
@@ -46,6 +47,7 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<CouponRequestService>(
       () => CouponRequestService());
 
+
       
 
 
@@ -74,6 +76,9 @@ Future<void> setupGetIt() async {
 
           getIt.registerFactory<FilterCouponsCubit>(() => FilterCouponsCubit(
       getIt<CouponRepository>()));
+
+
+      getIt.registerFactory<DeleteStoreCubit>(() => DeleteStoreCubit(getIt<CouponRepository>() , getIt<UserRepository>()));
 
 
 

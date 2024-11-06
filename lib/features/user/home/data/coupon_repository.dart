@@ -84,6 +84,28 @@ class CouponRepository {
     }
   }
 
+   Future<List<Coupon>> fetchAllCouponsForAdmin() async {
+    try {
+
+      final ref = await _db
+          .collection(couponsConstant)
+          .get();
+      final coupons =
+          ref.docs.map((document) => Coupon.fromSnapshot(document)).toList();
+      return coupons;
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'something went wrong. Please try again';
+    }
+  }
+
   Future<List<Coupon>> fetchRecentlyAddedCoupons(int limit) async {
     try {
       // Get the current date and time
@@ -213,6 +235,27 @@ class CouponRepository {
     }
   }
 
+    //** Delete All Coupons For Owner when Delete the store. */
+  Future<void> removeCoupons(String userID) async {
+    try {
+      // Remove the coupon documents from Firestore using the ownerCouponId
+      QuerySnapshot couponsSnapshot = await _db.collection(couponsConstant).where('OwnerCouponId', isEqualTo: userID).get();
+      for (DocumentSnapshot coupon in couponsSnapshot.docs) {
+        await coupon.reference.delete();
+      }
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+  
   ///Function to update any filed in Specific users Collection
   Future<void> updateStringFiled(
       {required Map<String, dynamic> json, required String couponID}) async {

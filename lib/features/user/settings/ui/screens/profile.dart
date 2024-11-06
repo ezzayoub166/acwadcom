@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/common/widgets/build_custom_loader.dart';
 import 'package:acwadcom/features/user/authtication/data/authentication_repository.dart';
 import 'package:acwadcom/features/user/coupons/ui/widgets/build_app_bar_with_back_button.dart';
 import 'package:acwadcom/features/user/settings/logic/cubit/profile_cubit.dart';
@@ -20,7 +21,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    BlocProvider.of<ProfileCubit>(context).emitLoadingProfileData();
   }
 
   @override
@@ -31,9 +31,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
       appBar: buildAppBarWithBackButton(context, isRtl),
       body: Center(
         child: BlocBuilder<ProfileCubit, ProfileState>(
-          buildWhen: (previous, current) => current is ProfileSuccess || current is ProfileError ,
+          buildWhen: (previous, current) => 
+          current is ProfileSuccess ||
+          current is ProfileError ||
+          current is ProfileLoading ,
           builder: (context, state) {
             return state.maybeWhen(
+              profileLoading: () => BuildCustomLoader(),
               profileSuccess: (user) => Padding(
                 padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                 child: Column(
@@ -83,14 +87,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               profileError: (error) =>  setupError(error) ,
                   orElse : () => Center(child: CircularProgressIndicator(),)
-
             );
           },
         ),
       ),
     );
   }
-
   Widget setupError(error) {
     return Center(child: Container(child: myText(error),));
   }
