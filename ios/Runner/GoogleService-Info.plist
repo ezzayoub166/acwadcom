@@ -3,9 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>242503319267-h3mufn4vgpruvcai60rdjpjnissd0nou.apps.googleusercontent.com</string>
+	<string>242503319267-unuovj1jh4ge3cnoninj2jhm0qi220ho.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.242503319267-h3mufn4vgpruvcai60rdjpjnissd0nou</string>
+	<string>com.googleusercontent.apps.242503319267-unuovj1jh4ge3cnoninj2jhm0qi220ho</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>242503319267-443aadnl6tfji290de80ruug1i37o0ef.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBJ_s7nyp4dzOlnz3uYaHi06-3VM3K12SM</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.acwadcom</string>
+	<string>com.izzdine.acwdcomapp</string>
 	<key>PROJECT_ID</key>
 	<string>acwadcom-8ab26</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:242503319267:ios:e31392ce77301c1d3e4fd6</string>
+	<string>1:242503319267:ios:1644c586dce795e23e4fd6</string>
 </dict>
 </plist>

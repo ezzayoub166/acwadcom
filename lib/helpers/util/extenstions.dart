@@ -1,9 +1,13 @@
 
+import 'dart:io';
+import 'package:image/image.dart' as img;
+
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/user/home/data/coupon_repository.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/models/coupon_model.dart';
+import 'package:path_provider/path_provider.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -135,3 +139,31 @@ String convertTimestampToDateString(String timestamp) {
 // extension StringExtension on String? {
 //   bool isNullOrEmpty() => this == null || this == "";
 // }
+Future<File?> convertToJpeg(File file) async {
+  try {
+    // Load the image
+    final imageBytes = file.readAsBytesSync();
+    img.Image? image = img.decodeImage(imageBytes);
+
+    // Ensure image is loaded
+    if (image != null) {
+      // Convert to JPEG
+      final jpegBytes = img.encodeJpg(image, quality: 90); // Adjust quality as needed
+
+      // Get directory to save the new file
+      final directory = await getApplicationDocumentsDirectory();
+      final newPath = '${directory.path}/converted_image.jpg';
+
+      // Save the JPEG file
+      final jpegFile = File(newPath);
+      await jpegFile.writeAsBytes(jpegBytes);
+      return jpegFile;
+    } else {
+      print("Failed to decode image.");
+      return null;
+    }
+  } catch (e) {
+    print("Error during JPEG conversion: $e");
+    return null;
+  }
+}

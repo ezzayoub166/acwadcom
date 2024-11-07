@@ -60,7 +60,7 @@ Future<void> setupGetIt() async {
   });
   // getIt.registerLazySingleton<CacheHelper>(() => CacheHelper());
   //Register
-  getIt.registerFactory<RegisterCubit>(() => RegisterCubit(getIt()));
+  getIt.registerFactory<RegisterCubit>(() => RegisterCubit(getIt<AuthenticationRepository>(),getIt<UserRepository>()));
   //Login
   getIt.registerFactory<LoginCubit>(() => LoginCubit(
       getIt<AuthenticationRepository>(), getIt<UserRepository>())); //Profile

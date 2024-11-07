@@ -1,6 +1,8 @@
 
 
+import 'package:acwadcom/common/widgets/build_remaing_time_for_coupon.dart';
 import 'package:acwadcom/features/user/wishlist/logic/coupons_wishlist/cubit/wihslist_coupons_cubit.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../../../acwadcom_packges.dart';
 import '../../../../../models/coupon_model.dart';
@@ -35,7 +37,41 @@ class _BuildListCouponsState extends State<BuildListCoupons> {
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (ctx, index) {
+          DateTime endDate = (widget.coupons[index].endData).toDate();
+          String remainingTime = calculateTimeRemaining(endDate);
           return InkWell(
+            onLongPress: (){
+              showDialog(context: context, builder: (BuildContext dialogContext){
+                return AlertDialog(
+                  backgroundColor: ManagerColors.kCustomColor,
+                  content: Container(
+                      height: 200.h,
+                      width: MediaQuery.of(context).size.width*0.5,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child:
+                            Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                myImage("icon_app_acwdcom" , height: 140,width: 150),
+                                myText(AText.remaingTimeForDiscountCode.tr(context),
+                                    fontSize: 18, color: ManagerColors.yellowColor),
+                                Text(
+                                  textDirection: TextDirection.ltr,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      fontSize: 16, color: ManagerColors.whiteBtnBackGround
+                                  ),
+                                  remainingTime,
+                                ),
+
+                          ],
+                        ),
+                      )),
+                );
+              });
+
+            },
               onTap: () {
                 navigateTo(
                     context,

@@ -7,6 +7,8 @@ import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/models/user_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../../helpers/constants/extenstions.dart';
+
 part 'register_state.dart';
 part 'register_cubit.freezed.dart';
 
@@ -14,6 +16,7 @@ class RegisterCubit extends Cubit<RegisterState> {
 
 
   final AuthenticationRepository _authenticationRepository;
+  final UserRepository _userRepository;
 
   
   TextEditingController nameController = TextEditingController();
@@ -28,7 +31,7 @@ class RegisterCubit extends Cubit<RegisterState> {
 
 
 
-  RegisterCubit(this._authenticationRepository) : super(RegisterState.initial());
+  RegisterCubit(this._authenticationRepository, this._userRepository) : super(RegisterState.initial());
 
 
   void emitRegisterStates() async{
@@ -54,6 +57,60 @@ class RegisterCubit extends Cubit<RegisterState> {
       emit(RegisterState.registerError(error: error.toString()));
     }
 
+  }
+
+  Future<void> emitLogInByGoogle(context) async {
+    try {
+      emit(RegisterState.registerLoading());
+      final userCredential = await _authenticationRepository.singInWithGoogle();
+
+      final isRegister =  await _userRepository.checkIFLoggedBefore(userCredential?.user?.uid);
+
+      if(isRegister == false){
+        //For Sing in first time and new User .....
+
+        // Save user details in cache concurrently
+        await _userRepository.saveUserRecord(userCredential);
+        await Future.wait([
+          getIt<CacheHelper>().saveValueWithKey("USERNAME", userCredential?.user?.displayName),
+          getIt<CacheHelper>()
+              .saveValueWithKey("IMAGEURL", userCredential?.user?.photoURL),
+          getIt<CacheHelper>().saveValueWithKey("EMAIL", userCredential?.user?.email),
+          getIt<CacheHelper>()
+              .saveValueWithKey("MOBILENUMBER", userCredential?.user?.phoneNumber ?? ""),
+          getIt<CacheHelper>().saveValueWithKey("tYPEUSER", tYPEUSER),
+        ]);
+
+        isLoggedInUser = true;
+        emit(RegisterState.registerGoogleSuccess());
+      }else{
+
+        //this user is exist
+        //and we deal on his attribute .... not dialog
+        UserModel existUser = await _userRepository.fetchStableData(userCredential?.user?.uid);
+
+
+
+        await Future.wait([
+          getIt<CacheHelper>().saveValueWithKey("USERNAME", existUser.userName),
+          getIt<CacheHelper>().saveValueWithKey("IMAGEURL", existUser.profilePicture),
+          getIt<CacheHelper>().saveValueWithKey("EMAIL", existUser.email),
+          getIt<CacheHelper>()
+              .saveValueWithKey("MOBILENUMBER",existUser.phoneNumber),
+          getIt<CacheHelper>().saveValueWithKey("tYPEUSER", existUser.userType),
+        ]);
+
+        isLoggedInUser = true;
+        tYPEUSER = existUser.userType;
+        emit(RegisterState.registerGoogleSuccess());
+
+      }
+
+
+
+    } catch (error) {
+      emit(RegisterState.registerError(error: error.toString()));
+    }
   }
 }
 

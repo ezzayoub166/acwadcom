@@ -6,6 +6,8 @@ import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/models/user_model.dart';
 import 'package:flutter/foundation.dart';
+import 'package:path/path.dart' as _path;
+
 
 class UserRepository {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
@@ -168,26 +170,28 @@ class UserRepository {
     }
   }
 
-  ///Upload any image
-  Future<String> uploadImage(String path, XFile image) async {
-    try {
-      final ref = FirebaseStorage.instance.ref(path).child(image.name);
-      await ref.putFile(File(image.path));
-      final url =
-          await ref.getDownloadURL(); // use this url to display this image ..
-      return url;
-    } on FirebaseAuthException catch (e) {
-      throw TFirebaseAuthException(e.code).message;
-    } on FirebaseException catch (e) {
-      throw TFirebaseException(e.code).message;
-    } on FormatException catch (_) {
-      throw const TFormatException();
-    } on PlatformException catch (e) {
-      throw TPlatformException(e.code).message;
-    } catch (e) {
-      throw 'something went wrong. Please try again';
-    }
+Future<String> uploadImage(String path, File image) async {
+  try {
+    // Extract file name from the file path
+    final fileName = _path.basename(image.path);
+    
+    final ref = FirebaseStorage.instance.ref(path).child(fileName);
+    await ref.putFile(image);
+    final url = await ref.getDownloadURL(); // Use this URL to display the image
+    return url;
+  } on FirebaseAuthException catch (e) {
+    throw FirebaseAuthException(code: e.code, message: e.message);
+  } on FirebaseException catch (e) {
+    throw FirebaseException(plugin: e.plugin, message: e.message);
+  } on FormatException catch (e) {
+    throw FormatException(e.message);
+  } on PlatformException catch (e) {
+    throw PlatformException(code: e.code, message: e.message);
+  } catch (e) {
+    throw 'Something went wrong. Please try again.';
   }
+}
+
 
   ///save user Record from any Registration Provider
   Future<dynamic> saveUserRecord(UserCredential? userCredential) async {

@@ -196,6 +196,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         secondary: svgImage("_icSettingsNotification"),
         value: true, // Set initial value here
         onChanged: (value) {
+          showRequireLoginDialog(context);
           // Handle switch change
         },
       ),

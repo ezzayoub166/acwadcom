@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:acwadcom/acwadcom_packges.dart';
-import 'package:acwadcom/common/widgets/build_custom_loader.dart';
 import 'package:acwadcom/features/user/coupons/ui/screens/coupon_deatls_screen.dart';
 import 'package:acwadcom/features/user/explore/logic/cubit/explore_cubit.dart';
 import 'package:acwadcom/features/user/explore/ui/widget/build_coupon_clipper_widget.dart';

@@ -21,6 +21,7 @@ mixin _$RegisterState {
     required TResult Function() initial,
     required TResult Function() registerLoading,
     required TResult Function() registerSuccess,
+    required TResult Function() registerGoogleSuccess,
     required TResult Function(String error) registerError,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,6 +30,7 @@ mixin _$RegisterState {
     TResult? Function()? initial,
     TResult? Function()? registerLoading,
     TResult? Function()? registerSuccess,
+    TResult? Function()? registerGoogleSuccess,
     TResult? Function(String error)? registerError,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,6 +39,7 @@ mixin _$RegisterState {
     TResult Function()? initial,
     TResult Function()? registerLoading,
     TResult Function()? registerSuccess,
+    TResult Function()? registerGoogleSuccess,
     TResult Function(String error)? registerError,
     required TResult orElse(),
   }) =>
@@ -46,6 +49,8 @@ mixin _$RegisterState {
     required TResult Function(_Initial value) initial,
     required TResult Function(RegisterLoading value) registerLoading,
     required TResult Function(RegisterSuccess value) registerSuccess,
+    required TResult Function(RegisterGoogleSuccess value)
+        registerGoogleSuccess,
     required TResult Function(RegisterError value) registerError,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +59,7 @@ mixin _$RegisterState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(RegisterLoading value)? registerLoading,
     TResult? Function(RegisterSuccess value)? registerSuccess,
+    TResult? Function(RegisterGoogleSuccess value)? registerGoogleSuccess,
     TResult? Function(RegisterError value)? registerError,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +68,7 @@ mixin _$RegisterState {
     TResult Function(_Initial value)? initial,
     TResult Function(RegisterLoading value)? registerLoading,
     TResult Function(RegisterSuccess value)? registerSuccess,
+    TResult Function(RegisterGoogleSuccess value)? registerGoogleSuccess,
     TResult Function(RegisterError value)? registerError,
     required TResult orElse(),
   }) =>
@@ -127,6 +134,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() registerLoading,
     required TResult Function() registerSuccess,
+    required TResult Function() registerGoogleSuccess,
     required TResult Function(String error) registerError,
   }) {
     return initial();
@@ -138,6 +146,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? registerLoading,
     TResult? Function()? registerSuccess,
+    TResult? Function()? registerGoogleSuccess,
     TResult? Function(String error)? registerError,
   }) {
     return initial?.call();
@@ -149,6 +158,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? registerLoading,
     TResult Function()? registerSuccess,
+    TResult Function()? registerGoogleSuccess,
     TResult Function(String error)? registerError,
     required TResult orElse(),
   }) {
@@ -164,6 +174,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(RegisterLoading value) registerLoading,
     required TResult Function(RegisterSuccess value) registerSuccess,
+    required TResult Function(RegisterGoogleSuccess value)
+        registerGoogleSuccess,
     required TResult Function(RegisterError value) registerError,
   }) {
     return initial(this);
@@ -175,6 +187,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(RegisterLoading value)? registerLoading,
     TResult? Function(RegisterSuccess value)? registerSuccess,
+    TResult? Function(RegisterGoogleSuccess value)? registerGoogleSuccess,
     TResult? Function(RegisterError value)? registerError,
   }) {
     return initial?.call(this);
@@ -186,6 +199,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(RegisterLoading value)? registerLoading,
     TResult Function(RegisterSuccess value)? registerSuccess,
+    TResult Function(RegisterGoogleSuccess value)? registerGoogleSuccess,
     TResult Function(RegisterError value)? registerError,
     required TResult orElse(),
   }) {
@@ -241,6 +255,7 @@ class _$RegisterLoadingImpl implements RegisterLoading {
     required TResult Function() initial,
     required TResult Function() registerLoading,
     required TResult Function() registerSuccess,
+    required TResult Function() registerGoogleSuccess,
     required TResult Function(String error) registerError,
   }) {
     return registerLoading();
@@ -252,6 +267,7 @@ class _$RegisterLoadingImpl implements RegisterLoading {
     TResult? Function()? initial,
     TResult? Function()? registerLoading,
     TResult? Function()? registerSuccess,
+    TResult? Function()? registerGoogleSuccess,
     TResult? Function(String error)? registerError,
   }) {
     return registerLoading?.call();
@@ -263,6 +279,7 @@ class _$RegisterLoadingImpl implements RegisterLoading {
     TResult Function()? initial,
     TResult Function()? registerLoading,
     TResult Function()? registerSuccess,
+    TResult Function()? registerGoogleSuccess,
     TResult Function(String error)? registerError,
     required TResult orElse(),
   }) {
@@ -278,6 +295,8 @@ class _$RegisterLoadingImpl implements RegisterLoading {
     required TResult Function(_Initial value) initial,
     required TResult Function(RegisterLoading value) registerLoading,
     required TResult Function(RegisterSuccess value) registerSuccess,
+    required TResult Function(RegisterGoogleSuccess value)
+        registerGoogleSuccess,
     required TResult Function(RegisterError value) registerError,
   }) {
     return registerLoading(this);
@@ -289,6 +308,7 @@ class _$RegisterLoadingImpl implements RegisterLoading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(RegisterLoading value)? registerLoading,
     TResult? Function(RegisterSuccess value)? registerSuccess,
+    TResult? Function(RegisterGoogleSuccess value)? registerGoogleSuccess,
     TResult? Function(RegisterError value)? registerError,
   }) {
     return registerLoading?.call(this);
@@ -300,6 +320,7 @@ class _$RegisterLoadingImpl implements RegisterLoading {
     TResult Function(_Initial value)? initial,
     TResult Function(RegisterLoading value)? registerLoading,
     TResult Function(RegisterSuccess value)? registerSuccess,
+    TResult Function(RegisterGoogleSuccess value)? registerGoogleSuccess,
     TResult Function(RegisterError value)? registerError,
     required TResult orElse(),
   }) {
@@ -355,6 +376,7 @@ class _$RegisterSuccessImpl implements RegisterSuccess {
     required TResult Function() initial,
     required TResult Function() registerLoading,
     required TResult Function() registerSuccess,
+    required TResult Function() registerGoogleSuccess,
     required TResult Function(String error) registerError,
   }) {
     return registerSuccess();
@@ -366,6 +388,7 @@ class _$RegisterSuccessImpl implements RegisterSuccess {
     TResult? Function()? initial,
     TResult? Function()? registerLoading,
     TResult? Function()? registerSuccess,
+    TResult? Function()? registerGoogleSuccess,
     TResult? Function(String error)? registerError,
   }) {
     return registerSuccess?.call();
@@ -377,6 +400,7 @@ class _$RegisterSuccessImpl implements RegisterSuccess {
     TResult Function()? initial,
     TResult Function()? registerLoading,
     TResult Function()? registerSuccess,
+    TResult Function()? registerGoogleSuccess,
     TResult Function(String error)? registerError,
     required TResult orElse(),
   }) {
@@ -392,6 +416,8 @@ class _$RegisterSuccessImpl implements RegisterSuccess {
     required TResult Function(_Initial value) initial,
     required TResult Function(RegisterLoading value) registerLoading,
     required TResult Function(RegisterSuccess value) registerSuccess,
+    required TResult Function(RegisterGoogleSuccess value)
+        registerGoogleSuccess,
     required TResult Function(RegisterError value) registerError,
   }) {
     return registerSuccess(this);
@@ -403,6 +429,7 @@ class _$RegisterSuccessImpl implements RegisterSuccess {
     TResult? Function(_Initial value)? initial,
     TResult? Function(RegisterLoading value)? registerLoading,
     TResult? Function(RegisterSuccess value)? registerSuccess,
+    TResult? Function(RegisterGoogleSuccess value)? registerGoogleSuccess,
     TResult? Function(RegisterError value)? registerError,
   }) {
     return registerSuccess?.call(this);
@@ -414,6 +441,7 @@ class _$RegisterSuccessImpl implements RegisterSuccess {
     TResult Function(_Initial value)? initial,
     TResult Function(RegisterLoading value)? registerLoading,
     TResult Function(RegisterSuccess value)? registerSuccess,
+    TResult Function(RegisterGoogleSuccess value)? registerGoogleSuccess,
     TResult Function(RegisterError value)? registerError,
     required TResult orElse(),
   }) {
@@ -426,6 +454,129 @@ class _$RegisterSuccessImpl implements RegisterSuccess {
 
 abstract class RegisterSuccess implements RegisterState {
   const factory RegisterSuccess() = _$RegisterSuccessImpl;
+}
+
+/// @nodoc
+abstract class _$$RegisterGoogleSuccessImplCopyWith<$Res> {
+  factory _$$RegisterGoogleSuccessImplCopyWith(
+          _$RegisterGoogleSuccessImpl value,
+          $Res Function(_$RegisterGoogleSuccessImpl) then) =
+      __$$RegisterGoogleSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RegisterGoogleSuccessImplCopyWithImpl<$Res>
+    extends _$RegisterStateCopyWithImpl<$Res, _$RegisterGoogleSuccessImpl>
+    implements _$$RegisterGoogleSuccessImplCopyWith<$Res> {
+  __$$RegisterGoogleSuccessImplCopyWithImpl(_$RegisterGoogleSuccessImpl _value,
+      $Res Function(_$RegisterGoogleSuccessImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$RegisterGoogleSuccessImpl implements RegisterGoogleSuccess {
+  const _$RegisterGoogleSuccessImpl();
+
+  @override
+  String toString() {
+    return 'RegisterState.registerGoogleSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RegisterGoogleSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() registerLoading,
+    required TResult Function() registerSuccess,
+    required TResult Function() registerGoogleSuccess,
+    required TResult Function(String error) registerError,
+  }) {
+    return registerGoogleSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? registerLoading,
+    TResult? Function()? registerSuccess,
+    TResult? Function()? registerGoogleSuccess,
+    TResult? Function(String error)? registerError,
+  }) {
+    return registerGoogleSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? registerLoading,
+    TResult Function()? registerSuccess,
+    TResult Function()? registerGoogleSuccess,
+    TResult Function(String error)? registerError,
+    required TResult orElse(),
+  }) {
+    if (registerGoogleSuccess != null) {
+      return registerGoogleSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(RegisterLoading value) registerLoading,
+    required TResult Function(RegisterSuccess value) registerSuccess,
+    required TResult Function(RegisterGoogleSuccess value)
+        registerGoogleSuccess,
+    required TResult Function(RegisterError value) registerError,
+  }) {
+    return registerGoogleSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(RegisterLoading value)? registerLoading,
+    TResult? Function(RegisterSuccess value)? registerSuccess,
+    TResult? Function(RegisterGoogleSuccess value)? registerGoogleSuccess,
+    TResult? Function(RegisterError value)? registerError,
+  }) {
+    return registerGoogleSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(RegisterLoading value)? registerLoading,
+    TResult Function(RegisterSuccess value)? registerSuccess,
+    TResult Function(RegisterGoogleSuccess value)? registerGoogleSuccess,
+    TResult Function(RegisterError value)? registerError,
+    required TResult orElse(),
+  }) {
+    if (registerGoogleSuccess != null) {
+      return registerGoogleSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RegisterGoogleSuccess implements RegisterState {
+  const factory RegisterGoogleSuccess() = _$RegisterGoogleSuccessImpl;
 }
 
 /// @nodoc
@@ -495,6 +646,7 @@ class _$RegisterErrorImpl implements RegisterError {
     required TResult Function() initial,
     required TResult Function() registerLoading,
     required TResult Function() registerSuccess,
+    required TResult Function() registerGoogleSuccess,
     required TResult Function(String error) registerError,
   }) {
     return registerError(error);
@@ -506,6 +658,7 @@ class _$RegisterErrorImpl implements RegisterError {
     TResult? Function()? initial,
     TResult? Function()? registerLoading,
     TResult? Function()? registerSuccess,
+    TResult? Function()? registerGoogleSuccess,
     TResult? Function(String error)? registerError,
   }) {
     return registerError?.call(error);
@@ -517,6 +670,7 @@ class _$RegisterErrorImpl implements RegisterError {
     TResult Function()? initial,
     TResult Function()? registerLoading,
     TResult Function()? registerSuccess,
+    TResult Function()? registerGoogleSuccess,
     TResult Function(String error)? registerError,
     required TResult orElse(),
   }) {
@@ -532,6 +686,8 @@ class _$RegisterErrorImpl implements RegisterError {
     required TResult Function(_Initial value) initial,
     required TResult Function(RegisterLoading value) registerLoading,
     required TResult Function(RegisterSuccess value) registerSuccess,
+    required TResult Function(RegisterGoogleSuccess value)
+        registerGoogleSuccess,
     required TResult Function(RegisterError value) registerError,
   }) {
     return registerError(this);
@@ -543,6 +699,7 @@ class _$RegisterErrorImpl implements RegisterError {
     TResult? Function(_Initial value)? initial,
     TResult? Function(RegisterLoading value)? registerLoading,
     TResult? Function(RegisterSuccess value)? registerSuccess,
+    TResult? Function(RegisterGoogleSuccess value)? registerGoogleSuccess,
     TResult? Function(RegisterError value)? registerError,
   }) {
     return registerError?.call(this);
@@ -554,6 +711,7 @@ class _$RegisterErrorImpl implements RegisterError {
     TResult Function(_Initial value)? initial,
     TResult Function(RegisterLoading value)? registerLoading,
     TResult Function(RegisterSuccess value)? registerSuccess,
+    TResult Function(RegisterGoogleSuccess value)? registerGoogleSuccess,
     TResult Function(RegisterError value)? registerError,
     required TResult orElse(),
   }) {

@@ -61,8 +61,9 @@ class StoreRepository {
       Timestamp currentTimestamp = Timestamp.fromDate(currentDate);
       final ref = await _db
           .collection("Coupons")
-          .where('EndData', isGreaterThan: currentTimestamp)
-          .where("ownerCouponId", isEqualTo: ownerID)
+          .where("OwnerCouponId", isEqualTo: ownerID)
+          .where('EndDate', isGreaterThan: currentTimestamp)
+
           .get();
       final coupons =
           ref.docs.map((coupon) => Coupon.fromSnapshot(coupon)).toList();

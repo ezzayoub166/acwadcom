@@ -6,6 +6,7 @@ class RegisterState with _$RegisterState {
 
   const factory RegisterState.registerLoading()= RegisterLoading;
   const factory RegisterState.registerSuccess()= RegisterSuccess;
+  const factory RegisterState.registerGoogleSuccess() = RegisterGoogleSuccess;
   const factory RegisterState.registerError({required String error})= RegisterError;
 
 

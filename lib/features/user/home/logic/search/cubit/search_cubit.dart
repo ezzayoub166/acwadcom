@@ -26,8 +26,8 @@ class SearchCubit extends Cubit<SearchState> {
 
         var snapshot = await  _db
             .collection("Coupons")
-            .where('title', isGreaterThanOrEqualTo: searchController.text)
-            .where('title', isLessThanOrEqualTo: searchController.text + '\uf8ff')
+            .where('Title', isGreaterThanOrEqualTo: searchController.text)
+            .where('Title', isLessThanOrEqualTo: searchController.text + '\uf8ff')
             .get();
 
          final coupons = snapshot.docs.map((document) => Coupon.fromSnapshot(document)).toList();

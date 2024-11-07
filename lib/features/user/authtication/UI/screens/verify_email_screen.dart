@@ -29,8 +29,8 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
       if (mounted) {
         TLoader.showSuccessSnackBar(
           context,
-          title: 'Email sent',
-          message: 'Please check your inbox and verify your email',
+          title: "Email sent".tr(context),
+          message: 'Please check your inbox and verify your email'.tr(context),
         );
       }
     } catch (e) {
@@ -89,11 +89,12 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
           Navigator.of(context).pushReplacement(MaterialPageRoute(
               builder: (context) => SuccessScreen(
                   image: "assets/images/check_user_verifiction.json",
-                  title: AText.yourAccountCreatedTitle,
-                  subTitle: AText.yourAccountCreatedSubTitle,
+                  title: AText.yourAccountCreatedTitle.tr(context),
+                  subTitle: AText.yourAccountCreatedSubTitle.tr(context),
                   onPressed: () => _authRepository.screenRedirect(context))));
         }
       } else {
+        TLoader.showWarningSnackBar(context, title: "Email is not verified".tr(context));
         if (kDebugMode) {
           print("Email is not verified");
         }
@@ -138,7 +139,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
               SizedBox(height: TSizes.spaceBtwSections),
 
               ///Title & subtitle
-              Text("confirm Email",
+              Text("confirm Email".tr(context),
                   style: Theme.of(context).textTheme.headlineMedium,
                   textAlign: TextAlign.center),
               SizedBox(height: TSizes.spaceBtwItems),
@@ -149,7 +150,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
               // ),
               SizedBox(height: TSizes.spaceBtwItems),
               Text(
-                AText.confirmEmailSubTitle,
+                AText.confirmEmailSubTitle.tr(context),
                 style: Theme.of(context).textTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),
@@ -168,7 +169,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                   width: double.infinity,
                   child: TextButton(
                       onPressed: () => sendEmailVerification(),
-                      child: Text("Send Email"))),
+                      child: Text("Send to Email".tr(context)))),
             ],
           ),
         ),

@@ -22,7 +22,7 @@ class AddOfferScreen extends StatefulWidget {
 class _AddOfferScreenState extends State<AddOfferScreen> {
   final _db = FirebaseFirestore.instance;
   final _imagePicker = ImagePicker();
-  XFile? _selectedImage;
+  File? _selectedImage;
   bool _isUploadingImage = false;
   bool _isAddedURL = false;
   TextEditingController urlController = TextEditingController();
@@ -37,9 +37,13 @@ class _AddOfferScreenState extends State<AddOfferScreen> {
       maxWidth: 512,
     );
 
-    if (pickedFile != null) {
+    // Step 2: Convert to JPEG if necessary
+    File imageFile = File(pickedFile!.path);
+    File? jpegImage = await convertToJpeg(imageFile);
+
+    if (jpegImage != null) {
       setState(() {
-        _selectedImage = pickedFile;
+        _selectedImage = jpegImage;
       });
     } else {
       ScaffoldMessenger.of(context).showSnackBar(

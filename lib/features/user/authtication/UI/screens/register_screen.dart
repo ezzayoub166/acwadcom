@@ -57,13 +57,13 @@ class RegisterScreen extends StatelessWidget {
                         color: ManagerColors.dark,
                         width: double.infinity,
                         height: double.infinity,
-                        child: const Column(
+                        child:  Column(
                           children: [
                             SizedBox(
                               height: 250,
                             ),
                             TAnimationLoaderWidget(
-                                text: 'We are processing your information...',
+                                text: "We are processing your information...".tr(context),
                                 animation: "assets/images/loading_sign.json")
                           ],
                         ),
@@ -75,10 +75,22 @@ class RegisterScreen extends StatelessWidget {
               TLoader.showSuccessSnackBar(context,
                   title: 'Congratulation',
                   message:
-                      'Your account has been created! Verify email to continue');
+                      'Your account has been created! Verify email to continue'.tr(context));
 
               //Move to Verity Email Screen
               navigateNamedTo(context, Routes.verifyEmailScreen,"USER");
+              // Get.to(() => VerifyEmailScreen(email: userCredential.user?.email));
+            },
+            registerGoogleSuccess: () {
+              //Show Success Message
+              Navigator.pop(context);
+              TLoader.showSuccessSnackBar(context,
+                  title: 'Congratulation',
+                  message:
+                  'Your account has been created!'.tr(context));
+
+              //Move to Verity Email Screen
+              navigateNamedTo(context, Routes.bottomTabBarScreen,"USER");
               // Get.to(() => VerifyEmailScreen(email: userCredential.user?.email));
             },
             registerError: (error) {

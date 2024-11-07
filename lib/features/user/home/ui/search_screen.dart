@@ -108,11 +108,13 @@ class _SearchScreenState extends State<SearchScreen> {
                             itemCount: results.length,
                             itemBuilder: (context, index) {
                               return InkWell(
-                                onTap: () => navigateTo(
+                                onTap: () {
+                                  FocusScope.of(context).requestFocus(FocusNode());
+                                  navigateTo(
                                     context,
                                     CouponDeatlsScreen(
                                       coupon: results[index],
-                                    )),
+                                    ));},
                                 child: ListTile(
                                   title: Text(results[index].title),
                                 ),

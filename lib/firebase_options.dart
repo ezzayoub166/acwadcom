@@ -64,19 +64,20 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey:"AIzaSyDEsuC-rOx0AgW5rksnMrMPoN7VdWpjjQo",
-    appId: "1:242503319267:android:4c2cd1f1fed510ab3e4fd6",
+    appId: "1:242503319267:android:b11a9ec439d30bba3e4fd6",
     messagingSenderId: "242503319267",
     projectId: "acwadcom-8ab26",
+    storageBucket:"acwadcom-8ab26.appspot.com"
     // storageBucket: 'flutter-app-distribution-622c3.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     
     apiKey: "AIzaSyBJ_s7nyp4dzOlnz3uYaHi06-3VM3K12SM",
-    appId: '1:924796587829:ios:a27ee2cfe89a21fe40867c',
+    appId: '1:242503319267:ios:1644c586dce795e23e4fd6',
     messagingSenderId: "242503319267",
     projectId: "acwadcom-8ab26",
     storageBucket: "acwadcom-8ab26.appspot.com",
-    iosBundleId: 'com.example.acwadcomt',
+    iosBundleId: 'com.izzdine.acwdcomapp',
   );
 }

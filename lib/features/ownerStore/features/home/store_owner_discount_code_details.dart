@@ -6,6 +6,8 @@ import 'package:acwadcom/features/user/settings/ui/widgets/build_disabled_textfi
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/models/coupon_model.dart';
 
+import '../../../../common/widgets/build_remaing_time_for_coupon.dart';
+
 class StoreOwnerDiscountCodeDetails extends StatelessWidget {
   const StoreOwnerDiscountCodeDetails({super.key, required this.coupon});
   final Coupon coupon;
@@ -37,22 +39,7 @@ class StoreOwnerDiscountCodeDetails extends StatelessWidget {
             children: [
               myText(coupon.title, fontSize: 16, fontWeight: FontWeight.bold),
               buildSpacerH(5.0),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  myText(AText.remaingTimeForDiscountCode.tr(context),
-                      fontSize: 10, color: ManagerColors.yellowColor),
-                      Text(
-                        textDirection: TextDirection.ltr,
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: 12, color: ManagerColors.kCustomColor
-                        ),
-                        remainingTime,
-                      ),
-
-                ],
-              ),
+              buildRemaingTimeForDiscountCode(context, remainingTime),
                buildSpacerH(10.0),
 
               buildDisabledTextField(text:coupon.code),
@@ -74,25 +61,6 @@ class StoreOwnerDiscountCodeDetails extends StatelessWidget {
               ),
         ));
   }
-  String calculateTimeRemaining(DateTime endDate) {
-  final now = DateTime.now();
-  final difference = endDate.difference(now);
 
-  if (difference.isNegative) {
-    return "Expired";
-  } else {
-    final days = difference.inDays;
-    final hours = difference.inHours % 24;
-    final minutes = difference.inMinutes % 60;
-
-    if (days > 0) {
-      return '$days days, $hours hours, $minutes minutes';
-    } else if (hours > 0) {
-      return '$hours hours, $minutes minutes';
-    } else {
-      return '$minutes minutes';
-    }
-  }
-}
 
 }

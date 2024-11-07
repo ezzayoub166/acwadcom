@@ -24,7 +24,7 @@ mixin _$RegisterOwnerStoreState {
     required TResult Function() loadingRegister,
     required TResult Function() imageStoreinital,
     required TResult Function() imageStoreLoading,
-    required TResult Function(XFile image) imageStoreSelected,
+    required TResult Function(File image) imageStoreSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,7 +35,7 @@ mixin _$RegisterOwnerStoreState {
     TResult? Function()? loadingRegister,
     TResult? Function()? imageStoreinital,
     TResult? Function()? imageStoreLoading,
-    TResult? Function(XFile image)? imageStoreSelected,
+    TResult? Function(File image)? imageStoreSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -46,7 +46,7 @@ mixin _$RegisterOwnerStoreState {
     TResult Function()? loadingRegister,
     TResult Function()? imageStoreinital,
     TResult Function()? imageStoreLoading,
-    TResult Function(XFile image)? imageStoreSelected,
+    TResult Function(File image)? imageStoreSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -149,7 +149,7 @@ class _$InitialImpl implements Initial {
     required TResult Function() loadingRegister,
     required TResult Function() imageStoreinital,
     required TResult Function() imageStoreLoading,
-    required TResult Function(XFile image) imageStoreSelected,
+    required TResult Function(File image) imageStoreSelected,
   }) {
     return initial();
   }
@@ -163,7 +163,7 @@ class _$InitialImpl implements Initial {
     TResult? Function()? loadingRegister,
     TResult? Function()? imageStoreinital,
     TResult? Function()? imageStoreLoading,
-    TResult? Function(XFile image)? imageStoreSelected,
+    TResult? Function(File image)? imageStoreSelected,
   }) {
     return initial?.call();
   }
@@ -177,7 +177,7 @@ class _$InitialImpl implements Initial {
     TResult Function()? loadingRegister,
     TResult Function()? imageStoreinital,
     TResult Function()? imageStoreLoading,
-    TResult Function(XFile image)? imageStoreSelected,
+    TResult Function(File image)? imageStoreSelected,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -281,7 +281,7 @@ class _$SuccessRegisterImpl implements SuccessRegister {
     required TResult Function() loadingRegister,
     required TResult Function() imageStoreinital,
     required TResult Function() imageStoreLoading,
-    required TResult Function(XFile image) imageStoreSelected,
+    required TResult Function(File image) imageStoreSelected,
   }) {
     return successRegister();
   }
@@ -295,7 +295,7 @@ class _$SuccessRegisterImpl implements SuccessRegister {
     TResult? Function()? loadingRegister,
     TResult? Function()? imageStoreinital,
     TResult? Function()? imageStoreLoading,
-    TResult? Function(XFile image)? imageStoreSelected,
+    TResult? Function(File image)? imageStoreSelected,
   }) {
     return successRegister?.call();
   }
@@ -309,7 +309,7 @@ class _$SuccessRegisterImpl implements SuccessRegister {
     TResult Function()? loadingRegister,
     TResult Function()? imageStoreinital,
     TResult Function()? imageStoreLoading,
-    TResult Function(XFile image)? imageStoreSelected,
+    TResult Function(File image)? imageStoreSelected,
     required TResult orElse(),
   }) {
     if (successRegister != null) {
@@ -440,7 +440,7 @@ class _$FailureRegisterImpl implements FailureRegister {
     required TResult Function() loadingRegister,
     required TResult Function() imageStoreinital,
     required TResult Function() imageStoreLoading,
-    required TResult Function(XFile image) imageStoreSelected,
+    required TResult Function(File image) imageStoreSelected,
   }) {
     return failureRegister(error);
   }
@@ -454,7 +454,7 @@ class _$FailureRegisterImpl implements FailureRegister {
     TResult? Function()? loadingRegister,
     TResult? Function()? imageStoreinital,
     TResult? Function()? imageStoreLoading,
-    TResult? Function(XFile image)? imageStoreSelected,
+    TResult? Function(File image)? imageStoreSelected,
   }) {
     return failureRegister?.call(error);
   }
@@ -468,7 +468,7 @@ class _$FailureRegisterImpl implements FailureRegister {
     TResult Function()? loadingRegister,
     TResult Function()? imageStoreinital,
     TResult Function()? imageStoreLoading,
-    TResult Function(XFile image)? imageStoreSelected,
+    TResult Function(File image)? imageStoreSelected,
     required TResult orElse(),
   }) {
     if (failureRegister != null) {
@@ -578,7 +578,7 @@ class _$LoadingRegisterImpl implements LoadingRegister {
     required TResult Function() loadingRegister,
     required TResult Function() imageStoreinital,
     required TResult Function() imageStoreLoading,
-    required TResult Function(XFile image) imageStoreSelected,
+    required TResult Function(File image) imageStoreSelected,
   }) {
     return loadingRegister();
   }
@@ -592,7 +592,7 @@ class _$LoadingRegisterImpl implements LoadingRegister {
     TResult? Function()? loadingRegister,
     TResult? Function()? imageStoreinital,
     TResult? Function()? imageStoreLoading,
-    TResult? Function(XFile image)? imageStoreSelected,
+    TResult? Function(File image)? imageStoreSelected,
   }) {
     return loadingRegister?.call();
   }
@@ -606,7 +606,7 @@ class _$LoadingRegisterImpl implements LoadingRegister {
     TResult Function()? loadingRegister,
     TResult Function()? imageStoreinital,
     TResult Function()? imageStoreLoading,
-    TResult Function(XFile image)? imageStoreSelected,
+    TResult Function(File image)? imageStoreSelected,
     required TResult orElse(),
   }) {
     if (loadingRegister != null) {
@@ -710,7 +710,7 @@ class _$ImageStoreinitalImpl implements ImageStoreinital {
     required TResult Function() loadingRegister,
     required TResult Function() imageStoreinital,
     required TResult Function() imageStoreLoading,
-    required TResult Function(XFile image) imageStoreSelected,
+    required TResult Function(File image) imageStoreSelected,
   }) {
     return imageStoreinital();
   }
@@ -724,7 +724,7 @@ class _$ImageStoreinitalImpl implements ImageStoreinital {
     TResult? Function()? loadingRegister,
     TResult? Function()? imageStoreinital,
     TResult? Function()? imageStoreLoading,
-    TResult? Function(XFile image)? imageStoreSelected,
+    TResult? Function(File image)? imageStoreSelected,
   }) {
     return imageStoreinital?.call();
   }
@@ -738,7 +738,7 @@ class _$ImageStoreinitalImpl implements ImageStoreinital {
     TResult Function()? loadingRegister,
     TResult Function()? imageStoreinital,
     TResult Function()? imageStoreLoading,
-    TResult Function(XFile image)? imageStoreSelected,
+    TResult Function(File image)? imageStoreSelected,
     required TResult orElse(),
   }) {
     if (imageStoreinital != null) {
@@ -842,7 +842,7 @@ class _$ImageStoreLoadingImpl implements ImageStoreLoading {
     required TResult Function() loadingRegister,
     required TResult Function() imageStoreinital,
     required TResult Function() imageStoreLoading,
-    required TResult Function(XFile image) imageStoreSelected,
+    required TResult Function(File image) imageStoreSelected,
   }) {
     return imageStoreLoading();
   }
@@ -856,7 +856,7 @@ class _$ImageStoreLoadingImpl implements ImageStoreLoading {
     TResult? Function()? loadingRegister,
     TResult? Function()? imageStoreinital,
     TResult? Function()? imageStoreLoading,
-    TResult? Function(XFile image)? imageStoreSelected,
+    TResult? Function(File image)? imageStoreSelected,
   }) {
     return imageStoreLoading?.call();
   }
@@ -870,7 +870,7 @@ class _$ImageStoreLoadingImpl implements ImageStoreLoading {
     TResult Function()? loadingRegister,
     TResult Function()? imageStoreinital,
     TResult Function()? imageStoreLoading,
-    TResult Function(XFile image)? imageStoreSelected,
+    TResult Function(File image)? imageStoreSelected,
     required TResult orElse(),
   }) {
     if (imageStoreLoading != null) {
@@ -936,7 +936,7 @@ abstract class _$$ImageStoreSelectedImplCopyWith<$Res> {
           $Res Function(_$ImageStoreSelectedImpl) then) =
       __$$ImageStoreSelectedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({XFile image});
+  $Res call({File image});
 }
 
 /// @nodoc
@@ -957,7 +957,7 @@ class __$$ImageStoreSelectedImplCopyWithImpl<$Res>
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as XFile,
+              as File,
     ));
   }
 }
@@ -968,7 +968,7 @@ class _$ImageStoreSelectedImpl implements ImageStoreSelected {
   const _$ImageStoreSelectedImpl({required this.image});
 
   @override
-  final XFile image;
+  final File image;
 
   @override
   String toString() {
@@ -1002,7 +1002,7 @@ class _$ImageStoreSelectedImpl implements ImageStoreSelected {
     required TResult Function() loadingRegister,
     required TResult Function() imageStoreinital,
     required TResult Function() imageStoreLoading,
-    required TResult Function(XFile image) imageStoreSelected,
+    required TResult Function(File image) imageStoreSelected,
   }) {
     return imageStoreSelected(image);
   }
@@ -1016,7 +1016,7 @@ class _$ImageStoreSelectedImpl implements ImageStoreSelected {
     TResult? Function()? loadingRegister,
     TResult? Function()? imageStoreinital,
     TResult? Function()? imageStoreLoading,
-    TResult? Function(XFile image)? imageStoreSelected,
+    TResult? Function(File image)? imageStoreSelected,
   }) {
     return imageStoreSelected?.call(image);
   }
@@ -1030,7 +1030,7 @@ class _$ImageStoreSelectedImpl implements ImageStoreSelected {
     TResult Function()? loadingRegister,
     TResult Function()? imageStoreinital,
     TResult Function()? imageStoreLoading,
-    TResult Function(XFile image)? imageStoreSelected,
+    TResult Function(File image)? imageStoreSelected,
     required TResult orElse(),
   }) {
     if (imageStoreSelected != null) {
@@ -1087,10 +1087,10 @@ class _$ImageStoreSelectedImpl implements ImageStoreSelected {
 }
 
 abstract class ImageStoreSelected implements RegisterOwnerStoreState {
-  const factory ImageStoreSelected({required final XFile image}) =
+  const factory ImageStoreSelected({required final File image}) =
       _$ImageStoreSelectedImpl;
 
-  XFile get image;
+  File get image;
   @JsonKey(ignore: true)
   _$$ImageStoreSelectedImplCopyWith<_$ImageStoreSelectedImpl> get copyWith =>
       throw _privateConstructorUsedError;

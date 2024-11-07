@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/user/authtication/data/authentication_repository.dart';
 import 'package:acwadcom/features/user/authtication/data/user_repositry.dart';
+import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/models/user_model.dart';
 import 'package:acwadcom/features/ownerStore/features/authitcation/logic/register_owner/register_owner_store_state.dart';
@@ -23,9 +26,9 @@ class RegisterOwnerStoreCubit extends Cubit<RegisterOwnerStoreState> {
   TextEditingController deatilsStore = TextEditingController();
   final formKey = GlobalKey<FormState>();
   final ImagePicker _picker = ImagePicker();
-  XFile? _selectedImage;
+  File? _selectedImage;
 
-  XFile? get selectedImage => _selectedImage;
+  File? get selectedImage => _selectedImage;
   String url = ""; 
 
   void emitRegisterStates() async {
@@ -54,6 +57,7 @@ class RegisterOwnerStoreCubit extends Cubit<RegisterOwnerStoreState> {
           storeLink: linkOfStore.text,
           deatilsForStore: deatilsStore.text.trim()
           );
+
       // final userRepostiry = getIt<UserRepository>();
       await _userRepository.storeUserRecord(newUser);
           await Future.wait([
@@ -62,6 +66,7 @@ class RegisterOwnerStoreCubit extends Cubit<RegisterOwnerStoreState> {
         getIt<CacheHelper>().saveValueWithKey("EMAIL", newUser.email),
         getIt<CacheHelper>().saveValueWithKey("MOBILENUMBER", newUser.phoneNumber)
       ]);
+          tYPEUSER = "STOREOWNER";
       emit(const RegisterOwnerStoreState.successRegister());
     } catch (error) {
       emit(RegisterOwnerStoreState.failureRegister(error: error.toString()));
@@ -69,11 +74,23 @@ class RegisterOwnerStoreCubit extends Cubit<RegisterOwnerStoreState> {
   }
 
   void pickImage() async {
-    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-    if (image != null) {
+       // Step 1: Pick Image
+    final pickedImage = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 50,
+      maxHeight: 512,
+      maxWidth: 512,
+    );
+
+     // Step 2: Convert to JPEG if necessary
+    File imageFile = File(pickedImage!.path);
+    File? jpegImage = await convertToJpeg(imageFile);
+
+
+    if (jpegImage != null) {
             emit(const RegisterOwnerStoreState.imageStoreLoading());
-      _selectedImage = image;
-      emit(RegisterOwnerStoreState.imageStoreSelected(image: image));
+      _selectedImage = jpegImage;
+      emit(RegisterOwnerStoreState.imageStoreSelected(image: jpegImage));
     }
   }
 
