@@ -103,7 +103,7 @@ class _RoundedInputFieldState extends State<RoundedInputField> {
               ),
               errorStyle: TextStyle(
                   color: Colors.red, // Change error message text color
-                  fontSize: 12.sp,
+                  fontSize: 10.sp,
                   fontWeight: FontWeight.bold // Error text font size
                   ),
             ),

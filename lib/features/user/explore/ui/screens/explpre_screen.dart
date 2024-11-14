@@ -5,6 +5,7 @@ import 'package:acwadcom/features/user/coupons/ui/screens/coupon_deatls_screen.d
 import 'package:acwadcom/features/user/explore/logic/cubit/explore_cubit.dart';
 import 'package:acwadcom/features/user/explore/ui/widget/build_coupon_clipper_widget.dart';
 import 'package:acwadcom/features/user/explore/ui/widget/build_list_featured_stores.dart';
+import 'package:acwadcom/features/user/home/ui/widgets/build_empty_list.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/helpers/shimmer/shimmer_loading.dart';
@@ -54,11 +55,12 @@ class _ExplpreScreenState extends State<ExplpreScreen> {
                 buildWhen: (previous, current) =>
                     current is LoadingGetMostUsedCoupons ||
                     current is SuccessGetMostUsedCoupons ||
-                    current is ErrorGetMostUsedCoupons,
+                    current is ErrorGetMostUsedCoupons || current is EmptyEmptyMostUsedCoupons,
                 builder: (context, state) {
                   return state.maybeWhen(
                       loadingGetMostUsedCoupons: () =>
                          shimmerLoadingCoupons(),
+                         emptyEmptyMostUsedCoupons: () => buildEmptyListCoupons(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height, context, "There are no coupons for this Category".tr(context),),
                       successGetMostUsedCoupons: (mostUsedCoupons) => buildListMostUsedCoupons(mostUsedCoupons),
                       errorGetMostUsedCoupons: (erro) =>
                           Center(child: myText(erro)),

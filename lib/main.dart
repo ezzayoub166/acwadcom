@@ -51,7 +51,8 @@ void main() async {
            ),
 
               BlocProvider<WishlistStoresCubit>(
-          create: (context) => getIt<WishlistStoresCubit>())
+          create: (context) => getIt<WishlistStoresCubit>()),
+          
     ],
     child: AcwadcomApp(appRouter: AppRouter()),
   ));

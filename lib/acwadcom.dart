@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:acwadcom/app_localizations.dart';
 import 'package:acwadcom/localiztion_cubit/locale_cubit.dart';
 import 'package:acwadcom/helpers/Routing/app_router.dart';
@@ -9,6 +11,31 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:acwadcom/helpers/constants/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
+
+
+class ConnectivityCubit extends Cubit<bool> {
+  late StreamSubscription _connectionSubscription;
+
+  ConnectivityCubit() : super(true) {
+    _monitorConnection();
+  }
+
+  void _monitorConnection() {
+    _connectionSubscription = InternetConnection().onStatusChange.listen((event) {
+      emit(event == InternetStatus.connected);
+    });
+  }
+
+  @override
+  Future<void> close() {
+    _connectionSubscription.cancel();
+    return super.close();
+  }
+}
+
+
+
 
 class AcwadcomApp extends StatelessWidget {
   final AppRouter appRouter;

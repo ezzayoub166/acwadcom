@@ -1,4 +1,3 @@
-
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/admin/logic/home_admin_cubit/cubit/home_admin_cubit.dart';
 import 'package:acwadcom/common/widgets/build_custom_loader.dart';
@@ -56,8 +55,91 @@ class _HomeScreenAdminState extends State<HomeScreenAdmin> {
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
                               itemBuilder: (ctx, index) {
-                                return BuildItmCodeForAdmin(
-                                  coupon: coupons[index],
+                                return GestureDetector(
+                                  onLongPress: () {
+                                    showDialog(
+                                        context: context,
+                                        builder: (BuildContext dialogContext) {
+                                          return AlertDialog(
+                                            backgroundColor:
+                                                ManagerColors.kCustomColor,
+                                            content: Container(
+                                                height: 250,
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.7,
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(5.0),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    children: [
+                                                      myImage(
+                                                          "icon_app_acwdcom",
+                                                          height: 140,
+                                                          width: 150),
+                                                      Row(
+                                                        mainAxisSize: MainAxisSize.min,
+                                                        children: [
+                                                          myText(
+                                                              AText.phoneNumber.tr(context),
+                                                              fontSize: 18,
+                                                              color: ManagerColors
+                                                                  .yellowColor
+                                                          ),
+                                                          buildSpacerW(5.0),
+                                                          myText(
+                                                                fontSize: 12,
+                                                                color: ManagerColors
+                                                                    .whiteBtnBackGround,
+                                                            "${coupons[index].ownerCoupon.phoneNumber}",
+                                                          ),
+                                                          IconButton
+                                                            (
+                                                            color: ManagerColors.yellowColor,
+                                                            icon: Icon(Icons.copy , ),
+                                                            onPressed: () {
+                                                                                   //** copy the phone Number  for Coupon....... */
+                                                              copyTextToClipboard(coupons[index].ownerCoupon.phoneNumber, context);
+                                         
+
+                                                            },
+                                                          )
+                                                        ],
+                                                      ),
+                                                      buildSpacerH(10.0),
+                                                      // Coupon Owner
+                                                      Row(
+                                                        children: [
+                                                          myText(
+                                                              AText.storeName.tr(context),
+                                                              fontSize: 18,
+                                                              color: ManagerColors
+                                                                  .yellowColor),
+                                                                                                                            buildSpacerW(5.0),
+
+                                                          myText(
+                                                            fontSize: 12,
+                                                            color: ManagerColors
+                                                                .whiteBtnBackGround,
+                                                            "${coupons[index].ownerCoupon.userName}",
+                                                          )
+                                                        ],
+                                                      ),
+
+
+
+                                                    ],
+                                                  ),
+                                                )),
+                                          );
+                                        });
+                                  },
+                                  child: BuildItmCodeForAdmin(
+                                    coupon: coupons[index],
+                                  ),
                                 );
                               },
                               separatorBuilder: (ctx, index) =>

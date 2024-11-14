@@ -109,7 +109,7 @@ String convertTimestampToDateString(String timestamp) {
 // }
 
   // Function to copy the discount code
-  void copyToClipboard(Coupon coupon, BuildContext context) {
+  void copyCouponToClipboard(Coupon coupon, BuildContext context) {
     Clipboard.setData(ClipboardData(text: coupon.code)); // Copy to clipboard
     if(!copiedCoupons.contains(coupon.code)){
       getIt<CouponRepository>().updateStringFiled(json: {"NumberOfUse":coupon.numberOfUse+1}, couponID: coupon.couponId);
@@ -119,6 +119,11 @@ String convertTimestampToDateString(String timestamp) {
 
     }
   }
+
+void copyTextToClipboard(String text, BuildContext context) {
+  Clipboard.setData(ClipboardData(text: text)); // Copy to clipboard
+    TLoader.showSuccessSnackBar(context, title: "${text} copied".tr(context));
+}
 
  void launchURL(BuildContext context, String url) async {
     final Uri uri = Uri.parse(url); // Ensure the URL is parsed correctly

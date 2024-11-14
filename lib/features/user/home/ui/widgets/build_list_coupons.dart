@@ -41,35 +41,7 @@ class _BuildListCouponsState extends State<BuildListCoupons> {
           String remainingTime = calculateTimeRemaining(endDate);
           return InkWell(
             onLongPress: (){
-              showDialog(context: context, builder: (BuildContext dialogContext){
-                return AlertDialog(
-                  backgroundColor: ManagerColors.kCustomColor,
-                  content: Container(
-                      height: 200.h,
-                      width: MediaQuery.of(context).size.width*0.5,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child:
-                            Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                myImage("icon_app_acwdcom" , height: 140,width: 150),
-                                myText(AText.remaingTimeForDiscountCode.tr(context),
-                                    fontSize: 18, color: ManagerColors.yellowColor),
-                                Text(
-                                  textDirection: TextDirection.ltr,
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                      fontSize: 16, color: ManagerColors.whiteBtnBackGround
-                                  ),
-                                  remainingTime,
-                                ),
-
-                          ],
-                        ),
-                      )),
-                );
-              });
+              buildShowTimeRemainigDialog(context, remainingTime);
 
             },
               onTap: () {
@@ -85,5 +57,37 @@ class _BuildListCouponsState extends State<BuildListCoupons> {
         },
         separatorBuilder: (ctx, index) => buildSpacerH(10.0),
         itemCount: widget.coupons.length);
+  }
+
+  Future<dynamic> buildShowTimeRemainigDialog(BuildContext context, String remainingTime) {
+    return showDialog(context: context, builder: (BuildContext dialogContext){
+              return AlertDialog(
+                backgroundColor: ManagerColors.kCustomColor,
+                content: Container(
+                    height: 200.h,
+                    width: MediaQuery.of(context).size.width*0.5,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child:
+                          Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              myImage("icon_app_acwdcom" , height: 140,width: 150),
+                              myText(AText.remaingTimeForDiscountCode.tr(context),
+                                  fontSize: 18, color: ManagerColors.yellowColor),
+                              Text(
+                                textDirection: TextDirection.ltr,
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    fontSize: 16, color: ManagerColors.whiteBtnBackGround
+                                ),
+                                remainingTime,
+                              ),
+
+                        ],
+                      ),
+                    )),
+              );
+            });
   }
 }

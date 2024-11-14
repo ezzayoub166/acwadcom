@@ -71,22 +71,20 @@ class AuthenticationRepository {
       case "ERROR_WRONG_PASSWORD":
       case "wrong-password":
         throw "Wrong email/password combination.";
-        
-      case "ERROR_USER_NOT_FOUND":
-      case "user-not-found":
+        case "user-not-found":
         throw "No user found with this email.";
         
       case "ERROR_USER_DISABLED":
       case "user-disabled":
         throw "User disabled.";
-        
-      case "ERROR_TOO_MANY_REQUESTS":
       case "operation-not-allowed":
         throw "Too many requests to log into this account.";
-      case "ERROR_OPERATION_NOT_ALLOWED":
-      case "ERROR_INVALID_EMAIL":
       case "invalid-email":
         throw "Email address is invalid.";
+      case 'user-not-found':
+        throw 'Email is not found, please create an account.';
+      case 'wrong-password':
+         throw "Incorrect password, please try again.";
       default:
         throw "Wrong email/password. Please try again.";
     }

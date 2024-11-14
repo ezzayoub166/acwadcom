@@ -71,14 +71,15 @@ class ManagerValidator {
     }
 
     // Regular expression for phone number validation (assuming a 10-digit US phone number format)
-    final phoneRegExp = RegExp(r'^\d{10}$');
-
+    final phoneRegExp = RegExp(r'^\d{9}$'); // +966 532661915
+    
     if (!phoneRegExp.hasMatch(value)) {
-      return 'Invalid phone number format (10 digits required).'; // 972 59 266 19 15
+      return 'Invalid phone number format (13 digits required).'; // 972 59 266 19 15  ////  966 53 334 3609
     }
 
     return null;
   }
+
 static String? validateURL(String? value, BuildContext context) {
   if (value == null || value.isEmpty) {
     return 'Link is required.'.tr(context);
@@ -94,7 +95,6 @@ static String? validateURL(String? value, BuildContext context) {
 
   return null;
 }
-
 
   static String? validateNumberOfUser(String value , context){
     if(value == null || value.isEmpty ){

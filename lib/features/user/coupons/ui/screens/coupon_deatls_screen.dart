@@ -146,7 +146,7 @@ class _CouponDeatlsScreenState extends State<CouponDeatlsScreen> {
       title: "copy".tr(context),
       onPressed: () {
         //** copy the code and show bottom sheet.. */
-        copyToClipboard(widget.coupon, context);
+        copyCouponToClipboard(widget.coupon, context);
       },
       icon: Row(
         mainAxisAlignment: MainAxisAlignment.center,

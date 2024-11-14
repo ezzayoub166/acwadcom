@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/admin/ui/widgets/build_offer_item.dart';
 import 'package:acwadcom/models/offer_model.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class AutoScrollPageView extends StatefulWidget {
   final List<OfferModel> offers; // Replace with your actual data type
@@ -16,6 +18,30 @@ class _AutoScrollPageViewState extends State<AutoScrollPageView> {
   late PageController pageController;
   late Timer autoScrollTimer;
   int currentPage = 0;
+
+
+
+  void updatePageIndicator(int index) {
+    setState(() {
+      currentPage = index;
+    });
+  }
+
+  Widget buildSmoothIndicator(int countOffers) {
+    return Align(
+      alignment: Alignment.center,
+      child: SmoothPageIndicator(
+        controller: pageController,
+        onDotClicked: (index) {},
+        count: countOffers,
+        effect: ExpandingDotsEffect(
+          dotWidth: 10.w,
+          activeDotColor: ManagerColors.yellowColor,
+          dotHeight: 6.h,
+        ),
+      ),
+    );
+  }
 
   @override
   void initState() {
@@ -47,19 +73,30 @@ class _AutoScrollPageViewState extends State<AutoScrollPageView> {
 
   @override
   Widget build(BuildContext context) {
-    return PageView.builder(
-      itemCount: widget.offers.length,
-      allowImplicitScrolling: true,
-      reverse: true,
-      controller: pageController,
-      onPageChanged: (index) {
-        setState(() {
-          currentPage = index;
-        });
-      },
-      itemBuilder: (context, index) {
-        return BuildOfferItem(offer: widget.offers[index]);
-      },
+    return Column(
+      children: [
+
+        SizedBox(
+        height: 150,
+        width: double.infinity,
+          child: PageView.builder(
+            itemCount: widget.offers.length,
+            allowImplicitScrolling: true,
+            reverse: true,
+            controller: pageController,
+            onPageChanged: (index) {
+              setState(() {
+                currentPage = index;
+              });
+            },
+            itemBuilder: (context, index) {
+              return BuildOfferItem(offer: widget.offers[index]);
+            },
+          ),
+        ),
+        buildSpacerH(10.0),
+        buildSmoothIndicator(widget.offers.length)
+      ],
     );
   }
 }

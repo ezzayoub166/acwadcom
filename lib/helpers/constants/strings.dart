@@ -108,6 +108,7 @@ class AText {
       "Your satisfaction is our top priority, and we are grateful for the opportunity to serve you. Thank you for choosing us.";
   static const goToHome = "Go to home";
   static const storeName = "Store Name";
+
   static const createDiscountCode = "Create discount code";
   static const storeData = "Store Data";
   static const deleteStore = "Delete Store";

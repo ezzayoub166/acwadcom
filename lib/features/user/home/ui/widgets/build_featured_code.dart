@@ -30,7 +30,7 @@ class _BuildFeaturedCodeState extends State<BuildFeaturedCode> {
     
     // Access the cubit to listen for wishlist updates
     final wishlistCubit = context.read<WishListCouponsCubit>();
-;    return Container(
+    return Container(
         padding: const EdgeInsets.all(5),
         decoration: BoxDecoration(
             color: Colors.white,
@@ -139,7 +139,7 @@ class _BuildFeaturedCodeState extends State<BuildFeaturedCode> {
                       // Handle adding/removing from wishlist on tap
                         if (wishlistCubit.isInWishlist(widget.coupon)) {
                           wishlistCubit.removeCouponFromWishlist(widget.coupon);
-                          
+
                         } else {
                           wishlistCubit.addToWishList(widget.coupon);
                         }
@@ -148,10 +148,10 @@ class _BuildFeaturedCodeState extends State<BuildFeaturedCode> {
                           showRequireLoginDialog(context);
                         }
 
-                      
+
                       },
                     )
-                  
+
                 ],
               ),
             ),

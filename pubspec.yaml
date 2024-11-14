@@ -73,6 +73,7 @@ dependencies:
   # flutter_image_compress: ^2.3.0
   path_provider: ^2.1.5
   image: ^4.3.0
+  intl_phone_number_input_v2: ^0.0.8
 
 
 

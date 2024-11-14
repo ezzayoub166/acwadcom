@@ -1,11 +1,10 @@
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/common/widgets/custom_phone_number_filed.dart';
 import 'package:acwadcom/features/user/authtication/UI/screens/verify_email_screen.dart';
 import 'package:acwadcom/features/user/authtication/logic/register/cubit/register_cubit.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/helpers/loader/laoders.dart';
 import 'package:acwadcom/helpers/popups/animation_loader.dart';
-import 'package:acwadcom/models/user_model.dart';
-import 'package:lottie/lottie.dart';
 
 class RegisterScreen extends StatelessWidget {
 
@@ -135,20 +134,26 @@ class RegisterScreen extends StatelessWidget {
                     ),
                     buildSpacerH(20.0),
                     //** Phone Number */
-                    RoundedInputField(
-                      controller: context.read<RegisterCubit>().phoneController,
-                      hintText: AText.phoneNumber.tr(context).tr(context),
-                      textInputType: TextInputType.number,
-                      validator: (value) {
-                        return ManagerValidator.validatePhoneNumber(value,
-                            context: context);
-                      },
-                    ),
+           CustomPhoneNumberInput(
+
+             controller: context.read<RegisterCubit>().phoneController,),
+                    //  buildSpacerH(20.0),
+
+                    // RoundedInputField(
+                    //   controller: context.read<RegisterCubit>().phoneController,
+                    //   hintText: AText.phoneNumber.tr(context).tr(context),
+                    //   textInputType: TextInputType.number,
+                    //   validator: (value) {
+                    //     return ManagerValidator.validatePhoneNumber(value,
+                    //         context: context);
+                    //   },
+                    // ),
                     buildSpacerH(20.0),
                     //** Email */
                     RoundedInputField(
                       controller: context.read<RegisterCubit>().emailController,
                       hintText: AText.email.tr(context),
+                      textInputType: TextInputType.emailAddress,
                       validator: (value) {
                         return ManagerValidator.validateEmptyText(
                             AText.email, value ?? '');
@@ -240,9 +245,12 @@ class RegisterScreen extends StatelessWidget {
     if (context.read<RegisterCubit>().formKey.currentState!.validate() &&
         context.read<RegisterCubit>().passwordController.text ==
             context.read<RegisterCubit>().passwordConfirmationController.text) {
+                // Save the form to trigger onSaved methods
+    context.read<RegisterCubit>().formKey.currentState!.save();
       context.read<RegisterCubit>().emitRegisterStates();
       getIt<CacheHelper>().removeValueWithKey("tYPEUSER");
        getIt<CacheHelper>().saveValueWithKey("tYPEUSER" , "USER");
     }
   }
 }
+

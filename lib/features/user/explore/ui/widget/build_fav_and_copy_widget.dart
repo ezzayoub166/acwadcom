@@ -98,7 +98,7 @@ class _BuildFavAndCopyWidgetState extends State<BuildFavAndCopyWidget> {
                       ),
                       onTap: () {
                         //** copy the cdoe for Coupon....... */
-                        copyToClipboard(widget.coupon, context);
+                        copyCouponToClipboard(widget.coupon, context);
                         
                       },
                     ),
