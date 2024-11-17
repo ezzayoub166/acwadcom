@@ -11,6 +11,14 @@ class HomeAdminCubit extends Cubit<HomeAdminState> {
 
   final CouponRepository _couponRepository;
 
+  @override
+  void emit(HomeAdminState state) {
+    // TODO: implement emit
+    if(!isClosed){
+      super.emit(state);
+    }
+  }
+
 
     void emitGetCoupons()async{
     try{

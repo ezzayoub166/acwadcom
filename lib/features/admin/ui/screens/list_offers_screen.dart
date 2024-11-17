@@ -27,6 +27,7 @@ class _ListOffersScreenState extends State<ListOffersScreen> {
 
   Future<void> removeOffer(offerID)async{
     await _db.collection("Offers").doc(offerID).delete();
+    TLoader.showSuccessSnackBar(context, title: AText.deleteOffer.tr(context));
   }
   
 
@@ -39,7 +40,32 @@ class _ListOffersScreenState extends State<ListOffersScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBarForAdmin(context, "Offers"),
+      appBar: AppBar(
+        
+        backgroundColor: ManagerColors.kCustomColor,
+        title: myText(
+          AText.offfers.tr(context),
+          color: ManagerColors.myWhite,
+        ),
+        leading: Padding(
+          padding: EdgeInsets.only(
+            left: Localizations.localeOf(context).languageCode == 'ar'
+                ? 0
+                : 16, // Padding for English
+            right: Localizations.localeOf(context).languageCode == 'ar'
+                ? 16
+                : 0, // Padding for Arabic
+          ),
+          child: InkWell(
+            onTap:  () {
+              Navigator.pop(context);
+            },
+            child: svgImage("Vector", isRtl: isRTL(context)),
+          ),
+        ),
+        leadingWidth: 50,
+        automaticallyImplyLeading: true,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(

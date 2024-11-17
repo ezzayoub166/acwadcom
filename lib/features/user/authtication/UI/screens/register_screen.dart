@@ -1,6 +1,5 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/common/widgets/custom_phone_number_filed.dart';
-import 'package:acwadcom/features/user/authtication/UI/screens/verify_email_screen.dart';
 import 'package:acwadcom/features/user/authtication/logic/register/cubit/register_cubit.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/helpers/loader/laoders.dart';

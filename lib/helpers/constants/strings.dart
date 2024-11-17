@@ -112,6 +112,8 @@ class AText {
   static const createDiscountCode = "Create discount code";
   static const storeData = "Store Data";
   static const deleteStore = "Delete Store";
+  static const deleteOffer = "Delete Offer Successfully";
+
   static const detilsDiscount = "Discount Code Details";
   static const statistics = "Statistics";
   static const numberOfdiscountcodes = "Number of discount codes";

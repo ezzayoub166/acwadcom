@@ -13,10 +13,21 @@ part 'home_cubit.freezed.dart';
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this._categoryRepository, this._couponRepository) : super(const HomeState.initial());
 
+
+
+
   final CategoryRepository _categoryRepository;
   final CouponRepository _couponRepository;
    List<CategoryModel> featchedCategories = [];
    List<Coupon> featchedCoupons = [];
+
+  @override
+  void emit(HomeState state) {
+    // TODO: implement emit
+    if(!isClosed){
+      super.emit(state);
+    }
+  }
 
   void emitGetCategories()async{
     try{

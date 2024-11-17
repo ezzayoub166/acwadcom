@@ -29,19 +29,8 @@ class HomeScreenOwner extends StatefulWidget {
 class _HomeScreenOwnerState extends State<HomeScreenOwner> {
   List<String> items = [];
     bool isConnectedToInternt = true;
-    bool _isFirstLoad = true;
 
    StreamSubscription? _intrenetConnectionStreamSubscription ;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    if (!_isFirstLoad) {
-      // Fetch coupons again when navigating back to this screen
-      context.read<HomeOwnerCubit>().emitGetCoupons();
-    }
-    _isFirstLoad = false;
-  }
 
 // Function to show the dialog
   void showConfirmDeleteDialog(BuildContext context, Coupon coupon) {

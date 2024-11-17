@@ -6,6 +6,7 @@ import 'package:acwadcom/helpers/di/dependency_injection.dart';
 
 import '../../../../../acwadcom_packges.dart';
 import '../../../../../models/user_model.dart';
+import '../widgets/build_app_bar_for_admin.dart';
 
 class StoresForAdmin extends StatefulWidget {
   // final List<UserModel> stores;
@@ -43,20 +44,23 @@ class _StoresForAdminState extends State<StoresForAdmin> {
                 isFeaturedList = stores.map((store) => store.isFeaturedStore ?? false).toList();
               }
 
-              return Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: GridView.builder(
-                  itemCount: stores.length,
-                  scrollDirection: Axis.vertical,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10, // spacing between rows
-                    crossAxisSpacing: 20, // spacing between columns
+              return Scaffold(
+                appBar: buildAppBarForAdmin(context, "All Stores in App".tr(context)),
+                body: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: GridView.builder(
+                    itemCount: stores.length,
+                    scrollDirection: Axis.vertical,
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 1,
+                      mainAxisSpacing: 10, // spacing between rows
+                      crossAxisSpacing: 20, // spacing between columns
+                    ),
+                    itemBuilder: (context, index) {
+                      var store = stores[index];
+                      return buildStoreBigSize(context, index, store, isFeaturedList[index]);
+                    },
                   ),
-                  itemBuilder: (context, index) {
-                    var store = stores[index];
-                    return buildStoreBigSize(context, index, store, isFeaturedList[index]);
-                  },
                 ),
               );
             },
@@ -97,7 +101,7 @@ class _StoresForAdminState extends State<StoresForAdmin> {
     }
 
     return Container(
-      height: 200,
+      // height: 200,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.0),
@@ -106,22 +110,22 @@ class _StoresForAdminState extends State<StoresForAdmin> {
       child: Column(
         children: [
           Expanded(
-            flex: 3,
+            flex: 4,
             child: Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15), // Adjust the radius as needed
               ),
               clipBehavior: Clip.antiAlias,
-              elevation: 5.0,
               child: CachedNetworkImage(
                 imageUrl: store.profilePicture,
-                height: 100,
-                fit: BoxFit.contain,
+                height: 200,
+                width: double.infinity,
+                fit: BoxFit.cover,
               ),
             ),
           ),
           Expanded(
-            flex: 5,
+            flex: 2,
             child: Column(
               children: [
                 myText(

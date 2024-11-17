@@ -56,8 +56,7 @@ class _BottomtabbarState extends State<Bottomtabbar> {
         break;
         default:
         setState(() {
-          isConnectedToInternt = false;
-        });
+          isConnectedToInternt = false;});
       }
     });
     super.initState();

@@ -16,9 +16,9 @@ class ManagerValidator {
     if(value.isEmpty){
       return AText.reqTitleCoupon.tr(context);
     }
-    if(value.length > 20) {
-      return AText.shortTitleReq.tr(context);
-    }
+    // if(value.length > 20) {
+    //   return AText.shortTitleReq.tr(context);
+    // }
     return null;
   }
 

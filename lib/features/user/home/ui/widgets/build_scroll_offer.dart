@@ -27,6 +27,8 @@ class _AutoScrollPageViewState extends State<AutoScrollPageView> {
     });
   }
 
+
+
   Widget buildSmoothIndicator(int countOffers) {
     return Align(
       alignment: Alignment.center,

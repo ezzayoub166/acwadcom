@@ -47,7 +47,6 @@ class TLoader {
       behavior: SnackBarBehavior.floating,
       margin: EdgeInsets.all(10),
     );
-
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 

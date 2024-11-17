@@ -14,6 +14,8 @@ Widget buildCreateAccountButton(BuildContext context) {
                 TLoader.showWarningSnackBar(context, title: "plase set logo for your store");
                }else{
                 // print("Emit State Register");
+                 context.read<RegisterOwnerStoreCubit>().formKey.currentState!.save();
+
                  getIt<CacheHelper>().removeValueWithKey("tYPEUSER");
                 getIt<CacheHelper>().saveValueWithKey("tYPEUSER" , "STOREOWNER");
                 context.read<RegisterOwnerStoreCubit>().emitRegisterStates();

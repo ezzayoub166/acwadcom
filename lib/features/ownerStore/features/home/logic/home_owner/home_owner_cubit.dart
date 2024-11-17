@@ -14,6 +14,16 @@ class HomeOwnerCubit extends Cubit<HomeOwnerState> {
   int numberOfItems = 0 ;
 
 
+  @override
+  void emit(HomeOwnerState state) {
+    // TODO: implement emit
+    if(!isClosed){
+      super.emit(state);
+
+    }
+  }
+
+
 
 emitGetCoupons()async{
   emit(const HomeOwnerState.loadingGetCouponsForOwner());

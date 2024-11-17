@@ -16,6 +16,13 @@ class ExploreCubit extends Cubit<ExploreState> {
   final CouponRepository couponRepository;
 
 
+  @override
+  void emit(ExploreState state) {
+    // TODO: implement emit
+    if(!isClosed){
+      super.emit(state);
+    }
+  }
 
 //** Most Used Coupons  */
    Future<void> fetchMostUsedCoupons() async{

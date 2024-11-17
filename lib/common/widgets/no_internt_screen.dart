@@ -19,13 +19,13 @@ class NoNetWorkScreen extends StatelessWidget {
         Expanded(
           child: Column(
             children: [
-                  myText("No internet Conection".tr(context),
+                  myText("No internet Connection".tr(context),
                   color: ManagerColors.yellowColor,
                   fontWeight: FontWeightEnum.Bold.fontWeight,
                   fontSize: 20),
                   buildSpacerH(10.0),
               myText(
-                  "Please check your ( Wi-Fi / Data) internetc onnection and try again.".tr(context),
+                  "Please check your ( Wi-Fi / Data) internet connection and try again.".tr(context),
                   color: Colors.black,
                   fontSize: 16,
                   textAlign: TextAlign.center),
