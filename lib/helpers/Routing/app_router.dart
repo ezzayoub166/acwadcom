@@ -152,12 +152,12 @@ class AppRouter {
         return MaterialPageRoute(builder: (context) => HomeScreenAdmin());
       case Routes.requestScreenAdmin:
         return MaterialPageRoute(builder: (context) => RequestScreenAdmin());
-      case Routes.editCodeScreenAdmin:
-        return MaterialPageRoute(
-            builder: (context) => BlocProvider(
-                  create: (context) => EditCodeCubit(),
-                  child: EditCodeScreenAdmin(),
-                ));
+      // case Routes.editCodeScreenAdmin:
+      //   return MaterialPageRoute(
+      //       builder: (context) => BlocProvider(
+      //             create: (context) => EditCodeCubit(),
+      //             child: EditCodeScreenAdmin(),
+      //           ));
 
       case Routes.discountCodeDeatilsAdmin:
         final couponReq = settings.arguments as CouponRequest;
