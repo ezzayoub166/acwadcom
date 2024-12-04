@@ -140,6 +140,8 @@
   "Download store logo": "Download store logo",
   "JPG or PNG or SVG\n(Max 128*128 pixels)": "JPG or PNG or SVG\n(Max 128*128 pixels)",
   "Add your store": "Add your store",
+  "Delete Account":"Delete Account",
+  "Are you sure you want to delete your account? All coupons for this account will also be deleted.":"Are you sure you want to delete your account? All coupons for this account will also be deleted.",
   "Link is required.": "Link is required.",
   "Please enter your store category.": "Please enter your store category.",
   "Required field": "Required field",
@@ -207,7 +209,11 @@
         "governing_law": "10. Governing Law",
         "governing_law_desc": "These Terms are governed by the laws of [Your Country/State], without regard to its conflict of law provisions.",
         "contact_us": "11. Contact Us",
-        "contact_us_desc": "If you have any questions about these Terms, please contact us at:\n- Email: [appacwdcom@gmail.com]"
+        "contact_us_desc": "If you have any questions about these Terms, please contact us at:\n- Email: [appacwdcom@gmail.com]",
+        "By Signing up you accept all":"By Signing up you accept all",
+        "terms & conditions":"terms & conditions",
+        "privacy policies":"privacy policies",
+        "of Acwdcom!":"of Acwdcom!"
   
       
 }

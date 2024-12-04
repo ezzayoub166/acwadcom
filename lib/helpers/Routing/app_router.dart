@@ -98,10 +98,11 @@ class AppRouter {
                   child: CreateCodeScreen(),
                 ));
       case Routes.deleteStoreScreen:
+      final text = settings.arguments as String ;
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
                   create: (context) => getIt<DeleteStoreCubit>(),
-                  child: DeleteStore(),
+                  child: DeleteStore(text: text),
                 ));
       case Routes.storeDataProfile:
         return MaterialPageRoute(

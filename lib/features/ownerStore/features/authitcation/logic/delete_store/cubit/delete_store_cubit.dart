@@ -16,11 +16,11 @@ class DeleteStoreCubit extends Cubit<DeleteStoreState> {
   
 
 
-  emitDeleteStore()async{
+  emitDeleteStore(String email ,String password)async{
     try{
       emit(DeleteStoreState.loadingRemoveStore());
       var storeId = getIt<CacheHelper>().getValueWithKey("userID");
-      await userRepository.removeUserRecord(storeId).then((_){
+      await userRepository.removeUserRecord(storeId,email,password).then((_){
         couponRepository.removeCoupons(storeId);
       });
       

@@ -120,6 +120,8 @@ class AText {
   static const discountcode = "Discount codes";
   static const request = "Request";
   static const delete = "Delete";
+  static const deleteAccount = "Delete Account";
+
   static const requests = "Requests";
   static const skip = "Skip";
   static const submit = "Submit";

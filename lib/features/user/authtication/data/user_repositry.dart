@@ -8,7 +8,6 @@ import 'package:acwadcom/models/user_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path/path.dart' as _path;
 
-
 class UserRepository {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
@@ -84,20 +83,16 @@ class UserRepository {
     }
   }
 
+  Future<bool> checkIFLoggedBefore(userID) async {
+    try {
+      final documentSnapshot =
+          await _db.collection(collectionNameUsers).doc(userID).get();
 
-  Future<bool> checkIFLoggedBefore(userID)async{
-    try{
-     final documentSnapshot = await _db
-          .collection(collectionNameUsers)
-          .doc(userID)
-          .get();
-
-          if(documentSnapshot.exists){
-            return true;
-          }else{
-            return false;
-          }
-
+      if (documentSnapshot.exists) {
+        return true;
+      } else {
+        return false;
+      }
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
@@ -152,11 +147,18 @@ class UserRepository {
   }
 
   ///Function to update user Data in fireStore
-  Future<void> removeUserRecord(String userID) async {
+  Future<void> removeUserRecord(
+      String userID, String email, String password) async {
     try {
       await _db.collection(collectionNameUsers).doc(userID).delete();
+      // Reauthenticate the user
+      AuthCredential credential = EmailAuthProvider.credential(
+        email: email,
+        password: password,
+      );
+      await _currentAuthUser?.reauthenticateWithCredential(credential);
       // Delete user from Firebase Authentication
-      await _currentAuthUser!.delete();
+      await _currentAuthUser?.delete();
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
@@ -170,28 +172,28 @@ class UserRepository {
     }
   }
 
-Future<String> uploadImage(String path, File image) async {
-  try {
-    // Extract file name from the file path
-    final fileName = _path.basename(image.path);
-    
-    final ref = FirebaseStorage.instance.ref(path).child(fileName);
-    await ref.putFile(image);
-    final url = await ref.getDownloadURL(); // Use this URL to display the image
-    return url;
-  } on FirebaseAuthException catch (e) {
-    throw FirebaseAuthException(code: e.code, message: e.message);
-  } on FirebaseException catch (e) {
-    throw FirebaseException(plugin: e.plugin, message: e.message);
-  } on FormatException catch (e) {
-    throw FormatException(e.message);
-  } on PlatformException catch (e) {
-    throw PlatformException(code: e.code, message: e.message);
-  } catch (e) {
-    throw 'Something went wrong. Please try again.';
-  }
-}
+  Future<String> uploadImage(String path, File image) async {
+    try {
+      // Extract file name from the file path
+      final fileName = _path.basename(image.path);
 
+      final ref = FirebaseStorage.instance.ref(path).child(fileName);
+      await ref.putFile(image);
+      final url =
+          await ref.getDownloadURL(); // Use this URL to display the image
+      return url;
+    } on FirebaseAuthException catch (e) {
+      throw FirebaseAuthException(code: e.code, message: e.message);
+    } on FirebaseException catch (e) {
+      throw FirebaseException(plugin: e.plugin, message: e.message);
+    } on FormatException catch (e) {
+      throw FormatException(e.message);
+    } on PlatformException catch (e) {
+      throw PlatformException(code: e.code, message: e.message);
+    } catch (e) {
+      throw 'Something went wrong. Please try again.';
+    }
+  }
 
   ///save user Record from any Registration Provider
   Future<dynamic> saveUserRecord(UserCredential? userCredential) async {

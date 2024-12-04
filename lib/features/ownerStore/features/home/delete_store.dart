@@ -6,10 +6,14 @@ import 'package:acwadcom/features/user/coupons/ui/widgets/build_app_bar_with_bac
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 
 class DeleteStore extends StatelessWidget {
-  const DeleteStore({super.key});
+  final String text;
+
+  DeleteStore({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController emailController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
     return Scaffold(
       appBar: buildAppBarWithBackButton(context, isRTL(context)),
       body: Padding(
@@ -17,19 +21,37 @@ class DeleteStore extends StatelessWidget {
         child: Column(
           children: [
             myText(
-              "Are you sure you want to delete your store? All coupons for this store will also be deleted."
-                  .tr(context),
+              text.tr(context),
               fontSize: 18,
               fontWeight: FontWeightEnum.ExtraBold.fontWeight,
             ),
-            buildSpacerH(10),
+            buildSpacerH(20.0),
+            RoundedInputField(
+              controller: emailController,
+              hintText: AText.email.tr(context),
+              textInputType: TextInputType.emailAddress,
+              validator: (value) {
+                return ManagerValidator.validateEmail(value, context);
+              },
+            ),
+            buildSpacerH(20.0),
+            RoundedInputField(
+              controller: passwordController,
+              hintText: AText.yourPassword.tr(context),
+              isSecure: true,
+              textInputType: TextInputType.visiblePassword,
+              validator: (value) {
+                return ManagerValidator.validatePassword(value, context);
+              },
+            ),
+            buildSpacerH(20),
             RoundedButtonWgt(
-                title: AText.deleteStore.tr(context),
+                title: AText.delete.tr(context),
                 backgroundColor: Colors.red,
                 foregroundColor: Colors.white,
                 height: 60,
                 onPressed: () {
-                  context.read<DeleteStoreCubit>().emitDeleteStore();
+                  context.read<DeleteStoreCubit>().emitDeleteStore(emailController.text , passwordController.text);
                 }),
             BlocListener<DeleteStoreCubit, DeleteStoreState>(
               listenWhen: (previous, current) =>
@@ -38,19 +60,19 @@ class DeleteStore extends StatelessWidget {
                   current is FaluireRemoveStore,
               listener: (context, state) {
                 state.whenOrNull(
-                    loadingRemoveStore: () => BuildCustomLoader(),
-                    successRemoveStore: () {
-                      getIt<AuthenticationRepository>().logout(context);
-                      navigateAndFinishNamed(context, Routes.loginScreen);
-                    },
-                    faluireRemoveStore: (error) {
-                      TLoader.showErrorSnackBar(context, title: error);
-                    },
-                    
-                    );
-                    
+                  loadingRemoveStore: () => BuildCustomLoader(),
+                  successRemoveStore: () {
+                    getIt<AuthenticationRepository>().logout(context);
+                    navigateAndFinishNamed(context, Routes.loginScreen);
+                  },
+                  faluireRemoveStore: (error) {
+                    TLoader.showErrorSnackBar(context, title: error);
+                  },
+                );
               },
-              child: SizedBox(height: 0,),
+              child: SizedBox(
+                height: 0,
+              ),
             )
           ],
         ),

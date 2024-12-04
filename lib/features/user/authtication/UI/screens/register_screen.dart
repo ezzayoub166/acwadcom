@@ -1,12 +1,14 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/common/widgets/custom_phone_number_filed.dart';
+import 'package:acwadcom/features/user/authtication/UI/widgets/build_terms_and_condtions.dart';
 import 'package:acwadcom/features/user/authtication/logic/register/cubit/register_cubit.dart';
+import 'package:acwadcom/features/user/settings/ui/screens/terms_condions.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/helpers/loader/laoders.dart';
 import 'package:acwadcom/helpers/popups/animation_loader.dart';
+import 'package:flutter/gestures.dart';
 
 class RegisterScreen extends StatelessWidget {
-
   const RegisterScreen({super.key, required this.selectStatus});
 
   final String selectStatus;
@@ -25,7 +27,7 @@ class RegisterScreen extends StatelessWidget {
         ),
         TextButton(
             onPressed: () {
-             navigateAndFinishNamed(context, Routes.loginScreen);
+              navigateAndFinishNamed(context, Routes.loginScreen);
               // Navigator.pop(context);
             },
             child: Text(
@@ -55,13 +57,14 @@ class RegisterScreen extends StatelessWidget {
                         color: ManagerColors.dark,
                         width: double.infinity,
                         height: double.infinity,
-                        child:  Column(
+                        child: Column(
                           children: [
                             SizedBox(
                               height: 250,
                             ),
                             TAnimationLoaderWidget(
-                                text: "We are processing your information...".tr(context),
+                                text: "We are processing your information..."
+                                    .tr(context),
                                 animation: "assets/images/loading_sign.json")
                           ],
                         ),
@@ -73,10 +76,11 @@ class RegisterScreen extends StatelessWidget {
               TLoader.showSuccessSnackBar(context,
                   title: 'Congratulation',
                   message:
-                      'Your account has been created! Verify email to continue'.tr(context));
+                      'Your account has been created! Verify email to continue'
+                          .tr(context));
 
               //Move to Verity Email Screen
-              navigateNamedTo(context, Routes.verifyEmailScreen,"USER");
+              navigateNamedTo(context, Routes.verifyEmailScreen, "USER");
               // Get.to(() => VerifyEmailScreen(email: userCredential.user?.email));
             },
             registerGoogleSuccess: () {
@@ -84,11 +88,10 @@ class RegisterScreen extends StatelessWidget {
               Navigator.pop(context);
               TLoader.showSuccessSnackBar(context,
                   title: 'Congratulation',
-                  message:
-                  'Your account has been created!'.tr(context));
+                  message: 'Your account has been created!'.tr(context));
 
               //Move to Verity Email Screen
-              navigateNamedTo(context, Routes.bottomTabBarScreen,"USER");
+              navigateNamedTo(context, Routes.bottomTabBarScreen, "USER");
               // Get.to(() => VerifyEmailScreen(email: userCredential.user?.email));
             },
             registerError: (error) {
@@ -125,7 +128,7 @@ class RegisterScreen extends StatelessWidget {
                     RoundedInputField(
                       controller: context.read<RegisterCubit>().nameController,
                       hintText: AText.insertYourUserNamlbl.tr(context),
-                    // textInputAction: TextInputAction.next,
+                      // textInputAction: TextInputAction.next,
                       validator: (value) {
                         return ManagerValidator.validateEmptyText(
                             AText.userNamelbl.tr(context), value ?? "");
@@ -133,9 +136,9 @@ class RegisterScreen extends StatelessWidget {
                     ),
                     buildSpacerH(20.0),
                     //** Phone Number */
-           CustomPhoneNumberInput(
-
-             controller: context.read<RegisterCubit>().phoneController,),
+                    CustomPhoneNumberInput(
+                      controller: context.read<RegisterCubit>().phoneController,
+                    ),
                     //  buildSpacerH(20.0),
 
                     // RoundedInputField(
@@ -183,7 +186,9 @@ class RegisterScreen extends StatelessWidget {
                             value, context);
                       },
                     ),
-                    buildSpacerH(40.0),
+                    buildSpacerH(20.0),
+                    buildTermsAndCondtions(),
+                    buildSpacerH(20.0),
                     RoundedButtonWgt(
                         title: AText.creatNewAccountlbl.tr(context),
                         onPressed: () {
@@ -233,7 +238,7 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-     onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+      onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
       child: Scaffold(
           backgroundColor: ManagerColors.kCustomColor,
           body: buildBlocWidget(context)),
@@ -244,12 +249,13 @@ class RegisterScreen extends StatelessWidget {
     if (context.read<RegisterCubit>().formKey.currentState!.validate() &&
         context.read<RegisterCubit>().passwordController.text ==
             context.read<RegisterCubit>().passwordConfirmationController.text) {
-                // Save the form to trigger onSaved methods
-    context.read<RegisterCubit>().formKey.currentState!.save();
+      // Save the form to trigger onSaved methods
+      context.read<RegisterCubit>().formKey.currentState!.save();
       context.read<RegisterCubit>().emitRegisterStates();
       getIt<CacheHelper>().removeValueWithKey("tYPEUSER");
-       getIt<CacheHelper>().saveValueWithKey("tYPEUSER" , "USER");
+      getIt<CacheHelper>().saveValueWithKey("tYPEUSER", "USER");
     }
   }
 }
+
 

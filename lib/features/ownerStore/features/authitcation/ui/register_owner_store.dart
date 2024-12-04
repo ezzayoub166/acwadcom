@@ -1,5 +1,6 @@
 
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/features/user/authtication/UI/widgets/build_terms_and_condtions.dart';
 import 'package:acwadcom/features/user/coupons/ui/widgets/build_app_bar_with_back_button.dart';
 import 'package:acwadcom/helpers/popups/animation_loader.dart';
 import 'package:acwadcom/features/ownerStore/features/authitcation/logic/register_owner/register_owner_store_cubit.dart';
@@ -92,6 +93,9 @@ class _RegisterOwnerForm extends StatelessWidget {
           buildImagePicker(context),
           const SizedBox(height: 30),
           buildInputFields(context),
+          buildSpacerH(20.0),
+          buildTermsAndCondtions(textColor: ManagerColors.kCustomColor,),
+          buildSpacerH(20.0),
           const SizedBox(height: 40),
           buildCreateAccountButton(context),
         ],

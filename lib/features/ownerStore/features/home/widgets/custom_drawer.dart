@@ -83,7 +83,7 @@ class CustomDrawer extends StatelessWidget {
                         color: Colors.red),
                     onTap: () {
                       // Handle Delete Store action
-                      navigateNamedTo(context, Routes.deleteStoreScreen);
+                      navigateNamedTo(context, Routes.deleteStoreScreen, "Are you sure you want to delete your store? All coupons for this store will also be deleted.");
                      
                     },
                   ),

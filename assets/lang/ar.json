@@ -114,6 +114,8 @@
   "Are you sure you delete the code?": "هل متأكد من حذف الكود",
   "Delete": "حذف",
   "Requests": "طلبات",
+  "Delete Account":"حذف الحساب",
+  "Are you sure you want to delete your account? All coupons for this account will also be deleted.":"هل أنت متأكد من حذف الحساب الخاص بك , سيتم حذف أيضا جميع الكوبونات الخاصة بهذا الحساب.",
   "Add the offer image":"أضف صورة العرض",
   "linke of Offer":"رابط العرض",
   "Upload Offer Image":"رفع صورة العرض",
@@ -205,7 +207,10 @@
     "governing_law": "10. القانون الحاكم",
     "governing_law_desc": "تخضع هذه الشروط لقوانين [بلدك/ولايتك]، دون النظر إلى تنازع القوانين.",
     "contact_us": "11. اتصل بنا",
-    "contact_us_desc": "إذا كانت لديك أي أسئلة حول هذه الشروط، يرجى الاتصال بنا على:\n- البريد الإلكتروني: [appacwdcom@gmail.com]"
-
+    "contact_us_desc": "إذا كانت لديك أي أسئلة حول هذه الشروط، يرجى الاتصال بنا على:\n- البريد الإلكتروني: [appacwdcom@gmail.com]",
+    "By Signing up you accept all":"عند التسجيل فإنك تقبل كافة الشروط",
+    "terms & conditions":"الشروط والأحكام",
+    "privacy policies":"سياسات الخصوصية ",
+    "of Acwdcom!":"من أكودكم"
   
 }

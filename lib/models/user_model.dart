@@ -8,6 +8,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 //   storeOwner,
 // }
 
+
 class UserModel {
   final String id;
   final String userName;

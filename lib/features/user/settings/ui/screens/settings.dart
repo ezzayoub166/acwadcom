@@ -68,6 +68,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             buildSpacerH(10.0),
             buildGoToAccount(context),
             buildSpacerH(10.0),
+            buildDeleteAccount(context),
+            buildSpacerH(10.0),
             ListTile(
               title:
                   Text(AText.other.tr(context), style: TextStyle(fontSize: 18)),
@@ -75,6 +77,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             buildHelpCenterWgt(context),
             buildSpacerH(10.0),
             buildTermsCondWgt(context),
+
             Divider(),
             // buildYouStoreOwnerWgt(context),
           ],
@@ -154,6 +157,27 @@ class _SettingsScreenState extends State<SettingsScreen> {
         },
       ),
     );
+  }
+
+  Container buildDeleteAccount(BuildContext context){
+
+    return Container(
+      decoration: buildDecorationProfile(),
+      child: ListTile(
+        title: Text(AText.deleteAccount.tr(context), style: TextStyle(fontSize: 18)),
+        leading: Icon(Icons.delete,color : Colors.red),
+        trailing: Icon(Icons.arrow_forward_ios, color: Colors.black),
+        onTap: () {
+          // Navigate to account settings
+             if (isLoggedInUser) {
+              navigateNamedTo(context, Routes.deleteStoreScreen, "Are you sure you want to delete your account? All coupons for this account will also be deleted.");
+              } else {
+                showRequireLoginDialog(context);
+              }
+        },
+      ),
+    );
+
   }
 
   Container buildChangeLangauge(BuildContext context) {
