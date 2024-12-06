@@ -128,10 +128,11 @@ class UserRepository {
 
   ///Function to update any filed in Specific users Collection
   Future<void> updateStringFiled(Map<String, dynamic> json) async {
+    String currentUserID = getIt<CacheHelper>().getValueWithKey("userID");
     try {
       await _db
           .collection(collectionNameUsers)
-          .doc(_currentAuthUser?.uid)
+          .doc(currentUserID)
           .update(json);
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
@@ -172,16 +173,57 @@ class UserRepository {
     }
   }
 
+
   Future<String> uploadImage(String path, File image) async {
     try {
-      // Extract file name from the file path
-      final fileName = _path.basename(image.path);
+      final mimeType = getMimeType(image);
+      final metadata = SettableMetadata(contentType: mimeType);
+        // Generate a unique ID for the image
+       final imageId = FirebaseFirestore.instance.collection('images').doc().id;
 
-      final ref = FirebaseStorage.instance.ref(path).child(fileName);
-      await ref.putFile(image);
-      final url =
-          await ref.getDownloadURL(); // Use this URL to display the image
-      return url;
+       // Create a storage reference
+    final refStorage = FirebaseStorage.instance.ref().child('images').child(imageId);
+
+     // Upload the file
+    final uploadTask = refStorage.putFile(image, metadata);
+
+    //     // Track the upload progress
+    // uploadTask.snapshotEvents.listen((taskSnapshot) {
+    //   switch (taskSnapshot.state) {
+    //     case TaskState.running:
+    //       final progress = (taskSnapshot.bytesTransferred / taskSnapshot.totalBytes) * 100;
+    //       print('Upload is $progress% complete');
+    //       // Show progress indicator (e.g., with a library like `flutter_progress_hud`)
+    //       break;
+    //     case TaskState.success:
+    //       print("Upload complete");
+    //       break;
+    //     case TaskState.error:
+    //       // Handle errors during upload
+    //       print("Upload failed: ${taskSnapshot.state}");
+    //       break;
+    //     default:
+    //       break;
+    //   }
+    // });
+
+    // Wait for the upload to complete
+    final snapshot = await uploadTask.whenComplete(() {});
+
+    // Get the download URL for the uploaded image
+    final imageUrl = await snapshot.ref.getDownloadURL();
+
+    return imageUrl;
+
+      // // Extract file name from the file path
+      // final fileName = _path.basename(image.path);
+
+
+      // final ref = FirebaseStorage.instance.ref(path).child(fileName);
+      // await ref.putFile(image);
+      // final url =
+      //     await ref.getDownloadURL(); // Use this URL to display the image
+      // return url;
     } on FirebaseAuthException catch (e) {
       throw FirebaseAuthException(code: e.code, message: e.message);
     } on FirebaseException catch (e) {
@@ -192,6 +234,28 @@ class UserRepository {
       throw PlatformException(code: e.code, message: e.message);
     } catch (e) {
       throw 'Something went wrong. Please try again.';
+    }
+  }
+
+
+   ///Upload any image
+  Future<String> uploadImageWithXFile(String path, XFile image) async {
+    try {
+      final ref = FirebaseStorage.instance.ref(path).child(image.name);
+      await ref.putFile(File(image.path));
+      final url =
+          await ref.getDownloadURL(); // use this url to display this image ..
+      return url;
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'something went wrong. Please try again';
     }
   }
 

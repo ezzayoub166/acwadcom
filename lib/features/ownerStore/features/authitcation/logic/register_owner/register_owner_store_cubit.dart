@@ -29,7 +29,7 @@ class RegisterOwnerStoreCubit extends Cubit<RegisterOwnerStoreState> {
   File? _selectedImage;
 
   File? get selectedImage => _selectedImage;
-  String url = ""; 
+  String url = "";
 
   void emitRegisterStates() async {
     try {
@@ -42,8 +42,11 @@ class RegisterOwnerStoreCubit extends Cubit<RegisterOwnerStoreState> {
               emailController.text.trim(), passwordController.text.trim());
 
       // if(url.selectedImage){
-        url = await _userRepository.uploadImage('Users/images/Profile/' , _selectedImage!);
-      // }        
+      url = await _userRepository.uploadImage(
+        'profile_${userCredential.user!.uid}',
+        _selectedImage!,
+      );
+      // }
 
       //Save in Firebase Firestore
 
@@ -52,21 +55,23 @@ class RegisterOwnerStoreCubit extends Cubit<RegisterOwnerStoreState> {
           userName: nameOfStoreController.text.trim(),
           email: emailController.text.trim(),
           phoneNumber: phoneController.text.trim(),
-          profilePicture:url,
+          profilePicture: url,
           userType: "STOREOWNER",
           storeLink: linkOfStore.text,
-          deatilsForStore: deatilsStore.text.trim()
-          );
+          deatilsForStore: deatilsStore.text.trim());
 
       // final userRepostiry = getIt<UserRepository>();
       await _userRepository.storeUserRecord(newUser);
-          await Future.wait([
+
+      await Future.wait([
         getIt<CacheHelper>().saveValueWithKey("USERNAME", newUser.userName),
-        getIt<CacheHelper>().saveValueWithKey("IMAGEURL", newUser.profilePicture),
+        getIt<CacheHelper>()
+            .saveValueWithKey("IMAGEURL", newUser.profilePicture),
         getIt<CacheHelper>().saveValueWithKey("EMAIL", newUser.email),
-        getIt<CacheHelper>().saveValueWithKey("MOBILENUMBER", newUser.phoneNumber)
+        getIt<CacheHelper>()
+            .saveValueWithKey("MOBILENUMBER", newUser.phoneNumber)
       ]);
-          tYPEUSER = "STOREOWNER";
+      tYPEUSER = "STOREOWNER";
       emit(const RegisterOwnerStoreState.successRegister());
     } catch (error) {
       emit(RegisterOwnerStoreState.failureRegister(error: error.toString()));
@@ -74,7 +79,7 @@ class RegisterOwnerStoreCubit extends Cubit<RegisterOwnerStoreState> {
   }
 
   void pickImage() async {
-       // Step 1: Pick Image
+    // Step 1: Pick Image
     final pickedImage = await ImagePicker().pickImage(
       source: ImageSource.gallery,
       imageQuality: 50,
@@ -82,17 +87,14 @@ class RegisterOwnerStoreCubit extends Cubit<RegisterOwnerStoreState> {
       maxWidth: 512,
     );
 
-     // Step 2: Convert to JPEG if necessary
+    // Step 2: Convert to JPEG if necessary
     File imageFile = File(pickedImage!.path);
     File? jpegImage = await convertToJpeg(imageFile);
 
-
     if (jpegImage != null) {
-            emit(const RegisterOwnerStoreState.imageStoreLoading());
+      emit(const RegisterOwnerStoreState.imageStoreLoading());
       _selectedImage = jpegImage;
       emit(RegisterOwnerStoreState.imageStoreSelected(image: jpegImage));
     }
   }
-
-  
 }

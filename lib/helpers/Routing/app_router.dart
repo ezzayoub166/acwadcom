@@ -107,7 +107,7 @@ class AppRouter {
       case Routes.storeDataProfile:
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
-                  create: (context) => StoreDataCubit(getIt()),
+                  create: (context) => getIt<StoreDataCubit>()..fetchUserData(),
                   child: StoreDataScreen(),
                 ));
       // case Routes.storeDeatilsScreen:

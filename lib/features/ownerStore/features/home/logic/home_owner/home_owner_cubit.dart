@@ -28,7 +28,7 @@ class HomeOwnerCubit extends Cubit<HomeOwnerState> {
 emitGetCoupons()async{
   emit(const HomeOwnerState.loadingGetCouponsForOwner());
   try{
-    final List<Coupon> coupons = await couponRepository.fetchCouponsForOwner();
+     await couponRepository.fetchCouponsForOwner().then((coupons){
     var sumsOFUseCoupons = 0;
     coupons.forEach((element) {
       sumsOFUseCoupons += element.numberOfUse;
@@ -36,6 +36,8 @@ emitGetCoupons()async{
     emit(HomeOwnerState.successGetCouponsForOwner(coupons: coupons));
 emit(HomeOwnerState.getNumberOfCoupons(number: coupons.length));
  emit(HomeOwnerState.getSumUsedOfCoupons(sum: sumsOFUseCoupons));
+    });
+
   }catch(error){
     emit(HomeOwnerState.faluireGetCouponsForOwner(error: error.toString()));
   }

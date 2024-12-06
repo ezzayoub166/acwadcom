@@ -21,6 +21,8 @@ class StoreDataError extends StoreDataState {
 class StoreDataImageUploading extends StoreDataState {}
 
 class UserImageUploadSuccess extends StoreDataState {
-  final UserModel userModel;
-  UserImageUploadSuccess(this.userModel);
+  final String url;
+  UserImageUploadSuccess(this.url);
 }
+
+class StopLoadingImage extends StoreDataState{}

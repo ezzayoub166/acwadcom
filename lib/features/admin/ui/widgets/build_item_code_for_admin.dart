@@ -114,7 +114,7 @@ class BuildItmCodeForAdmin extends StatelessWidget {
 
   Widget _buildDiscountText(BuildContext context) {
     return myText(
-      "15% ${AText.discount.tr(context)}",
+      "${coupon.discountRate} % ${AText.discount.tr(context)}",
       color: ManagerColors.kCustomColor,
       fontWeight: FontWeightEnum.Bold.fontWeight,
       fontSize: 20,

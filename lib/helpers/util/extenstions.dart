@@ -93,6 +93,21 @@ extension FontWeightExtension on FontWeightEnum {
   }
 }
 
+  String getMimeType(File file) {
+  final extension = file.path.split('.').last.toLowerCase();
+  switch (extension) {
+    case 'jpg':
+    case 'jpeg':
+      return 'image/jpeg';
+    case 'png':
+      return 'image/png';
+    case 'gif':
+      return 'image/gif';
+    default:
+      return 'application/octet-stream'; // Fallback for unknown types
+  }
+}
+
 class NavigationService {
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 }

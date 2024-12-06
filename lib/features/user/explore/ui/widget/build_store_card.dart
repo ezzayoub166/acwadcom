@@ -30,7 +30,7 @@ class StoreCard extends StatelessWidget {
                         15), // Adjust the radius as needed
                   ),
                   clipBehavior: Clip.antiAlias,
-                  elevation: 5.0,
+                  elevation: 0.0,
                   child: extendedImageWgt(
                       store.profilePicture, 100, 140, BoxFit.cover)),
               Expanded(

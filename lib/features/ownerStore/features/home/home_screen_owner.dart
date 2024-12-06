@@ -53,6 +53,7 @@ class _HomeScreenOwnerState extends State<HomeScreenOwner> {
         case InternetStatus.connected:
         setState(() {
           isConnectedToInternt =  true;
+              // Fetch the coupons again when connected
         });
         break;
         case InternetStatus.disconnected:
@@ -86,8 +87,9 @@ class _HomeScreenOwnerState extends State<HomeScreenOwner> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<HomeOwnerCubit>()..emitGetCoupons(),
+     final cubit = getIt<HomeOwnerCubit>();
+    return BlocProvider.value(
+      value: cubit..emitGetCoupons(),
       child: isConnectedToInternt ?  Scaffold(
           backgroundColor: Colors.white,
           body: Padding(

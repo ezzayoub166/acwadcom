@@ -178,8 +178,12 @@ class AuthenticationRepository {
       await Future.wait([
         GoogleSignIn().signOut(),
         _auth.signOut(), 
-          getIt<CacheHelper>().clearAll()
-
+        getIt<CacheHelper>().removeValueWithKey("USERNAME"),
+        getIt<CacheHelper>().removeValueWithKey("IMAGEURL"),
+        getIt<CacheHelper>().removeValueWithKey("userID"),
+        getIt<CacheHelper>().removeValueWithKey("EMAIL"),
+        getIt<CacheHelper>().removeValueWithKey("MOBILENUMBER"),
+        getIt<CacheHelper>().removeValueWithKey("tYPEUSER")
       ]);
         // Debugging: Check if cache is cleared
 

@@ -67,8 +67,8 @@ class _BuildFeaturedCodeState extends State<BuildFeaturedCode> {
                       myText(
                         widget.coupon.title,
                         color: ManagerColors.textColorDark,
-                        fontSize: 16.sp,
-                        maxLines: 2,
+                        fontSize: 16,
+                        maxLines: 1,
                         fontWeight: FontWeightEnum.Bold.fontWeight,
                         overflow: TextOverflow.ellipsis,
                       ),

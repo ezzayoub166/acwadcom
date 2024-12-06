@@ -1,5 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
 
+import 'dart:io';
+
 import 'package:acwadcom/features/user/authtication/data/user_repositry.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:flutter/foundation.dart';
@@ -35,9 +37,9 @@ class CreateCouponCubit extends Cubit<CreateCouponState> {
   DateTime? dateItem;
 
   final ImagePicker _picker = ImagePicker();
-  XFile? _selectedImage;
+  File? _selectedImage;
 
-  XFile? get selectedImage => _selectedImage;
+  File? get selectedImage => _selectedImage;
   String urlLOGO = "";
 
   final CategoryRepository categoryRepository;
@@ -73,35 +75,40 @@ class CreateCouponCubit extends Cubit<CreateCouponState> {
 
 //** CREATE COUBON METHOD */
   void addCoupon() async {
+  
     emit(const CreateCouponState.loading());
+
     if (tYPEUSER == "STOREOWNER") {
       urlLOGO = getIt<CacheHelper>().getValueWithKey("IMAGEURL");
     } else {
+      var uniq = Uuid().v1();
+      File imageFile = File(_selectedImage!.path);
+
       urlLOGO = await couponRepository.uploadImage(
-          'Users/images/Coupons/', _selectedImage!);
+          'coupon_${uniq}', imageFile);
     }
+
     var couponID = const Uuid().v1();
     var userId = getIt<CacheHelper>().getValueWithKey("userID");
-    var user = await userRepository.fetchUserDetails();
+    var user = await userRepository.fetchStableData(userId);
 
     var coupon = Coupon(
-        title: titleController.text,
-        couponId: couponID,
-        ownerCouponId: userId,
-        discountRate: discountRateController.text.trim(),
-        storeLink: storeLinkController.text.trim(),
-        storeLogoURL: urlLOGO,
-        category: CategoryModel(
-        title: optionItemSelected?.title ?? "All",
-        image: "",
-        categoryId: optionItemSelected?.id),
-        endData: dateItem != null ? Timestamp.fromDate(dateItem!) : Timestamp.now(),
-        numberOfUse: 20 ,
-        additionalTerms: additionalTerms.text,
-         code: codeTextController.text,
-         uploadDate: Timestamp.now(),
-          ownerCoupon: user
-          
+        title            : titleController.text,
+        couponId         : couponID,
+        ownerCouponId    : userId,
+        discountRate     : discountRateController.text.trim(),
+        storeLink        : storeLinkController.text.trim(),
+        storeLogoURL     : urlLOGO,
+        category         : CategoryModel(  
+        title            : optionItemSelected?.title ?? "All",
+        image            : "",
+        categoryId       : optionItemSelected?.id),
+        endData          : dateItem != null ? Timestamp.fromDate(dateItem!) : Timestamp.now(),
+        numberOfUse      : 20,
+        additionalTerms  : additionalTerms.text,
+        code              : codeTextController.text,
+        uploadDate      : Timestamp.now(),
+        ownerCoupon     : user 
         );
     try {
       // await couponRepository.addCoupon(coupon);
@@ -116,10 +123,10 @@ class CreateCouponCubit extends Cubit<CreateCouponState> {
   }
 
   void pickImage() async {
-    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    final image = await _picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
       emit(const CreateCouponState.loadingSetLogoStore());
-      _selectedImage = image;
+      _selectedImage = File(image.path);
       emit(CreateCouponState.loadedSetLogoStore(imageURL: image));
     }
   }

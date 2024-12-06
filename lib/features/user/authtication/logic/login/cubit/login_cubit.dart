@@ -35,8 +35,6 @@ class LoginCubit extends Cubit<LoginState> {
               emailController.text.trim(), passwordController.text.trim());
       final fetchedUser =
           await _userRepository.fetchStableData(userCredential.user?.uid);
-      print(fetchedUser.email);
-
       // Save user details in cache concurrently
       await Future.wait([
         getIt<CacheHelper>().saveValueWithKey("USERNAME", fetchedUser.userName),

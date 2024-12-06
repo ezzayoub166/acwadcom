@@ -1,7 +1,10 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
 
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/features/user/authtication/data/authentication_repository.dart';
+import 'package:acwadcom/features/user/authtication/data/user_repositry.dart';
 import 'package:acwadcom/helpers/constants/strings.dart';
+import 'package:acwadcom/helpers/di/dependency_injection.dart';
 
 class ConfirmRequireLoginDialog extends StatelessWidget {
   // final String codeName;
@@ -79,6 +82,7 @@ class ConfirmRequireLoginDialog extends StatelessWidget {
                   onPressed: () {
                     // Handle delete action here
                     // Navigator.of(context).pop();
+                    getIt<AuthenticationRepository>().logout(context);
                     navigateAndFinishNamed(context, Routes.loginScreen , "User");
                   },
                   child: myText(

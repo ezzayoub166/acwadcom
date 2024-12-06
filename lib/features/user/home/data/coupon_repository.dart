@@ -13,13 +13,39 @@ class CouponRepository {
 
 
   ///Upload any image
-  Future<String> uploadImage(String path, XFile image) async {
+  Future<String> uploadImage(String path, File image) async {
     try {
-      final ref = FirebaseStorage.instance.ref(path).child(image.name);
-      await ref.putFile(File(image.path));
-      final url =
-          await ref.getDownloadURL(); // use this url to display this image ..
-      return url;
+            final mimeType = getMimeType(image);
+      final metadata = SettableMetadata(contentType: mimeType);
+        // Generate a unique ID for the image
+       final imageId = FirebaseFirestore.instance.collection('images').doc().id;
+
+       // Create a storage reference
+    final refStorage = FirebaseStorage.instance.ref().child('images').child(imageId);
+
+     // Upload the file
+    final uploadTask = refStorage.putFile(image, metadata);
+
+        // Track the upload progress
+  
+  
+
+
+    // Wait for the upload to complete
+    final snapshot = await uploadTask.whenComplete(() {});
+
+    // Get the download URL for the uploaded image
+    final imageUrl = await snapshot.ref.getDownloadURL();
+    // print("Image URL: $imageUrl");
+
+    return imageUrl;
+
+
+      // final ref = FirebaseStorage.instance.ref(path).child(image.name);
+      // await ref.putFile(File(image.path));
+      // final url =
+      //     await ref.getDownloadURL(); // use this url to display this image ..
+      // return url;
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
@@ -142,7 +168,7 @@ class CouponRepository {
     } on PlatformException catch (e) {
       throw TPlatformException(e.code).message;
     } catch (e) {
-      print(e.toString());
+
       throw 'Something went wrong. Please try again';
     }
   }
@@ -406,8 +432,34 @@ class CouponRepository {
     } on PlatformException catch (e) {
       throw TPlatformException(e.code).message;
     } catch (onError) {
-      print(onError.toString());
       throw 'something went wrong. Please try again : ${onError}';
+    }
+  }
+
+    ///Function to update any filed in Specific users Collection
+  Future<void> updateStringFiledForCoupon(Map<String, dynamic> json , String userID) async {
+    try {
+          // Step 1: Fetch all documents where "OwnerCouponId" matches the given userID
+
+        final querySnapshot = await _db
+          .collection(couponsConstant)
+          .where("OwnerCouponId" , isEqualTo: userID).get();
+
+              // Step 2: Iterate through each document and update it
+        for (final doc in querySnapshot.docs) {
+         await _db.collection(couponsConstant).doc(doc.id).update(json);
+       }
+
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'something went wrong. Please try again';
     }
   }
 }

@@ -35,7 +35,7 @@ class _BuildListCouponsState extends State<BuildListCoupons> {
     return ListView.separated(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
+        // physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (ctx, index) {
           DateTime endDate = (widget.coupons[index].endData).toDate();
           String remainingTime = calculateTimeRemaining(endDate);

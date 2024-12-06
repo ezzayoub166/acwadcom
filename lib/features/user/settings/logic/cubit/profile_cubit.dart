@@ -70,6 +70,8 @@ class ProfileCubit extends Cubit<ProfileState> {
 // }
 
 uploadUserProfilePicture() async {
+  var usrid = getIt<CacheHelper>().getValueWithKey("userID");
+
   try {
     // Step 1: Pick Image
     final pickedImage = await ImagePicker().pickImage(
@@ -99,7 +101,7 @@ uploadUserProfilePicture() async {
 
     // Step 4: Upload the converted JPEG image
     final imageUrl = await _userRepository.uploadImage(
-      'Users/images/Profile/',
+      'profile_${usrid}}',
       jpegImage,
     );
 

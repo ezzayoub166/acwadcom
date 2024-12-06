@@ -3,6 +3,7 @@ import 'package:acwadcom/features/admin/logic/request/cubit/control_coupons_cubi
 import 'package:acwadcom/features/admin/srvices/coupon_request_services.dart';
 import 'package:acwadcom/features/ownerStore/features/authitcation/logic/delete_store/cubit/delete_store_cubit.dart';
 import 'package:acwadcom/features/ownerStore/features/home/logic/home_owner/home_owner_cubit.dart';
+import 'package:acwadcom/features/ownerStore/features/store_data/logic/store_data_cubit.dart';
 import 'package:acwadcom/features/user/authtication/data/authentication_repository.dart';
 import 'package:acwadcom/features/user/authtication/data/user_repositry.dart';
 import 'package:acwadcom/features/user/authtication/logic/login/cubit/login_cubit.dart';
@@ -80,6 +81,7 @@ Future<void> setupGetIt() async {
 
       getIt.registerFactory<DeleteStoreCubit>(() => DeleteStoreCubit(getIt<CouponRepository>() , getIt<UserRepository>()));
 
+      getIt.registerFactory<StoreDataCubit>(() => StoreDataCubit(getIt<UserRepository>(),getIt<CouponRepository>()));
 
 
 
