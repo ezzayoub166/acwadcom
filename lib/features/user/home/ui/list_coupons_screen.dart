@@ -30,7 +30,7 @@ class _ListCouponsScreenState extends State<ListCouponsScreen> {
                 return state.maybeWhen(
                     loadingCoupons: () => const buildLoaderShimmerList(),
                     successFeatchedCoupons: (coupons) =>
-                        Expanded(child: BuildListCoupons(coupons: coupons)),
+                        Expanded(child: BuildListCoupons(coupons: coupons , isScroll: true,)),
                     errorFeatchedCoupons: (error) => Container(
                           color: Colors.red,
                           child: Text(error.toString()),

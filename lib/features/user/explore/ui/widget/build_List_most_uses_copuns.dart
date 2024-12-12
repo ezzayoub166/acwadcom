@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/features/user/coupons/ui/screens/coupon_deatls_screen.dart';
 import 'package:acwadcom/features/user/explore/ui/widget/build_coupon_clipper_widget.dart';
 import 'package:acwadcom/features/user/wishlist/data/wihslist_repository.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
@@ -49,7 +50,15 @@ class BuildListMostUserCopuns extends StatelessWidget {
         itemBuilder: (context, index) {
             //  bool isFav =  checkIfCouponsIsFav(coupons[index]);
 
-          return buildCouponClipperItem(context, coupons[index]);
+          return GestureDetector(
+            onTap: (){
+               navigateTo(
+                    context,
+                    CouponDeatlsScreen(
+                      coupon: coupons[index],
+                    ));
+            },
+            child: buildCouponClipperItem(context, coupons[index]));
         },
       ),
     );

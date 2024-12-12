@@ -11,9 +11,10 @@ import 'build_featured_code.dart';
 
 class BuildListCoupons extends StatefulWidget {
   final List<Coupon> coupons;
+  final bool isScroll ; 
   const BuildListCoupons({
     super.key,
-    required this.coupons,
+    required this.coupons, this.isScroll = false,
   });
 
   @override
@@ -35,7 +36,7 @@ class _BuildListCouponsState extends State<BuildListCoupons> {
     return ListView.separated(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        // physics: const NeverScrollableScrollPhysics(),
+        physics: widget.isScroll ? BouncingScrollPhysics() : NeverScrollableScrollPhysics(),
         itemBuilder: (ctx, index) {
           DateTime endDate = (widget.coupons[index].endData).toDate();
           String remainingTime = calculateTimeRemaining(endDate);
@@ -63,9 +64,13 @@ class _BuildListCouponsState extends State<BuildListCoupons> {
     return showDialog(context: context, builder: (BuildContext dialogContext){
               return AlertDialog(
                 backgroundColor: ManagerColors.kCustomColor,
-                content: Container(
-                    height: 200.h,
-                    width: MediaQuery.of(context).size.width*0.5,
+                content: ConstrainedBox(
+                    // height: 200.h,
+                    // width: MediaQuery.of(context).size.width*0.5,
+                       constraints: BoxConstraints(
+            maxHeight: MediaQuery.of(context).size.height * 0.6, // Limit height
+          ),
+
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child:

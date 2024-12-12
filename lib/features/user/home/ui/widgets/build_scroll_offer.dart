@@ -13,37 +13,14 @@ class AutoScrollPageView extends StatefulWidget {
   @override
   _AutoScrollPageViewState createState() => _AutoScrollPageViewState();
 }
+class _AutoScrollPageViewState extends State<AutoScrollPageView>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
 
-class _AutoScrollPageViewState extends State<AutoScrollPageView> {
-  late PageController pageController;
+    late PageController pageController;
   late Timer autoScrollTimer;
   int currentPage = 0;
-
-
-
-  void updatePageIndicator(int index) {
-    setState(() {
-      currentPage = index;
-    });
-  }
-
-
-
-  Widget buildSmoothIndicator(int countOffers) {
-    return Align(
-      alignment: Alignment.center,
-      child: SmoothPageIndicator(
-        controller: pageController,
-        onDotClicked: (index) {},
-        count: countOffers,
-        effect: ExpandingDotsEffect(
-          dotWidth: 10.w,
-          activeDotColor: ManagerColors.yellowColor,
-          dotHeight: 6.h,
-        ),
-      ),
-    );
-  }
 
   @override
   void initState() {
@@ -75,12 +52,12 @@ class _AutoScrollPageViewState extends State<AutoScrollPageView> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context); // Call this to trigger `wantKeepAlive`
     return Column(
       children: [
-
         SizedBox(
-        height: 150,
-        width: double.infinity,
+          height: 150,
+          width: double.infinity,
           child: PageView.builder(
             itemCount: widget.offers.length,
             allowImplicitScrolling: true,
@@ -99,6 +76,22 @@ class _AutoScrollPageViewState extends State<AutoScrollPageView> {
         buildSpacerH(10.0),
         buildSmoothIndicator(widget.offers.length)
       ],
+    );
+  }
+
+    Widget buildSmoothIndicator(int countOffers) {
+    return Align(
+      alignment: Alignment.center,
+      child: SmoothPageIndicator(
+        controller: pageController,
+        onDotClicked: (index) {},
+        count: countOffers,
+        effect: ExpandingDotsEffect(
+          dotWidth: 10.w,
+          activeDotColor: ManagerColors.yellowColor,
+          dotHeight: 6.h,
+        ),
+      ),
     );
   }
 }

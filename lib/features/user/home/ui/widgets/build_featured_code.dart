@@ -169,7 +169,7 @@ class _BuildFeaturedCodeState extends State<BuildFeaturedCode> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
-          contentPadding: EdgeInsets.all(24),
+          contentPadding: EdgeInsets.all(40),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -195,6 +195,9 @@ class _BuildFeaturedCodeState extends State<BuildFeaturedCode> {
               ),
               SizedBox(height: 24),
               _buildDialogButtons(context, dialogContext),
+                            SizedBox(height: 24),
+          
+          
             ],
           ),
         );

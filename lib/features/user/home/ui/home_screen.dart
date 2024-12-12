@@ -31,34 +31,9 @@ class _HomeScreenState extends State<HomeScreen> {
         );
   }
 
-  Widget buildCategories() {
-    return Column(
-      children: [
-        TSectionHeader(
-          title: AText.categorieslbl.tr(context),
-          textColor: ManagerColors.textColor,
-        ),
-        buildSpacerH(TSizes.spaceBtwItems),
-        BlocBuilder<HomeCubit, HomeState>(
-          buildWhen: (previous, current) =>
-              current is LoadingCatgories ||
-              current is SuccessFeatchedCatgories ||
-              current is ErrorFeatchedCatgories,
-          builder: (context, state) {
-            return state.maybeWhen(
-                loadingCatgories: () => ListShimmerCategoires(),
-                successFeatchedCatgories: (categories) => ACWHomeCategoires(
-                      arrayOfCategories: categories,
-                    ),
-                errorFeatchedCatgories: (error) => ListShimmerCategoires(),
-                orElse: () {
-                  return ListShimmerCategoires();
-                });
-          },
-        )
-      ],
-    );
-  }
+  // Widget buildCategories() {
+  //   return buildCategories(context: context);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   buildSpacerH(TSizes.spaceBtwItems),
                   blocBuilderOffers(),
                   buildSpacerH(TSizes.spaceBtwItems),
-                  buildCategories(),
+                  BlocBuilderCategories(),
                   buildSpacerH(TSizes.spaceBtwItems),
                   blocBuilderCoupons(context)
                 ]),
@@ -172,6 +147,48 @@ class _HomeScreenState extends State<HomeScreen> {
         });
   }
 }
+
+// class CategoriesSection extends StatefulWidget {
+//   @override
+//   _CategoriesSectionState createState() => _CategoriesSectionState();
+// }
+
+// class _CategoriesSectionState extends State<CategoriesSection>
+//     with AutomaticKeepAliveClientMixin {
+//   @override
+//   bool get wantKeepAlive => true;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     super.build(context);
+//     return Column(
+//       children: [
+//         TSectionHeader(
+//           title: AText.categorieslbl.tr(context),
+//           textColor: ManagerColors.textColor,
+//         ),
+//         buildSpacerH(TSizes.spaceBtwItems),
+//         BlocBuilder<HomeCubit, HomeState>(
+//           buildWhen: (previous, current) =>
+//               current is LoadingCatgories ||
+//               current is SuccessFeatchedCatgories ||
+//               current is ErrorFeatchedCatgories,
+//           builder: (context, state) {
+//             return state.maybeWhen(
+//                 loadingCatgories: () => ListShimmerCategoires(),
+//                 successFeatchedCatgories: (categories) => ACWHomeCategoires(
+//                       arrayOfCategories: categories,
+//                     ),
+//                 errorFeatchedCatgories: (error) => ListShimmerCategoires(),
+//                 orElse: () {
+//                   return ListShimmerCategoires();
+//                 });
+//           },
+//         )
+//       ],
+//     );
+//   }
+// }
 
 //Categories
 

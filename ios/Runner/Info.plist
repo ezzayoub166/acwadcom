@@ -47,7 +47,13 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app requires access to your photo library to allow you to select and upload photos.</string>
+	<string>This app needs access to your photo library so you can upload a profile picture and logos for coupons you create</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This app needs access to save edited profile pictures and coupon logos to your library.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>This app uses your location to find nearby coupons and deals.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>This app uses your location in the background to provide personalized coupon notifications.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -56,8 +62,8 @@
 	<string>Main</string>
 	<key>UIStatusBarHidden</key>
 	<false/>
-    <key>ITSAppUsesNonExemptEncryption</key>
-    <false/>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
