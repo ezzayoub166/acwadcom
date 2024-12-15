@@ -56,6 +56,12 @@
     <string>This app uses your location in the background to provide personalized coupon notifications.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>UIBackgroundModes</key>
+    <array>
+    <string>remote-notification</string>
+    </array>
+    <key>NSPushNotificationsUsageDescription</key>
+    <string>We need permission to send you notifications about updates and offers.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

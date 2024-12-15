@@ -1,7 +1,9 @@
 
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/features/ownerStore/features/authitcation/ui/widgets/build_requird_image_selected.dart';
 import 'package:acwadcom/features/user/authtication/UI/widgets/build_terms_and_condtions.dart';
 import 'package:acwadcom/features/user/coupons/ui/widgets/build_app_bar_with_back_button.dart';
+import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/helpers/popups/animation_loader.dart';
 import 'package:acwadcom/features/ownerStore/features/authitcation/logic/register_owner/register_owner_store_cubit.dart';
 import 'package:acwadcom/features/ownerStore/features/authitcation/logic/register_owner/register_owner_store_state.dart';
@@ -66,15 +68,29 @@ class RegisterOwnerStore extends StatelessWidget {
                       )));
               }, 
               imageStoreinital: (){}, 
+              notSelectedImage:(){
+                context.pop();
+                showRequireImageSelectedDialog(context);
+              } ,
               imageStoreLoading: (){},
                imageStoreSelected: (image){}
                );
+
             },
           builder: (context, state) =>  _RegisterOwnerForm(),
         ),
       ),
     );
   }
+   void showRequireImageSelectedDialog(context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return RequiredImageSelectedWgt();
+      },
+    );
+  }
+
 }
 
 class _RegisterOwnerForm extends StatelessWidget {

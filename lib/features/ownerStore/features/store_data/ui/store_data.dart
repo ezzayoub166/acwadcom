@@ -139,7 +139,7 @@ class _StoreDataScreenState extends State<StoreDataScreen> {
             hintText: AText.username.tr(context),
             controller: context.read<StoreDataCubit>().userNameController,
             validator: (value) => ManagerValidator.validateEmptyText(
-                AText.username.tr(context), value ?? ""),
+                AText.username, value ?? "",context),
           ),
           buildSpacerH(10.0),
           //Phone Number
@@ -158,7 +158,7 @@ class _StoreDataScreenState extends State<StoreDataScreen> {
               hintText: AText.deatilsStore.tr(context),
               controller: context.read<StoreDataCubit>().deatilsStoreController,
               validator: (value) => ManagerValidator.validateEmptyText(
-                  AText.deatilsStore.tr(context), value ?? "")),
+                  AText.deatilsStore, value ?? "",context)),
           buildSpacerH(10.0),
           buildAbleTextField(
               hintText: AText.linkofWebsite.tr(context),

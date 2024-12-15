@@ -20,7 +20,7 @@ class AdditionalTermsCardWidget extends StatelessWidget {
       child: TextFormField(
         textInputAction: TextInputAction.done,
         controller: text==""? context.read<CreateCouponCubit>().additionalTerms : TextEditingController(text: text),
-        validator:(value) => ManagerValidator.validateEmptyText("Additional Terms".tr(context), value??""),
+        validator:(value) => ManagerValidator.validateEmptyText("Additional Terms", value??"",context),
         maxLines: 3, // Allows the text field to expand vertically
         keyboardType: TextInputType.multiline,
         // textAlign: TextAlign.right, // Align text to the right for Arabic or RTL languages

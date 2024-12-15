@@ -3,11 +3,10 @@ import 'package:acwadcom/features/admin/logic/request/cubit/control_coupons_cubi
 import 'package:acwadcom/common/widgets/build_custom_loader.dart';
 import 'package:acwadcom/common/widgets/build_extended_image.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
-import 'package:acwadcom/helpers/constants/strings.dart';
-import 'package:acwadcom/models/coupon_model.dart';
+import 'package:acwadcom/helpers/util/language_cache_helper.dart';
+
 import 'package:acwadcom/models/coupon_request.dart';
-import 'package:acwadcom/features/ownerStore/features/home/logic/home_owner/home_owner_cubit.dart';
-import 'package:extended_image/extended_image.dart';
+
 import 'package:intl/intl.dart';
 
 class DiscountCodeDeatilsAdmin extends StatelessWidget {
@@ -23,6 +22,10 @@ class DiscountCodeDeatilsAdmin extends StatelessWidget {
       // Format the DateTime to the desired format (DD/MM/YYYY)
   String formattedDate = DateFormat('dd/MM/yyyy').format(coupon.endData.toDate());
   // print(formattedDate);
+
+
+      var locale = LanguageCacheHelper().getCachedLanguageCode();
+
 
 
     return Scaffold(
@@ -63,7 +66,7 @@ class DiscountCodeDeatilsAdmin extends StatelessWidget {
               buildInfoField(
                   AText.linkofWebsite.tr(context), coupon.storeLink, context),
               buildInfoField(
-                  AText.category.tr(context), coupon.category!.title, context),
+                  AText.category.tr(context), locale == "en" ? coupon.category?.title["en"] : coupon.category?.title["ar"] , context),
               // buildInfoField(AText.stateData.tr(context), "2024-3-30", context),
               buildInfoField(AText.endDate.tr(context),
                   formattedDate, context),

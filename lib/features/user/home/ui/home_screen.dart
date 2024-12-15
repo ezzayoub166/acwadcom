@@ -12,6 +12,7 @@ import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/helpers/shimmer/shimmer_effect.dart';
 import 'package:acwadcom/helpers/shimmer/shimmer_loading.dart';
+import 'package:acwadcom/localiztion_cubit/locale_cubit.dart';
 import 'package:acwadcom/models/offer_model.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -37,6 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Locale currentLocale = context.read<LocaleCubit>().state.locale;
     return Scaffold(
         backgroundColor: Colors.white,
         // appBar: customAppBar(context),
@@ -45,31 +47,35 @@ class _HomeScreenState extends State<HomeScreen> {
             ..emitGetCategories()
             ..emitGetDiscoverCoupons()
             ..emitGetOffers(),
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: TSizes.defaultSpace,
-                vertical: isLoggedInUser ? TSizes.defaultSpace : 5),
-            child: ListView(
-                shrinkWrap: true, // Adjusts to content size
-                children: [
-                  isLoggedInUser
-                      ? customAppBar(context)
-                      : SizedBox(
-                          height: 1,
-                        ),
-                  buildSpacerH(TSizes.spaceBtwItems),
-                  ASearchContainer(
-                    text: AText.search.tr(context),
-                    onPressed: () =>
-                        navigateNamedTo(context, Routes.searchScreen),
-                  ),
-                  buildSpacerH(TSizes.spaceBtwItems),
-                  blocBuilderOffers(),
-                  buildSpacerH(TSizes.spaceBtwItems),
-                  BlocBuilderCategories(),
-                  buildSpacerH(TSizes.spaceBtwItems),
-                  blocBuilderCoupons(context)
-                ]),
+          child: SafeArea(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: TSizes.defaultSpace,
+                    vertical: isLoggedInUser ? TSizes.defaultSpace : 5),
+                child: Column(
+                    // shrinkWrap: true, // Adjusts to content size
+                    children: [
+                      isLoggedInUser
+                          ? customAppBar(context)
+                          : SizedBox(
+                              height: 1,
+                            ),
+                      buildSpacerH(TSizes.spaceBtwItems),
+                      ASearchContainer(
+                        text: AText.search.tr(context),
+                        onPressed: () =>
+                            navigateNamedTo(context, Routes.searchScreen),
+                      ),
+                      buildSpacerH(TSizes.spaceBtwItems),
+                      blocBuilderOffers(),
+                      buildSpacerH(TSizes.spaceBtwItems),
+                      BlocBuilderCategories(),
+                      buildSpacerH(TSizes.spaceBtwItems),
+                      blocBuilderCoupons(context)
+                    ]),
+              ),
+            ),
           ),
         ));
   }

@@ -1,53 +1,61 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CategoryModel {
-   String? categoryId ;
-   String title ; 
-   String image ;
-     bool isSelected;
+  String? categoryId;
+  Map<String, dynamic> title; // To support multi-language titles
+  String image;
+  bool isSelected;
 
+  CategoryModel({
+    this.categoryId,
+    required this.title,
+    required this.image,
+    this.isSelected = false,
+  });
 
-  CategoryModel({this.categoryId, required this.title, required this.image , this.isSelected =false}); 
-
-    Map<String, dynamic> toJson() {
+  /// Convert model to JSON for storing in Firestore
+  Map<String, dynamic> toJson() {
     return {
       "CategoryId": categoryId,
-      "Title": title,
+      "Title": title, // Map of titles (e.g., {'en': 'All', 'ar': 'الكل'})
       "Image": image,
     };
   }
 
-     ///Map json oriented document snapshot form firebase to UserModel
+  /// Convert Firestore JSON data to CategoryModel
   factory CategoryModel.fromJson(Map<String, dynamic> document) {
     final data = document;
     if (data.isEmpty) return CategoryModel.empty();
+
     return CategoryModel(
-        categoryId: data['CategoryId'] ?? '',
-        title: data['Title'] ?? '',
-        image: data['Image'] ?? '',
-  );
+      categoryId: data['CategoryId'] ?? '',
+      title: Map<String, dynamic>.from(data['Title'] ?? {}), // Map the title field
+      image: data['Image'] ?? '',
+    );
   }
 
-  ///convert model to json structure so that you can store data in fireBase
+  /// Convert Firestore document snapshot to CategoryModel
   factory CategoryModel.fromSnapshot(
       DocumentSnapshot<Map<String, dynamic>> document) {
     if (document.data() != null) {
       final data = document.data()!;
 
-      //Map JSON Record to the Model
       return CategoryModel(
-          categoryId: document.id,
-          title: data['Title'] ?? '',
-          image: data['Image'] ?? '',
-        );
-    }else{
+        categoryId: document.id,
+        title: Map<String, dynamic>.from(data['Title'] ?? {}),
+        image: data['Image'] ?? '',
+      );
+    } else {
       return CategoryModel.empty();
     }
   }
 
-   ///Empty Helper Function
-  static CategoryModel empty() => CategoryModel(
-      categoryId: '', title: '', image: '');
+  /// Helper: Empty CategoryModel
+  static CategoryModel empty() =>
+      CategoryModel(categoryId: '', title: {}, image: '');
 
+  /// Get localized title based on current locale
+  String getLocalizedTitle(String locale) {
+    return title[locale] ?? title['en'] ?? ''; // Fallback to English if locale is missing
+  }
 }

@@ -2,8 +2,6 @@
 
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/user/authtication/data/authentication_repository.dart';
-import 'package:acwadcom/features/user/authtication/data/user_repositry.dart';
-import 'package:acwadcom/helpers/constants/strings.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 
 class ConfirmRequireLoginDialog extends StatelessWidget {

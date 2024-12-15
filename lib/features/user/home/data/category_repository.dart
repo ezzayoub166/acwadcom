@@ -80,7 +80,7 @@ class CategoryRepository {
         final file = await storage.getImageDataFromAssets(category.image);
 
         //upload image and Get its URL
-        final url = await storage.uploadImageData('Categories', file, category.title);
+        final url = await storage.uploadImageData('Categories', file, category.title["en"]);
 
         //Assign URL to Category.image attribute
         category.image = url;

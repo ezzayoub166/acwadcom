@@ -10,9 +10,9 @@ Widget buildCreateAccountButton(BuildContext context) {
           title: AText.creatNewAccountlbl.tr(context),
           onPressed: () {
              if(context.read<RegisterOwnerStoreCubit>().formKey.currentState!.validate()){
-               if(context.read<RegisterOwnerStoreCubit>().selectedImage!.path.isEmpty){
-                TLoader.showWarningSnackBar(context, title: "plase set logo for your store");
-               }else{
+              //  if(context.read<RegisterOwnerStoreCubit>().selectedImage!.path.isEmpty){
+              //   TLoader.showWarningSnackBar(context, title: "plase set logo for your store");
+              //  }else{
                 // print("Emit State Register");
                  context.read<RegisterOwnerStoreCubit>().formKey.currentState!.save();
 
@@ -21,7 +21,7 @@ Widget buildCreateAccountButton(BuildContext context) {
                 context.read<RegisterOwnerStoreCubit>().emitRegisterStates();
                
 
-               }
+              //  }
              }
           } ,
           backgroundColor: ManagerColors.kCustomColor,

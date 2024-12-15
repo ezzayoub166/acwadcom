@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:acwadcom/features/user/authtication/data/user_repositry.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
+import 'package:acwadcom/helpers/util/language_cache_helper.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -49,6 +50,9 @@ class CreateCouponCubit extends Cubit<CreateCouponState> {
 
   DropListModel listOfCategoriesOption = DropListModel([]);
 
+  var locale = LanguageCacheHelper().getCachedLanguageCode();
+
+
   void selectDate(DateTime date) {
     dateItem = date;
     emit(CreateCouponState.dateSelected(selectedDate: date));
@@ -61,9 +65,10 @@ class CreateCouponCubit extends Cubit<CreateCouponState> {
 
 //** FETGCH CATEGORIES  */
   void fetchCategories() {
+
     // Assuming bLISTOFCATEGORY is a list of categories you get from the repository
     final categories = bLISTOFCATEGORY.map((item) {
-      return OptionItem(title: item.title, id: item.categoryId);
+      return OptionItem(title: locale == "en" ? item.title["en"] : item.title["ar"] , id: item.categoryId);
     }).toList();
 
     listOfCategoriesOption = DropListModel(categories);
@@ -100,7 +105,9 @@ class CreateCouponCubit extends Cubit<CreateCouponState> {
         storeLink        : storeLinkController.text.trim(),
         storeLogoURL     : urlLOGO,
         category         : CategoryModel(  
-        title            : optionItemSelected?.title ?? "All",
+        title: {
+          "en":optionItemSelected?.title ?? "All",
+        }                      ,
         image            : "",
         categoryId       : optionItemSelected?.id),
         endData          : dateItem != null ? Timestamp.fromDate(dateItem!) : Timestamp.now(),

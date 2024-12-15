@@ -104,7 +104,7 @@ class _BottomtabbarState extends State<Bottomtabbar> {
             // shape: RoundedRectangleBorder( // Custom shape if needed
             //   borderRadius: BorderRadius.circular(20), // Adjust for more square shape
             // ),
-            ),
+  ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(
           shape: const CircularNotchedRectangle(),

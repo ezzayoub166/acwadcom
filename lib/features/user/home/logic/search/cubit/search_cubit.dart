@@ -24,13 +24,33 @@ class SearchCubit extends Cubit<SearchState> {
       try {
         // Filter the list based on the query
 
-        var snapshot = await  _db
-            .collection("Coupons")
-            .where('Title', isGreaterThanOrEqualTo: searchController.text)
-            .where('Title', isLessThanOrEqualTo: searchController.text + '\uf8ff')
-            .get();
+        // var snapshot = await  _db
+        //     .collection("Coupons")
+        //     .where('Title', isGreaterThanOrEqualTo: searchController.text)
+        //     .where('Title', isLessThanOrEqualTo: searchController.text + '\uf8ff')
+        //     .where('OwnerCoupon.userName' , isGreaterThanOrEqualTo: searchController.text)
+        //     .where('OwnerCoupon.userName' , isLessThanOrEqualTo: searchController.text)
+        //     .get();
 
-         final coupons = snapshot.docs.map((document) => Coupon.fromSnapshot(document)).toList();
+            var titleQuery = await _db
+    .collection("Coupons")
+    .where('Title', isGreaterThanOrEqualTo: searchController.text)
+    .where('Title', isLessThanOrEqualTo: searchController.text + '\uf8ff')
+    .get();
+
+var ownerQuery = await _db
+    .collection("Coupons")
+    .where('OwnerCoupon.userName', isGreaterThanOrEqualTo: searchController.text)
+    .where('OwnerCoupon.userName', isLessThanOrEqualTo: searchController.text + '\uf8ff')
+    .get();
+
+// Combine results
+final coupons  = [
+  ...titleQuery.docs.map((document) => Coupon.fromSnapshot(document)).toList(),
+  ...ownerQuery.docs.map((document) => Coupon.fromSnapshot(document)).toList()
+];
+
+        //  final coupons = snapshot.docs.map((document) => Coupon.fromSnapshot(document)).toList();
 
         // List<String> filteredItems = items
         //     .where((item) => item.toLowerCase().contains(query.toLowerCase()))

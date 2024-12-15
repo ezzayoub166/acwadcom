@@ -5,9 +5,9 @@ import 'package:acwadcom/acwadcom_packges.dart';
 class ManagerValidator {
 
   ///Empty Text Validation
-  static String? validateEmptyText(String? filedName , String value){
+  static String? validateEmptyText(String? filedName , String value , BuildContext context){
     if(value == null || value.isEmpty){
-      return '$filedName is required';
+      return '${filedName?.tr(context)} ${"is required".tr(context)}';
     }
     return null;
   }

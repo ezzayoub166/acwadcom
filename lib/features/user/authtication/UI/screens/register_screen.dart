@@ -128,16 +128,21 @@ class RegisterScreen extends StatelessWidget {
                     RoundedInputField(
                       controller: context.read<RegisterCubit>().nameController,
                       hintText: AText.insertYourUserNamlbl.tr(context),
-                      // textInputAction: TextInputAction.next,
+                      textInputAction: TextInputAction.next,
+                      
                       validator: (value) {
                         return ManagerValidator.validateEmptyText(
-                            AText.userNamelbl.tr(context), value ?? "");
+                            "username", value ?? "",context);
                       },
                     ),
                     buildSpacerH(20.0),
                     //** Phone Number */
                     CustomPhoneNumberInput(
                       controller: context.read<RegisterCubit>().phoneController,
+                      selectorTextStyle:  GoogleFonts.cairo(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,),
                     ),
                     //  buildSpacerH(20.0),
 
@@ -158,7 +163,7 @@ class RegisterScreen extends StatelessWidget {
                       textInputType: TextInputType.emailAddress,
                       validator: (value) {
                         return ManagerValidator.validateEmptyText(
-                            AText.email, value ?? '');
+                            AText.email, value ?? '',context);
                       },
                     ),
                     buildSpacerH(20.0),
@@ -168,6 +173,7 @@ class RegisterScreen extends StatelessWidget {
                           context.read<RegisterCubit>().passwordController,
                       hintText: AText.yourPassword.tr(context),
                       isSecure: true,
+                       textInputAction: TextInputAction.next,
                       validator: (value) {
                         return ManagerValidator.validatePassword(
                             value, context);
@@ -180,6 +186,7 @@ class RegisterScreen extends StatelessWidget {
                           .read<RegisterCubit>()
                           .passwordConfirmationController,
                       hintText: AText.confirmPassword.tr(context),
+                      textInputAction: TextInputAction.done,
                       isSecure: true,
                       validator: (value) {
                         return ManagerValidator.validatePassword(
@@ -198,33 +205,8 @@ class RegisterScreen extends StatelessWidget {
                     buildRegisterNewAccount(
                       context,
                     ),
-                    const DividerWithText(),
-                    buildSpacerH(20.0),
-                    RoundedButtonWgt(
-                      backgroundColor: ManagerColors.myWhite,
-                      foregroundColor: Colors.black,
-                      title: "",
-                      onPressed: () {},
-                      icon: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            AText.loginByGoogle.tr(context),
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(color: Colors.black),
-                          ),
-                          SizedBox(
-                            width: 8.w,
-                          ),
-                          svgImage("google_brand_branding_logo_network_icon",
-                              height: 24.h, width: 24.w),
-                          // SvgPicture.asset(
-                          //   "assets/images/google_brand_branding_logo_network_icon.svg"),
-                        ],
-                      ),
-                    ),
+                    // const DividerWithText(),
+                    buildSpacerH(20.0)
                   ],
                 ),
               ),
@@ -240,6 +222,7 @@ class RegisterScreen extends StatelessWidget {
     return GestureDetector(
       onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
           backgroundColor: ManagerColors.kCustomColor,
           body: buildBlocWidget(context)),
     );

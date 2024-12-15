@@ -25,6 +25,7 @@ mixin _$RegisterOwnerStoreState {
     required TResult Function() imageStoreinital,
     required TResult Function() imageStoreLoading,
     required TResult Function(File image) imageStoreSelected,
+    required TResult Function() notSelectedImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +37,7 @@ mixin _$RegisterOwnerStoreState {
     TResult? Function()? imageStoreinital,
     TResult? Function()? imageStoreLoading,
     TResult? Function(File image)? imageStoreSelected,
+    TResult? Function()? notSelectedImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +49,7 @@ mixin _$RegisterOwnerStoreState {
     TResult Function()? imageStoreinital,
     TResult Function()? imageStoreLoading,
     TResult Function(File image)? imageStoreSelected,
+    TResult Function()? notSelectedImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +62,7 @@ mixin _$RegisterOwnerStoreState {
     required TResult Function(ImageStoreinital value) imageStoreinital,
     required TResult Function(ImageStoreLoading value) imageStoreLoading,
     required TResult Function(ImageStoreSelected value) imageStoreSelected,
+    required TResult Function(NotSelectedImage value) notSelectedImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +74,7 @@ mixin _$RegisterOwnerStoreState {
     TResult? Function(ImageStoreinital value)? imageStoreinital,
     TResult? Function(ImageStoreLoading value)? imageStoreLoading,
     TResult? Function(ImageStoreSelected value)? imageStoreSelected,
+    TResult? Function(NotSelectedImage value)? notSelectedImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +86,7 @@ mixin _$RegisterOwnerStoreState {
     TResult Function(ImageStoreinital value)? imageStoreinital,
     TResult Function(ImageStoreLoading value)? imageStoreLoading,
     TResult Function(ImageStoreSelected value)? imageStoreSelected,
+    TResult Function(NotSelectedImage value)? notSelectedImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -150,6 +156,7 @@ class _$InitialImpl implements Initial {
     required TResult Function() imageStoreinital,
     required TResult Function() imageStoreLoading,
     required TResult Function(File image) imageStoreSelected,
+    required TResult Function() notSelectedImage,
   }) {
     return initial();
   }
@@ -164,6 +171,7 @@ class _$InitialImpl implements Initial {
     TResult? Function()? imageStoreinital,
     TResult? Function()? imageStoreLoading,
     TResult? Function(File image)? imageStoreSelected,
+    TResult? Function()? notSelectedImage,
   }) {
     return initial?.call();
   }
@@ -178,6 +186,7 @@ class _$InitialImpl implements Initial {
     TResult Function()? imageStoreinital,
     TResult Function()? imageStoreLoading,
     TResult Function(File image)? imageStoreSelected,
+    TResult Function()? notSelectedImage,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -196,6 +205,7 @@ class _$InitialImpl implements Initial {
     required TResult Function(ImageStoreinital value) imageStoreinital,
     required TResult Function(ImageStoreLoading value) imageStoreLoading,
     required TResult Function(ImageStoreSelected value) imageStoreSelected,
+    required TResult Function(NotSelectedImage value) notSelectedImage,
   }) {
     return initial(this);
   }
@@ -210,6 +220,7 @@ class _$InitialImpl implements Initial {
     TResult? Function(ImageStoreinital value)? imageStoreinital,
     TResult? Function(ImageStoreLoading value)? imageStoreLoading,
     TResult? Function(ImageStoreSelected value)? imageStoreSelected,
+    TResult? Function(NotSelectedImage value)? notSelectedImage,
   }) {
     return initial?.call(this);
   }
@@ -224,6 +235,7 @@ class _$InitialImpl implements Initial {
     TResult Function(ImageStoreinital value)? imageStoreinital,
     TResult Function(ImageStoreLoading value)? imageStoreLoading,
     TResult Function(ImageStoreSelected value)? imageStoreSelected,
+    TResult Function(NotSelectedImage value)? notSelectedImage,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -282,6 +294,7 @@ class _$SuccessRegisterImpl implements SuccessRegister {
     required TResult Function() imageStoreinital,
     required TResult Function() imageStoreLoading,
     required TResult Function(File image) imageStoreSelected,
+    required TResult Function() notSelectedImage,
   }) {
     return successRegister();
   }
@@ -296,6 +309,7 @@ class _$SuccessRegisterImpl implements SuccessRegister {
     TResult? Function()? imageStoreinital,
     TResult? Function()? imageStoreLoading,
     TResult? Function(File image)? imageStoreSelected,
+    TResult? Function()? notSelectedImage,
   }) {
     return successRegister?.call();
   }
@@ -310,6 +324,7 @@ class _$SuccessRegisterImpl implements SuccessRegister {
     TResult Function()? imageStoreinital,
     TResult Function()? imageStoreLoading,
     TResult Function(File image)? imageStoreSelected,
+    TResult Function()? notSelectedImage,
     required TResult orElse(),
   }) {
     if (successRegister != null) {
@@ -328,6 +343,7 @@ class _$SuccessRegisterImpl implements SuccessRegister {
     required TResult Function(ImageStoreinital value) imageStoreinital,
     required TResult Function(ImageStoreLoading value) imageStoreLoading,
     required TResult Function(ImageStoreSelected value) imageStoreSelected,
+    required TResult Function(NotSelectedImage value) notSelectedImage,
   }) {
     return successRegister(this);
   }
@@ -342,6 +358,7 @@ class _$SuccessRegisterImpl implements SuccessRegister {
     TResult? Function(ImageStoreinital value)? imageStoreinital,
     TResult? Function(ImageStoreLoading value)? imageStoreLoading,
     TResult? Function(ImageStoreSelected value)? imageStoreSelected,
+    TResult? Function(NotSelectedImage value)? notSelectedImage,
   }) {
     return successRegister?.call(this);
   }
@@ -356,6 +373,7 @@ class _$SuccessRegisterImpl implements SuccessRegister {
     TResult Function(ImageStoreinital value)? imageStoreinital,
     TResult Function(ImageStoreLoading value)? imageStoreLoading,
     TResult Function(ImageStoreSelected value)? imageStoreSelected,
+    TResult Function(NotSelectedImage value)? notSelectedImage,
     required TResult orElse(),
   }) {
     if (successRegister != null) {
@@ -441,6 +459,7 @@ class _$FailureRegisterImpl implements FailureRegister {
     required TResult Function() imageStoreinital,
     required TResult Function() imageStoreLoading,
     required TResult Function(File image) imageStoreSelected,
+    required TResult Function() notSelectedImage,
   }) {
     return failureRegister(error);
   }
@@ -455,6 +474,7 @@ class _$FailureRegisterImpl implements FailureRegister {
     TResult? Function()? imageStoreinital,
     TResult? Function()? imageStoreLoading,
     TResult? Function(File image)? imageStoreSelected,
+    TResult? Function()? notSelectedImage,
   }) {
     return failureRegister?.call(error);
   }
@@ -469,6 +489,7 @@ class _$FailureRegisterImpl implements FailureRegister {
     TResult Function()? imageStoreinital,
     TResult Function()? imageStoreLoading,
     TResult Function(File image)? imageStoreSelected,
+    TResult Function()? notSelectedImage,
     required TResult orElse(),
   }) {
     if (failureRegister != null) {
@@ -487,6 +508,7 @@ class _$FailureRegisterImpl implements FailureRegister {
     required TResult Function(ImageStoreinital value) imageStoreinital,
     required TResult Function(ImageStoreLoading value) imageStoreLoading,
     required TResult Function(ImageStoreSelected value) imageStoreSelected,
+    required TResult Function(NotSelectedImage value) notSelectedImage,
   }) {
     return failureRegister(this);
   }
@@ -501,6 +523,7 @@ class _$FailureRegisterImpl implements FailureRegister {
     TResult? Function(ImageStoreinital value)? imageStoreinital,
     TResult? Function(ImageStoreLoading value)? imageStoreLoading,
     TResult? Function(ImageStoreSelected value)? imageStoreSelected,
+    TResult? Function(NotSelectedImage value)? notSelectedImage,
   }) {
     return failureRegister?.call(this);
   }
@@ -515,6 +538,7 @@ class _$FailureRegisterImpl implements FailureRegister {
     TResult Function(ImageStoreinital value)? imageStoreinital,
     TResult Function(ImageStoreLoading value)? imageStoreLoading,
     TResult Function(ImageStoreSelected value)? imageStoreSelected,
+    TResult Function(NotSelectedImage value)? notSelectedImage,
     required TResult orElse(),
   }) {
     if (failureRegister != null) {
@@ -579,6 +603,7 @@ class _$LoadingRegisterImpl implements LoadingRegister {
     required TResult Function() imageStoreinital,
     required TResult Function() imageStoreLoading,
     required TResult Function(File image) imageStoreSelected,
+    required TResult Function() notSelectedImage,
   }) {
     return loadingRegister();
   }
@@ -593,6 +618,7 @@ class _$LoadingRegisterImpl implements LoadingRegister {
     TResult? Function()? imageStoreinital,
     TResult? Function()? imageStoreLoading,
     TResult? Function(File image)? imageStoreSelected,
+    TResult? Function()? notSelectedImage,
   }) {
     return loadingRegister?.call();
   }
@@ -607,6 +633,7 @@ class _$LoadingRegisterImpl implements LoadingRegister {
     TResult Function()? imageStoreinital,
     TResult Function()? imageStoreLoading,
     TResult Function(File image)? imageStoreSelected,
+    TResult Function()? notSelectedImage,
     required TResult orElse(),
   }) {
     if (loadingRegister != null) {
@@ -625,6 +652,7 @@ class _$LoadingRegisterImpl implements LoadingRegister {
     required TResult Function(ImageStoreinital value) imageStoreinital,
     required TResult Function(ImageStoreLoading value) imageStoreLoading,
     required TResult Function(ImageStoreSelected value) imageStoreSelected,
+    required TResult Function(NotSelectedImage value) notSelectedImage,
   }) {
     return loadingRegister(this);
   }
@@ -639,6 +667,7 @@ class _$LoadingRegisterImpl implements LoadingRegister {
     TResult? Function(ImageStoreinital value)? imageStoreinital,
     TResult? Function(ImageStoreLoading value)? imageStoreLoading,
     TResult? Function(ImageStoreSelected value)? imageStoreSelected,
+    TResult? Function(NotSelectedImage value)? notSelectedImage,
   }) {
     return loadingRegister?.call(this);
   }
@@ -653,6 +682,7 @@ class _$LoadingRegisterImpl implements LoadingRegister {
     TResult Function(ImageStoreinital value)? imageStoreinital,
     TResult Function(ImageStoreLoading value)? imageStoreLoading,
     TResult Function(ImageStoreSelected value)? imageStoreSelected,
+    TResult Function(NotSelectedImage value)? notSelectedImage,
     required TResult orElse(),
   }) {
     if (loadingRegister != null) {
@@ -711,6 +741,7 @@ class _$ImageStoreinitalImpl implements ImageStoreinital {
     required TResult Function() imageStoreinital,
     required TResult Function() imageStoreLoading,
     required TResult Function(File image) imageStoreSelected,
+    required TResult Function() notSelectedImage,
   }) {
     return imageStoreinital();
   }
@@ -725,6 +756,7 @@ class _$ImageStoreinitalImpl implements ImageStoreinital {
     TResult? Function()? imageStoreinital,
     TResult? Function()? imageStoreLoading,
     TResult? Function(File image)? imageStoreSelected,
+    TResult? Function()? notSelectedImage,
   }) {
     return imageStoreinital?.call();
   }
@@ -739,6 +771,7 @@ class _$ImageStoreinitalImpl implements ImageStoreinital {
     TResult Function()? imageStoreinital,
     TResult Function()? imageStoreLoading,
     TResult Function(File image)? imageStoreSelected,
+    TResult Function()? notSelectedImage,
     required TResult orElse(),
   }) {
     if (imageStoreinital != null) {
@@ -757,6 +790,7 @@ class _$ImageStoreinitalImpl implements ImageStoreinital {
     required TResult Function(ImageStoreinital value) imageStoreinital,
     required TResult Function(ImageStoreLoading value) imageStoreLoading,
     required TResult Function(ImageStoreSelected value) imageStoreSelected,
+    required TResult Function(NotSelectedImage value) notSelectedImage,
   }) {
     return imageStoreinital(this);
   }
@@ -771,6 +805,7 @@ class _$ImageStoreinitalImpl implements ImageStoreinital {
     TResult? Function(ImageStoreinital value)? imageStoreinital,
     TResult? Function(ImageStoreLoading value)? imageStoreLoading,
     TResult? Function(ImageStoreSelected value)? imageStoreSelected,
+    TResult? Function(NotSelectedImage value)? notSelectedImage,
   }) {
     return imageStoreinital?.call(this);
   }
@@ -785,6 +820,7 @@ class _$ImageStoreinitalImpl implements ImageStoreinital {
     TResult Function(ImageStoreinital value)? imageStoreinital,
     TResult Function(ImageStoreLoading value)? imageStoreLoading,
     TResult Function(ImageStoreSelected value)? imageStoreSelected,
+    TResult Function(NotSelectedImage value)? notSelectedImage,
     required TResult orElse(),
   }) {
     if (imageStoreinital != null) {
@@ -843,6 +879,7 @@ class _$ImageStoreLoadingImpl implements ImageStoreLoading {
     required TResult Function() imageStoreinital,
     required TResult Function() imageStoreLoading,
     required TResult Function(File image) imageStoreSelected,
+    required TResult Function() notSelectedImage,
   }) {
     return imageStoreLoading();
   }
@@ -857,6 +894,7 @@ class _$ImageStoreLoadingImpl implements ImageStoreLoading {
     TResult? Function()? imageStoreinital,
     TResult? Function()? imageStoreLoading,
     TResult? Function(File image)? imageStoreSelected,
+    TResult? Function()? notSelectedImage,
   }) {
     return imageStoreLoading?.call();
   }
@@ -871,6 +909,7 @@ class _$ImageStoreLoadingImpl implements ImageStoreLoading {
     TResult Function()? imageStoreinital,
     TResult Function()? imageStoreLoading,
     TResult Function(File image)? imageStoreSelected,
+    TResult Function()? notSelectedImage,
     required TResult orElse(),
   }) {
     if (imageStoreLoading != null) {
@@ -889,6 +928,7 @@ class _$ImageStoreLoadingImpl implements ImageStoreLoading {
     required TResult Function(ImageStoreinital value) imageStoreinital,
     required TResult Function(ImageStoreLoading value) imageStoreLoading,
     required TResult Function(ImageStoreSelected value) imageStoreSelected,
+    required TResult Function(NotSelectedImage value) notSelectedImage,
   }) {
     return imageStoreLoading(this);
   }
@@ -903,6 +943,7 @@ class _$ImageStoreLoadingImpl implements ImageStoreLoading {
     TResult? Function(ImageStoreinital value)? imageStoreinital,
     TResult? Function(ImageStoreLoading value)? imageStoreLoading,
     TResult? Function(ImageStoreSelected value)? imageStoreSelected,
+    TResult? Function(NotSelectedImage value)? notSelectedImage,
   }) {
     return imageStoreLoading?.call(this);
   }
@@ -917,6 +958,7 @@ class _$ImageStoreLoadingImpl implements ImageStoreLoading {
     TResult Function(ImageStoreinital value)? imageStoreinital,
     TResult Function(ImageStoreLoading value)? imageStoreLoading,
     TResult Function(ImageStoreSelected value)? imageStoreSelected,
+    TResult Function(NotSelectedImage value)? notSelectedImage,
     required TResult orElse(),
   }) {
     if (imageStoreLoading != null) {
@@ -1003,6 +1045,7 @@ class _$ImageStoreSelectedImpl implements ImageStoreSelected {
     required TResult Function() imageStoreinital,
     required TResult Function() imageStoreLoading,
     required TResult Function(File image) imageStoreSelected,
+    required TResult Function() notSelectedImage,
   }) {
     return imageStoreSelected(image);
   }
@@ -1017,6 +1060,7 @@ class _$ImageStoreSelectedImpl implements ImageStoreSelected {
     TResult? Function()? imageStoreinital,
     TResult? Function()? imageStoreLoading,
     TResult? Function(File image)? imageStoreSelected,
+    TResult? Function()? notSelectedImage,
   }) {
     return imageStoreSelected?.call(image);
   }
@@ -1031,6 +1075,7 @@ class _$ImageStoreSelectedImpl implements ImageStoreSelected {
     TResult Function()? imageStoreinital,
     TResult Function()? imageStoreLoading,
     TResult Function(File image)? imageStoreSelected,
+    TResult Function()? notSelectedImage,
     required TResult orElse(),
   }) {
     if (imageStoreSelected != null) {
@@ -1049,6 +1094,7 @@ class _$ImageStoreSelectedImpl implements ImageStoreSelected {
     required TResult Function(ImageStoreinital value) imageStoreinital,
     required TResult Function(ImageStoreLoading value) imageStoreLoading,
     required TResult Function(ImageStoreSelected value) imageStoreSelected,
+    required TResult Function(NotSelectedImage value) notSelectedImage,
   }) {
     return imageStoreSelected(this);
   }
@@ -1063,6 +1109,7 @@ class _$ImageStoreSelectedImpl implements ImageStoreSelected {
     TResult? Function(ImageStoreinital value)? imageStoreinital,
     TResult? Function(ImageStoreLoading value)? imageStoreLoading,
     TResult? Function(ImageStoreSelected value)? imageStoreSelected,
+    TResult? Function(NotSelectedImage value)? notSelectedImage,
   }) {
     return imageStoreSelected?.call(this);
   }
@@ -1077,6 +1124,7 @@ class _$ImageStoreSelectedImpl implements ImageStoreSelected {
     TResult Function(ImageStoreinital value)? imageStoreinital,
     TResult Function(ImageStoreLoading value)? imageStoreLoading,
     TResult Function(ImageStoreSelected value)? imageStoreSelected,
+    TResult Function(NotSelectedImage value)? notSelectedImage,
     required TResult orElse(),
   }) {
     if (imageStoreSelected != null) {
@@ -1094,4 +1142,142 @@ abstract class ImageStoreSelected implements RegisterOwnerStoreState {
   @JsonKey(ignore: true)
   _$$ImageStoreSelectedImplCopyWith<_$ImageStoreSelectedImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NotSelectedImageImplCopyWith<$Res> {
+  factory _$$NotSelectedImageImplCopyWith(_$NotSelectedImageImpl value,
+          $Res Function(_$NotSelectedImageImpl) then) =
+      __$$NotSelectedImageImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NotSelectedImageImplCopyWithImpl<$Res>
+    extends _$RegisterOwnerStoreStateCopyWithImpl<$Res, _$NotSelectedImageImpl>
+    implements _$$NotSelectedImageImplCopyWith<$Res> {
+  __$$NotSelectedImageImplCopyWithImpl(_$NotSelectedImageImpl _value,
+      $Res Function(_$NotSelectedImageImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NotSelectedImageImpl implements NotSelectedImage {
+  const _$NotSelectedImageImpl();
+
+  @override
+  String toString() {
+    return 'RegisterOwnerStoreState.notSelectedImage()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NotSelectedImageImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() successRegister,
+    required TResult Function(String error) failureRegister,
+    required TResult Function() loadingRegister,
+    required TResult Function() imageStoreinital,
+    required TResult Function() imageStoreLoading,
+    required TResult Function(File image) imageStoreSelected,
+    required TResult Function() notSelectedImage,
+  }) {
+    return notSelectedImage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? successRegister,
+    TResult? Function(String error)? failureRegister,
+    TResult? Function()? loadingRegister,
+    TResult? Function()? imageStoreinital,
+    TResult? Function()? imageStoreLoading,
+    TResult? Function(File image)? imageStoreSelected,
+    TResult? Function()? notSelectedImage,
+  }) {
+    return notSelectedImage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? successRegister,
+    TResult Function(String error)? failureRegister,
+    TResult Function()? loadingRegister,
+    TResult Function()? imageStoreinital,
+    TResult Function()? imageStoreLoading,
+    TResult Function(File image)? imageStoreSelected,
+    TResult Function()? notSelectedImage,
+    required TResult orElse(),
+  }) {
+    if (notSelectedImage != null) {
+      return notSelectedImage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(SuccessRegister value) successRegister,
+    required TResult Function(FailureRegister value) failureRegister,
+    required TResult Function(LoadingRegister value) loadingRegister,
+    required TResult Function(ImageStoreinital value) imageStoreinital,
+    required TResult Function(ImageStoreLoading value) imageStoreLoading,
+    required TResult Function(ImageStoreSelected value) imageStoreSelected,
+    required TResult Function(NotSelectedImage value) notSelectedImage,
+  }) {
+    return notSelectedImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(SuccessRegister value)? successRegister,
+    TResult? Function(FailureRegister value)? failureRegister,
+    TResult? Function(LoadingRegister value)? loadingRegister,
+    TResult? Function(ImageStoreinital value)? imageStoreinital,
+    TResult? Function(ImageStoreLoading value)? imageStoreLoading,
+    TResult? Function(ImageStoreSelected value)? imageStoreSelected,
+    TResult? Function(NotSelectedImage value)? notSelectedImage,
+  }) {
+    return notSelectedImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(SuccessRegister value)? successRegister,
+    TResult Function(FailureRegister value)? failureRegister,
+    TResult Function(LoadingRegister value)? loadingRegister,
+    TResult Function(ImageStoreinital value)? imageStoreinital,
+    TResult Function(ImageStoreLoading value)? imageStoreLoading,
+    TResult Function(ImageStoreSelected value)? imageStoreSelected,
+    TResult Function(NotSelectedImage value)? notSelectedImage,
+    required TResult orElse(),
+  }) {
+    if (notSelectedImage != null) {
+      return notSelectedImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NotSelectedImage implements RegisterOwnerStoreState {
+  const factory NotSelectedImage() = _$NotSelectedImageImpl;
 }

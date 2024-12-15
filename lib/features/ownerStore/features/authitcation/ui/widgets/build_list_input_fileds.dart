@@ -9,22 +9,30 @@ Widget buildInputFields(BuildContext context) {
       key: cubit.formKey,
       child: Column(
         children: [
+           //* MARK: Store Name 
           RoundedInputField(
             // context: context,
             hintText:    AText.storeName.tr(context),
             textInputType:  TextInputType.text,
             controller: cubit.nameOfStoreController,
-            validator: (value) => ManagerValidator.validateEmptyText(AText.storeName.tr(context), value??""),
+            textInputAction: TextInputAction.next,
+            validator: (value) => ManagerValidator.validateEmptyText(AText.storeName, value??"",context),
           ),
           SizedBox(height: 16.h),
+          //* MARK: Store Link
+
           RoundedInputField(
             validator: (value) => ManagerValidator.validateURL(value, context) ,
             // context:  context,
             hintText:  AText.enterYourLikeStore.tr(context),
             textInputType:  TextInputType.url,
+            textInputAction: TextInputAction.next,
+
             controller: cubit.linkOfStore,
           ),
           SizedBox(height: 16.h),
+              //* MARK: email 
+
           RoundedInputField(
             validator: (value) => ManagerValidator.validateEmail(value, context) ,
             // context:  context,
@@ -33,6 +41,7 @@ Widget buildInputFields(BuildContext context) {
             controller: cubit.emailController,
           ),
           SizedBox(height: 16.h),
+            //* MARK: descreption for stroe  
           RoundedInputField(
             validator: (value) => ManagerValidator.validateTitleForCoupon(value??"", context) ,
             // context:  context,
@@ -41,7 +50,10 @@ Widget buildInputFields(BuildContext context) {
             controller: cubit.deatilsStore,
           ),
           SizedBox(height: 16.h),
-          CustomPhoneNumberInput(controller: context.read<RegisterOwnerStoreCubit>().phoneController,),
+          //* MARK: mobile number 
+
+          CustomPhoneNumberInput(
+            controller: context.read<RegisterOwnerStoreCubit>().phoneController,),
           //  RoundedInputField(
           //   validator: (value) => ManagerValidator.validatePhoneNumber(value,context: context), 
           //   // context:  context,
@@ -50,11 +62,14 @@ Widget buildInputFields(BuildContext context) {
           //   controller: cubit.phoneController,
           // ),
           SizedBox(height: 16.h),
+        //* MARK: password 
+
           RoundedInputField(
             validator: (value) => ManagerValidator.validatePassword(value, context),
             // context:  context,
             hintText:  AText.yourPassword.tr(context),
             textInputType:  TextInputType.visiblePassword,
+            textInputAction: TextInputAction.done,
             isSecure: true,
             controller: cubit.passwordController,
           ),

@@ -160,7 +160,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     // text: user.userName,
                                     validator: (value) =>
                                         ManagerValidator.validateEmptyText(
-                                            "Name", "Izzdine Atallah")),
+                                           "username", value??"",context)),
                                 buildSpacerH(10.0),
                                 buildAbleTextField(
                                   hintText: AText.phoneNumber.tr(context),

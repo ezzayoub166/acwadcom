@@ -4,6 +4,7 @@ import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/user/coupons/ui/widgets/build_app_bar_with_back_button.dart';
 import 'package:acwadcom/features/user/settings/ui/widgets/build_disabled_textfiled.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
+import 'package:acwadcom/helpers/util/language_cache_helper.dart';
 import 'package:acwadcom/models/coupon_model.dart';
 
 import '../../../../common/widgets/build_remaing_time_for_coupon.dart';
@@ -15,6 +16,7 @@ class StoreOwnerDiscountCodeDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var locale = LanguageCacheHelper().getCachedLanguageCode();
     DateTime endDate = (coupon.endData).toDate();
   String remainingTime = calculateTimeRemaining(endDate);
     return Scaffold(
@@ -48,7 +50,7 @@ class StoreOwnerDiscountCodeDetails extends StatelessWidget {
               buildSpacerH(10.0),
               buildDisabledTextField(text: coupon.storeLink),
               buildSpacerH(10.0),
-              buildDisabledTextField(text: coupon.category!.title),
+              buildDisabledTextField(text: locale == "en" ? coupon.category?.title["en"] : coupon.category?.title["ar"]),
               buildSpacerH(10.0),
               buildDisabledTextField(text: "${coupon.numberOfUse}${AText.numberOfuse.tr(context)}"),
               buildSpacerH(10.0),

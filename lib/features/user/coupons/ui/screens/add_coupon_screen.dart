@@ -1,16 +1,10 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'dart:io';
-
 import 'package:acwadcom/acwadcom_packges.dart';
-import 'package:acwadcom/features/ownerStore/features/home/logic/home_owner/home_owner_cubit.dart';
-import 'package:acwadcom/features/ownerStore/features/home/logic/home_owner/home_owner_state.dart';
 import 'package:acwadcom/features/user/coupons/logic/cubit/create_coupon_cubit_cubit.dart';
 import 'package:acwadcom/features/user/coupons/ui/widgets/create_coupon_listener.dart';
-import 'package:acwadcom/features/user/home/data/category_repository.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
-import 'package:acwadcom/helpers/di/dependency_injection.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class CreateCodeScreen extends StatefulWidget {
   const CreateCodeScreen({super.key});
@@ -28,9 +22,7 @@ class _CreateCodeScreenState extends State<CreateCodeScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    
     context.read<CreateCouponCubit>().fetchCategories();
-
     }
   
 
@@ -41,7 +33,7 @@ class _CreateCodeScreenState extends State<CreateCodeScreen> {
 
     //! To Pass it to State ..
     final translatedExDateTitle = AText.exDate.tr(context);
-    final translatedchoseTheCategory = AText.choseTheCategory.tr(context);
+    final translatedchoseTheCategory = AText.choseTheCategory;
 
     context.read<CreateCouponCubit>().dateController.text =
         translatedExDateTitle;
@@ -121,7 +113,7 @@ class _CreateCodeScreenState extends State<CreateCodeScreen> {
                                   hintText: "Code herer..".tr(context),
                                   validator: (value) =>
                                       ManagerValidator.validateEmptyText(
-                                          "Code", value ?? ""),
+                                          "Discount code", value ?? "",context),
                                   controller: context
                                       .read<CreateCouponCubit>()
                                       .codeTextController,
@@ -133,7 +125,7 @@ class _CreateCodeScreenState extends State<CreateCodeScreen> {
                                 hintText: AText.discontrate.tr(context),
                                 validator: (value) =>
                                     ManagerValidator.validateEmptyText(
-                                        "Discount rate", value ?? ""),
+                                        "Discount rate", value ?? "",context),
                                 controller: context
                                     .read<CreateCouponCubit>()
                                     .discountRateController,
@@ -156,7 +148,7 @@ class _CreateCodeScreenState extends State<CreateCodeScreen> {
       
                               SelectDropList(
                                 itemSelected: OptionItem(
-                                    id: null, title: translatedchoseTheCategory),
+                                    id: null, title: translatedchoseTheCategory.tr(context)),
                                 dropListModel: context
                                     .read<CreateCouponCubit>()
                                     .listOfCategoriesOption,

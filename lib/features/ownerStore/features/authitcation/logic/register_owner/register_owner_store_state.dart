@@ -11,5 +11,7 @@ class RegisterOwnerStoreState with _$RegisterOwnerStoreState {
     const factory RegisterOwnerStoreState.imageStoreinital() = ImageStoreinital;
   const factory RegisterOwnerStoreState.imageStoreLoading() = ImageStoreLoading;
   const factory RegisterOwnerStoreState.imageStoreSelected({required File image}) = ImageStoreSelected;
+    const factory RegisterOwnerStoreState.notSelectedImage() = NotSelectedImage;
+
 
 }

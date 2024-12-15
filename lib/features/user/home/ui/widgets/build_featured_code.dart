@@ -4,7 +4,6 @@ import 'package:acwadcom/features/ownerStore/features/home/logic/home_owner/home
 import 'package:acwadcom/features/user/home/ui/widgets/show_required_dialog.dart';
 import 'package:acwadcom/features/user/wishlist/logic/coupons_wishlist/cubit/wihslist_coupons_cubit.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
-
 import 'package:acwadcom/models/coupon_model.dart';
 
 class BuildFeaturedCode extends StatefulWidget {

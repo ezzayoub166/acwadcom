@@ -4,6 +4,7 @@ import 'package:acwadcom/common/widgets/build_custom_loader.dart';
 import 'package:acwadcom/features/user/home/logic/home/cubit/home_cubit.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/build_tow_bottns_for_filter.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
+import 'package:acwadcom/helpers/util/language_cache_helper.dart';
 import 'package:acwadcom/models/category_model.dart';
 
 class BuildFilterBottomSheet extends StatefulWidget {
@@ -171,7 +172,7 @@ class _BuildFilterBottomSheetState extends State<BuildFilterBottomSheet> {
                           Border.all(width: 1, color: ManagerColors.greyColor),
                       borderRadius: BorderRadius.circular(10)),
                   child: myText(
-                    arrayOfCategories[idx].title,
+                    LanguageCacheHelper().getCachedLanguageCode() == "en" ? arrayOfCategories[idx].title["en"] : arrayOfCategories[idx].title["ar"],
                     fontSize: 14.sp,
                     fontWeight: FontWeightEnum.Medium.fontWeight,
                     color: selecttedId == arrayOfCategories[idx].categoryId

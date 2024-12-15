@@ -98,8 +98,6 @@ class LoginCubit extends Cubit<LoginState> {
         //and we deal on his attribute .... not dialog 
       UserModel existUser = await _userRepository.fetchStableData(userCredential?.user?.uid);
 
-        
-
       await Future.wait([
         getIt<CacheHelper>().saveValueWithKey("USERNAME", existUser.userName),
             getIt<CacheHelper>().saveValueWithKey("IMAGEURL", existUser.profilePicture),
@@ -112,11 +110,8 @@ class LoginCubit extends Cubit<LoginState> {
       isLoggedInUser = true;
       tYPEUSER = existUser.userType;
       emit(const LoginState.success());
-
       }
 
-     
-    
     } catch (error) {
       emit(LoginState.faluire(error: error.toString()));
     }

@@ -45,85 +45,87 @@ class _WishlistScreenState extends State<WishlistScreen>
     if (isLoggedInUser) {
       return Scaffold(
         backgroundColor: Colors.white,
-        body: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: TSizes.defaultSpace,
-            vertical: isLoggedInUser ? TSizes.defaultSpace : 5,
-          ),
-          child: ListView(
-            children: [
-              isLoggedInUser
-                  ? customAppBar(context)
-                  : SizedBox(
-                      height: 1,
-                    ),
-              buildSpacerH(10.0),
-              ASearchContainer(
-                text: AText.search.tr(context),
-                onPressed: () => navigateNamedTo(context, Routes.searchScreen),
-              ),
-              buildSpacerH(20.0),
-              Container(
-                height: 45.h,
-                // margin: const EdgeInsets.symmetric(horizontal: 20),
-                decoration: BoxDecoration(
-                  color: Colors.white, // Background color of the entire tab bar
-                  // borderRadius: BorderRadius.circular(
-                  //   25.0,
-                  // ),
-                ),
-                child:  TabBar(
-                      indicatorSize: TabBarIndicatorSize.tab,
-                      dividerColor: Colors.transparent,
-                      controller: _tabController,
-                      indicator: BoxDecoration(
-                        color: Color(0xffF1F1F1),
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
+        body: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: TSizes.defaultSpace,
+              vertical: isLoggedInUser ? TSizes.defaultSpace : 5,
+            ),
+            child: Column(
+              children: [
+                isLoggedInUser
+                    ? customAppBar(context)
+                    : SizedBox(
+                        height: 1,
                       ),
-                      labelColor: ManagerColors.kCustomColor,
-                      unselectedLabelColor: ManagerColors.kCustomColor,
-                      tabs: [
-
-                       BlocBuilder<WishListCouponsCubit, WishListCouponsState>(
-                        buildWhen: (previous, current) => current is GetNumberOFCouponsInWishList,
-                      builder: (context, state) {
-                        if(state is GetNumberOFCouponsInWishList){
-                        return TabItem(title: AText.coupons.tr(context), count:state.count);
-                        }
-                        return TabItem(title: AText.coupons.tr(context), count:0);
-
-                      },
-                    ),
-                    BlocBuilder<WishlistStoresCubit, WishListStoresState>(
-                       buildWhen: (previous, current) => current is GetNumberOFStoresInWishList,
-                      builder: (context, state) {
-                      
-                        if(state is GetNumberOFStoresInWishList){
-                        return TabItem(title: AText.stores.tr(context), count: state.count);
-                        }
-                        return TabItem(title: AText.stores.tr(context), count: 0);
-
-
-                      },
-                    )
+                buildSpacerH(10.0),
+                ASearchContainer(
+                  text: AText.search.tr(context),
+                  onPressed: () => navigateNamedTo(context, Routes.searchScreen),
+                ),
+                buildSpacerH(20.0),
+                Container(
+                  height: 45.h,
+                  // margin: const EdgeInsets.symmetric(horizontal: 20),
+                  decoration: BoxDecoration(
+                    color: Colors.white, // Background color of the entire tab bar
+                    // borderRadius: BorderRadius.circular(
+                    //   25.0,
+                    // ),
+                  ),
+                  child:  TabBar(
+                        indicatorSize: TabBarIndicatorSize.tab,
+                        dividerColor: Colors.transparent,
+                        controller: _tabController,
+                        indicator: BoxDecoration(
+                          color: Color(0xffF1F1F1),
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        labelColor: ManagerColors.kCustomColor,
+                        unselectedLabelColor: ManagerColors.kCustomColor,
+                        tabs: [
+          
+                         BlocBuilder<WishListCouponsCubit, WishListCouponsState>(
+                          buildWhen: (previous, current) => current is GetNumberOFCouponsInWishList,
+                        builder: (context, state) {
+                          if(state is GetNumberOFCouponsInWishList){
+                          return TabItem(title: AText.coupons.tr(context), count:state.count);
+                          }
+                          return TabItem(title: AText.coupons.tr(context), count:0);
+          
+                        },
+                      ),
+                      BlocBuilder<WishlistStoresCubit, WishListStoresState>(
+                         buildWhen: (previous, current) => current is GetNumberOFStoresInWishList,
+                        builder: (context, state) {
                         
-                      ],
-                )
-                   
+                          if(state is GetNumberOFStoresInWishList){
+                          return TabItem(title: AText.stores.tr(context), count: state.count);
+                          }
+                          return TabItem(title: AText.stores.tr(context), count: 0);
+          
+          
+                        },
+                      )
+                          
+                        ],
+                  )
+                     
+                  ),
+                buildSpacerH(20.0),
+                SizedBox(
+                  height: 400.h,
+                  child: TabBarView(
+                    controller: _tabController,
+                    children: [
+                      
+                      CouponsFavoritesScreen(),
+                      StoresWishListScreen()
+                    ],
+                  ),
                 ),
-              buildSpacerH(20.0),
-              SizedBox(
-                height: 400.h,
-                child: TabBarView(
-                  controller: _tabController,
-                  children: [
-                    
-                    CouponsFavoritesScreen(),
-                    StoresWishListScreen()
-                  ],
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       );

@@ -3,10 +3,11 @@ import 'package:intl_phone_number_input_v2/intl_phone_number_input.dart';
 
 class CustomPhoneNumberInput extends StatelessWidget {
   final TextEditingController controller;
+  final TextStyle? selectorTextStyle;
 
   const CustomPhoneNumberInput({
     Key? key,
-    required this.controller,
+    required this.controller,  this.selectorTextStyle,
   }) : super(key: key);
 
   @override
@@ -20,7 +21,9 @@ class CustomPhoneNumberInput extends StatelessWidget {
         )),
             
       child: InternationalPhoneNumberInput(
+        
         maxLength: 9,
+        keyboardAction: TextInputAction.next,
       
         onInputChanged: (PhoneNumber number) async {},
         onInputValidated: (bool value) {
@@ -46,12 +49,12 @@ class CustomPhoneNumberInput extends StatelessWidget {
           fontSize: 16,
           color: Colors.black, // Text color
         ),
-        selectorTextStyle: const TextStyle(
-          color: Colors.black,
-        ),
+        selectorTextStyle: selectorTextStyle ?? GoogleFonts.cairo(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,),
         initialValue: PhoneNumber(isoCode: 'SA'),
         textFieldController: controller,
-        
       
         formatInput: false,
         keyboardType: TextInputType.phone,
@@ -92,7 +95,7 @@ class CustomPhoneNumberInput extends StatelessWidget {
               width: 0,
             ),
           ),
-          errorStyle: TextStyle(
+          errorStyle: GoogleFonts.cairo(
             color: Colors.red, // Change error message text color
             fontSize: 12,
             fontWeight: FontWeight.bold, // Error text font size
@@ -110,8 +113,9 @@ class CustomPhoneNumberInput extends StatelessWidget {
           PhoneNumber formattedNumber =
               await PhoneNumber.getRegionInfoFromPhoneNumber(
                   number.phoneNumber ?? "", number.dialCode ?? "+966");
-      
           controller.text = formattedNumber.phoneNumber!;
+   
+      
         },
       ),
     );

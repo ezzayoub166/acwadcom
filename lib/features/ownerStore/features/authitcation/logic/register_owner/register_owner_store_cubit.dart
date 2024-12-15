@@ -36,19 +36,18 @@ class RegisterOwnerStoreCubit extends Cubit<RegisterOwnerStoreState> {
       // emit(RegisterState.registerLoading());
       emit(const RegisterOwnerStoreState.loadingRegister());
 
+
+      if (selectedImage != null ) {
+
       //register User
       final userCredential =
           await _authenticationRepository.registerWithEmilAndPassword(
               emailController.text.trim(), passwordController.text.trim());
 
-      // if(url.selectedImage){
-      url = await _userRepository.uploadImage(
+                url = await _userRepository.uploadImage(
         'profile_${userCredential.user!.uid}',
         _selectedImage!,
       );
-      // }
-
-      //Save in Firebase Firestore
 
       final newUser = UserModel(
           id: userCredential.user!.uid,
@@ -73,6 +72,9 @@ class RegisterOwnerStoreCubit extends Cubit<RegisterOwnerStoreState> {
       ]);
       tYPEUSER = "STOREOWNER";
       emit(const RegisterOwnerStoreState.successRegister());
+      }else{
+        emit(RegisterOwnerStoreState.notSelectedImage());
+      }
     } catch (error) {
       emit(RegisterOwnerStoreState.failureRegister(error: error.toString()));
     }
@@ -95,6 +97,9 @@ class RegisterOwnerStoreCubit extends Cubit<RegisterOwnerStoreState> {
       emit(const RegisterOwnerStoreState.imageStoreLoading());
       _selectedImage = jpegImage;
       emit(RegisterOwnerStoreState.imageStoreSelected(image: jpegImage));
+    }else{
+      _selectedImage = null;
+
     }
   }
 }

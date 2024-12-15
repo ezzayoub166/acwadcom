@@ -51,9 +51,9 @@ class _RoundedInputFieldState extends State<RoundedInputField> {
           TextFormField(
             textDirection: isRTL ? TextDirection.rtl : TextDirection.ltr,
             textAlign: TextAlign.center,
-            textInputAction: widget.textInputAction ?? TextInputAction.done,
+            textInputAction: widget.textInputAction ?? TextInputAction.next,
             controller: widget.controller,
-            keyboardType: widget.textInputType ?? TextInputType.name,
+            keyboardType: widget.textInputType ?? TextInputType.text,
             validator: widget.validator,
             obscureText: widget.isSecure ? hidePassword : false,
             style: TextStyle(
@@ -101,7 +101,7 @@ class _RoundedInputFieldState extends State<RoundedInputField> {
                   width: 0,
                 ),
               ),
-              errorStyle: TextStyle(
+              errorStyle: GoogleFonts.cairo(
                   color: Colors.red, // Change error message text color
                   fontSize: 10.sp,
                   fontWeight: FontWeight.bold // Error text font size

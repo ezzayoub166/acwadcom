@@ -1,7 +1,6 @@
-import 'dart:async';
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/user/authtication/UI/widgets/login_bloc_listener.dart';
-import 'package:acwadcom/helpers/constants/extenstions.dart';
+import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -13,9 +12,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool isConnectedToInternt = false;
 
-  StreamSubscription? _intrenetConnectionStreamSubscription;
   @override
   void initState() {
     // TODO: implement initState
@@ -70,184 +67,66 @@ class _LoginScreenState extends State<LoginScreen> {
     return Form(
       key: context.read<LoginCubit>().formKey,
       child: SingleChildScrollView(
-        child: Center(
-          child: Padding(
-            padding:
-                const EdgeInsets.only(left: 30, right: 30, bottom: 30, top: 50),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // buildSpacer(10.0),
-                Text(
-                  AText.loginlbl.tr(context),
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context)
-                      .textTheme
-                      .displayLarge!
-                      .copyWith(color: Colors.white),
-                ),
-                buildSpacerH(20.0),
-                RoundedInputField(
-                  controller: context.read<LoginCubit>().emailController,
-                  hintText: AText.email.tr(context),
-                  textInputType: TextInputType.emailAddress,
-                  validator: (value) {
-                    return ManagerValidator.validateEmail(value, context);
-                  },
-                ),
-                buildSpacerH(20.0),
-                RoundedInputField(
-                  controller: context.read<LoginCubit>().passwordController,
-                  hintText: AText.yourPassword.tr(context),
-                  isSecure: true,
-                  textInputType: TextInputType.visiblePassword,
-                  validator: (value) {
-                    return ManagerValidator.validatePassword(value, context);
-                  },
-                ),
-                buildSpacerH(11.0),
-                buildForgetPassButton(context),
-                RoundedButtonWgt(
-                    title: AText.loginlbl.tr(context),
-                    fontSize: 18,
-                    onPressed: () {
-                      validateThenDoSignIn(context);
-                    }),
-                buildRegisterNewAccount(
-                  context,
-                ),
-                buildSpacerH(20.0),
-                const DividerWithText(),
-                buildSpacerH(20.0),
+        child: Padding(
+          padding:
+              const EdgeInsets.only(left: 30, right: 30, bottom: 0,top: 100),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              // buildSpacer(10.0),
+              Text(
+                AText.loginlbl.tr(context),
+                textAlign: TextAlign.center,
+                style: Theme.of(context)
+                    .textTheme
+                    .displayLarge!
+                    .copyWith(color: Colors.white),
+              ),
+              buildSpacerH(20.0),
+              RoundedInputField(
+                controller: context.read<LoginCubit>().emailController,
+                hintText: AText.email.tr(context),
+                textInputType: TextInputType.emailAddress,
+                textInputAction: TextInputAction.next,
 
-                ///Login By Google
-                RoundedButtonWgt(
-                  backgroundColor: ManagerColors.myWhite,
-                  foregroundColor: Colors.black,
-                  title: "",
-                  onPressed: () async {
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext dialogContext) {
-                          return AlertDialog(
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            contentPadding: EdgeInsets.all(24),
-                            content: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                // Icon at the top
-                                SizedBox(
-                                  width: 100,
-                                  height: 100,
-                                  child:
-                                      svgImage("icBuildLogo", fit: BoxFit.fill),
-                                ),
-                                SizedBox(height: 16),
-
-                                // Confirmation Text
-                                Column(
-                                  children: [
-                                    myText(
-                                      "sign in as ?",
-                                          // .tr(context),
-                                      textAlign: TextAlign.center,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black87,
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 24),
-
-                                // Buttons: Cancel and Delete
-                                Row(
-                                  children: [
-                                    Expanded(
-                                      child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor:
-                                              ManagerColors.yellowColor,
-                                          foregroundColor: Colors.white,
-                                          padding: EdgeInsets.symmetric(
-                                              vertical: 12),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(30),
-                                          ),
-                                        ),
-                                        onPressed: () async{
-                                          //sign in as user action here ...
-                                          tYPEUSER = "USER";
-                                          print(tYPEUSER);
-                                          context.pop();
-                                           await context.read<LoginCubit>().emitLogInByGoogle(context);
-
-
-                                        },
-                                        child: Text(AText.user
-                                            .tr(context)), //loclaiztion
-                                      ),
-                                    ),
-                                    SizedBox(width: 12),
-                                    Expanded(
-                                      child: OutlinedButton(
-                                        style: OutlinedButton.styleFrom(
-                                          padding: EdgeInsets.symmetric(
-                                              vertical: 12),
-                                          side: BorderSide(color: Colors.black),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(30),
-                                          ),
-                                        ),
-                                        onPressed: () async{
-                                          // Handle sing as store action here..
-                                            tYPEUSER = "STOREOWNER";
-                                            context.pop();
-                                            print(tYPEUSER);
-                                           await context.read<LoginCubit>().emitLogInByGoogle(context);
-                                     
-                                        },
-                                        child: myText(
-                                            AText.shopOwner.tr(context),
-                                            color: Colors.black),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          );
-                        });
-                   
-                  },
-                  icon: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        AText.loginByGoogle.tr(context),
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium!
-                            .copyWith(color: Colors.black),
-                      ),
-                      SizedBox(
-                        width: 8.w,
-                      ),
-                      svgImage("google_brand_branding_logo_network_icon",
-                          height: 24.h, width: 24.w),
-                    ],
-                  ),
-                ),
-                const LoginBlocListener()
-
-                // buildListOfLoginButtons(context),
-              ],
-            ),
+                validator: (value) {
+                  return ManagerValidator.validateEmail(value, context);
+                },
+              ),
+              buildSpacerH(20.0),
+              RoundedInputField(
+                controller: context.read<LoginCubit>().passwordController,
+                hintText: AText.yourPassword.tr(context),
+                isSecure: true,
+                textInputType: TextInputType.visiblePassword,
+                textInputAction: TextInputAction.done,
+                
+                validator: (value) {
+                  return ManagerValidator.validatePassword(value, context);
+                },
+              ),
+              buildSpacerH(11.0),
+              buildForgetPassButton(context),
+              RoundedButtonWgt(
+                  title: AText.loginlbl.tr(context),
+                  fontSize: 18,
+                  onPressed: () {
+                    validateThenDoSignIn(context);
+                  }),
+              buildRegisterNewAccount(
+                context,
+              ),
+              buildSpacerH(20.0),
+              // const DividerWithText(),
+              // buildSpacerH(20.0),
+        
+              ///Login By Google
+              //buildLoginByGoogle(),
+              const LoginBlocListener()
+        
+              // buildListOfLoginButtons(context),
+            ],
           ),
         ),
       ),

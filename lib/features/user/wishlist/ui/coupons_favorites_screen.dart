@@ -35,7 +35,7 @@ class _CouponsFavoritesScreenState extends State<CouponsFavoritesScreen> {
       builder: (context, state) {
         return state.maybeWhen(
           wishlistLoading: () => BuildCustomLoader(),
-          wishlistLoaded: (coupons) => BuildListCoupons(coupons: coupons),
+          wishlistLoaded: (coupons) => BuildListCoupons(coupons: coupons , isScroll: true,),
           emptyWishList: () => emptyWishList(context),
           orElse: () => Center(child: Container(child: myText(AText.error.tr(context)),),),
         );

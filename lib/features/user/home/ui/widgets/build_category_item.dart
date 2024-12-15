@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/helpers/di/dependency_injection.dart';
+import 'package:acwadcom/helpers/util/language_cache_helper.dart';
+import 'package:acwadcom/localiztion_cubit/locale_cubit.dart';
 
 import 'package:acwadcom/models/category_model.dart';
 import 'package:cached_network_svg_image/cached_network_svg_image.dart';
@@ -21,12 +24,14 @@ Widget buildCategoryItem(
           ),
         ),
         buildSpacerH(4),
-        Text(
-          category.title.tr(context),
-          style: Theme.of(context)
-              .textTheme
-              .bodyMedium!
-              .copyWith(color: ManagerColors.textColor),
+         BlocBuilder<LocaleCubit, ChangeLocaleState>(
+          builder: (context, state) {
+            String currentLanguage = state.locale.languageCode;
+            return Text(
+              currentLanguage == "en" ? category.title["en"] : category.title["ar"],
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ManagerColors.textColor),
+            );
+          },
         ),
       ],
     ),
