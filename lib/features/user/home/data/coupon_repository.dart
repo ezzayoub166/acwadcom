@@ -85,6 +85,32 @@ class CouponRepository {
     }
   }
 
+  Future<Coupon> fetchCouponById(String couponID)async{
+      try {
+      // Get the current date and time
+
+      final documentSnapshot = await _db
+          .collection(couponsConstant)
+          .doc(couponID)
+          .get();
+      if (documentSnapshot.exists) {
+        return Coupon.fromSnapshot(documentSnapshot);
+      } else {
+        return Coupon.empty();
+      }
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'something went wrong. Please try again';
+    }
+  }
+
   Future<List<Coupon>> fetchAllCoupons() async {
     try {
       // Get the current date and time
@@ -93,6 +119,33 @@ class CouponRepository {
       final ref = await _db
           .collection(couponsConstant)
           .where('EndDate', isGreaterThan: currentTimestamp)
+          .get();
+      final coupons =
+          ref.docs.map((document) => Coupon.fromSnapshot(document)).toList();
+      return coupons;
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'something went wrong. Please try again';
+    }
+  }
+
+    Future<List<Coupon>> fetchCouponsByCategory(String categoryID) async {
+    try {
+      // Get the current date and time
+      DateTime currentDate = DateTime.now();
+      Timestamp currentTimestamp = Timestamp.fromDate(currentDate);
+      final ref = await _db
+          .collection(couponsConstant)
+          .where('EndDate', isGreaterThan: currentTimestamp)
+          .where("CategoryID",isEqualTo: categoryID)
+          .limit(10)
           .get();
       final coupons =
           ref.docs.map((document) => Coupon.fromSnapshot(document)).toList();
@@ -131,6 +184,19 @@ class CouponRepository {
       throw 'something went wrong. Please try again';
     }
   }
+
+    // Fetch only the count of coupons without retrieving all the data
+  Future<int> getCouponCount() async {
+    try {
+      // Get the count of documents in the Coupons collection
+      final snapshot = await _db.collection('Coupons').count().get();
+      return snapshot.count ?? 0;  // Return the document count
+    } catch (e) {
+      throw 'Error getting coupon count: $e';
+    }
+  }
+
+
 
   Future<List<Coupon>> fetchRecentlyAddedCoupons(int limit) async {
     try {
@@ -185,7 +251,7 @@ class CouponRepository {
           .collection(couponsConstant)
           .where('EndDate', isGreaterThan: currentTimestamp)
           .where("NumberOfUse" , isGreaterThanOrEqualTo: 50)
-          .limit(10)
+          .limit(6)
           .get();
 
       // Convert the documents into Coupon objects
@@ -460,6 +526,26 @@ class CouponRepository {
       throw TPlatformException(e.code).message;
     } catch (e) {
       throw 'something went wrong. Please try again';
+    }
+  }
+
+  // Approve a coupon request
+  Future<void> updateCoupon(Coupon coupon) async {
+    // Add the coupon to the "acceptedCoupons" collection
+    try {
+      await
+        _db.collection('Coupons').doc(coupon.couponId).update(coupon.toJson());
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      // print(e);
+      throw 'something went wrong. Please try again:${e}';
     }
   }
 }

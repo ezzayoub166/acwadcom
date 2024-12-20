@@ -41,7 +41,9 @@ class _ListOffersScreenState extends State<ListOffersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
+         iconTheme: IconThemeData(
+          color: Colors.white
+        ),
         backgroundColor: ManagerColors.kCustomColor,
         title: myText(
           AText.offfers.tr(context),

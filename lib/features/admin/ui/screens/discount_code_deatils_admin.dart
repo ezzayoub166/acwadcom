@@ -2,22 +2,42 @@ import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/admin/logic/request/cubit/control_coupons_cubit.dart';
 import 'package:acwadcom/common/widgets/build_custom_loader.dart';
 import 'package:acwadcom/common/widgets/build_extended_image.dart';
+import 'package:acwadcom/features/user/home/data/category_repository.dart';
 import 'package:acwadcom/helpers/constants/extenstions.dart';
+import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/helpers/util/language_cache_helper.dart';
+import 'package:acwadcom/models/category_model.dart';
 
 import 'package:acwadcom/models/coupon_request.dart';
 
 import 'package:intl/intl.dart';
 
-class DiscountCodeDeatilsAdmin extends StatelessWidget {
+class DiscountCodeDeatilsAdmin extends StatefulWidget {
   final CouponRequest couponRequest;
   const DiscountCodeDeatilsAdmin({super.key, required this.couponRequest});
 
   @override
+  State<DiscountCodeDeatilsAdmin> createState() => _DiscountCodeDeatilsAdminState();
+}
+
+class _DiscountCodeDeatilsAdminState extends State<DiscountCodeDeatilsAdmin> {
+
+       CategoryModel? category = CategoryModel(title: {"en":"ALL" , "ar":"الكل"}, image: "") ;
+
+
+
+
+ 
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-    final coupon = couponRequest.coupon;
+
+    final coupon = widget.couponRequest.coupon;
 
       // Format the DateTime to the desired format (DD/MM/YYYY)
   String formattedDate = DateFormat('dd/MM/yyyy').format(coupon.endData.toDate());
@@ -26,8 +46,6 @@ class DiscountCodeDeatilsAdmin extends StatelessWidget {
 
       var locale = LanguageCacheHelper().getCachedLanguageCode();
 
-
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -35,6 +53,9 @@ class DiscountCodeDeatilsAdmin extends StatelessWidget {
             color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         centerTitle: true,
         backgroundColor: ManagerColors.kCustomColor,
+         iconTheme: IconThemeData(
+          color: Colors.white
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -65,8 +86,24 @@ class DiscountCodeDeatilsAdmin extends StatelessWidget {
                   "${coupon.discountRate}%", context),
               buildInfoField(
                   AText.linkofWebsite.tr(context), coupon.storeLink, context),
-              buildInfoField(
-                  AText.category.tr(context), locale == "en" ? coupon.category?.title["en"] : coupon.category?.title["ar"] , context),
+              FutureBuilder<List<CategoryModel>>(
+                future:  getIt<CategoryRepository>().getAllCategories(),
+                builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+              final categories = snapshot.data!;
+              category = categories.firstWhere((item) => item.categoryId == widget.couponRequest.coupon.categoryID, orElse: () => CategoryModel(title: {"en":"ALL" , "ar":"الكل"}, image: ""));
+              // Build the UI using category data
+           return buildInfoField(
+                      AText.category.tr(context), locale == "en" ? category?.title["en"] : category?.title["ar"] , context);
+              
+            }else if (snapshot.hasError) {
+              return Text("${snapshot.error}");
+            }
+            // Display a loading indicator while fetching categories
+            return Center(child: BuildCustomLoader());
+                  
+                }
+              ),
               // buildInfoField(AText.stateData.tr(context), "2024-3-30", context),
               buildInfoField(AText.endDate.tr(context),
                   formattedDate, context),

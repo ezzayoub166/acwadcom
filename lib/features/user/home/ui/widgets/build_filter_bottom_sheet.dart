@@ -172,7 +172,7 @@ class _BuildFilterBottomSheetState extends State<BuildFilterBottomSheet> {
                           Border.all(width: 1, color: ManagerColors.greyColor),
                       borderRadius: BorderRadius.circular(10)),
                   child: myText(
-                    LanguageCacheHelper().getCachedLanguageCode() == "en" ? arrayOfCategories[idx].title["en"] : arrayOfCategories[idx].title["ar"],
+                    getIt<CacheHelper>().getChacedLanguageCode() == "en" ? arrayOfCategories[idx].title["en"] : arrayOfCategories[idx].title["ar"],
                     fontSize: 14.sp,
                     fontWeight: FontWeightEnum.Medium.fontWeight,
                     color: selecttedId == arrayOfCategories[idx].categoryId

@@ -7,8 +7,7 @@ import 'package:acwadcom/features/ownerStore/features/home/widgets/custom_pop_di
 import 'package:acwadcom/features/user/settings/ui/screens/terms_condions.dart';
 import 'package:acwadcom/localiztion_cubit/locale_cubit.dart';
 import 'package:acwadcom/features/user/home/logic/avatar/avatar_cubit.dart';
-import 'package:acwadcom/helpers/Routing/routes.dart';
-import 'package:acwadcom/helpers/constants/colors.dart';
+
 import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:acwadcom/helpers/constants/sizes.dart';
 import 'package:acwadcom/helpers/constants/strings.dart';
@@ -56,7 +55,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     },
                     buildWhen: (previous, current) => current is FetchNameImage,
                   )
-                : SizedBox(height: 1),
+                : customAppBar(context),
             isLoggedInUser ?  buildSpacerH(10.0) : SizedBox(),
             ListTile(
               title: Text(AText.settings.tr(context),

@@ -1,7 +1,5 @@
 import 'package:acwadcom/acwadcom_packges.dart';
-import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/helpers/services/fireabse_storage_services.dart';
-import 'package:acwadcom/models/category_model.dart';
 import 'package:acwadcom/models/offer_model.dart';
 
 class CategoryRepository {
@@ -15,7 +13,17 @@ class CategoryRepository {
       //we will receive some snapshot from the fire store
     final snapshot = await _db.collection('Categories').get();
     final list = snapshot.docs.map((document) => CategoryModel.fromSnapshot(document)).toList();
+      // Sort the list, placing the "All" category first
+      // Sort the categories, placing "All" category at the top
+    list.sort((a, b) {
+      // If 'All' is found in either a or b, it should come first
+      if (a.title["en"]?.toLowerCase() == "all") return -1;
+      if (b.title["en"]?.toLowerCase() == "all") return 1;
+      return 0;  // Otherwise, maintain their order
+    });
+
     return list;
+
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
@@ -72,8 +80,6 @@ class CategoryRepository {
     try {
       //upload all categories along with their images
       final storage = getIt<TFirebaseStorageService>();
-      
-
       //loop through each category
       for(var category in categories){
         //Get Image data link form the local assets
@@ -86,9 +92,7 @@ class CategoryRepository {
         category.image = url;
         //store category in firebase
         await _db.collection('Categories').doc(category.categoryId).set(category.toJson());
-
       }
-
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {

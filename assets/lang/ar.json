@@ -214,7 +214,11 @@
     "username" : "اسم المستخدم",
     "of Acwdcom!":"من أكودكم",
     "is required":"مطلوب",
-    
-    "You must attach a photo or logo to the store":"يجب عليك أن ترفق صورة أو  شعار للمتجر"
-  
+    "Once your code is approved, you will find it on the codes page.":"فور الموافقة على كودكم الخاص ستجدوه في خانة الأكواد",
+    "You must attach a photo or logo to the store":"يجب عليك أن ترفق صورة أو  شعار للمتجر",
+    "see": "الإطلاع",
+    "Change the coupon logo":"تغيير شعار الكوبون",
+    "The coupon has been successfully updated.":"تم تحديث الكوبون بنجاح",
+    "Welcome dear user": "أهلا بك عزيزي المستخدم",
+    "in the world of Acwdcom":"في عالم أكوادكم"
 }

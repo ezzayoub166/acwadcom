@@ -4,7 +4,7 @@ import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/ownerStore/features/authitcation/logic/register_owner/register_owner_store_cubit.dart';
 import 'package:acwadcom/features/ownerStore/features/authitcation/logic/register_owner/register_owner_store_state.dart';
 
-Widget buildImagePicker(BuildContext context) {
+Widget buildImagePickerForRegisterStore(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

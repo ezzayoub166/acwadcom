@@ -48,3 +48,6 @@ export 'package:acwadcom/helpers/loader/laoders.dart';
 export 'package:acwadcom/helpers/popups/full_screen_loader.dart';
 export 'package:acwadcom/helpers/services/cachce_services/chache_helper.dart';
 export 'package:acwadcom/helpers/constants/build_extenstions.dart';
+export 'package:acwadcom/helpers/constants/extenstions.dart';
+export 'package:acwadcom/helpers/di/dependency_injection.dart';
+export 'package:acwadcom/models/category_model.dart';

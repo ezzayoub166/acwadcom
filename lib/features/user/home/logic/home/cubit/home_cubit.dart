@@ -40,7 +40,7 @@ class HomeCubit extends Cubit<HomeState> {
       emit(HomeState.successFeatchedCatgories(categories: categories));
 
       // Automatically select the first category after categories are loaded
-      emitSelectedCategory(0);
+      emitSelectedCategory(0,"");
     } catch (error) {
       emit(HomeState.errorFeatchedCatgories(error: error.toString()));
     }
@@ -72,7 +72,9 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  void emitGetAllCoupons() async {
+  
+
+  void emitGetAllCoupons() async { 
     try {
       emit(const HomeState.loadingCoupons());
       await _couponRepository.fetchAllCoupons().then((coupons) {
@@ -84,36 +86,42 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  void emitSelectedCategory(int index) {
-    List<Coupon> filteredCoupons = [];
-    // Update the selected state of categories
-    for (int i = 0; i < featchedCategories.length; i++) {
-      featchedCategories[i].isSelected =
-          i == index; // Set isSelected for the category
-    }
-    // Assuming featchedCoupons is a list of CouponModel objects and each has a categoryId property
-    // Get the selected category ID
-    String selectedCategoryId = featchedCategories[index].categoryId!;
 
-    // Filter coupons based on the selected category
-    if (index == 0) {
-      emit(HomeState.successFeatchedCoupons(coupons: featchedCoupons));
-    } else {
-      filteredCoupons = featchedCoupons
-          .where((coupon) => coupon.category?.categoryId == selectedCategoryId)
-          .toList();
-      if (filteredCoupons.isEmpty) {
-        emit(const HomeState.emptyCoupons());
-      } else {
-        emit(HomeState.successFeatchedCoupons(coupons: filteredCoupons));
-      }
-    }
-    // Emit the updated state with selected index and filtered coupons
-    emit(HomeState.categorySelected(
-        index: index,
-        listofCategories: featchedCategories,
-        listofCoupns: filteredCoupons));
-
-    ///! remove the third parm...
+void emitSelectedCategory(int index,String CategoryID)async {
+  emit(HomeState.loadingCoupons());
+  // Update the selected state of categories
+  for (int i = 0; i < featchedCategories.length; i++) {
+    featchedCategories[i].isSelected = i == index; // Set isSelected for the category
   }
+
+  // Check if the selected category is "All" or a specific category
+  var selectedCategory = featchedCategories[index];
+
+  if (selectedCategory.title["en"] == "All") {
+    // If "All" is selected, emit all coupons
+    emitGetDiscoverCoupons();
+  } else {
+      featchedCoupons.clear();  
+
+    // Otherwise, filter the coupons based on the selected category
+    await _couponRepository.fetchCouponsByCategory(CategoryID).then((coupons){
+       featchedCoupons = coupons;
+
+    });
+          
+    if (featchedCoupons.isEmpty) {
+      emit(const HomeState.emptyCoupons());
+    } else {
+      emit(HomeState.successFeatchedCoupons(coupons: featchedCoupons));
+    }
+  }
+
+  // Emit the updated state with selected index and filtered coupons
+  emit(HomeState.categorySelected(
+    index: index,
+    listofCategories: featchedCategories,
+    listofCoupns: featchedCoupons,
+  ));
+}
+
 }

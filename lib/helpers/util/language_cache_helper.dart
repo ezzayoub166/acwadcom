@@ -6,7 +6,7 @@ class LanguageCacheHelper {
   Future<void> cacheLanguageCode(String languageCode) async {
     // final sharedPreferences = await SharedPreferences.getInstance();
     // sharedPreferences.setString("LOCALE", languageCode);
-    getIt<CacheHelper>().saveValueWithKey("LOCALE", languageCode);
+    getIt<CacheHelper>().saveValueWithKey("LOCAL", languageCode);
   }
 
   Future<String> getCachedLanguageCode() async {

@@ -1,18 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:acwadcom/acwadcom_packges.dart';
-import 'package:acwadcom/common/widgets/build_custom_loader.dart';
+import 'package:acwadcom/features/admin/ui/widgets/build_shimmer_list_of_coupons.dart';
 import 'package:acwadcom/features/user/home/logic/home/cubit/home_cubit.dart';
+import 'package:acwadcom/features/user/home/ui/widgets/bloc_builder_categories.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/build_empty_list.dart';
-import 'package:acwadcom/features/user/home/ui/widgets/build_list_categories_shimer.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/build_list_coupons.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/build_scroll_offer.dart';
-import 'package:acwadcom/features/user/home/ui/widgets/home_categories.dart';
-import 'package:acwadcom/helpers/constants/extenstions.dart';
-import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/helpers/shimmer/shimmer_effect.dart';
-import 'package:acwadcom/helpers/shimmer/shimmer_loading.dart';
-import 'package:acwadcom/localiztion_cubit/locale_cubit.dart';
 import 'package:acwadcom/models/offer_model.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,6 +18,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+
+
  
 
   Widget buildOffersWgt(List<OfferModel> offers) {
@@ -32,20 +30,15 @@ class _HomeScreenState extends State<HomeScreen> {
         );
   }
 
-  // Widget buildCategories() {
-  //   return buildCategories(context: context);
-  // }
 
   @override
   Widget build(BuildContext context) {
-    Locale currentLocale = context.read<LocaleCubit>().state.locale;
     return Scaffold(
         backgroundColor: Colors.white,
         // appBar: customAppBar(context),
         body: BlocProvider(
           create: (context) => getIt<HomeCubit>()
             ..emitGetCategories()
-            ..emitGetDiscoverCoupons()
             ..emitGetOffers(),
           child: SafeArea(
             child: SingleChildScrollView(
@@ -56,11 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                     // shrinkWrap: true, // Adjusts to content size
                     children: [
-                      isLoggedInUser
-                          ? customAppBar(context)
-                          : SizedBox(
-                              height: 1,
-                            ),
+                      customAppBar(context),
                       buildSpacerH(TSizes.spaceBtwItems),
                       ASearchContainer(
                         text: AText.search.tr(context),
@@ -102,8 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
               current is EmptyCoupons,
           builder: (context, state) {
             return state.maybeWhen(
-                loadingCoupons: () => SizedBox(
-                    width: double.infinity, child: CouponShimerLoader()),
+                loadingCoupons: () => buildShimmerListOfCoupons(),
                 successFeatchedCoupons: (coupons) =>
                     BuildListCoupons(coupons: coupons),
                 errorFeatchedCoupons: (error) => Container(
@@ -119,9 +107,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 },
                 orElse: () {
-                  return SizedBox(
-                      width: double.infinity, child: CouponShimerLoader());
-                });
+                  return buildShimmerListOfCoupons();
+                }
+                );
           },
         )
       ],
@@ -151,94 +139,5 @@ class _HomeScreenState extends State<HomeScreen> {
                 return SizedBox(height: 0);
               });
         });
-  }
-}
-
-// class CategoriesSection extends StatefulWidget {
-//   @override
-//   _CategoriesSectionState createState() => _CategoriesSectionState();
-// }
-
-// class _CategoriesSectionState extends State<CategoriesSection>
-//     with AutomaticKeepAliveClientMixin {
-//   @override
-//   bool get wantKeepAlive => true;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     super.build(context);
-//     return Column(
-//       children: [
-//         TSectionHeader(
-//           title: AText.categorieslbl.tr(context),
-//           textColor: ManagerColors.textColor,
-//         ),
-//         buildSpacerH(TSizes.spaceBtwItems),
-//         BlocBuilder<HomeCubit, HomeState>(
-//           buildWhen: (previous, current) =>
-//               current is LoadingCatgories ||
-//               current is SuccessFeatchedCatgories ||
-//               current is ErrorFeatchedCatgories,
-//           builder: (context, state) {
-//             return state.maybeWhen(
-//                 loadingCatgories: () => ListShimmerCategoires(),
-//                 successFeatchedCatgories: (categories) => ACWHomeCategoires(
-//                       arrayOfCategories: categories,
-//                     ),
-//                 errorFeatchedCatgories: (error) => ListShimmerCategoires(),
-//                 orElse: () {
-//                   return ListShimmerCategoires();
-//                 });
-//           },
-//         )
-//       ],
-//     );
-//   }
-// }
-
-//Categories
-
-class BlocBuilderCategories extends StatelessWidget {
-  const BlocBuilderCategories({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TSectionHeader(
-          title: AText.categorieslbl.tr(context),
-          textColor: ManagerColors.textColor,
-        ),
-        buildSpacerH(TSizes.spaceBtwItems),
-        BlocBuilder<HomeCubit, HomeState>(
-          buildWhen: (previous, current) =>
-              current is LoadingCatgories ||
-              current is SuccessFeatchedCatgories ||
-              current is ErrorFeatchedCatgories ||
-              current is CategorySelected,
-          builder: (context, state) {
-            return state.maybeWhen(
-                loadingCatgories: () => Center(
-                      child: BuildCustomLoader(),
-                    ),
-                successFeatchedCatgories: (categories) => ACWHomeCategoires(
-                      arrayOfCategories:
-                          context.read<HomeCubit>().featchedCategories,
-                    ),
-                errorFeatchedCatgories: (error) => ListShimmerCategoires(),
-                loadingCoupons: () => Center(child: BuildCustomLoader()),
-                successFeatchedCoupons: (coupons) =>
-                    BuildListCoupons(coupons: coupons),
-                categorySelected: (index, listofCategories, listofCoupns) =>
-                    ACWHomeCategoires(arrayOfCategories: listofCategories),
-                orElse: () {
-                  return ListShimmerCategoires();
-                });
-          },
-        )
-      ],
-    );
   }
 }

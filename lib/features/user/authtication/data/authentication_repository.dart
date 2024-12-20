@@ -25,7 +25,8 @@ class AuthenticationRepository {
           navigateAndFinishNamed(context, Routes.bottomTabBarScreen);
         } else if (tYPEUSER == "STOREOWNER") {
           navigateAndFinishNamed(context, Routes.homeScreenForOwenerStore);
-        }else{
+        }
+        else{
           TLoader.showWarningSnackBar(context, title: AText.thresProblem.tr(context));
         }
       } else {

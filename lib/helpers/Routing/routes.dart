@@ -32,4 +32,5 @@ class Routes {
   static const String listRecentlyAddedCouponsScreen = "/ListRecentlyAddedCouponsScreen";
   static const String deleteStoreScreen = "/DeleteStoreScreen";
   static const String storeDataProfile = "/storeDataProfile";
+  static const String categoriesScreen = "/CategoriesScreen";
 }

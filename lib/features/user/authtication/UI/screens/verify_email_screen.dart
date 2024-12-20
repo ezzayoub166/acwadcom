@@ -6,6 +6,7 @@ import 'package:acwadcom/helpers/util/helper_functions.dart';
 import 'package:acwadcom/models/user_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:lottie/lottie.dart';
 
 class VerifyEmailScreen extends StatefulWidget {
@@ -182,7 +183,8 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
 }
 
 class SuccessScreen extends StatelessWidget {
-  final String image, title, subTitle;
+  final String image, title, subTitle ;
+  final String?  altrnativeEmail;
 
   final VoidCallback onPressed;
 
@@ -191,7 +193,7 @@ class SuccessScreen extends StatelessWidget {
       required this.image,
       required this.title,
       required this.subTitle,
-      required this.onPressed});
+      required this.onPressed,   this.altrnativeEmail });
 
   @override
   Widget build(BuildContext context) {
@@ -217,9 +219,8 @@ class SuccessScreen extends StatelessWidget {
                     maxLines: 3,
                     textAlign: TextAlign.center),
                 SizedBox(height: TSizes.spaceBtwItems),
-                Text(
-                  'appacwdcom@gmail.com',
-                  style: Theme.of(context).textTheme.labelLarge,
+                myText(
+                  altrnativeEmail ?? "appacwdcom@gmail.com" ,
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: TSizes.spaceBtwItems),

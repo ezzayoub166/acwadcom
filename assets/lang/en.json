@@ -216,7 +216,11 @@
         "of Acwdcom!":"of Acwdcom!",
         "username":"username",
         "is required":"is required",
-        "You must attach a photo or logo to the store":"You must attach a photo or logo to the store"
-  
-      
+        "You must attach a photo or logo to the store":"You must attach a photo or logo to the store",
+        "see":"see",
+        "Change the coupon logo":"Change the coupon logo",
+        "The coupon has been successfully updated.":"The coupon has been successfully updated.",
+         "Once your code is approved, you will find it on the codes page.": "Once your code is approved, you will find it on the codes page.",
+          "Welcome dear user":  "Welcome dear user",
+    "in the world of Acwdcom":    "in the world of Acwdcom"
 }

@@ -5,7 +5,6 @@ import 'package:acwadcom/features/admin/logic/request/cubit/control_coupons_cubi
 import 'package:acwadcom/features/admin/ui/widgets/build_coupon_request_item.dart';
 import 'package:acwadcom/common/widgets/build_custom_loader.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
-import 'package:flutter/material.dart';
 
 
 class RequestScreenAdmin extends StatelessWidget {
@@ -60,6 +59,8 @@ class buildBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
     return BlocListener<ControlCouponsCubit, ControlCouponsState>(
       listener: (context, state) {
 
@@ -88,7 +89,7 @@ class buildBlocBuilder extends StatelessWidget {
                       logoPath: coupon.storeLogoURL!,
                       storeName: coupon.title,
                       discountCode: coupon.code,
-                      time: "منذ ساعتين",
+                      time: timeAgo(coupon.uploadDate),
                       onView: () {
                         // Handle view action
                         navigateNamedTo(
@@ -110,4 +111,28 @@ class buildBlocBuilder extends StatelessWidget {
       ),
     );
   }
+
+
+String timeAgo(Timestamp timestamp) {
+  final DateTime now = DateTime.now();
+  final DateTime date = timestamp.toDate();
+  final Duration difference = now.difference(date);
+
+  if (difference.inSeconds < 60) {
+    return "${difference.inSeconds} seconds ago";
+  } else if (difference.inMinutes < 60) {
+    return "${difference.inMinutes} minutes ago";
+  } else if (difference.inHours < 24) {
+    return "${difference.inHours} hours ago";
+  } else if (difference.inDays < 7) {
+    return "${difference.inDays} days ago";
+  } else if (difference.inDays < 30) {
+    return "${(difference.inDays / 7).floor()} weeks ago";
+  } else if (difference.inDays < 365) {
+    return "${(difference.inDays / 30).floor()} months ago";
+  } else {
+    return "${(difference.inDays / 365).floor()} years ago";
+  }
+}
+
 }

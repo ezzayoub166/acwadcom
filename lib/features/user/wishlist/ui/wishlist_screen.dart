@@ -42,7 +42,6 @@ class _WishlistScreenState extends State<WishlistScreen>
 
   @override
   Widget build(BuildContext context) {
-    if (isLoggedInUser) {
       return Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(
@@ -53,66 +52,64 @@ class _WishlistScreenState extends State<WishlistScreen>
             ),
             child: Column(
               children: [
-                isLoggedInUser
-                    ? customAppBar(context)
-                    : SizedBox(
-                        height: 1,
-                      ),
+                customAppBar(context),
                 buildSpacerH(10.0),
                 ASearchContainer(
                   text: AText.search.tr(context),
                   onPressed: () => navigateNamedTo(context, Routes.searchScreen),
                 ),
                 buildSpacerH(20.0),
-                Container(
-                  height: 45.h,
-                  // margin: const EdgeInsets.symmetric(horizontal: 20),
-                  decoration: BoxDecoration(
-                    color: Colors.white, // Background color of the entire tab bar
-                    // borderRadius: BorderRadius.circular(
-                    //   25.0,
-                    // ),
-                  ),
-                  child:  TabBar(
-                        indicatorSize: TabBarIndicatorSize.tab,
-                        dividerColor: Colors.transparent,
-                        controller: _tabController,
-                        indicator: BoxDecoration(
-                          color: Color(0xffF1F1F1),
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                        labelColor: ManagerColors.kCustomColor,
-                        unselectedLabelColor: ManagerColors.kCustomColor,
-                        tabs: [
-          
-                         BlocBuilder<WishListCouponsCubit, WishListCouponsState>(
-                          buildWhen: (previous, current) => current is GetNumberOFCouponsInWishList,
-                        builder: (context, state) {
-                          if(state is GetNumberOFCouponsInWishList){
-                          return TabItem(title: AText.coupons.tr(context), count:state.count);
-                          }
-                          return TabItem(title: AText.coupons.tr(context), count:0);
-          
-                        },
+                isLoggedInUser ? Column(
+                  children: [
+                    Container(
+                      height: 45.h,
+                      // margin: const EdgeInsets.symmetric(horizontal: 20),
+                      decoration: BoxDecoration(
+                        color: Colors.white, // Background color of the entire tab bar
+                        // borderRadius: BorderRadius.circular(
+                        //   25.0,
+                        // ),
                       ),
-                      BlocBuilder<WishlistStoresCubit, WishListStoresState>(
-                         buildWhen: (previous, current) => current is GetNumberOFStoresInWishList,
-                        builder: (context, state) {
-                        
-                          if(state is GetNumberOFStoresInWishList){
-                          return TabItem(title: AText.stores.tr(context), count: state.count);
-                          }
-                          return TabItem(title: AText.stores.tr(context), count: 0);
-          
-          
-                        },
+                      child:  TabBar(
+                            indicatorSize: TabBarIndicatorSize.tab,
+                            dividerColor: Colors.transparent,
+                            controller: _tabController,
+                            indicator: BoxDecoration(
+                              color: Color(0xffF1F1F1),
+                              borderRadius: BorderRadius.all(Radius.circular(20)),
+                            ),
+                            labelColor: ManagerColors.kCustomColor,
+                            unselectedLabelColor: ManagerColors.kCustomColor,
+                            tabs: [
+                              
+                             BlocBuilder<WishListCouponsCubit, WishListCouponsState>(
+                              buildWhen: (previous, current) => current is GetNumberOFCouponsInWishList,
+                            builder: (context, state) {
+                              if(state is GetNumberOFCouponsInWishList){
+                              return TabItem(title: AText.coupons.tr(context), count:state.count);
+                              }
+                              return TabItem(title: AText.coupons.tr(context), count:0);
+                              
+                            },
+                          ),
+                          BlocBuilder<WishlistStoresCubit, WishListStoresState>(
+                             buildWhen: (previous, current) => current is GetNumberOFStoresInWishList,
+                            builder: (context, state) {
+                            
+                              if(state is GetNumberOFStoresInWishList){
+                              return TabItem(title: AText.stores.tr(context), count: state.count);
+                              }
+                              return TabItem(title: AText.stores.tr(context), count: 0);
+                              
+                              
+                            },
+                          )
+                              
+                            ],
                       )
-                          
-                        ],
-                  )
-                     
-                  ),
-                buildSpacerH(20.0),
+                         
+                      ),
+                      buildSpacerH(20.0),
                 SizedBox(
                   height: 400.h,
                   child: TabBarView(
@@ -124,37 +121,41 @@ class _WishlistScreenState extends State<WishlistScreen>
                     ],
                   ),
                 ),
+                  ],
+                ) :buildMustLogin(),
+                
               ],
             ),
           ),
         ),
       );
-    } else {
-      return Center(
-          child: Container(
-              padding: EdgeInsets.all(24),
-              child: Column(mainAxisSize: MainAxisSize.min, children: [
-                // Icon at the top
-                SizedBox(
-                  width: 100,
-                  height: 100,
-                  child: svgImage("icBuildLogo", fit: BoxFit.fill),
-                ),
-                SizedBox(height: 16),
-
-                // Confirmation Text
-                Column(children: [
-                  myText(
-                    "You need to log in to continue.".tr(context),
-                    textAlign: TextAlign.center,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
-                  ),
-                ])
-              ])));
     }
-  }
+       
+    Widget buildMustLogin(){
+      return Container(
+          padding: EdgeInsets.fromLTRB(20,100.h,20,20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min, children: [
+            // Icon at the top
+            SizedBox(
+              width: 100,
+              height: 100,
+              child: svgImage("icBuildLogo", fit: BoxFit.fill),
+            ),
+            SizedBox(height: 16),
+      
+            // Confirmation Text
+            Column(children: [
+              myText(
+                "You need to log in to continue.".tr(context),
+                textAlign: TextAlign.center,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ])
+          ]));
+    }
 }
 
 

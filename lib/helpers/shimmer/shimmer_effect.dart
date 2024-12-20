@@ -52,7 +52,7 @@ class OfferShimmerItenEffect extends StatelessWidget {
             ),
             clipBehavior: Clip.antiAlias,
             // elevation: 5.0,
-            child: SizedBox(height: 150, width: 150)),
+            child: SizedBox(height: 150, width: double.infinity)),
         baseColor: Colors.grey[300]!,
         highlightColor: Colors.grey[100]!);
   }

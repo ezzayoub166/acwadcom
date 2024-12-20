@@ -4,6 +4,6 @@ import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 Widget BuildCustomLoader() {
-  return SpinKitFadingFour(
+  return SpinKitWaveSpinner(
       color: ManagerColors.yellowColor);
 }

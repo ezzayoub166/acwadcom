@@ -1,4 +1,3 @@
-
 // import 'package:acwadcom/acwadcom_packges.dart';
 // import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/app_localizations.dart';
@@ -20,24 +19,40 @@ class CreateCouponListener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<CreateCouponCubit, CreateCouponState>(
-      listenWhen: (previous, current) => current is Loading || current is Success || current is Faluire,
+      listenWhen: (previous, current) =>
+          current is Loading ||
+          current is Success ||
+          current is Faluire ||
+          current is NotSelectedLogoStore,
       listener: (context, state) {
-        state.whenOrNull(
-          loading:(){
-            TFullScreenLoader.openLoadingDialog("Loading Add Coubon..".tr(context), LottieConstnts.loading_sing_up_animation, context);
-          } ,
-          faluire: (error){
-            context.pop();
-            TLoader.showErrorSnackBar(context, title: AText.thresProblem.tr(context),message: error);
-          },
-          success: (){
-            context.pop();
-            navigateTo(context,SuccessScreen(image: LottieConstnts.loading_sing_up_animation, title: AText.msgForReview.tr(context), subTitle: "done opertion".tr(context), onPressed: (){
-             context.pop();
-            context.pop();
-            }));
-          }
-        );
+        state.whenOrNull(loading: () {
+          TFullScreenLoader.openLoadingDialog(
+              "Loading Add Coubon..".tr(context),
+              LottieConstnts.loading_sing_up_animation,
+              context);
+        }, faluire: (error) {
+          context.pop();
+          TLoader.showErrorSnackBar(context,
+              title: AText.thresProblem.tr(context), message: error);
+        }, notSelectedLogoStore: () {
+          context.pop();
+          showRequireImageSelectedDialog(context);
+        }, success: () {
+          context.pop();
+          navigateTo(
+              context,
+              SuccessScreen(
+                  image: LottieConstnts.loading_sing_up_animation,
+                  title: AText.msgForReview.tr(context),
+                  subTitle: "done opertion".tr(context),
+                  altrnativeEmail:
+                      "Once your code is approved, you will find it on the codes page."
+                          .tr(context),
+                  onPressed: () {
+                    context.pop();
+                    context.pop();
+                  }));
+        });
       },
       child: const SizedBox(),
     );

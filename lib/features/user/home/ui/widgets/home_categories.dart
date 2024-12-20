@@ -27,7 +27,8 @@ class _ACWHomeCategoiresState extends State<ACWHomeCategoires> {
               setState(() {
                 selectedCategoryIndex = index;
               });
-              context.read<HomeCubit>().emitSelectedCategory(index);
+              
+              context.read<HomeCubit>().emitSelectedCategory(index,widget.arrayOfCategories[index].categoryId!);
 
             },
             child: buildCategoryItem(

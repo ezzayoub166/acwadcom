@@ -145,7 +145,7 @@ Future<UserModel?> getUser() async {
   if (cachedLanguageCode != null) {
     return cachedLanguageCode;
   } else {
-    return 'en';
+    return 'ar';
   }
 }
 }

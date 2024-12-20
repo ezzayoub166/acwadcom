@@ -1,9 +1,13 @@
 import 'package:acwadcom/acwadcom_packges.dart';
-import 'package:acwadcom/features/admin/logic/home_admin_cubit/cubit/home_admin_cubit.dart';
 import 'package:acwadcom/common/widgets/build_custom_loader.dart';
+import 'package:acwadcom/common/widgets/build_custom_page_with_pagination.dart';
+import 'package:acwadcom/features/admin/logic/home_admin_cubit/cubit/home_admin_cubit.dart';
+import 'package:acwadcom/features/admin/ui/widgets/build_alert_deatils_for_store.dart';
 import 'package:acwadcom/features/admin/ui/widgets/build_app_bar_for_admin.dart';
 import 'package:acwadcom/features/admin/ui/widgets/build_item_code_for_admin.dart';
-import 'package:acwadcom/helpers/di/dependency_injection.dart';
+import 'package:acwadcom/features/admin/ui/widgets/build_shimmer_list_of_coupons.dart';
+import 'package:acwadcom/features/user/coupons/ui/screens/coupon_deatls_screen.dart';
+import 'package:acwadcom/models/coupon_model.dart';
 
 class HomeScreenAdmin extends StatefulWidget {
   const HomeScreenAdmin({super.key});
@@ -14,27 +18,27 @@ class HomeScreenAdmin extends StatefulWidget {
 
 class _HomeScreenAdminState extends State<HomeScreenAdmin> {
   @override
-  Widget build(BuildContext context) {
-    // List<Coupon> yourCoupons = [];
-    //
+  void initState() {
+    super.initState();
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<HomeAdminCubit>()..emitGetCoupons(),
+      create: (context) => getIt<HomeAdminCubit>()
+        ..emitCouponCount()
+        ..emitGetCategories(),
       child: Scaffold(
-        appBar: buildAppBarForAdmin(context, "All Coupons in App".tr(context)),
+        appBar: buildAppBarForAdmin(context, "All Coupons in App"),
         body: BlocBuilder<HomeAdminCubit, HomeAdminState>(
           buildWhen: (previous, current) =>
-              current is SuccessGetCoupons ||
-              current is LoadingCoupons ||
-              current is SucessRemove ||
-              current is GetNumberOFCoubons,
+              current is SucessRemove || current is GetNumberOFCoubons,
           builder: (context, state) {
             return state.maybeWhen(
-                loadingCoupons: () => BuildCustomLoader(),
-                successGetCoupons: (coupons) => Padding(
+                getNumberOFCoubons: (number) => Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 20),
-                      child: ListView(
+                      child: Column(
                         children: [
                           Row(
                             children: [
@@ -43,108 +47,50 @@ class _HomeScreenAdminState extends State<HomeScreenAdmin> {
                                   color: ManagerColors.kCustomColor,
                                   fontWeight: FontWeightEnum.Light.fontWeight),
                               myText(":", fontSize: 22),
-                              myText("${coupons.length}",
+                              myText("${number}",
                                   fontSize: 22,
                                   color: ManagerColors.yellowColor,
                                   fontWeight: FontWeight.bold),
                             ],
                           ),
                           buildSpacerH(10.0),
-                          ListView.separated(
-                              scrollDirection: Axis.vertical,
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemBuilder: (ctx, index) {
-                                return GestureDetector(
-                                  onLongPress: () {
-                                    showDialog(
-                                        context: context,
-                                        builder: (BuildContext dialogContext) {
-                                          return AlertDialog(
-                                            backgroundColor:
-                                                ManagerColors.kCustomColor,
-                                            content: Container(
-                                                height: 250,
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.7,
-                                                child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(5.0),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    children: [
-                                                      myImage(
-                                                          "icon_app_acwdcom",
-                                                          height: 140,
-                                                          width: 150),
-                                                      Row(
-                                                        mainAxisSize: MainAxisSize.min,
-                                                        children: [
-                                                          myText(
-                                                              AText.phoneNumber.tr(context),
-                                                              fontSize: 18,
-                                                              color: ManagerColors
-                                                                  .yellowColor
-                                                          ),
-                                                          buildSpacerW(5.0),
-                                                          myText(
-                                                                fontSize: 12,
-                                                                color: ManagerColors
-                                                                    .whiteBtnBackGround,
-                                                            "${coupons[index].ownerCoupon.phoneNumber}",
-                                                          ),
-                                                          IconButton
-                                                            (
-                                                            color: ManagerColors.yellowColor,
-                                                            icon: Icon(Icons.copy , ),
-                                                            onPressed: () {
-                                                                                   //** copy the phone Number  for Coupon....... */
-                                                              copyTextToClipboard(coupons[index].ownerCoupon.phoneNumber, context);
-                                         
-
-                                                            },
-                                                          )
-                                                        ],
-                                                      ),
-                                                      buildSpacerH(10.0),
-                                                      // Coupon Owner
-                                                      Row(
-                                                        children: [
-                                                          myText(
-                                                              AText.storeName.tr(context),
-                                                              fontSize: 18,
-                                                              color: ManagerColors
-                                                                  .yellowColor),
-                                                                                                                            buildSpacerW(5.0),
-
-                                                          myText(
-                                                            fontSize: 12,
-                                                            color: ManagerColors
-                                                                .whiteBtnBackGround,
-                                                            "${coupons[index].ownerCoupon.userName}",
-                                                          )
-                                                        ],
-                                                      ),
-
-
-
-                                                    ],
-                                                  ),
-                                                )),
-                                          );
-                                        });
-                                  },
-                                  child: BuildItmCodeForAdmin(
-                                    coupon: coupons[index],
-                                  ),
-                                );
-                              },
-                              separatorBuilder: (ctx, index) =>
-                                  buildSpacerH(10.0),
-                              itemCount: coupons.length)
+                          Expanded(
+                              child: BuildCustomPageWithPagination(
+                            pageSize: 4,
+                            shrinkWrap: true,
+                            query: FirebaseFirestore.instance
+                                .collection('Coupons')
+                                .withConverter(
+                                  fromFirestore: (snapshot, _) =>
+                                      Coupon.fromJson(snapshot.data()!),
+                                  toFirestore: (coupon, _) =>
+                                      (coupon as Coupon).toJson(),
+                                ),
+                            itemBuilder: (ctx, doc) {
+                              var coupon =doc.data() as Coupon;
+ // Ensure you have a fromJson factory method in Coupon
+                              return GestureDetector(
+                                onLongPress: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (BuildContext dialogContext) {
+                                        return buildAlertDeatilsForStore(
+                                            context, coupon);
+                                      });
+                                },
+                                onTap: () {
+                                  navigateTo(
+                                      context,
+                                      CouponDeatlsScreen(
+                                        coupon: coupon,
+                                      ));
+                                },
+                                child: BuildItmCodeForAdmin(
+                                  coupon: coupon,
+                                ),
+                              );
+                            },
+                          ))
                         ],
                       ),
                     ),
@@ -153,7 +99,7 @@ class _HomeScreenAdminState extends State<HomeScreenAdmin> {
                           color: ManagerColors.kCustomColor,
                           child: Text("Done")),
                     ),
-                orElse: () => const SizedBox());
+                orElse: () => buildShimmerListOfCoupons());
           },
         ),
       ),

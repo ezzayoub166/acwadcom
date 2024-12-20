@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, body_might_complete_normally_nullable, unused_local_variable
 
 import 'package:acwadcom/acwadcom.dart';
-import 'package:acwadcom/features/admin/logic/edit_screen/cubit/edit_code_cubit.dart';
+import 'package:acwadcom/features/admin/logic/edit_screen/cubit/edit_coupon_cubit.dart';
 import 'package:acwadcom/features/admin/logic/request/cubit/control_coupons_cubit.dart';
 import 'package:acwadcom/features/admin/ui/screens/discount_code_deatils_admin.dart';
 import 'package:acwadcom/features/admin/ui/screens/edit_code_screen_admin.dart';
@@ -31,6 +31,7 @@ import 'package:acwadcom/features/user/home/logic/home/cubit/home_cubit.dart';
 import 'package:acwadcom/features/user/home/logic/search/cubit/search_cubit.dart';
 import 'package:acwadcom/features/user/home/ui/filter_list_coupons.dart';
 import 'package:acwadcom/features/user/home/ui/list_coupons_screen.dart';
+import 'package:acwadcom/features/user/home/ui/screens/categories_screen.dart';
 import 'package:acwadcom/features/user/home/ui/search_screen.dart';
 import 'package:acwadcom/features/user/onboarding/ui/screens/onboarding_screen.dart';
 import 'package:acwadcom/features/user/onboarding/ui/screens/userOrStore.dart';
@@ -228,9 +229,28 @@ class AppRouter {
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
                   create: (context) =>
-                      getIt<ExploreCubit>()..fetchCouponsAddedRecently(30),
+                      getIt<ExploreCubit>()..fetchCouponsAddedRecently(15),
                   child: ListRecentlyAddedCouponsScreen(),
                 ));
+
+               case Routes.editCodeScreenAdmin:
+                final coupon = settings.arguments as Coupon;
+
+               return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) =>
+                      getIt<EditCouponCubit>(),
+                  child: EditCouponScreen(coupon: coupon),
+                ));
+
+                case Routes.categoriesScreen:
+                return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) =>
+                      getIt<HomeCubit>()..emitGetCategories(),
+                  child:CategoriesScreen(),
+                ));
+
 
       //  case Routes.noInterntScreen:
       //  return MaterialPageRoute(builder:(context) => NoInterntScreen());

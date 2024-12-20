@@ -76,6 +76,7 @@ class CouponRequestItem extends StatelessWidget {
                 )),
                 const SizedBox(height: 8),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       time,
@@ -84,26 +85,29 @@ class CouponRequestItem extends StatelessWidget {
                         color: Colors.grey,
                       ),
                     ),
-                    const SizedBox(width: 8),
-                    InkWell(
+                  Row(
+                    children: [
+                         InkWell(
                       onTap: onView,
                       child: myText(
-                        'الاطلاع',
-                          fontSize: 12,
+                        "see".tr(context),
+                          fontSize: 18,
                           color: Colors.orange,
                           fontWeight: FontWeight.bold,
                         ),
                     ),
-                    const SizedBox(width: 16),
+                    const SizedBox(width: 30),
                     InkWell(
                       onTap: onIgnore,
                       child: myText(
-                        'تجاهل',
-                          fontSize: 12,
+                        "reject".tr(context),
+                          fontSize: 18,
                           color: Colors.grey,
                           fontWeight: FontWeight.normal,
                       ),
                     ),
+                    ],
+                  )
                   ],
                 ),
               ],

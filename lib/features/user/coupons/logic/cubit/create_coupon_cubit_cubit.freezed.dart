@@ -23,12 +23,16 @@ mixin _$CreateCouponState<T> {
     required TResult Function() success,
     required TResult Function(String error) faluire,
     required TResult Function(DateTime selectedDate) dateSelected,
-    required TResult Function(OptionItem optionItemSelected) categorySelected,
+    required TResult Function(CategoryModel optionItemSelected)
+        categorySelected,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoaded,
     required TResult Function() loadingSetLogoStore,
     required TResult Function(XFile imageURL) loadedSetLogoStore,
+    required TResult Function() notSelectedLogoStore,
     required TResult Function() emptyLogoStore,
+    required TResult Function(Coupon coupon) couponLoaded,
+    required TResult Function() stopLoadingImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,11 +42,14 @@ mixin _$CreateCouponState<T> {
     TResult? Function()? success,
     TResult? Function(String error)? faluire,
     TResult? Function(DateTime selectedDate)? dateSelected,
-    TResult? Function(OptionItem optionItemSelected)? categorySelected,
+    TResult? Function(CategoryModel optionItemSelected)? categorySelected,
     TResult? Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult? Function()? loadingSetLogoStore,
     TResult? Function(XFile imageURL)? loadedSetLogoStore,
+    TResult? Function()? notSelectedLogoStore,
     TResult? Function()? emptyLogoStore,
+    TResult? Function(Coupon coupon)? couponLoaded,
+    TResult? Function()? stopLoadingImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,11 +59,14 @@ mixin _$CreateCouponState<T> {
     TResult Function()? success,
     TResult Function(String error)? faluire,
     TResult Function(DateTime selectedDate)? dateSelected,
-    TResult Function(OptionItem optionItemSelected)? categorySelected,
+    TResult Function(CategoryModel optionItemSelected)? categorySelected,
     TResult Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult Function()? loadingSetLogoStore,
     TResult Function(XFile imageURL)? loadedSetLogoStore,
+    TResult Function()? notSelectedLogoStore,
     TResult Function()? emptyLogoStore,
+    TResult Function(Coupon coupon)? couponLoaded,
+    TResult Function()? stopLoadingImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -71,7 +81,11 @@ mixin _$CreateCouponState<T> {
     required TResult Function(CategoriesLoaded<T> value) categoriesLoaded,
     required TResult Function(LoadingSetLogoStore<T> value) loadingSetLogoStore,
     required TResult Function(LoadedSetLogoStore<T> value) loadedSetLogoStore,
+    required TResult Function(NotSelectedLogoStore<T> value)
+        notSelectedLogoStore,
     required TResult Function(EmptyLogoStore<T> value) emptyLogoStore,
+    required TResult Function(CouponLoaded<T> value) couponLoaded,
+    required TResult Function(StopLoadingImage<T> value) stopLoadingImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -85,7 +99,10 @@ mixin _$CreateCouponState<T> {
     TResult? Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult? Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult? Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult? Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult? Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult? Function(CouponLoaded<T> value)? couponLoaded,
+    TResult? Function(StopLoadingImage<T> value)? stopLoadingImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -99,7 +116,10 @@ mixin _$CreateCouponState<T> {
     TResult Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult Function(CouponLoaded<T> value)? couponLoaded,
+    TResult Function(StopLoadingImage<T> value)? stopLoadingImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -174,12 +194,16 @@ class _$InitialImpl<T> with DiagnosticableTreeMixin implements _Initial<T> {
     required TResult Function() success,
     required TResult Function(String error) faluire,
     required TResult Function(DateTime selectedDate) dateSelected,
-    required TResult Function(OptionItem optionItemSelected) categorySelected,
+    required TResult Function(CategoryModel optionItemSelected)
+        categorySelected,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoaded,
     required TResult Function() loadingSetLogoStore,
     required TResult Function(XFile imageURL) loadedSetLogoStore,
+    required TResult Function() notSelectedLogoStore,
     required TResult Function() emptyLogoStore,
+    required TResult Function(Coupon coupon) couponLoaded,
+    required TResult Function() stopLoadingImage,
   }) {
     return initial();
   }
@@ -192,11 +216,14 @@ class _$InitialImpl<T> with DiagnosticableTreeMixin implements _Initial<T> {
     TResult? Function()? success,
     TResult? Function(String error)? faluire,
     TResult? Function(DateTime selectedDate)? dateSelected,
-    TResult? Function(OptionItem optionItemSelected)? categorySelected,
+    TResult? Function(CategoryModel optionItemSelected)? categorySelected,
     TResult? Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult? Function()? loadingSetLogoStore,
     TResult? Function(XFile imageURL)? loadedSetLogoStore,
+    TResult? Function()? notSelectedLogoStore,
     TResult? Function()? emptyLogoStore,
+    TResult? Function(Coupon coupon)? couponLoaded,
+    TResult? Function()? stopLoadingImage,
   }) {
     return initial?.call();
   }
@@ -209,11 +236,14 @@ class _$InitialImpl<T> with DiagnosticableTreeMixin implements _Initial<T> {
     TResult Function()? success,
     TResult Function(String error)? faluire,
     TResult Function(DateTime selectedDate)? dateSelected,
-    TResult Function(OptionItem optionItemSelected)? categorySelected,
+    TResult Function(CategoryModel optionItemSelected)? categorySelected,
     TResult Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult Function()? loadingSetLogoStore,
     TResult Function(XFile imageURL)? loadedSetLogoStore,
+    TResult Function()? notSelectedLogoStore,
     TResult Function()? emptyLogoStore,
+    TResult Function(Coupon coupon)? couponLoaded,
+    TResult Function()? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -234,7 +264,11 @@ class _$InitialImpl<T> with DiagnosticableTreeMixin implements _Initial<T> {
     required TResult Function(CategoriesLoaded<T> value) categoriesLoaded,
     required TResult Function(LoadingSetLogoStore<T> value) loadingSetLogoStore,
     required TResult Function(LoadedSetLogoStore<T> value) loadedSetLogoStore,
+    required TResult Function(NotSelectedLogoStore<T> value)
+        notSelectedLogoStore,
     required TResult Function(EmptyLogoStore<T> value) emptyLogoStore,
+    required TResult Function(CouponLoaded<T> value) couponLoaded,
+    required TResult Function(StopLoadingImage<T> value) stopLoadingImage,
   }) {
     return initial(this);
   }
@@ -251,7 +285,10 @@ class _$InitialImpl<T> with DiagnosticableTreeMixin implements _Initial<T> {
     TResult? Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult? Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult? Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult? Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult? Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult? Function(CouponLoaded<T> value)? couponLoaded,
+    TResult? Function(StopLoadingImage<T> value)? stopLoadingImage,
   }) {
     return initial?.call(this);
   }
@@ -268,7 +305,10 @@ class _$InitialImpl<T> with DiagnosticableTreeMixin implements _Initial<T> {
     TResult Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult Function(CouponLoaded<T> value)? couponLoaded,
+    TResult Function(StopLoadingImage<T> value)? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -332,12 +372,16 @@ class _$LoadingImpl<T> with DiagnosticableTreeMixin implements Loading<T> {
     required TResult Function() success,
     required TResult Function(String error) faluire,
     required TResult Function(DateTime selectedDate) dateSelected,
-    required TResult Function(OptionItem optionItemSelected) categorySelected,
+    required TResult Function(CategoryModel optionItemSelected)
+        categorySelected,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoaded,
     required TResult Function() loadingSetLogoStore,
     required TResult Function(XFile imageURL) loadedSetLogoStore,
+    required TResult Function() notSelectedLogoStore,
     required TResult Function() emptyLogoStore,
+    required TResult Function(Coupon coupon) couponLoaded,
+    required TResult Function() stopLoadingImage,
   }) {
     return loading();
   }
@@ -350,11 +394,14 @@ class _$LoadingImpl<T> with DiagnosticableTreeMixin implements Loading<T> {
     TResult? Function()? success,
     TResult? Function(String error)? faluire,
     TResult? Function(DateTime selectedDate)? dateSelected,
-    TResult? Function(OptionItem optionItemSelected)? categorySelected,
+    TResult? Function(CategoryModel optionItemSelected)? categorySelected,
     TResult? Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult? Function()? loadingSetLogoStore,
     TResult? Function(XFile imageURL)? loadedSetLogoStore,
+    TResult? Function()? notSelectedLogoStore,
     TResult? Function()? emptyLogoStore,
+    TResult? Function(Coupon coupon)? couponLoaded,
+    TResult? Function()? stopLoadingImage,
   }) {
     return loading?.call();
   }
@@ -367,11 +414,14 @@ class _$LoadingImpl<T> with DiagnosticableTreeMixin implements Loading<T> {
     TResult Function()? success,
     TResult Function(String error)? faluire,
     TResult Function(DateTime selectedDate)? dateSelected,
-    TResult Function(OptionItem optionItemSelected)? categorySelected,
+    TResult Function(CategoryModel optionItemSelected)? categorySelected,
     TResult Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult Function()? loadingSetLogoStore,
     TResult Function(XFile imageURL)? loadedSetLogoStore,
+    TResult Function()? notSelectedLogoStore,
     TResult Function()? emptyLogoStore,
+    TResult Function(Coupon coupon)? couponLoaded,
+    TResult Function()? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -392,7 +442,11 @@ class _$LoadingImpl<T> with DiagnosticableTreeMixin implements Loading<T> {
     required TResult Function(CategoriesLoaded<T> value) categoriesLoaded,
     required TResult Function(LoadingSetLogoStore<T> value) loadingSetLogoStore,
     required TResult Function(LoadedSetLogoStore<T> value) loadedSetLogoStore,
+    required TResult Function(NotSelectedLogoStore<T> value)
+        notSelectedLogoStore,
     required TResult Function(EmptyLogoStore<T> value) emptyLogoStore,
+    required TResult Function(CouponLoaded<T> value) couponLoaded,
+    required TResult Function(StopLoadingImage<T> value) stopLoadingImage,
   }) {
     return loading(this);
   }
@@ -409,7 +463,10 @@ class _$LoadingImpl<T> with DiagnosticableTreeMixin implements Loading<T> {
     TResult? Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult? Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult? Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult? Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult? Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult? Function(CouponLoaded<T> value)? couponLoaded,
+    TResult? Function(StopLoadingImage<T> value)? stopLoadingImage,
   }) {
     return loading?.call(this);
   }
@@ -426,7 +483,10 @@ class _$LoadingImpl<T> with DiagnosticableTreeMixin implements Loading<T> {
     TResult Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult Function(CouponLoaded<T> value)? couponLoaded,
+    TResult Function(StopLoadingImage<T> value)? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -490,12 +550,16 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
     required TResult Function() success,
     required TResult Function(String error) faluire,
     required TResult Function(DateTime selectedDate) dateSelected,
-    required TResult Function(OptionItem optionItemSelected) categorySelected,
+    required TResult Function(CategoryModel optionItemSelected)
+        categorySelected,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoaded,
     required TResult Function() loadingSetLogoStore,
     required TResult Function(XFile imageURL) loadedSetLogoStore,
+    required TResult Function() notSelectedLogoStore,
     required TResult Function() emptyLogoStore,
+    required TResult Function(Coupon coupon) couponLoaded,
+    required TResult Function() stopLoadingImage,
   }) {
     return success();
   }
@@ -508,11 +572,14 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
     TResult? Function()? success,
     TResult? Function(String error)? faluire,
     TResult? Function(DateTime selectedDate)? dateSelected,
-    TResult? Function(OptionItem optionItemSelected)? categorySelected,
+    TResult? Function(CategoryModel optionItemSelected)? categorySelected,
     TResult? Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult? Function()? loadingSetLogoStore,
     TResult? Function(XFile imageURL)? loadedSetLogoStore,
+    TResult? Function()? notSelectedLogoStore,
     TResult? Function()? emptyLogoStore,
+    TResult? Function(Coupon coupon)? couponLoaded,
+    TResult? Function()? stopLoadingImage,
   }) {
     return success?.call();
   }
@@ -525,11 +592,14 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
     TResult Function()? success,
     TResult Function(String error)? faluire,
     TResult Function(DateTime selectedDate)? dateSelected,
-    TResult Function(OptionItem optionItemSelected)? categorySelected,
+    TResult Function(CategoryModel optionItemSelected)? categorySelected,
     TResult Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult Function()? loadingSetLogoStore,
     TResult Function(XFile imageURL)? loadedSetLogoStore,
+    TResult Function()? notSelectedLogoStore,
     TResult Function()? emptyLogoStore,
+    TResult Function(Coupon coupon)? couponLoaded,
+    TResult Function()? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -550,7 +620,11 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
     required TResult Function(CategoriesLoaded<T> value) categoriesLoaded,
     required TResult Function(LoadingSetLogoStore<T> value) loadingSetLogoStore,
     required TResult Function(LoadedSetLogoStore<T> value) loadedSetLogoStore,
+    required TResult Function(NotSelectedLogoStore<T> value)
+        notSelectedLogoStore,
     required TResult Function(EmptyLogoStore<T> value) emptyLogoStore,
+    required TResult Function(CouponLoaded<T> value) couponLoaded,
+    required TResult Function(StopLoadingImage<T> value) stopLoadingImage,
   }) {
     return success(this);
   }
@@ -567,7 +641,10 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
     TResult? Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult? Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult? Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult? Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult? Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult? Function(CouponLoaded<T> value)? couponLoaded,
+    TResult? Function(StopLoadingImage<T> value)? stopLoadingImage,
   }) {
     return success?.call(this);
   }
@@ -584,7 +661,10 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
     TResult Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult Function(CouponLoaded<T> value)? couponLoaded,
+    TResult Function(StopLoadingImage<T> value)? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -675,12 +755,16 @@ class _$FaluireImpl<T> with DiagnosticableTreeMixin implements Faluire<T> {
     required TResult Function() success,
     required TResult Function(String error) faluire,
     required TResult Function(DateTime selectedDate) dateSelected,
-    required TResult Function(OptionItem optionItemSelected) categorySelected,
+    required TResult Function(CategoryModel optionItemSelected)
+        categorySelected,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoaded,
     required TResult Function() loadingSetLogoStore,
     required TResult Function(XFile imageURL) loadedSetLogoStore,
+    required TResult Function() notSelectedLogoStore,
     required TResult Function() emptyLogoStore,
+    required TResult Function(Coupon coupon) couponLoaded,
+    required TResult Function() stopLoadingImage,
   }) {
     return faluire(error);
   }
@@ -693,11 +777,14 @@ class _$FaluireImpl<T> with DiagnosticableTreeMixin implements Faluire<T> {
     TResult? Function()? success,
     TResult? Function(String error)? faluire,
     TResult? Function(DateTime selectedDate)? dateSelected,
-    TResult? Function(OptionItem optionItemSelected)? categorySelected,
+    TResult? Function(CategoryModel optionItemSelected)? categorySelected,
     TResult? Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult? Function()? loadingSetLogoStore,
     TResult? Function(XFile imageURL)? loadedSetLogoStore,
+    TResult? Function()? notSelectedLogoStore,
     TResult? Function()? emptyLogoStore,
+    TResult? Function(Coupon coupon)? couponLoaded,
+    TResult? Function()? stopLoadingImage,
   }) {
     return faluire?.call(error);
   }
@@ -710,11 +797,14 @@ class _$FaluireImpl<T> with DiagnosticableTreeMixin implements Faluire<T> {
     TResult Function()? success,
     TResult Function(String error)? faluire,
     TResult Function(DateTime selectedDate)? dateSelected,
-    TResult Function(OptionItem optionItemSelected)? categorySelected,
+    TResult Function(CategoryModel optionItemSelected)? categorySelected,
     TResult Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult Function()? loadingSetLogoStore,
     TResult Function(XFile imageURL)? loadedSetLogoStore,
+    TResult Function()? notSelectedLogoStore,
     TResult Function()? emptyLogoStore,
+    TResult Function(Coupon coupon)? couponLoaded,
+    TResult Function()? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (faluire != null) {
@@ -735,7 +825,11 @@ class _$FaluireImpl<T> with DiagnosticableTreeMixin implements Faluire<T> {
     required TResult Function(CategoriesLoaded<T> value) categoriesLoaded,
     required TResult Function(LoadingSetLogoStore<T> value) loadingSetLogoStore,
     required TResult Function(LoadedSetLogoStore<T> value) loadedSetLogoStore,
+    required TResult Function(NotSelectedLogoStore<T> value)
+        notSelectedLogoStore,
     required TResult Function(EmptyLogoStore<T> value) emptyLogoStore,
+    required TResult Function(CouponLoaded<T> value) couponLoaded,
+    required TResult Function(StopLoadingImage<T> value) stopLoadingImage,
   }) {
     return faluire(this);
   }
@@ -752,7 +846,10 @@ class _$FaluireImpl<T> with DiagnosticableTreeMixin implements Faluire<T> {
     TResult? Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult? Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult? Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult? Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult? Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult? Function(CouponLoaded<T> value)? couponLoaded,
+    TResult? Function(StopLoadingImage<T> value)? stopLoadingImage,
   }) {
     return faluire?.call(this);
   }
@@ -769,7 +866,10 @@ class _$FaluireImpl<T> with DiagnosticableTreeMixin implements Faluire<T> {
     TResult Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult Function(CouponLoaded<T> value)? couponLoaded,
+    TResult Function(StopLoadingImage<T> value)? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (faluire != null) {
@@ -869,12 +969,16 @@ class _$DateSelectedImpl<T>
     required TResult Function() success,
     required TResult Function(String error) faluire,
     required TResult Function(DateTime selectedDate) dateSelected,
-    required TResult Function(OptionItem optionItemSelected) categorySelected,
+    required TResult Function(CategoryModel optionItemSelected)
+        categorySelected,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoaded,
     required TResult Function() loadingSetLogoStore,
     required TResult Function(XFile imageURL) loadedSetLogoStore,
+    required TResult Function() notSelectedLogoStore,
     required TResult Function() emptyLogoStore,
+    required TResult Function(Coupon coupon) couponLoaded,
+    required TResult Function() stopLoadingImage,
   }) {
     return dateSelected(selectedDate);
   }
@@ -887,11 +991,14 @@ class _$DateSelectedImpl<T>
     TResult? Function()? success,
     TResult? Function(String error)? faluire,
     TResult? Function(DateTime selectedDate)? dateSelected,
-    TResult? Function(OptionItem optionItemSelected)? categorySelected,
+    TResult? Function(CategoryModel optionItemSelected)? categorySelected,
     TResult? Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult? Function()? loadingSetLogoStore,
     TResult? Function(XFile imageURL)? loadedSetLogoStore,
+    TResult? Function()? notSelectedLogoStore,
     TResult? Function()? emptyLogoStore,
+    TResult? Function(Coupon coupon)? couponLoaded,
+    TResult? Function()? stopLoadingImage,
   }) {
     return dateSelected?.call(selectedDate);
   }
@@ -904,11 +1011,14 @@ class _$DateSelectedImpl<T>
     TResult Function()? success,
     TResult Function(String error)? faluire,
     TResult Function(DateTime selectedDate)? dateSelected,
-    TResult Function(OptionItem optionItemSelected)? categorySelected,
+    TResult Function(CategoryModel optionItemSelected)? categorySelected,
     TResult Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult Function()? loadingSetLogoStore,
     TResult Function(XFile imageURL)? loadedSetLogoStore,
+    TResult Function()? notSelectedLogoStore,
     TResult Function()? emptyLogoStore,
+    TResult Function(Coupon coupon)? couponLoaded,
+    TResult Function()? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (dateSelected != null) {
@@ -929,7 +1039,11 @@ class _$DateSelectedImpl<T>
     required TResult Function(CategoriesLoaded<T> value) categoriesLoaded,
     required TResult Function(LoadingSetLogoStore<T> value) loadingSetLogoStore,
     required TResult Function(LoadedSetLogoStore<T> value) loadedSetLogoStore,
+    required TResult Function(NotSelectedLogoStore<T> value)
+        notSelectedLogoStore,
     required TResult Function(EmptyLogoStore<T> value) emptyLogoStore,
+    required TResult Function(CouponLoaded<T> value) couponLoaded,
+    required TResult Function(StopLoadingImage<T> value) stopLoadingImage,
   }) {
     return dateSelected(this);
   }
@@ -946,7 +1060,10 @@ class _$DateSelectedImpl<T>
     TResult? Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult? Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult? Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult? Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult? Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult? Function(CouponLoaded<T> value)? couponLoaded,
+    TResult? Function(StopLoadingImage<T> value)? stopLoadingImage,
   }) {
     return dateSelected?.call(this);
   }
@@ -963,7 +1080,10 @@ class _$DateSelectedImpl<T>
     TResult Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult Function(CouponLoaded<T> value)? couponLoaded,
+    TResult Function(StopLoadingImage<T> value)? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (dateSelected != null) {
@@ -989,7 +1109,7 @@ abstract class _$$CategorySelectedImplCopyWith<T, $Res> {
           $Res Function(_$CategorySelectedImpl<T>) then) =
       __$$CategorySelectedImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({OptionItem optionItemSelected});
+  $Res call({CategoryModel optionItemSelected});
 }
 
 /// @nodoc
@@ -1009,7 +1129,7 @@ class __$$CategorySelectedImplCopyWithImpl<T, $Res>
       optionItemSelected: null == optionItemSelected
           ? _value.optionItemSelected
           : optionItemSelected // ignore: cast_nullable_to_non_nullable
-              as OptionItem,
+              as CategoryModel,
     ));
   }
 }
@@ -1022,7 +1142,7 @@ class _$CategorySelectedImpl<T>
   const _$CategorySelectedImpl({required this.optionItemSelected});
 
   @override
-  final OptionItem optionItemSelected;
+  final CategoryModel optionItemSelected;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1065,12 +1185,16 @@ class _$CategorySelectedImpl<T>
     required TResult Function() success,
     required TResult Function(String error) faluire,
     required TResult Function(DateTime selectedDate) dateSelected,
-    required TResult Function(OptionItem optionItemSelected) categorySelected,
+    required TResult Function(CategoryModel optionItemSelected)
+        categorySelected,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoaded,
     required TResult Function() loadingSetLogoStore,
     required TResult Function(XFile imageURL) loadedSetLogoStore,
+    required TResult Function() notSelectedLogoStore,
     required TResult Function() emptyLogoStore,
+    required TResult Function(Coupon coupon) couponLoaded,
+    required TResult Function() stopLoadingImage,
   }) {
     return categorySelected(optionItemSelected);
   }
@@ -1083,11 +1207,14 @@ class _$CategorySelectedImpl<T>
     TResult? Function()? success,
     TResult? Function(String error)? faluire,
     TResult? Function(DateTime selectedDate)? dateSelected,
-    TResult? Function(OptionItem optionItemSelected)? categorySelected,
+    TResult? Function(CategoryModel optionItemSelected)? categorySelected,
     TResult? Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult? Function()? loadingSetLogoStore,
     TResult? Function(XFile imageURL)? loadedSetLogoStore,
+    TResult? Function()? notSelectedLogoStore,
     TResult? Function()? emptyLogoStore,
+    TResult? Function(Coupon coupon)? couponLoaded,
+    TResult? Function()? stopLoadingImage,
   }) {
     return categorySelected?.call(optionItemSelected);
   }
@@ -1100,11 +1227,14 @@ class _$CategorySelectedImpl<T>
     TResult Function()? success,
     TResult Function(String error)? faluire,
     TResult Function(DateTime selectedDate)? dateSelected,
-    TResult Function(OptionItem optionItemSelected)? categorySelected,
+    TResult Function(CategoryModel optionItemSelected)? categorySelected,
     TResult Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult Function()? loadingSetLogoStore,
     TResult Function(XFile imageURL)? loadedSetLogoStore,
+    TResult Function()? notSelectedLogoStore,
     TResult Function()? emptyLogoStore,
+    TResult Function(Coupon coupon)? couponLoaded,
+    TResult Function()? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (categorySelected != null) {
@@ -1125,7 +1255,11 @@ class _$CategorySelectedImpl<T>
     required TResult Function(CategoriesLoaded<T> value) categoriesLoaded,
     required TResult Function(LoadingSetLogoStore<T> value) loadingSetLogoStore,
     required TResult Function(LoadedSetLogoStore<T> value) loadedSetLogoStore,
+    required TResult Function(NotSelectedLogoStore<T> value)
+        notSelectedLogoStore,
     required TResult Function(EmptyLogoStore<T> value) emptyLogoStore,
+    required TResult Function(CouponLoaded<T> value) couponLoaded,
+    required TResult Function(StopLoadingImage<T> value) stopLoadingImage,
   }) {
     return categorySelected(this);
   }
@@ -1142,7 +1276,10 @@ class _$CategorySelectedImpl<T>
     TResult? Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult? Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult? Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult? Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult? Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult? Function(CouponLoaded<T> value)? couponLoaded,
+    TResult? Function(StopLoadingImage<T> value)? stopLoadingImage,
   }) {
     return categorySelected?.call(this);
   }
@@ -1159,7 +1296,10 @@ class _$CategorySelectedImpl<T>
     TResult Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult Function(CouponLoaded<T> value)? couponLoaded,
+    TResult Function(StopLoadingImage<T> value)? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (categorySelected != null) {
@@ -1171,10 +1311,10 @@ class _$CategorySelectedImpl<T>
 
 abstract class CategorySelected<T> implements CreateCouponState<T> {
   const factory CategorySelected(
-          {required final OptionItem optionItemSelected}) =
+          {required final CategoryModel optionItemSelected}) =
       _$CategorySelectedImpl<T>;
 
-  OptionItem get optionItemSelected;
+  CategoryModel get optionItemSelected;
   @JsonKey(ignore: true)
   _$$CategorySelectedImplCopyWith<T, _$CategorySelectedImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1263,12 +1403,16 @@ class _$CategoriesLoadedImpl<T>
     required TResult Function() success,
     required TResult Function(String error) faluire,
     required TResult Function(DateTime selectedDate) dateSelected,
-    required TResult Function(OptionItem optionItemSelected) categorySelected,
+    required TResult Function(CategoryModel optionItemSelected)
+        categorySelected,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoaded,
     required TResult Function() loadingSetLogoStore,
     required TResult Function(XFile imageURL) loadedSetLogoStore,
+    required TResult Function() notSelectedLogoStore,
     required TResult Function() emptyLogoStore,
+    required TResult Function(Coupon coupon) couponLoaded,
+    required TResult Function() stopLoadingImage,
   }) {
     return categoriesLoaded(listOfCategoriesOption);
   }
@@ -1281,11 +1425,14 @@ class _$CategoriesLoadedImpl<T>
     TResult? Function()? success,
     TResult? Function(String error)? faluire,
     TResult? Function(DateTime selectedDate)? dateSelected,
-    TResult? Function(OptionItem optionItemSelected)? categorySelected,
+    TResult? Function(CategoryModel optionItemSelected)? categorySelected,
     TResult? Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult? Function()? loadingSetLogoStore,
     TResult? Function(XFile imageURL)? loadedSetLogoStore,
+    TResult? Function()? notSelectedLogoStore,
     TResult? Function()? emptyLogoStore,
+    TResult? Function(Coupon coupon)? couponLoaded,
+    TResult? Function()? stopLoadingImage,
   }) {
     return categoriesLoaded?.call(listOfCategoriesOption);
   }
@@ -1298,11 +1445,14 @@ class _$CategoriesLoadedImpl<T>
     TResult Function()? success,
     TResult Function(String error)? faluire,
     TResult Function(DateTime selectedDate)? dateSelected,
-    TResult Function(OptionItem optionItemSelected)? categorySelected,
+    TResult Function(CategoryModel optionItemSelected)? categorySelected,
     TResult Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult Function()? loadingSetLogoStore,
     TResult Function(XFile imageURL)? loadedSetLogoStore,
+    TResult Function()? notSelectedLogoStore,
     TResult Function()? emptyLogoStore,
+    TResult Function(Coupon coupon)? couponLoaded,
+    TResult Function()? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (categoriesLoaded != null) {
@@ -1323,7 +1473,11 @@ class _$CategoriesLoadedImpl<T>
     required TResult Function(CategoriesLoaded<T> value) categoriesLoaded,
     required TResult Function(LoadingSetLogoStore<T> value) loadingSetLogoStore,
     required TResult Function(LoadedSetLogoStore<T> value) loadedSetLogoStore,
+    required TResult Function(NotSelectedLogoStore<T> value)
+        notSelectedLogoStore,
     required TResult Function(EmptyLogoStore<T> value) emptyLogoStore,
+    required TResult Function(CouponLoaded<T> value) couponLoaded,
+    required TResult Function(StopLoadingImage<T> value) stopLoadingImage,
   }) {
     return categoriesLoaded(this);
   }
@@ -1340,7 +1494,10 @@ class _$CategoriesLoadedImpl<T>
     TResult? Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult? Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult? Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult? Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult? Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult? Function(CouponLoaded<T> value)? couponLoaded,
+    TResult? Function(StopLoadingImage<T> value)? stopLoadingImage,
   }) {
     return categoriesLoaded?.call(this);
   }
@@ -1357,7 +1514,10 @@ class _$CategoriesLoadedImpl<T>
     TResult Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult Function(CouponLoaded<T> value)? couponLoaded,
+    TResult Function(StopLoadingImage<T> value)? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (categoriesLoaded != null) {
@@ -1432,12 +1592,16 @@ class _$LoadingSetLogoStoreImpl<T>
     required TResult Function() success,
     required TResult Function(String error) faluire,
     required TResult Function(DateTime selectedDate) dateSelected,
-    required TResult Function(OptionItem optionItemSelected) categorySelected,
+    required TResult Function(CategoryModel optionItemSelected)
+        categorySelected,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoaded,
     required TResult Function() loadingSetLogoStore,
     required TResult Function(XFile imageURL) loadedSetLogoStore,
+    required TResult Function() notSelectedLogoStore,
     required TResult Function() emptyLogoStore,
+    required TResult Function(Coupon coupon) couponLoaded,
+    required TResult Function() stopLoadingImage,
   }) {
     return loadingSetLogoStore();
   }
@@ -1450,11 +1614,14 @@ class _$LoadingSetLogoStoreImpl<T>
     TResult? Function()? success,
     TResult? Function(String error)? faluire,
     TResult? Function(DateTime selectedDate)? dateSelected,
-    TResult? Function(OptionItem optionItemSelected)? categorySelected,
+    TResult? Function(CategoryModel optionItemSelected)? categorySelected,
     TResult? Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult? Function()? loadingSetLogoStore,
     TResult? Function(XFile imageURL)? loadedSetLogoStore,
+    TResult? Function()? notSelectedLogoStore,
     TResult? Function()? emptyLogoStore,
+    TResult? Function(Coupon coupon)? couponLoaded,
+    TResult? Function()? stopLoadingImage,
   }) {
     return loadingSetLogoStore?.call();
   }
@@ -1467,11 +1634,14 @@ class _$LoadingSetLogoStoreImpl<T>
     TResult Function()? success,
     TResult Function(String error)? faluire,
     TResult Function(DateTime selectedDate)? dateSelected,
-    TResult Function(OptionItem optionItemSelected)? categorySelected,
+    TResult Function(CategoryModel optionItemSelected)? categorySelected,
     TResult Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult Function()? loadingSetLogoStore,
     TResult Function(XFile imageURL)? loadedSetLogoStore,
+    TResult Function()? notSelectedLogoStore,
     TResult Function()? emptyLogoStore,
+    TResult Function(Coupon coupon)? couponLoaded,
+    TResult Function()? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (loadingSetLogoStore != null) {
@@ -1492,7 +1662,11 @@ class _$LoadingSetLogoStoreImpl<T>
     required TResult Function(CategoriesLoaded<T> value) categoriesLoaded,
     required TResult Function(LoadingSetLogoStore<T> value) loadingSetLogoStore,
     required TResult Function(LoadedSetLogoStore<T> value) loadedSetLogoStore,
+    required TResult Function(NotSelectedLogoStore<T> value)
+        notSelectedLogoStore,
     required TResult Function(EmptyLogoStore<T> value) emptyLogoStore,
+    required TResult Function(CouponLoaded<T> value) couponLoaded,
+    required TResult Function(StopLoadingImage<T> value) stopLoadingImage,
   }) {
     return loadingSetLogoStore(this);
   }
@@ -1509,7 +1683,10 @@ class _$LoadingSetLogoStoreImpl<T>
     TResult? Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult? Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult? Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult? Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult? Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult? Function(CouponLoaded<T> value)? couponLoaded,
+    TResult? Function(StopLoadingImage<T> value)? stopLoadingImage,
   }) {
     return loadingSetLogoStore?.call(this);
   }
@@ -1526,7 +1703,10 @@ class _$LoadingSetLogoStoreImpl<T>
     TResult Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult Function(CouponLoaded<T> value)? couponLoaded,
+    TResult Function(StopLoadingImage<T> value)? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (loadingSetLogoStore != null) {
@@ -1623,12 +1803,16 @@ class _$LoadedSetLogoStoreImpl<T>
     required TResult Function() success,
     required TResult Function(String error) faluire,
     required TResult Function(DateTime selectedDate) dateSelected,
-    required TResult Function(OptionItem optionItemSelected) categorySelected,
+    required TResult Function(CategoryModel optionItemSelected)
+        categorySelected,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoaded,
     required TResult Function() loadingSetLogoStore,
     required TResult Function(XFile imageURL) loadedSetLogoStore,
+    required TResult Function() notSelectedLogoStore,
     required TResult Function() emptyLogoStore,
+    required TResult Function(Coupon coupon) couponLoaded,
+    required TResult Function() stopLoadingImage,
   }) {
     return loadedSetLogoStore(imageURL);
   }
@@ -1641,11 +1825,14 @@ class _$LoadedSetLogoStoreImpl<T>
     TResult? Function()? success,
     TResult? Function(String error)? faluire,
     TResult? Function(DateTime selectedDate)? dateSelected,
-    TResult? Function(OptionItem optionItemSelected)? categorySelected,
+    TResult? Function(CategoryModel optionItemSelected)? categorySelected,
     TResult? Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult? Function()? loadingSetLogoStore,
     TResult? Function(XFile imageURL)? loadedSetLogoStore,
+    TResult? Function()? notSelectedLogoStore,
     TResult? Function()? emptyLogoStore,
+    TResult? Function(Coupon coupon)? couponLoaded,
+    TResult? Function()? stopLoadingImage,
   }) {
     return loadedSetLogoStore?.call(imageURL);
   }
@@ -1658,11 +1845,14 @@ class _$LoadedSetLogoStoreImpl<T>
     TResult Function()? success,
     TResult Function(String error)? faluire,
     TResult Function(DateTime selectedDate)? dateSelected,
-    TResult Function(OptionItem optionItemSelected)? categorySelected,
+    TResult Function(CategoryModel optionItemSelected)? categorySelected,
     TResult Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult Function()? loadingSetLogoStore,
     TResult Function(XFile imageURL)? loadedSetLogoStore,
+    TResult Function()? notSelectedLogoStore,
     TResult Function()? emptyLogoStore,
+    TResult Function(Coupon coupon)? couponLoaded,
+    TResult Function()? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (loadedSetLogoStore != null) {
@@ -1683,7 +1873,11 @@ class _$LoadedSetLogoStoreImpl<T>
     required TResult Function(CategoriesLoaded<T> value) categoriesLoaded,
     required TResult Function(LoadingSetLogoStore<T> value) loadingSetLogoStore,
     required TResult Function(LoadedSetLogoStore<T> value) loadedSetLogoStore,
+    required TResult Function(NotSelectedLogoStore<T> value)
+        notSelectedLogoStore,
     required TResult Function(EmptyLogoStore<T> value) emptyLogoStore,
+    required TResult Function(CouponLoaded<T> value) couponLoaded,
+    required TResult Function(StopLoadingImage<T> value) stopLoadingImage,
   }) {
     return loadedSetLogoStore(this);
   }
@@ -1700,7 +1894,10 @@ class _$LoadedSetLogoStoreImpl<T>
     TResult? Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult? Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult? Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult? Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult? Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult? Function(CouponLoaded<T> value)? couponLoaded,
+    TResult? Function(StopLoadingImage<T> value)? stopLoadingImage,
   }) {
     return loadedSetLogoStore?.call(this);
   }
@@ -1717,7 +1914,10 @@ class _$LoadedSetLogoStoreImpl<T>
     TResult Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult Function(CouponLoaded<T> value)? couponLoaded,
+    TResult Function(StopLoadingImage<T> value)? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (loadedSetLogoStore != null) {
@@ -1735,6 +1935,189 @@ abstract class LoadedSetLogoStore<T> implements CreateCouponState<T> {
   @JsonKey(ignore: true)
   _$$LoadedSetLogoStoreImplCopyWith<T, _$LoadedSetLogoStoreImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NotSelectedLogoStoreImplCopyWith<T, $Res> {
+  factory _$$NotSelectedLogoStoreImplCopyWith(
+          _$NotSelectedLogoStoreImpl<T> value,
+          $Res Function(_$NotSelectedLogoStoreImpl<T>) then) =
+      __$$NotSelectedLogoStoreImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$NotSelectedLogoStoreImplCopyWithImpl<T, $Res>
+    extends _$CreateCouponStateCopyWithImpl<T, $Res,
+        _$NotSelectedLogoStoreImpl<T>>
+    implements _$$NotSelectedLogoStoreImplCopyWith<T, $Res> {
+  __$$NotSelectedLogoStoreImplCopyWithImpl(_$NotSelectedLogoStoreImpl<T> _value,
+      $Res Function(_$NotSelectedLogoStoreImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NotSelectedLogoStoreImpl<T>
+    with DiagnosticableTreeMixin
+    implements NotSelectedLogoStore<T> {
+  const _$NotSelectedLogoStoreImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CreateCouponState<$T>.notSelectedLogoStore()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty(
+        'type', 'CreateCouponState<$T>.notSelectedLogoStore'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NotSelectedLogoStoreImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(String error) faluire,
+    required TResult Function(DateTime selectedDate) dateSelected,
+    required TResult Function(CategoryModel optionItemSelected)
+        categorySelected,
+    required TResult Function(DropListModel listOfCategoriesOption)
+        categoriesLoaded,
+    required TResult Function() loadingSetLogoStore,
+    required TResult Function(XFile imageURL) loadedSetLogoStore,
+    required TResult Function() notSelectedLogoStore,
+    required TResult Function() emptyLogoStore,
+    required TResult Function(Coupon coupon) couponLoaded,
+    required TResult Function() stopLoadingImage,
+  }) {
+    return notSelectedLogoStore();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(String error)? faluire,
+    TResult? Function(DateTime selectedDate)? dateSelected,
+    TResult? Function(CategoryModel optionItemSelected)? categorySelected,
+    TResult? Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
+    TResult? Function()? loadingSetLogoStore,
+    TResult? Function(XFile imageURL)? loadedSetLogoStore,
+    TResult? Function()? notSelectedLogoStore,
+    TResult? Function()? emptyLogoStore,
+    TResult? Function(Coupon coupon)? couponLoaded,
+    TResult? Function()? stopLoadingImage,
+  }) {
+    return notSelectedLogoStore?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String error)? faluire,
+    TResult Function(DateTime selectedDate)? dateSelected,
+    TResult Function(CategoryModel optionItemSelected)? categorySelected,
+    TResult Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
+    TResult Function()? loadingSetLogoStore,
+    TResult Function(XFile imageURL)? loadedSetLogoStore,
+    TResult Function()? notSelectedLogoStore,
+    TResult Function()? emptyLogoStore,
+    TResult Function(Coupon coupon)? couponLoaded,
+    TResult Function()? stopLoadingImage,
+    required TResult orElse(),
+  }) {
+    if (notSelectedLogoStore != null) {
+      return notSelectedLogoStore();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Faluire<T> value) faluire,
+    required TResult Function(DateSelected<T> value) dateSelected,
+    required TResult Function(CategorySelected<T> value) categorySelected,
+    required TResult Function(CategoriesLoaded<T> value) categoriesLoaded,
+    required TResult Function(LoadingSetLogoStore<T> value) loadingSetLogoStore,
+    required TResult Function(LoadedSetLogoStore<T> value) loadedSetLogoStore,
+    required TResult Function(NotSelectedLogoStore<T> value)
+        notSelectedLogoStore,
+    required TResult Function(EmptyLogoStore<T> value) emptyLogoStore,
+    required TResult Function(CouponLoaded<T> value) couponLoaded,
+    required TResult Function(StopLoadingImage<T> value) stopLoadingImage,
+  }) {
+    return notSelectedLogoStore(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Faluire<T> value)? faluire,
+    TResult? Function(DateSelected<T> value)? dateSelected,
+    TResult? Function(CategorySelected<T> value)? categorySelected,
+    TResult? Function(CategoriesLoaded<T> value)? categoriesLoaded,
+    TResult? Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
+    TResult? Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult? Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
+    TResult? Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult? Function(CouponLoaded<T> value)? couponLoaded,
+    TResult? Function(StopLoadingImage<T> value)? stopLoadingImage,
+  }) {
+    return notSelectedLogoStore?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Faluire<T> value)? faluire,
+    TResult Function(DateSelected<T> value)? dateSelected,
+    TResult Function(CategorySelected<T> value)? categorySelected,
+    TResult Function(CategoriesLoaded<T> value)? categoriesLoaded,
+    TResult Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
+    TResult Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
+    TResult Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult Function(CouponLoaded<T> value)? couponLoaded,
+    TResult Function(StopLoadingImage<T> value)? stopLoadingImage,
+    required TResult orElse(),
+  }) {
+    if (notSelectedLogoStore != null) {
+      return notSelectedLogoStore(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NotSelectedLogoStore<T> implements CreateCouponState<T> {
+  const factory NotSelectedLogoStore() = _$NotSelectedLogoStoreImpl<T>;
 }
 
 /// @nodoc
@@ -1789,12 +2172,16 @@ class _$EmptyLogoStoreImpl<T>
     required TResult Function() success,
     required TResult Function(String error) faluire,
     required TResult Function(DateTime selectedDate) dateSelected,
-    required TResult Function(OptionItem optionItemSelected) categorySelected,
+    required TResult Function(CategoryModel optionItemSelected)
+        categorySelected,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoaded,
     required TResult Function() loadingSetLogoStore,
     required TResult Function(XFile imageURL) loadedSetLogoStore,
+    required TResult Function() notSelectedLogoStore,
     required TResult Function() emptyLogoStore,
+    required TResult Function(Coupon coupon) couponLoaded,
+    required TResult Function() stopLoadingImage,
   }) {
     return emptyLogoStore();
   }
@@ -1807,11 +2194,14 @@ class _$EmptyLogoStoreImpl<T>
     TResult? Function()? success,
     TResult? Function(String error)? faluire,
     TResult? Function(DateTime selectedDate)? dateSelected,
-    TResult? Function(OptionItem optionItemSelected)? categorySelected,
+    TResult? Function(CategoryModel optionItemSelected)? categorySelected,
     TResult? Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult? Function()? loadingSetLogoStore,
     TResult? Function(XFile imageURL)? loadedSetLogoStore,
+    TResult? Function()? notSelectedLogoStore,
     TResult? Function()? emptyLogoStore,
+    TResult? Function(Coupon coupon)? couponLoaded,
+    TResult? Function()? stopLoadingImage,
   }) {
     return emptyLogoStore?.call();
   }
@@ -1824,11 +2214,14 @@ class _$EmptyLogoStoreImpl<T>
     TResult Function()? success,
     TResult Function(String error)? faluire,
     TResult Function(DateTime selectedDate)? dateSelected,
-    TResult Function(OptionItem optionItemSelected)? categorySelected,
+    TResult Function(CategoryModel optionItemSelected)? categorySelected,
     TResult Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
     TResult Function()? loadingSetLogoStore,
     TResult Function(XFile imageURL)? loadedSetLogoStore,
+    TResult Function()? notSelectedLogoStore,
     TResult Function()? emptyLogoStore,
+    TResult Function(Coupon coupon)? couponLoaded,
+    TResult Function()? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (emptyLogoStore != null) {
@@ -1849,7 +2242,11 @@ class _$EmptyLogoStoreImpl<T>
     required TResult Function(CategoriesLoaded<T> value) categoriesLoaded,
     required TResult Function(LoadingSetLogoStore<T> value) loadingSetLogoStore,
     required TResult Function(LoadedSetLogoStore<T> value) loadedSetLogoStore,
+    required TResult Function(NotSelectedLogoStore<T> value)
+        notSelectedLogoStore,
     required TResult Function(EmptyLogoStore<T> value) emptyLogoStore,
+    required TResult Function(CouponLoaded<T> value) couponLoaded,
+    required TResult Function(StopLoadingImage<T> value) stopLoadingImage,
   }) {
     return emptyLogoStore(this);
   }
@@ -1866,7 +2263,10 @@ class _$EmptyLogoStoreImpl<T>
     TResult? Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult? Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult? Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult? Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult? Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult? Function(CouponLoaded<T> value)? couponLoaded,
+    TResult? Function(StopLoadingImage<T> value)? stopLoadingImage,
   }) {
     return emptyLogoStore?.call(this);
   }
@@ -1883,7 +2283,10 @@ class _$EmptyLogoStoreImpl<T>
     TResult Function(CategoriesLoaded<T> value)? categoriesLoaded,
     TResult Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
     TResult Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
     TResult Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult Function(CouponLoaded<T> value)? couponLoaded,
+    TResult Function(StopLoadingImage<T> value)? stopLoadingImage,
     required TResult orElse(),
   }) {
     if (emptyLogoStore != null) {
@@ -1895,4 +2298,399 @@ class _$EmptyLogoStoreImpl<T>
 
 abstract class EmptyLogoStore<T> implements CreateCouponState<T> {
   const factory EmptyLogoStore() = _$EmptyLogoStoreImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$CouponLoadedImplCopyWith<T, $Res> {
+  factory _$$CouponLoadedImplCopyWith(_$CouponLoadedImpl<T> value,
+          $Res Function(_$CouponLoadedImpl<T>) then) =
+      __$$CouponLoadedImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({Coupon coupon});
+}
+
+/// @nodoc
+class __$$CouponLoadedImplCopyWithImpl<T, $Res>
+    extends _$CreateCouponStateCopyWithImpl<T, $Res, _$CouponLoadedImpl<T>>
+    implements _$$CouponLoadedImplCopyWith<T, $Res> {
+  __$$CouponLoadedImplCopyWithImpl(
+      _$CouponLoadedImpl<T> _value, $Res Function(_$CouponLoadedImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? coupon = null,
+  }) {
+    return _then(_$CouponLoadedImpl<T>(
+      coupon: null == coupon
+          ? _value.coupon
+          : coupon // ignore: cast_nullable_to_non_nullable
+              as Coupon,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CouponLoadedImpl<T>
+    with DiagnosticableTreeMixin
+    implements CouponLoaded<T> {
+  const _$CouponLoadedImpl({required this.coupon});
+
+  @override
+  final Coupon coupon;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CreateCouponState<$T>.couponLoaded(coupon: $coupon)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CreateCouponState<$T>.couponLoaded'))
+      ..add(DiagnosticsProperty('coupon', coupon));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CouponLoadedImpl<T> &&
+            (identical(other.coupon, coupon) || other.coupon == coupon));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, coupon);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CouponLoadedImplCopyWith<T, _$CouponLoadedImpl<T>> get copyWith =>
+      __$$CouponLoadedImplCopyWithImpl<T, _$CouponLoadedImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(String error) faluire,
+    required TResult Function(DateTime selectedDate) dateSelected,
+    required TResult Function(CategoryModel optionItemSelected)
+        categorySelected,
+    required TResult Function(DropListModel listOfCategoriesOption)
+        categoriesLoaded,
+    required TResult Function() loadingSetLogoStore,
+    required TResult Function(XFile imageURL) loadedSetLogoStore,
+    required TResult Function() notSelectedLogoStore,
+    required TResult Function() emptyLogoStore,
+    required TResult Function(Coupon coupon) couponLoaded,
+    required TResult Function() stopLoadingImage,
+  }) {
+    return couponLoaded(coupon);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(String error)? faluire,
+    TResult? Function(DateTime selectedDate)? dateSelected,
+    TResult? Function(CategoryModel optionItemSelected)? categorySelected,
+    TResult? Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
+    TResult? Function()? loadingSetLogoStore,
+    TResult? Function(XFile imageURL)? loadedSetLogoStore,
+    TResult? Function()? notSelectedLogoStore,
+    TResult? Function()? emptyLogoStore,
+    TResult? Function(Coupon coupon)? couponLoaded,
+    TResult? Function()? stopLoadingImage,
+  }) {
+    return couponLoaded?.call(coupon);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String error)? faluire,
+    TResult Function(DateTime selectedDate)? dateSelected,
+    TResult Function(CategoryModel optionItemSelected)? categorySelected,
+    TResult Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
+    TResult Function()? loadingSetLogoStore,
+    TResult Function(XFile imageURL)? loadedSetLogoStore,
+    TResult Function()? notSelectedLogoStore,
+    TResult Function()? emptyLogoStore,
+    TResult Function(Coupon coupon)? couponLoaded,
+    TResult Function()? stopLoadingImage,
+    required TResult orElse(),
+  }) {
+    if (couponLoaded != null) {
+      return couponLoaded(coupon);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Faluire<T> value) faluire,
+    required TResult Function(DateSelected<T> value) dateSelected,
+    required TResult Function(CategorySelected<T> value) categorySelected,
+    required TResult Function(CategoriesLoaded<T> value) categoriesLoaded,
+    required TResult Function(LoadingSetLogoStore<T> value) loadingSetLogoStore,
+    required TResult Function(LoadedSetLogoStore<T> value) loadedSetLogoStore,
+    required TResult Function(NotSelectedLogoStore<T> value)
+        notSelectedLogoStore,
+    required TResult Function(EmptyLogoStore<T> value) emptyLogoStore,
+    required TResult Function(CouponLoaded<T> value) couponLoaded,
+    required TResult Function(StopLoadingImage<T> value) stopLoadingImage,
+  }) {
+    return couponLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Faluire<T> value)? faluire,
+    TResult? Function(DateSelected<T> value)? dateSelected,
+    TResult? Function(CategorySelected<T> value)? categorySelected,
+    TResult? Function(CategoriesLoaded<T> value)? categoriesLoaded,
+    TResult? Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
+    TResult? Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult? Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
+    TResult? Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult? Function(CouponLoaded<T> value)? couponLoaded,
+    TResult? Function(StopLoadingImage<T> value)? stopLoadingImage,
+  }) {
+    return couponLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Faluire<T> value)? faluire,
+    TResult Function(DateSelected<T> value)? dateSelected,
+    TResult Function(CategorySelected<T> value)? categorySelected,
+    TResult Function(CategoriesLoaded<T> value)? categoriesLoaded,
+    TResult Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
+    TResult Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
+    TResult Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult Function(CouponLoaded<T> value)? couponLoaded,
+    TResult Function(StopLoadingImage<T> value)? stopLoadingImage,
+    required TResult orElse(),
+  }) {
+    if (couponLoaded != null) {
+      return couponLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CouponLoaded<T> implements CreateCouponState<T> {
+  const factory CouponLoaded({required final Coupon coupon}) =
+      _$CouponLoadedImpl<T>;
+
+  Coupon get coupon;
+  @JsonKey(ignore: true)
+  _$$CouponLoadedImplCopyWith<T, _$CouponLoadedImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$StopLoadingImageImplCopyWith<T, $Res> {
+  factory _$$StopLoadingImageImplCopyWith(_$StopLoadingImageImpl<T> value,
+          $Res Function(_$StopLoadingImageImpl<T>) then) =
+      __$$StopLoadingImageImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$StopLoadingImageImplCopyWithImpl<T, $Res>
+    extends _$CreateCouponStateCopyWithImpl<T, $Res, _$StopLoadingImageImpl<T>>
+    implements _$$StopLoadingImageImplCopyWith<T, $Res> {
+  __$$StopLoadingImageImplCopyWithImpl(_$StopLoadingImageImpl<T> _value,
+      $Res Function(_$StopLoadingImageImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$StopLoadingImageImpl<T>
+    with DiagnosticableTreeMixin
+    implements StopLoadingImage<T> {
+  const _$StopLoadingImageImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CreateCouponState<$T>.stopLoadingImage()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'CreateCouponState<$T>.stopLoadingImage'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$StopLoadingImageImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(String error) faluire,
+    required TResult Function(DateTime selectedDate) dateSelected,
+    required TResult Function(CategoryModel optionItemSelected)
+        categorySelected,
+    required TResult Function(DropListModel listOfCategoriesOption)
+        categoriesLoaded,
+    required TResult Function() loadingSetLogoStore,
+    required TResult Function(XFile imageURL) loadedSetLogoStore,
+    required TResult Function() notSelectedLogoStore,
+    required TResult Function() emptyLogoStore,
+    required TResult Function(Coupon coupon) couponLoaded,
+    required TResult Function() stopLoadingImage,
+  }) {
+    return stopLoadingImage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function(String error)? faluire,
+    TResult? Function(DateTime selectedDate)? dateSelected,
+    TResult? Function(CategoryModel optionItemSelected)? categorySelected,
+    TResult? Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
+    TResult? Function()? loadingSetLogoStore,
+    TResult? Function(XFile imageURL)? loadedSetLogoStore,
+    TResult? Function()? notSelectedLogoStore,
+    TResult? Function()? emptyLogoStore,
+    TResult? Function(Coupon coupon)? couponLoaded,
+    TResult? Function()? stopLoadingImage,
+  }) {
+    return stopLoadingImage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String error)? faluire,
+    TResult Function(DateTime selectedDate)? dateSelected,
+    TResult Function(CategoryModel optionItemSelected)? categorySelected,
+    TResult Function(DropListModel listOfCategoriesOption)? categoriesLoaded,
+    TResult Function()? loadingSetLogoStore,
+    TResult Function(XFile imageURL)? loadedSetLogoStore,
+    TResult Function()? notSelectedLogoStore,
+    TResult Function()? emptyLogoStore,
+    TResult Function(Coupon coupon)? couponLoaded,
+    TResult Function()? stopLoadingImage,
+    required TResult orElse(),
+  }) {
+    if (stopLoadingImage != null) {
+      return stopLoadingImage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Faluire<T> value) faluire,
+    required TResult Function(DateSelected<T> value) dateSelected,
+    required TResult Function(CategorySelected<T> value) categorySelected,
+    required TResult Function(CategoriesLoaded<T> value) categoriesLoaded,
+    required TResult Function(LoadingSetLogoStore<T> value) loadingSetLogoStore,
+    required TResult Function(LoadedSetLogoStore<T> value) loadedSetLogoStore,
+    required TResult Function(NotSelectedLogoStore<T> value)
+        notSelectedLogoStore,
+    required TResult Function(EmptyLogoStore<T> value) emptyLogoStore,
+    required TResult Function(CouponLoaded<T> value) couponLoaded,
+    required TResult Function(StopLoadingImage<T> value) stopLoadingImage,
+  }) {
+    return stopLoadingImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Faluire<T> value)? faluire,
+    TResult? Function(DateSelected<T> value)? dateSelected,
+    TResult? Function(CategorySelected<T> value)? categorySelected,
+    TResult? Function(CategoriesLoaded<T> value)? categoriesLoaded,
+    TResult? Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
+    TResult? Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult? Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
+    TResult? Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult? Function(CouponLoaded<T> value)? couponLoaded,
+    TResult? Function(StopLoadingImage<T> value)? stopLoadingImage,
+  }) {
+    return stopLoadingImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Faluire<T> value)? faluire,
+    TResult Function(DateSelected<T> value)? dateSelected,
+    TResult Function(CategorySelected<T> value)? categorySelected,
+    TResult Function(CategoriesLoaded<T> value)? categoriesLoaded,
+    TResult Function(LoadingSetLogoStore<T> value)? loadingSetLogoStore,
+    TResult Function(LoadedSetLogoStore<T> value)? loadedSetLogoStore,
+    TResult Function(NotSelectedLogoStore<T> value)? notSelectedLogoStore,
+    TResult Function(EmptyLogoStore<T> value)? emptyLogoStore,
+    TResult Function(CouponLoaded<T> value)? couponLoaded,
+    TResult Function(StopLoadingImage<T> value)? stopLoadingImage,
+    required TResult orElse(),
+  }) {
+    if (stopLoadingImage != null) {
+      return stopLoadingImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class StopLoadingImage<T> implements CreateCouponState<T> {
+  const factory StopLoadingImage() = _$StopLoadingImageImpl<T>;
 }

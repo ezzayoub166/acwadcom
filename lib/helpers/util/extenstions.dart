@@ -1,5 +1,6 @@
 
 import 'dart:io';
+import 'package:acwadcom/features/ownerStore/features/authitcation/ui/widgets/build_requird_image_selected.dart';
 import 'package:image/image.dart' as img;
 
 import 'package:acwadcom/acwadcom_packges.dart';
@@ -21,6 +22,16 @@ void navigateNamedTo(BuildContext context, String routeName, [Object? arguments]
     arguments: arguments,
   );
 }
+   void showRequireImageSelectedDialog(context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return RequiredImageSelectedWgt();
+      },
+    );
+  }
+
+
 void pop(context) => Navigator.pop(context);
 
 void navigateAndFinishNamed(BuildContext context, String routeName, [Object? arguments]) {

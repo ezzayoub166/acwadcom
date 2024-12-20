@@ -1,4 +1,6 @@
   import 'package:acwadcom/acwadcom_packges.dart';
+import 'package:acwadcom/features/user/authtication/data/authentication_repository.dart';
+import 'package:acwadcom/helpers/di/dependency_injection.dart';
 
 AppBar buildAppBarForAdmin(BuildContext context, String title) {
     return AppBar(
@@ -17,6 +19,7 @@ AppBar buildAppBarForAdmin(BuildContext context, String title) {
         ),
         actions:[ IconButton(onPressed: (){
           navigateAndFinishNamed(context, Routes.loginScreen);
+          getIt<AuthenticationRepository>().logout(context);
         }, icon: const Icon(Iconsax.logout , color: Colors.white,))],
       );
   }

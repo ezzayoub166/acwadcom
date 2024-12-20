@@ -77,15 +77,29 @@ class _BottomtabbarState extends State<BottomTabBarAdmin> {
         // appBar: AppBar(
         //   title: Text('Navigation Bar with Shadow'),
         // ),
+                floatingActionButton: FloatingActionButton(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+            onPressed: () {
+              // Add your action here
+                navigateNamedTo(context, Routes.createCodeForUserScreen);
+            },
+            backgroundColor: ManagerColors.yellowColor,
+            child: const Icon(Icons.add) // Match your theme color
+            // shape: RoundedRectangleBorder( // Custom shape if needed
+            //   borderRadius: BorderRadius.circular(20), // Adjust for more square shape
+            // ),
+  ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         body: Center(
           child:screens[_selectedIndex]
         ),
         bottomNavigationBar: BottomAppBar(
-          shape: const CircularNotchedRectangle(),
+            shape: const CircularNotchedRectangle(),
           notchMargin: 10,
-          elevation: 10, // Shadow for the BottomAppBar
+          elevation: 5, // Shadow for the BottomAppBar/ Shadow for the BottomAppBar
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
                buildNavItem( "assets/images/_ichomefilled.svg", AText.home.tr(context), 0),
                buildNavItem("assets/images/_icTicket.svg", AText.requests.tr(context), 1),

@@ -2,6 +2,7 @@ import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/common/widgets/build_custom_loader.dart';
 import 'package:acwadcom/common/widgets/build_extended_image.dart';
 import 'package:acwadcom/features/admin/logic/home_admin_cubit/cubit/home_admin_cubit.dart';
+import 'package:acwadcom/features/admin/ui/screens/edit_code_screen_admin.dart';
 import 'package:acwadcom/models/coupon_model.dart';
 
 class BuildItmCodeForAdmin extends StatelessWidget {
@@ -123,32 +124,43 @@ class BuildItmCodeForAdmin extends StatelessWidget {
 
   Widget _buildNumberOfUseRow(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        svgImage("profile-tick", height: 18, width: 18),
-        Text.rich(
-          TextSpan(
-            children: [
+        Row(
+          children: [
+            svgImage("profile-tick", height: 18, width: 18),
+            Text.rich(
               TextSpan(
-                text: AText.numberOfuse,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: ManagerColors.textColorDarkDouble,
-                    ),
+                children: [
+                  TextSpan(
+                    text: AText.numberOfuse.tr(context),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: ManagerColors.textColorDarkDouble,
+                        ),
+                  ),
+                  TextSpan(
+                    text: ":",
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: ManagerColors.textColorDarkDouble,
+                        ),
+                  ),
+                  TextSpan(
+                    text: coupon.numberOfUse.toString(),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: ManagerColors.textColor,
+                        ),
+                  ),
+                ],
               ),
-              TextSpan(
-                text: ":",
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: ManagerColors.textColorDarkDouble,
-                    ),
-              ),
-              TextSpan(
-                text: coupon.numberOfUse.toString(),
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: ManagerColors.textColor,
-                    ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
+                 InkWell(
+              child: Icon(Iconsax.edit, size: 20 , color: ManagerColors.kCustomColor,),
+              onTap: () {
+               navigateNamedTo(context, Routes.editCodeScreenAdmin , coupon);
+              },
+            ),
       ],
     );
   }

@@ -31,7 +31,7 @@ BlocBuilder<dynamic, dynamic> customAppBar(BuildContext context) {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
+                !state.username.isEmpty ?  Row(
                   children: [
                     CircleAvatar(
                         radius: 30,
@@ -49,15 +49,27 @@ BlocBuilder<dynamic, dynamic> customAppBar(BuildContext context) {
                                 .bodyMedium!
                                 .copyWith(color: Colors.black38)),
                         buildSpacerH(4),
-                        Text(state.username,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyLarge!
-                                .copyWith(color: Colors.black)),
+                        myText(state.username,
+                            fontSize: 16,
+                           fontWeight: FontWeight.bold),
                       ],
                     ),
                   ],
-                ),
+                ) : Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                        myText("Welcome dear user"
+                                  .tr(context) + "🧡",
+                                  fontSize: 18,
+                                   overflow: TextOverflow.clip),
+                                   SizedBox(height: 10,),
+                                    myText("in the world of Acwdcom"
+                                  .tr(context) ,
+                                   overflow: TextOverflow.clip,
+                                   fontWeight:FontWeight.bold),
+                  ],
+                ) ,
                 InkWell(
                     child:
                         svgImage("notification_light", height: 24, width: 24),

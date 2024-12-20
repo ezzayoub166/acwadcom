@@ -106,7 +106,7 @@ class _RegisterOwnerForm extends StatelessWidget {
           const SizedBox(height: 20),
           _buildTitle(context),
          const SizedBox(height: 20),
-          buildImagePicker(context),
+          buildImagePickerForRegisterStore(context),
           const SizedBox(height: 30),
           buildInputFields(context),
           buildSpacerH(20.0),
@@ -134,11 +134,4 @@ class _RegisterOwnerForm extends StatelessWidget {
       ],
     );
   }
-
-
-
-
-
- 
-
 }

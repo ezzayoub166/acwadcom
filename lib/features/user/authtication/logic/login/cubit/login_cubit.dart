@@ -58,10 +58,19 @@ class LoginCubit extends Cubit<LoginState> {
     try {
       emit(const LoginState.loading());
 
-      UserCredential user =
+      UserCredential userCredential =
           await _authenticationRepository.loginWithEmilAndPassword(
               emailController.text.trim(), passwordController.text.trim());
-      String userId = user.user!.uid;
+
+          final fetchedUser = await _userRepository.fetchStableData(userCredential.user?.uid);
+
+            await Future.wait([
+        getIt<CacheHelper>().saveValueWithKey("tYPEUSER", fetchedUser.userType),
+      ]);
+
+      isLoggedInUser = true;
+      tYPEUSER = fetchedUser.userType;    
+      String userId = userCredential.user!.uid;
       emit(LoginState.successForOwner(userId: userId));
     } catch (onError) {
       emit(LoginState.faluire(error: onError.toString()));

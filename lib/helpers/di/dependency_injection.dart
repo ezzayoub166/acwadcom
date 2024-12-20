@@ -1,3 +1,4 @@
+import 'package:acwadcom/features/admin/logic/edit_screen/cubit/edit_coupon_cubit.dart';
 import 'package:acwadcom/features/admin/logic/home_admin_cubit/cubit/home_admin_cubit.dart';
 import 'package:acwadcom/features/admin/logic/request/cubit/control_coupons_cubit.dart';
 import 'package:acwadcom/features/admin/srvices/coupon_request_services.dart';
@@ -22,6 +23,7 @@ import 'package:acwadcom/features/user/wishlist/logic/cubit/wishlist_cubit.dart'
 import 'package:acwadcom/helpers/services/cachce_services/chache_helper.dart';
 import 'package:acwadcom/helpers/services/fireabse_storage_services.dart';
 import 'package:acwadcom/features/ownerStore/features/authitcation/logic/register_owner/register_owner_store_cubit.dart';
+import 'package:extended_image/extended_image.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -67,6 +69,10 @@ Future<void> setupGetIt() async {
       getIt<AuthenticationRepository>(), getIt<UserRepository>())); //Profile
 
 
+    getIt.registerFactory<EditCouponCubit>(() => EditCouponCubit(getIt<CategoryRepository>(),getIt<CouponRepository>(),getIt<UserRepository>()));
+
+
+
        getIt.registerFactory<WishListCouponsCubit>(() => WishListCouponsCubit(
       getIt<WihslistRepository>()));
 
@@ -91,7 +97,7 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<ProfileCubit>(
       () => ProfileCubit(getIt<UserRepository>()));
   getIt.registerFactory<HomeAdminCubit>(
-      () => HomeAdminCubit(getIt<CouponRepository>()));
+      () => HomeAdminCubit(getIt<CouponRepository>() , getIt<CategoryRepository>()));
   getIt.registerFactory<ControlCouponsCubit>(
       () => ControlCouponsCubit(getIt<CouponRepository>()));
 

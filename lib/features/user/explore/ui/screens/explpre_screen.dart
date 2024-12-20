@@ -38,9 +38,8 @@ class _ExploreScreenState extends State<ExplpreScreen> {
               slivers: [
                 // AppBar or Custom Header
                 SliverToBoxAdapter(
-                  child: isLoggedInUser
-                      ? customAppBar(context)
-                      : SizedBox(height: 0),
+                  child: customAppBar(context)
+                     
                 ),
                 
                 SliverToBoxAdapter(

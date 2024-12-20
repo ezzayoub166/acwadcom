@@ -11,7 +11,7 @@ class Coupon {
   final String couponId;
   final String discountRate;
   final String storeLink;
-  final CategoryModel? category;
+  CategoryModel? category;
   final Timestamp endData;
   final int numberOfUse;
   final String additionalTerms;

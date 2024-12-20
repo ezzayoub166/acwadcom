@@ -54,7 +54,7 @@ class StoreOwnerDiscountCodeDetails extends StatelessWidget {
               buildSpacerH(10.0),
               buildDisabledTextField(text: "${coupon.numberOfUse}${AText.numberOfuse.tr(context)}"),
               buildSpacerH(10.0),
-              AdditionalTermsCardWidget(text: coupon.additionalTerms)
+              AdditionalTermsCardWidget(text: coupon.additionalTerms , )
               
               
             ],

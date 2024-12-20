@@ -2,7 +2,7 @@ name: acwadcom
 description: "A new Flutter project."
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-version: 1.1.2+2
+version: 1.1.2+4
 
 environment:
   sdk: '>=3.4.3 <4.0.0'
@@ -24,6 +24,9 @@ dependencies:
   floating_bottom_bar: ^0.0.3
   flutter_spinkit: ^5.2.0
   cached_network_svg_image: ^1.1.0
+  dropdown_button2: ^2.3.9
+  firebase_ui_firestore: ^1.6.3
+  # firebase_pagination: ^4.1.0
   # image: ^4.3.0
 
 
