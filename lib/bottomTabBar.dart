@@ -10,7 +10,6 @@ import 'package:acwadcom/features/user/home/ui/home_screen.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/show_required_dialog.dart';
 import 'package:acwadcom/features/user/settings/ui/screens/settings.dart';
 import 'package:acwadcom/features/user/wishlist/ui/wishlist_screen.dart';
-import 'package:acwadcom/helpers/constants/extenstions.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
 class Bottomtabbar extends StatefulWidget {
@@ -86,7 +85,8 @@ class _BottomtabbarState extends State<Bottomtabbar> {
         // appBar: AppBar(
         //   title: Text('Navigation Bar with Shadow'),
         // ),
-        body: Center(child: screens[_selectedIndex]),
+        body: Center(
+          child: screens[_selectedIndex]),
         floatingActionButton: FloatingActionButton(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
@@ -105,7 +105,7 @@ class _BottomtabbarState extends State<Bottomtabbar> {
             //   borderRadius: BorderRadius.circular(20), // Adjust for more square shape
             // ),
   ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
         bottomNavigationBar: BottomAppBar(
           shape: const CircularNotchedRectangle(),
           notchMargin: 10,
@@ -117,7 +117,7 @@ class _BottomtabbarState extends State<Bottomtabbar> {
                   "assets/images/_ichomefilled.svg", AText.home.tr(context), 0),
               buildNavItem("assets/images/_icDiscover.svg",
                   AText.explore.tr(context), 1),
-              buildSpacerW(48),
+              // buildSpacerW(48),
               buildNavItem("assets/images/_icFavorites.svg",
                   AText.wishlist.tr(context), 2),
               buildNavItem(

@@ -80,6 +80,7 @@ class AText {
   static const yeslbl = "yes";
   static const nolbl = "no";
 
+
   static const codeDicount = "Discount code";
   static const endDate = "End";
   static const discountText = "discount";

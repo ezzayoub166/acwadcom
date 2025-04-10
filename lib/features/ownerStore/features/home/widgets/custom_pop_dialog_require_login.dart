@@ -22,11 +22,13 @@ class ConfirmRequireLoginDialog extends StatelessWidget {
         children: [
           // Icon at the top
           SizedBox(
-            width: 100,
-              height: 100,
+            width: 150,
+              height: 150,
             child: svgImage(
-              "icBuildLogo",
-              fit: BoxFit.fill
+            
+              "logo svg",
+              fit: BoxFit.contain
+              
               
             ),
           ),

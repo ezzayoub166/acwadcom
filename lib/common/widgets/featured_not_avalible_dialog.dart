@@ -25,7 +25,7 @@ class _FeaturedNotAvalibleDialogState extends State<FeaturedNotAvalibleDialog> {
             width: 100,
               height: 100,
             child: svgImage(
-              "icBuildLogo",
+              "logo svg",
               fit: BoxFit.fill
               
             ),

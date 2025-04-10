@@ -21,14 +21,12 @@ Widget buildEmptyListCoupons(
           ),
         ),
         // Text with improved styling and spacing
-        Text(
+        myText(
           text,
           textAlign: TextAlign.center,
-          style: TextStyle(
             fontSize: screenWidth * 0.045, // Slightly smaller for proportionality
             fontWeight: FontWeight.w500,
             color: Colors.grey[700], // Softer color for better aesthetics
-          ),
         ),
       ],
     ),

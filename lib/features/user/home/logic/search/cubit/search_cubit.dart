@@ -22,16 +22,6 @@ class SearchCubit extends Cubit<SearchState> {
       emit(const SearchState.loading());
 
       try {
-        // Filter the list based on the query
-
-        // var snapshot = await  _db
-        //     .collection("Coupons")
-        //     .where('Title', isGreaterThanOrEqualTo: searchController.text)
-        //     .where('Title', isLessThanOrEqualTo: searchController.text + '\uf8ff')
-        //     .where('OwnerCoupon.userName' , isGreaterThanOrEqualTo: searchController.text)
-        //     .where('OwnerCoupon.userName' , isLessThanOrEqualTo: searchController.text)
-        //     .get();
-
             var titleQuery = await _db
     .collection("Coupons")
     .where('Title', isGreaterThanOrEqualTo: searchController.text)

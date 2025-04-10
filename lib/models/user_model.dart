@@ -13,7 +13,7 @@ class UserModel {
   final String id;
   final String userName;
   final String email;
-  final String phoneNumber;
+  final String? phoneNumber;
   final String profilePicture;
   final String userType ;
   final String? storeLink;
@@ -43,14 +43,14 @@ class UserModel {
       // required this.lastName,
       required this.userName,
       required this.email,
-      required this.phoneNumber,
+      this.phoneNumber ="",
       required this.profilePicture});
 
   ///Helper Function to get FullName
   // String get fullName => '$firstName $lastName';
 
   ///Helper Function to format phone Number
-  String get formattedPhoneNumber => TFormatter.formatPhoneNumber(phoneNumber);
+  // String get formattedPhoneNumber => TFormatter.formatPhoneNumber(phoneNumber);
 
   static List<String> nameParts(fullName) => fullName.spilt(" ");
 

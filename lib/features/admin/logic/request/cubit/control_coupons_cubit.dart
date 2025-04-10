@@ -20,7 +20,12 @@ class ControlCouponsCubit extends Cubit<ControlCouponsState> {
       for (var element in couponReq) {
         coupons.add(element.coupon);
       }
+      if(coupons.isEmpty){
+      emit(ControlCouponsState.emptyListCoupons());
+      }else{
       emit(ControlCouponsState.sucessgetRequestAdded(coupons: coupons , couponRequest: couponReq ));
+
+      }
     });
     }
     catch(error){

@@ -1,9 +1,6 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/common/widgets/build_extended_image.dart';
 import 'package:acwadcom/features/user/coupons/ui/widgets/build_app_bar_with_back_button.dart';
-import 'package:acwadcom/features/user/home/data/coupon_repository.dart';
-import 'package:acwadcom/helpers/constants/extenstions.dart';
-import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/models/coupon_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -25,8 +22,6 @@ class _CouponDeatlsScreenState extends State<CouponDeatlsScreen> {
         body:
             Align(alignment: Alignment.topCenter, child: buildParent(context)));
   }
-
-
 
   Stack buildParent(BuildContext context) {
     return Stack(
@@ -55,7 +50,7 @@ class _CouponDeatlsScreenState extends State<CouponDeatlsScreen> {
                   style: Theme.of(context).textTheme.headlineSmall),
               buildSpacerH(10),
               Text(widget.coupon.additionalTerms,
-                  maxLines: 2,
+                  maxLines: 3,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyLarge),
               buildSpacerH(10),

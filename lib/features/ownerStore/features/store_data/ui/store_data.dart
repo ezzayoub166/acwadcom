@@ -36,7 +36,7 @@ class _StoreDataScreenState extends State<StoreDataScreen> {
               context.read<StoreDataCubit>().userNameController.text =
                   state.user.userName;
               context.read<StoreDataCubit>().phoneNumberController.text =
-                  state.user.phoneNumber;
+                  state.user.phoneNumber ?? "";
               context.read<StoreDataCubit>().deatilsStoreController.text =
                   state.user.deatilsForStore ?? "";
               context.read<StoreDataCubit>().storeLinkController.text =

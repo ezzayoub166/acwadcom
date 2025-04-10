@@ -5,14 +5,12 @@ import 'dart:async';
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/common/widgets/build_custom_loader.dart';
 import 'package:acwadcom/common/widgets/no_internt_screen.dart';
+import 'package:acwadcom/features/admin/ui/widgets/build_shimmer_list_of_coupons.dart';
 import 'package:acwadcom/features/ownerStore/features/home/logic/home_owner/home_owner_cubit.dart';
 import 'package:acwadcom/features/ownerStore/features/home/logic/home_owner/home_owner_state.dart';
 import 'package:acwadcom/features/user/home/data/category_repository.dart';
 import 'package:acwadcom/features/user/home/logic/avatar/avatar_cubit.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/build_featured_code.dart';
-import 'package:acwadcom/helpers/constants/extenstions.dart';
-import 'package:acwadcom/helpers/di/dependency_injection.dart';
-import 'package:acwadcom/models/category_model.dart';
 import 'package:acwadcom/models/coupon_model.dart';
 import 'package:acwadcom/features/ownerStore/features/home/no_coupon_screen.dart';
 import 'package:acwadcom/features/ownerStore/features/home/widgets/custom_drawer.dart';
@@ -115,7 +113,7 @@ class _HomeScreenOwnerState extends State<HomeScreenOwner> {
                               builder: (context, state) {
                                 return state.maybeWhen(
                                     loadingGetCouponsForOwner: () =>
-                                        BuildCustomLoader(),
+                                        buildShimmerListOfCoupons(),
                                     successGetCouponsForOwner: (coupons) =>
                                         setUpSuccess(coupons),
                                     faluireGetCouponsForOwner: (error) =>

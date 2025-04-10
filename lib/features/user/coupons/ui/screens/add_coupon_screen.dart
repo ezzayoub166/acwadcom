@@ -218,116 +218,7 @@ class _CreateCodeScreenState extends State<CreateCodeScreen> {
                           //**Category Choose */
 
                           // Category selection drop down
-                          BlocBuilder<CreateCouponCubit, CreateCouponState>(
-                            buildWhen: (previous, current) =>
-                                current is CategorySelected,
-                            builder: (context, state) {
-                              return state.maybeWhen(
-                                categorySelected: (optionItemSelected) {
-                                  return Container(
-                                    padding: EdgeInsets.all(10),
-                                    margin: EdgeInsets.only(bottom: 5),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(30),
-                                        color: Colors.white),
-                                    height: 50,
-                                    width: double.infinity,
-                                    child: DropdownButton<CategoryModel>(
-                                        alignment:
-                                            AlignmentDirectional.topCenter,
-                                        focusColor: ManagerColors.kCustomColor,
-                                        underline: SizedBox(
-                                          height: 0,
-                                        ),
-                                        dropdownColor: Colors.white,
-                                        isExpanded: true,
-                                        borderRadius: BorderRadius.circular(30),
-                                        itemHeight: 50,
-                                        hint: myText(translatedchoseTheCategory,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500),
-                                        onChanged:
-                                            (CategoryModel? changedValue) {
-                                          //  setState(() {
-                                          //    newValue;
-                                          //    print(newValue);
-                                          //  });
-                                          context
-                                              .read<CreateCouponCubit>()
-                                              .selectCategory(changedValue!);
-                                        },
-                                        value: optionItemSelected,
-                                        items: bLISTOFCATEGORY
-                                            .map((CategoryModel value) {
-                                          return DropdownMenuItem<
-                                              CategoryModel>(
-                                            value: value,
-                                            child: myText(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.bold,
-                                                getIt<CacheHelper>()
-                                                            .getChacedLanguageCode() ==
-                                                        "en"
-                                                    ? value.title["en"]
-                                                    : value.title["ar"]),
-                                          );
-                                        }).toList()),
-                                  );
-                                },
-                                orElse: () {
-                                  return Container(
-                                    padding: EdgeInsets.all(10),
-                                    margin: EdgeInsets.only(bottom: 5),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(30),
-                                        color: Colors.white),
-                                    height: 50,
-                                    width: double.infinity,
-                                    child: DropdownButton<CategoryModel>(
-                                        alignment:
-                                            AlignmentDirectional.topCenter,
-                                        focusColor: ManagerColors.kCustomColor,
-                                        underline: SizedBox(
-                                          height: 0,
-                                        ),
-                                        dropdownColor: Colors.white,
-                                        isExpanded: true,
-                                        borderRadius: BorderRadius.circular(30),
-                                        itemHeight: 50,
-                                        hint: myText(translatedchoseTheCategory,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500),
-                                        onChanged:
-                                            (CategoryModel? changedValue) {
-                                          //  setState(() {
-                                          //    newValue;
-                                          //    print(newValue);
-                                          //  });
-                                          context
-                                              .read<CreateCouponCubit>()
-                                              .selectCategory(changedValue!);
-                                        },
-                                        value: newValue,
-                                        items: bLISTOFCATEGORY
-                                            .map((CategoryModel value) {
-                                          return DropdownMenuItem<
-                                              CategoryModel>(
-                                            value: value,
-                                            child: myText(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.bold,
-                                                getIt<CacheHelper>()
-                                                            .getChacedLanguageCode() ==
-                                                        "en"
-                                                    ? value.title["en"]
-                                                    : value.title["ar"]),
-                                          );
-                                        }).toList()),
-                                  );
-                                },
-                              );
-                            },
-                          ),
+                          buildDropListOfCategories(translatedchoseTheCategory: translatedchoseTheCategory, newValue: newValue),
                           buildSpacerH(10.0),
                           //** End Date ..... */
                           buildExpireDataWidget(
@@ -384,5 +275,130 @@ class _CreateCodeScreenState extends State<CreateCodeScreen> {
         context.read<CreateCouponCubit>().addCoupon();
       }
     }
+  }
+}
+
+class buildDropListOfCategories extends StatelessWidget {
+  const buildDropListOfCategories({
+    super.key,
+    required this.translatedchoseTheCategory,
+    required this.newValue,
+  });
+
+  final String translatedchoseTheCategory;
+  final CategoryModel? newValue;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<CreateCouponCubit, CreateCouponState>(
+      buildWhen: (previous, current) =>
+          current is CategorySelected,
+      builder: (context, state) {
+        return state.maybeWhen(
+          categorySelected: (optionItemSelected) {
+            return Container(
+              padding: EdgeInsets.all(10),
+              margin: EdgeInsets.only(bottom: 5),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.white),
+              height: 50,
+              width: double.infinity,
+              child: DropdownButton<CategoryModel>(
+                  alignment:
+                      AlignmentDirectional.topCenter,
+                  focusColor: ManagerColors.kCustomColor,
+                  underline: SizedBox(
+                    height: 0,
+                  ),
+                  dropdownColor: Colors.white,
+                  isExpanded: true,
+                  borderRadius: BorderRadius.circular(30),
+                  itemHeight: 50,
+                  hint: myText(translatedchoseTheCategory,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500),
+                  onChanged:
+                      (CategoryModel? changedValue) {
+                    //  setState(() {
+                    //    newValue;
+                    //    print(newValue);
+                    //  });
+                    context
+                        .read<CreateCouponCubit>()
+                        .selectCategory(changedValue!);
+                  },
+                  value: optionItemSelected,
+                  items: bLISTOFCATEGORY
+                      .map((CategoryModel value) {
+                    return DropdownMenuItem<
+                        CategoryModel>(
+                      value: value,
+                      child: myText(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          getIt<CacheHelper>()
+                                      .getChacedLanguageCode() ==
+                                  "en"
+                              ? value.title["en"]
+                              : value.title["ar"]),
+                    );
+                  }).toList()),
+            );
+          },
+          orElse: () {
+            return Container(
+              padding: EdgeInsets.all(10),
+              margin: EdgeInsets.only(bottom: 5),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.white),
+              height: 50,
+              width: double.infinity,
+              child: DropdownButton<CategoryModel>(
+                  alignment:
+                      AlignmentDirectional.topCenter,
+                  focusColor: ManagerColors.kCustomColor,
+                  underline: SizedBox(
+                    height: 0,
+                  ),
+                  dropdownColor: Colors.white,
+                  isExpanded: true,
+                  borderRadius: BorderRadius.circular(30),
+                  itemHeight: 50,
+                  hint: myText(translatedchoseTheCategory,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500),
+                  onChanged:
+                      (CategoryModel? changedValue) {
+                    //  setState(() {
+                    //    newValue;
+                    //    print(newValue);
+                    //  });
+                    context
+                        .read<CreateCouponCubit>()
+                        .selectCategory(changedValue!);
+                  },
+                  value: newValue,
+                  items: bLISTOFCATEGORY
+                      .map((CategoryModel value) {
+                    return DropdownMenuItem<
+                        CategoryModel>(
+                      value: value,
+                      child: myText(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          getIt<CacheHelper>()
+                                      .getChacedLanguageCode() ==
+                                  "en"
+                              ? value.title["en"]
+                              : value.title["ar"]),
+                    );
+                  }).toList()),
+            );
+          },
+        );
+      },
+    );
   }
 }

@@ -28,7 +28,6 @@ class AcwadcomApp extends StatelessWidget {
             return MaterialApp(
               title: 'Acwadcom',
               theme: appThemeData,
-
               localizationsDelegates: const [
                 AppLocalizations.delegate,
                 GlobalMaterialLocalizations.delegate,

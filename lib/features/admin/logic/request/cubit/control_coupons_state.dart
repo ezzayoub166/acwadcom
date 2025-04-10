@@ -13,7 +13,7 @@ class ControlCouponsState with _$ControlCouponsState {
 
   const factory ControlCouponsState.rejectCouponRequest() = RejectCouponRequest;
   const factory ControlCouponsState.faluireRejectCouponRequest({required String error}) = FaluireRejectCouponRequest;
-
+   const factory ControlCouponsState.emptyListCoupons() = EmptyListCoupons;
 
 
 

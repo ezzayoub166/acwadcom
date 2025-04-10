@@ -222,5 +222,10 @@
         "The coupon has been successfully updated.":"The coupon has been successfully updated.",
          "Once your code is approved, you will find it on the codes page.": "Once your code is approved, you will find it on the codes page.",
           "Welcome dear user":  "Welcome dear user",
-    "in the world of Acwdcom":    "in the world of Acwdcom"
+    "in the world of Acwdcom":    "in the world of Acwdcom",
+    "No requests to add coupons":"No requests to add coupons",
+    "There are no coupons for this category":"There are no coupons for this category",
+    "There are no coupons":"There are no coupons",
+    "Optional":"Optional",
+    "Not Found":"Not Found"
 }

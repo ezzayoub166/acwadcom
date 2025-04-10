@@ -78,6 +78,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: "242503319267",
     projectId: "acwadcom-8ab26",
     storageBucket: "acwadcom-8ab26.appspot.com",
-    iosBundleId: 'com.izzdine.acwdcomapp',
+    iosBundleId: 'com.mohamed.acwdcoom',
   );
 }

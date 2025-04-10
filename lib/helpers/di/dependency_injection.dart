@@ -23,7 +23,6 @@ import 'package:acwadcom/features/user/wishlist/logic/cubit/wishlist_cubit.dart'
 import 'package:acwadcom/helpers/services/cachce_services/chache_helper.dart';
 import 'package:acwadcom/helpers/services/fireabse_storage_services.dart';
 import 'package:acwadcom/features/ownerStore/features/authitcation/logic/register_owner/register_owner_store_cubit.dart';
-import 'package:extended_image/extended_image.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;

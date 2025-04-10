@@ -33,4 +33,5 @@ class Routes {
   static const String deleteStoreScreen = "/DeleteStoreScreen";
   static const String storeDataProfile = "/storeDataProfile";
   static const String categoriesScreen = "/CategoriesScreen";
+  static const String couponsByCategoryIdScreen = "/couponsByCategoryIdScreen";
 }

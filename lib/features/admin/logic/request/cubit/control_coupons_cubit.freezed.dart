@@ -29,6 +29,7 @@ mixin _$ControlCouponsState {
     required TResult Function(String error) faluireapproveCouponRequest,
     required TResult Function() rejectCouponRequest,
     required TResult Function(String error) faluireRejectCouponRequest,
+    required TResult Function() emptyListCoupons,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,6 +44,7 @@ mixin _$ControlCouponsState {
     TResult? Function(String error)? faluireapproveCouponRequest,
     TResult? Function()? rejectCouponRequest,
     TResult? Function(String error)? faluireRejectCouponRequest,
+    TResult? Function()? emptyListCoupons,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +59,7 @@ mixin _$ControlCouponsState {
     TResult Function(String error)? faluireapproveCouponRequest,
     TResult Function()? rejectCouponRequest,
     TResult Function(String error)? faluireRejectCouponRequest,
+    TResult Function()? emptyListCoupons,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -77,6 +80,7 @@ mixin _$ControlCouponsState {
     required TResult Function(RejectCouponRequest value) rejectCouponRequest,
     required TResult Function(FaluireRejectCouponRequest value)
         faluireRejectCouponRequest,
+    required TResult Function(EmptyListCoupons value) emptyListCoupons,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -92,6 +96,7 @@ mixin _$ControlCouponsState {
     TResult? Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult? Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult? Function(EmptyListCoupons value)? emptyListCoupons,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -107,6 +112,7 @@ mixin _$ControlCouponsState {
     TResult Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult Function(EmptyListCoupons value)? emptyListCoupons,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -179,6 +185,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(String error) faluireapproveCouponRequest,
     required TResult Function() rejectCouponRequest,
     required TResult Function(String error) faluireRejectCouponRequest,
+    required TResult Function() emptyListCoupons,
   }) {
     return initial();
   }
@@ -196,6 +203,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(String error)? faluireapproveCouponRequest,
     TResult? Function()? rejectCouponRequest,
     TResult? Function(String error)? faluireRejectCouponRequest,
+    TResult? Function()? emptyListCoupons,
   }) {
     return initial?.call();
   }
@@ -213,6 +221,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(String error)? faluireapproveCouponRequest,
     TResult Function()? rejectCouponRequest,
     TResult Function(String error)? faluireRejectCouponRequest,
+    TResult Function()? emptyListCoupons,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -239,6 +248,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(RejectCouponRequest value) rejectCouponRequest,
     required TResult Function(FaluireRejectCouponRequest value)
         faluireRejectCouponRequest,
+    required TResult Function(EmptyListCoupons value) emptyListCoupons,
   }) {
     return initial(this);
   }
@@ -257,6 +267,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult? Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult? Function(EmptyListCoupons value)? emptyListCoupons,
   }) {
     return initial?.call(this);
   }
@@ -275,6 +286,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult Function(EmptyListCoupons value)? emptyListCoupons,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -339,6 +351,7 @@ class _$LodingGetRequestAddedImpl implements LodingGetRequestAdded {
     required TResult Function(String error) faluireapproveCouponRequest,
     required TResult Function() rejectCouponRequest,
     required TResult Function(String error) faluireRejectCouponRequest,
+    required TResult Function() emptyListCoupons,
   }) {
     return lodingGetRequestAdded();
   }
@@ -356,6 +369,7 @@ class _$LodingGetRequestAddedImpl implements LodingGetRequestAdded {
     TResult? Function(String error)? faluireapproveCouponRequest,
     TResult? Function()? rejectCouponRequest,
     TResult? Function(String error)? faluireRejectCouponRequest,
+    TResult? Function()? emptyListCoupons,
   }) {
     return lodingGetRequestAdded?.call();
   }
@@ -373,6 +387,7 @@ class _$LodingGetRequestAddedImpl implements LodingGetRequestAdded {
     TResult Function(String error)? faluireapproveCouponRequest,
     TResult Function()? rejectCouponRequest,
     TResult Function(String error)? faluireRejectCouponRequest,
+    TResult Function()? emptyListCoupons,
     required TResult orElse(),
   }) {
     if (lodingGetRequestAdded != null) {
@@ -399,6 +414,7 @@ class _$LodingGetRequestAddedImpl implements LodingGetRequestAdded {
     required TResult Function(RejectCouponRequest value) rejectCouponRequest,
     required TResult Function(FaluireRejectCouponRequest value)
         faluireRejectCouponRequest,
+    required TResult Function(EmptyListCoupons value) emptyListCoupons,
   }) {
     return lodingGetRequestAdded(this);
   }
@@ -417,6 +433,7 @@ class _$LodingGetRequestAddedImpl implements LodingGetRequestAdded {
     TResult? Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult? Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult? Function(EmptyListCoupons value)? emptyListCoupons,
   }) {
     return lodingGetRequestAdded?.call(this);
   }
@@ -435,6 +452,7 @@ class _$LodingGetRequestAddedImpl implements LodingGetRequestAdded {
     TResult Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult Function(EmptyListCoupons value)? emptyListCoupons,
     required TResult orElse(),
   }) {
     if (lodingGetRequestAdded != null) {
@@ -552,6 +570,7 @@ class _$SucessgetRequestAddedImpl implements SucessgetRequestAdded {
     required TResult Function(String error) faluireapproveCouponRequest,
     required TResult Function() rejectCouponRequest,
     required TResult Function(String error) faluireRejectCouponRequest,
+    required TResult Function() emptyListCoupons,
   }) {
     return sucessgetRequestAdded(coupons, couponRequest);
   }
@@ -569,6 +588,7 @@ class _$SucessgetRequestAddedImpl implements SucessgetRequestAdded {
     TResult? Function(String error)? faluireapproveCouponRequest,
     TResult? Function()? rejectCouponRequest,
     TResult? Function(String error)? faluireRejectCouponRequest,
+    TResult? Function()? emptyListCoupons,
   }) {
     return sucessgetRequestAdded?.call(coupons, couponRequest);
   }
@@ -586,6 +606,7 @@ class _$SucessgetRequestAddedImpl implements SucessgetRequestAdded {
     TResult Function(String error)? faluireapproveCouponRequest,
     TResult Function()? rejectCouponRequest,
     TResult Function(String error)? faluireRejectCouponRequest,
+    TResult Function()? emptyListCoupons,
     required TResult orElse(),
   }) {
     if (sucessgetRequestAdded != null) {
@@ -612,6 +633,7 @@ class _$SucessgetRequestAddedImpl implements SucessgetRequestAdded {
     required TResult Function(RejectCouponRequest value) rejectCouponRequest,
     required TResult Function(FaluireRejectCouponRequest value)
         faluireRejectCouponRequest,
+    required TResult Function(EmptyListCoupons value) emptyListCoupons,
   }) {
     return sucessgetRequestAdded(this);
   }
@@ -630,6 +652,7 @@ class _$SucessgetRequestAddedImpl implements SucessgetRequestAdded {
     TResult? Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult? Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult? Function(EmptyListCoupons value)? emptyListCoupons,
   }) {
     return sucessgetRequestAdded?.call(this);
   }
@@ -648,6 +671,7 @@ class _$SucessgetRequestAddedImpl implements SucessgetRequestAdded {
     TResult Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult Function(EmptyListCoupons value)? emptyListCoupons,
     required TResult orElse(),
   }) {
     if (sucessgetRequestAdded != null) {
@@ -749,6 +773,7 @@ class _$FaluiregetRequestAddedImpl implements FaluiregetRequestAdded {
     required TResult Function(String error) faluireapproveCouponRequest,
     required TResult Function() rejectCouponRequest,
     required TResult Function(String error) faluireRejectCouponRequest,
+    required TResult Function() emptyListCoupons,
   }) {
     return faluiregetRequestAdded(error);
   }
@@ -766,6 +791,7 @@ class _$FaluiregetRequestAddedImpl implements FaluiregetRequestAdded {
     TResult? Function(String error)? faluireapproveCouponRequest,
     TResult? Function()? rejectCouponRequest,
     TResult? Function(String error)? faluireRejectCouponRequest,
+    TResult? Function()? emptyListCoupons,
   }) {
     return faluiregetRequestAdded?.call(error);
   }
@@ -783,6 +809,7 @@ class _$FaluiregetRequestAddedImpl implements FaluiregetRequestAdded {
     TResult Function(String error)? faluireapproveCouponRequest,
     TResult Function()? rejectCouponRequest,
     TResult Function(String error)? faluireRejectCouponRequest,
+    TResult Function()? emptyListCoupons,
     required TResult orElse(),
   }) {
     if (faluiregetRequestAdded != null) {
@@ -809,6 +836,7 @@ class _$FaluiregetRequestAddedImpl implements FaluiregetRequestAdded {
     required TResult Function(RejectCouponRequest value) rejectCouponRequest,
     required TResult Function(FaluireRejectCouponRequest value)
         faluireRejectCouponRequest,
+    required TResult Function(EmptyListCoupons value) emptyListCoupons,
   }) {
     return faluiregetRequestAdded(this);
   }
@@ -827,6 +855,7 @@ class _$FaluiregetRequestAddedImpl implements FaluiregetRequestAdded {
     TResult? Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult? Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult? Function(EmptyListCoupons value)? emptyListCoupons,
   }) {
     return faluiregetRequestAdded?.call(this);
   }
@@ -845,6 +874,7 @@ class _$FaluiregetRequestAddedImpl implements FaluiregetRequestAdded {
     TResult Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult Function(EmptyListCoupons value)? emptyListCoupons,
     required TResult orElse(),
   }) {
     if (faluiregetRequestAdded != null) {
@@ -917,6 +947,7 @@ class _$LoadingARCouponRequestImpl implements LoadingARCouponRequest {
     required TResult Function(String error) faluireapproveCouponRequest,
     required TResult Function() rejectCouponRequest,
     required TResult Function(String error) faluireRejectCouponRequest,
+    required TResult Function() emptyListCoupons,
   }) {
     return loadingARCouponRequest();
   }
@@ -934,6 +965,7 @@ class _$LoadingARCouponRequestImpl implements LoadingARCouponRequest {
     TResult? Function(String error)? faluireapproveCouponRequest,
     TResult? Function()? rejectCouponRequest,
     TResult? Function(String error)? faluireRejectCouponRequest,
+    TResult? Function()? emptyListCoupons,
   }) {
     return loadingARCouponRequest?.call();
   }
@@ -951,6 +983,7 @@ class _$LoadingARCouponRequestImpl implements LoadingARCouponRequest {
     TResult Function(String error)? faluireapproveCouponRequest,
     TResult Function()? rejectCouponRequest,
     TResult Function(String error)? faluireRejectCouponRequest,
+    TResult Function()? emptyListCoupons,
     required TResult orElse(),
   }) {
     if (loadingARCouponRequest != null) {
@@ -977,6 +1010,7 @@ class _$LoadingARCouponRequestImpl implements LoadingARCouponRequest {
     required TResult Function(RejectCouponRequest value) rejectCouponRequest,
     required TResult Function(FaluireRejectCouponRequest value)
         faluireRejectCouponRequest,
+    required TResult Function(EmptyListCoupons value) emptyListCoupons,
   }) {
     return loadingARCouponRequest(this);
   }
@@ -995,6 +1029,7 @@ class _$LoadingARCouponRequestImpl implements LoadingARCouponRequest {
     TResult? Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult? Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult? Function(EmptyListCoupons value)? emptyListCoupons,
   }) {
     return loadingARCouponRequest?.call(this);
   }
@@ -1013,6 +1048,7 @@ class _$LoadingARCouponRequestImpl implements LoadingARCouponRequest {
     TResult Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult Function(EmptyListCoupons value)? emptyListCoupons,
     required TResult orElse(),
   }) {
     if (loadingARCouponRequest != null) {
@@ -1076,6 +1112,7 @@ class _$ApproveCouponRequestImpl implements ApproveCouponRequest {
     required TResult Function(String error) faluireapproveCouponRequest,
     required TResult Function() rejectCouponRequest,
     required TResult Function(String error) faluireRejectCouponRequest,
+    required TResult Function() emptyListCoupons,
   }) {
     return approveCouponRequest();
   }
@@ -1093,6 +1130,7 @@ class _$ApproveCouponRequestImpl implements ApproveCouponRequest {
     TResult? Function(String error)? faluireapproveCouponRequest,
     TResult? Function()? rejectCouponRequest,
     TResult? Function(String error)? faluireRejectCouponRequest,
+    TResult? Function()? emptyListCoupons,
   }) {
     return approveCouponRequest?.call();
   }
@@ -1110,6 +1148,7 @@ class _$ApproveCouponRequestImpl implements ApproveCouponRequest {
     TResult Function(String error)? faluireapproveCouponRequest,
     TResult Function()? rejectCouponRequest,
     TResult Function(String error)? faluireRejectCouponRequest,
+    TResult Function()? emptyListCoupons,
     required TResult orElse(),
   }) {
     if (approveCouponRequest != null) {
@@ -1136,6 +1175,7 @@ class _$ApproveCouponRequestImpl implements ApproveCouponRequest {
     required TResult Function(RejectCouponRequest value) rejectCouponRequest,
     required TResult Function(FaluireRejectCouponRequest value)
         faluireRejectCouponRequest,
+    required TResult Function(EmptyListCoupons value) emptyListCoupons,
   }) {
     return approveCouponRequest(this);
   }
@@ -1154,6 +1194,7 @@ class _$ApproveCouponRequestImpl implements ApproveCouponRequest {
     TResult? Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult? Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult? Function(EmptyListCoupons value)? emptyListCoupons,
   }) {
     return approveCouponRequest?.call(this);
   }
@@ -1172,6 +1213,7 @@ class _$ApproveCouponRequestImpl implements ApproveCouponRequest {
     TResult Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult Function(EmptyListCoupons value)? emptyListCoupons,
     required TResult orElse(),
   }) {
     if (approveCouponRequest != null) {
@@ -1264,6 +1306,7 @@ class _$FaluireapproveCouponRequestImpl implements FaluireapproveCouponRequest {
     required TResult Function(String error) faluireapproveCouponRequest,
     required TResult Function() rejectCouponRequest,
     required TResult Function(String error) faluireRejectCouponRequest,
+    required TResult Function() emptyListCoupons,
   }) {
     return faluireapproveCouponRequest(error);
   }
@@ -1281,6 +1324,7 @@ class _$FaluireapproveCouponRequestImpl implements FaluireapproveCouponRequest {
     TResult? Function(String error)? faluireapproveCouponRequest,
     TResult? Function()? rejectCouponRequest,
     TResult? Function(String error)? faluireRejectCouponRequest,
+    TResult? Function()? emptyListCoupons,
   }) {
     return faluireapproveCouponRequest?.call(error);
   }
@@ -1298,6 +1342,7 @@ class _$FaluireapproveCouponRequestImpl implements FaluireapproveCouponRequest {
     TResult Function(String error)? faluireapproveCouponRequest,
     TResult Function()? rejectCouponRequest,
     TResult Function(String error)? faluireRejectCouponRequest,
+    TResult Function()? emptyListCoupons,
     required TResult orElse(),
   }) {
     if (faluireapproveCouponRequest != null) {
@@ -1324,6 +1369,7 @@ class _$FaluireapproveCouponRequestImpl implements FaluireapproveCouponRequest {
     required TResult Function(RejectCouponRequest value) rejectCouponRequest,
     required TResult Function(FaluireRejectCouponRequest value)
         faluireRejectCouponRequest,
+    required TResult Function(EmptyListCoupons value) emptyListCoupons,
   }) {
     return faluireapproveCouponRequest(this);
   }
@@ -1342,6 +1388,7 @@ class _$FaluireapproveCouponRequestImpl implements FaluireapproveCouponRequest {
     TResult? Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult? Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult? Function(EmptyListCoupons value)? emptyListCoupons,
   }) {
     return faluireapproveCouponRequest?.call(this);
   }
@@ -1360,6 +1407,7 @@ class _$FaluireapproveCouponRequestImpl implements FaluireapproveCouponRequest {
     TResult Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult Function(EmptyListCoupons value)? emptyListCoupons,
     required TResult orElse(),
   }) {
     if (faluireapproveCouponRequest != null) {
@@ -1429,6 +1477,7 @@ class _$RejectCouponRequestImpl implements RejectCouponRequest {
     required TResult Function(String error) faluireapproveCouponRequest,
     required TResult Function() rejectCouponRequest,
     required TResult Function(String error) faluireRejectCouponRequest,
+    required TResult Function() emptyListCoupons,
   }) {
     return rejectCouponRequest();
   }
@@ -1446,6 +1495,7 @@ class _$RejectCouponRequestImpl implements RejectCouponRequest {
     TResult? Function(String error)? faluireapproveCouponRequest,
     TResult? Function()? rejectCouponRequest,
     TResult? Function(String error)? faluireRejectCouponRequest,
+    TResult? Function()? emptyListCoupons,
   }) {
     return rejectCouponRequest?.call();
   }
@@ -1463,6 +1513,7 @@ class _$RejectCouponRequestImpl implements RejectCouponRequest {
     TResult Function(String error)? faluireapproveCouponRequest,
     TResult Function()? rejectCouponRequest,
     TResult Function(String error)? faluireRejectCouponRequest,
+    TResult Function()? emptyListCoupons,
     required TResult orElse(),
   }) {
     if (rejectCouponRequest != null) {
@@ -1489,6 +1540,7 @@ class _$RejectCouponRequestImpl implements RejectCouponRequest {
     required TResult Function(RejectCouponRequest value) rejectCouponRequest,
     required TResult Function(FaluireRejectCouponRequest value)
         faluireRejectCouponRequest,
+    required TResult Function(EmptyListCoupons value) emptyListCoupons,
   }) {
     return rejectCouponRequest(this);
   }
@@ -1507,6 +1559,7 @@ class _$RejectCouponRequestImpl implements RejectCouponRequest {
     TResult? Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult? Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult? Function(EmptyListCoupons value)? emptyListCoupons,
   }) {
     return rejectCouponRequest?.call(this);
   }
@@ -1525,6 +1578,7 @@ class _$RejectCouponRequestImpl implements RejectCouponRequest {
     TResult Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult Function(EmptyListCoupons value)? emptyListCoupons,
     required TResult orElse(),
   }) {
     if (rejectCouponRequest != null) {
@@ -1617,6 +1671,7 @@ class _$FaluireRejectCouponRequestImpl implements FaluireRejectCouponRequest {
     required TResult Function(String error) faluireapproveCouponRequest,
     required TResult Function() rejectCouponRequest,
     required TResult Function(String error) faluireRejectCouponRequest,
+    required TResult Function() emptyListCoupons,
   }) {
     return faluireRejectCouponRequest(error);
   }
@@ -1634,6 +1689,7 @@ class _$FaluireRejectCouponRequestImpl implements FaluireRejectCouponRequest {
     TResult? Function(String error)? faluireapproveCouponRequest,
     TResult? Function()? rejectCouponRequest,
     TResult? Function(String error)? faluireRejectCouponRequest,
+    TResult? Function()? emptyListCoupons,
   }) {
     return faluireRejectCouponRequest?.call(error);
   }
@@ -1651,6 +1707,7 @@ class _$FaluireRejectCouponRequestImpl implements FaluireRejectCouponRequest {
     TResult Function(String error)? faluireapproveCouponRequest,
     TResult Function()? rejectCouponRequest,
     TResult Function(String error)? faluireRejectCouponRequest,
+    TResult Function()? emptyListCoupons,
     required TResult orElse(),
   }) {
     if (faluireRejectCouponRequest != null) {
@@ -1677,6 +1734,7 @@ class _$FaluireRejectCouponRequestImpl implements FaluireRejectCouponRequest {
     required TResult Function(RejectCouponRequest value) rejectCouponRequest,
     required TResult Function(FaluireRejectCouponRequest value)
         faluireRejectCouponRequest,
+    required TResult Function(EmptyListCoupons value) emptyListCoupons,
   }) {
     return faluireRejectCouponRequest(this);
   }
@@ -1695,6 +1753,7 @@ class _$FaluireRejectCouponRequestImpl implements FaluireRejectCouponRequest {
     TResult? Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult? Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult? Function(EmptyListCoupons value)? emptyListCoupons,
   }) {
     return faluireRejectCouponRequest?.call(this);
   }
@@ -1713,6 +1772,7 @@ class _$FaluireRejectCouponRequestImpl implements FaluireRejectCouponRequest {
     TResult Function(RejectCouponRequest value)? rejectCouponRequest,
     TResult Function(FaluireRejectCouponRequest value)?
         faluireRejectCouponRequest,
+    TResult Function(EmptyListCoupons value)? emptyListCoupons,
     required TResult orElse(),
   }) {
     if (faluireRejectCouponRequest != null) {
@@ -1730,4 +1790,168 @@ abstract class FaluireRejectCouponRequest implements ControlCouponsState {
   @JsonKey(ignore: true)
   _$$FaluireRejectCouponRequestImplCopyWith<_$FaluireRejectCouponRequestImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$EmptyListCouponsImplCopyWith<$Res> {
+  factory _$$EmptyListCouponsImplCopyWith(_$EmptyListCouponsImpl value,
+          $Res Function(_$EmptyListCouponsImpl) then) =
+      __$$EmptyListCouponsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EmptyListCouponsImplCopyWithImpl<$Res>
+    extends _$ControlCouponsStateCopyWithImpl<$Res, _$EmptyListCouponsImpl>
+    implements _$$EmptyListCouponsImplCopyWith<$Res> {
+  __$$EmptyListCouponsImplCopyWithImpl(_$EmptyListCouponsImpl _value,
+      $Res Function(_$EmptyListCouponsImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$EmptyListCouponsImpl implements EmptyListCoupons {
+  const _$EmptyListCouponsImpl();
+
+  @override
+  String toString() {
+    return 'ControlCouponsState.emptyListCoupons()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EmptyListCouponsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() lodingGetRequestAdded,
+    required TResult Function(
+            List<Coupon> coupons, List<CouponRequest> couponRequest)
+        sucessgetRequestAdded,
+    required TResult Function(String error) faluiregetRequestAdded,
+    required TResult Function() loadingARCouponRequest,
+    required TResult Function() approveCouponRequest,
+    required TResult Function(String error) faluireapproveCouponRequest,
+    required TResult Function() rejectCouponRequest,
+    required TResult Function(String error) faluireRejectCouponRequest,
+    required TResult Function() emptyListCoupons,
+  }) {
+    return emptyListCoupons();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? lodingGetRequestAdded,
+    TResult? Function(List<Coupon> coupons, List<CouponRequest> couponRequest)?
+        sucessgetRequestAdded,
+    TResult? Function(String error)? faluiregetRequestAdded,
+    TResult? Function()? loadingARCouponRequest,
+    TResult? Function()? approveCouponRequest,
+    TResult? Function(String error)? faluireapproveCouponRequest,
+    TResult? Function()? rejectCouponRequest,
+    TResult? Function(String error)? faluireRejectCouponRequest,
+    TResult? Function()? emptyListCoupons,
+  }) {
+    return emptyListCoupons?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? lodingGetRequestAdded,
+    TResult Function(List<Coupon> coupons, List<CouponRequest> couponRequest)?
+        sucessgetRequestAdded,
+    TResult Function(String error)? faluiregetRequestAdded,
+    TResult Function()? loadingARCouponRequest,
+    TResult Function()? approveCouponRequest,
+    TResult Function(String error)? faluireapproveCouponRequest,
+    TResult Function()? rejectCouponRequest,
+    TResult Function(String error)? faluireRejectCouponRequest,
+    TResult Function()? emptyListCoupons,
+    required TResult orElse(),
+  }) {
+    if (emptyListCoupons != null) {
+      return emptyListCoupons();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LodingGetRequestAdded value)
+        lodingGetRequestAdded,
+    required TResult Function(SucessgetRequestAdded value)
+        sucessgetRequestAdded,
+    required TResult Function(FaluiregetRequestAdded value)
+        faluiregetRequestAdded,
+    required TResult Function(LoadingARCouponRequest value)
+        loadingARCouponRequest,
+    required TResult Function(ApproveCouponRequest value) approveCouponRequest,
+    required TResult Function(FaluireapproveCouponRequest value)
+        faluireapproveCouponRequest,
+    required TResult Function(RejectCouponRequest value) rejectCouponRequest,
+    required TResult Function(FaluireRejectCouponRequest value)
+        faluireRejectCouponRequest,
+    required TResult Function(EmptyListCoupons value) emptyListCoupons,
+  }) {
+    return emptyListCoupons(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LodingGetRequestAdded value)? lodingGetRequestAdded,
+    TResult? Function(SucessgetRequestAdded value)? sucessgetRequestAdded,
+    TResult? Function(FaluiregetRequestAdded value)? faluiregetRequestAdded,
+    TResult? Function(LoadingARCouponRequest value)? loadingARCouponRequest,
+    TResult? Function(ApproveCouponRequest value)? approveCouponRequest,
+    TResult? Function(FaluireapproveCouponRequest value)?
+        faluireapproveCouponRequest,
+    TResult? Function(RejectCouponRequest value)? rejectCouponRequest,
+    TResult? Function(FaluireRejectCouponRequest value)?
+        faluireRejectCouponRequest,
+    TResult? Function(EmptyListCoupons value)? emptyListCoupons,
+  }) {
+    return emptyListCoupons?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(LodingGetRequestAdded value)? lodingGetRequestAdded,
+    TResult Function(SucessgetRequestAdded value)? sucessgetRequestAdded,
+    TResult Function(FaluiregetRequestAdded value)? faluiregetRequestAdded,
+    TResult Function(LoadingARCouponRequest value)? loadingARCouponRequest,
+    TResult Function(ApproveCouponRequest value)? approveCouponRequest,
+    TResult Function(FaluireapproveCouponRequest value)?
+        faluireapproveCouponRequest,
+    TResult Function(RejectCouponRequest value)? rejectCouponRequest,
+    TResult Function(FaluireRejectCouponRequest value)?
+        faluireRejectCouponRequest,
+    TResult Function(EmptyListCoupons value)? emptyListCoupons,
+    required TResult orElse(),
+  }) {
+    if (emptyListCoupons != null) {
+      return emptyListCoupons(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class EmptyListCoupons implements ControlCouponsState {
+  const factory EmptyListCoupons() = _$EmptyListCouponsImpl;
 }

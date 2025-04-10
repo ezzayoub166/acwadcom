@@ -43,9 +43,13 @@ class _ListStoresScreenState extends State<ListStoresScreen> {
             }));
   }
 
+  
+  
   Widget setupSuccess(stores) {
     return BuildlistOfAllStores(stores: stores,);
+    
   }
+  
 
   Widget setupError() {
     return const SizedBox.shrink();

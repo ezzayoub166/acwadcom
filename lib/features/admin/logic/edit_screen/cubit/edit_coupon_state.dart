@@ -7,7 +7,7 @@ class EditCouponState with _$EditCouponState {
   const factory EditCouponState.successEditCoupon() = SuccessEditCoupon;
   const factory EditCouponState.faluireEditCoupon({required String error}) = FaluireEditCoupon;
   const factory EditCouponState.dateSelectedEditCoupon({required DateTime selectedDate}) = DateSelectedEditCoupon;
-  const factory EditCouponState.categorySelectedEditCoupon({required OptionItem optionItemSelected}) = CategorySelectedEditCoupon;
+  const factory EditCouponState.categorySelectedEditCoupon({required CategoryModel optionItemSelected}) = CategorySelectedEditCoupon;
   const factory EditCouponState.categoriesLoadedEditCoupon({required DropListModel listOfCategoriesOption}) = CategoriesLoadedEditCoupon;
   const factory EditCouponState.loadingSetLogoStoreEditCoupon() = LoadingSetLogoStoreEditCoupon;
   const factory EditCouponState.loadedSetLogoStoreEditCoupon({required File imageURL}) = LoadedSetLogoStoreEditCoupon;

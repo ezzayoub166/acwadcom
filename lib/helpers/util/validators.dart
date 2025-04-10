@@ -67,7 +67,7 @@ class ManagerValidator {
 
   static String? validatePhoneNumber(String? value,{required BuildContext context}) {
     if (value == null || value.isEmpty) {
-      return "Phone number is required.".tr(context);
+      return null;
     }
 
     // Regular expression for phone number validation (assuming a 10-digit US phone number format)

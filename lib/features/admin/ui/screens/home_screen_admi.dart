@@ -7,6 +7,7 @@ import 'package:acwadcom/features/admin/ui/widgets/build_app_bar_for_admin.dart'
 import 'package:acwadcom/features/admin/ui/widgets/build_item_code_for_admin.dart';
 import 'package:acwadcom/features/admin/ui/widgets/build_shimmer_list_of_coupons.dart';
 import 'package:acwadcom/features/user/coupons/ui/screens/coupon_deatls_screen.dart';
+import 'package:acwadcom/features/user/home/ui/widgets/build_empty_list.dart';
 import 'package:acwadcom/models/coupon_model.dart';
 
 class HomeScreenAdmin extends StatefulWidget {
@@ -24,6 +25,8 @@ class _HomeScreenAdminState extends State<HomeScreenAdmin> {
 
   @override
   Widget build(BuildContext context) {
+      final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return BlocProvider(
       create: (context) => getIt<HomeAdminCubit>()
         ..emitCouponCount()
@@ -89,7 +92,12 @@ class _HomeScreenAdminState extends State<HomeScreenAdmin> {
                                   coupon: coupon,
                                 ),
                               );
-                            },
+                            }, emptyBuilder:  buildEmptyListCoupons(
+                    screenWidth,
+                    screenHeight,
+                    context,
+                    "There are no coupons".tr(context),
+                  ), 
                           ))
                         ],
                       ),

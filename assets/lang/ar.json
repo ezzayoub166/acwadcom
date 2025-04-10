@@ -220,5 +220,10 @@
     "Change the coupon logo":"تغيير شعار الكوبون",
     "The coupon has been successfully updated.":"تم تحديث الكوبون بنجاح",
     "Welcome dear user": "أهلا بك عزيزي المستخدم",
-    "in the world of Acwdcom":"في عالم أكوادكم"
+    "in the world of Acwdcom":"في عالم أكوادكم",
+    "No requests to add coupons":"لا يوجد طلبات إضافة كوبونات",
+    "There are no coupons for this category":"لا يوجد كوبونات لهذا الصنف",
+    "There are no coupons":"لا يوجد كوبونات",
+    "Optional":"اختياري",
+    "Not Found":"غير موجود"
 }

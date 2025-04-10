@@ -20,7 +20,9 @@ class CustomPhoneNumberInput extends StatelessWidget {
           backgroundColor: Colors.red, // Change to your desired color
         )),
             
+      
       child: InternationalPhoneNumberInput(
+       
         
         maxLength: 9,
         keyboardAction: TextInputAction.next,
@@ -29,6 +31,7 @@ class CustomPhoneNumberInput extends StatelessWidget {
         onInputValidated: (bool value) {
           print(value);
         },
+        
         spaceBetweenSelectorAndTextField:2,
         validator: (p0) =>
             ManagerValidator.validatePhoneNumber(p0, context: context),
@@ -36,6 +39,8 @@ class CustomPhoneNumberInput extends StatelessWidget {
           selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
       
           useEmoji: true,
+          
+          
           setSelectorButtonAsPrefixIcon:
               false, // Removes the dropdown arrow if desired
           showFlags: true, // Set to false to hide the flag
@@ -52,10 +57,11 @@ class CustomPhoneNumberInput extends StatelessWidget {
         selectorTextStyle: selectorTextStyle ?? GoogleFonts.cairo(
             fontSize: 16,
             fontWeight: FontWeight.bold,
+            
             color: Colors.black,),
         initialValue: PhoneNumber(isoCode: 'SA'),
         textFieldController: controller,
-      
+         
         formatInput: false,
         keyboardType: TextInputType.phone,
         // const TextInputType.numberWithOptions(
@@ -63,8 +69,10 @@ class CustomPhoneNumberInput extends StatelessWidget {
         //   decimal: true,
         // ),
         inputDecoration: InputDecoration(
-          hintText: "53 222 4241",
+          hintText: "53 222 4241 (${"Optional".tr(context)})",
           filled: true,
+      
+
           fillColor: Colors.white,
            // Background color of the input field
           enabledBorder: OutlineInputBorder(

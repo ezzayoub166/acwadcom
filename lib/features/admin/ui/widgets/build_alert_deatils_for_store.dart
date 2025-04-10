@@ -37,7 +37,7 @@ Widget buildAlertDeatilsForStore(
                       onPressed: () {
                         //** copy the phone Number  for Coupon....... */
                         copyTextToClipboard(
-                            coupon.ownerCoupon.phoneNumber, context);
+                            coupon.ownerCoupon.phoneNumber ?? "Not Found".tr(context), context);
                       },
                     )
                   ],

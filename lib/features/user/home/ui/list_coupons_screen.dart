@@ -3,6 +3,7 @@ import 'package:acwadcom/common/widgets/build_custom_page_with_pagination.dart';
 import 'package:acwadcom/features/admin/ui/widgets/build_alert_deatils_for_store.dart';
 import 'package:acwadcom/features/user/coupons/ui/screens/coupon_deatls_screen.dart';
 import 'package:acwadcom/features/user/home/logic/home/cubit/home_cubit.dart';
+import 'package:acwadcom/features/user/home/ui/widgets/build_empty_list.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/build_featured_code.dart';
 import 'package:acwadcom/features/user/home/ui/widgets/build_list_coupons.dart';
 import 'package:acwadcom/helpers/shimmer/shimmer_loading.dart';
@@ -16,8 +17,12 @@ class ListCouponsScreen extends StatefulWidget {
 }
 
 class _ListCouponsScreenState extends State<ListCouponsScreen> {
+  
+
   @override
   Widget build(BuildContext context) {
+      final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     DateTime currentDate = DateTime.now();
     Timestamp currentTimestamp = Timestamp.fromDate(currentDate);
     return Scaffold(
@@ -55,7 +60,12 @@ class _ListCouponsScreenState extends State<ListCouponsScreen> {
                   coupon: coupon,
                 ),
               );
-            },
+            },  emptyBuilder: buildEmptyListCoupons(
+                    screenWidth,
+                    screenHeight,
+                    context,
+                    "There are no coupons".tr(context),
+                  ),
           )),
     );
   }

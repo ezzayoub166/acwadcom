@@ -32,6 +32,7 @@ import 'package:acwadcom/features/user/home/logic/search/cubit/search_cubit.dart
 import 'package:acwadcom/features/user/home/ui/filter_list_coupons.dart';
 import 'package:acwadcom/features/user/home/ui/list_coupons_screen.dart';
 import 'package:acwadcom/features/user/home/ui/screens/categories_screen.dart';
+import 'package:acwadcom/features/user/home/ui/screens/coupons_by_category_id.dart';
 import 'package:acwadcom/features/user/home/ui/search_screen.dart';
 import 'package:acwadcom/features/user/onboarding/ui/screens/onboarding_screen.dart';
 import 'package:acwadcom/features/user/onboarding/ui/screens/userOrStore.dart';
@@ -43,6 +44,7 @@ import 'package:acwadcom/features/user/settings/ui/screens/profile.dart';
 import 'package:acwadcom/features/user/store/ui/screens/store_deatils_screen.dart';
 import 'package:acwadcom/helpers/Routing/routes.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
+import 'package:acwadcom/models/category_model.dart';
 import 'package:acwadcom/models/coupon_model.dart';
 import 'package:acwadcom/models/coupon_request.dart';
 import 'package:acwadcom/models/user_model.dart';
@@ -99,7 +101,7 @@ class AppRouter {
                   child: CreateCodeScreen(),
                 ));
       case Routes.deleteStoreScreen:
-      final text = settings.arguments as String ;
+        final text = settings.arguments as String;
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
                   create: (context) => getIt<DeleteStoreCubit>(),
@@ -142,9 +144,11 @@ class AppRouter {
       case Routes.homeScreenForOwenerStore:
         return MaterialPageRoute(builder: (context) => HomeScreenOwner());
       case Routes.storeOwnerDiscountCodeDetails:
-      final coupon = settings.arguments as Coupon;
+        final coupon = settings.arguments as Coupon;
         return MaterialPageRoute(
-            builder: (context) => StoreOwnerDiscountCodeDetails(coupon: coupon,));
+            builder: (context) => StoreOwnerDiscountCodeDetails(
+                  coupon: coupon,
+                ));
       case Routes.statisticsPage:
         return MaterialPageRoute(
             builder: (context) => MerchantStatisticsPage());
@@ -233,27 +237,27 @@ class AppRouter {
                   child: ListRecentlyAddedCouponsScreen(),
                 ));
 
-               case Routes.editCodeScreenAdmin:
-                final coupon = settings.arguments as Coupon;
+      case Routes.editCodeScreenAdmin:
+        final coupon = settings.arguments as Coupon;
 
-               return MaterialPageRoute(
+        return MaterialPageRoute(
             builder: (context) => BlocProvider(
-                  create: (context) =>
-                      getIt<EditCouponCubit>(),
+                  create: (context) => getIt<EditCouponCubit>(),
                   child: EditCouponScreen(coupon: coupon),
                 ));
 
-                case Routes.categoriesScreen:
-                return MaterialPageRoute(
+      case Routes.categoriesScreen:
+        return MaterialPageRoute(
             builder: (context) => BlocProvider(
-                  create: (context) =>
-                      getIt<HomeCubit>()..emitGetCategories(),
-                  child:CategoriesScreen(),
+                  create: (context) => getIt<HomeCubit>()..emitGetCategories(),
+                  child: CategoriesScreen(),
                 ));
 
-
-      //  case Routes.noInterntScreen:
-      //  return MaterialPageRoute(builder:(context) => NoInterntScreen());
+      case Routes.couponsByCategoryIdScreen:
+        final category = settings.arguments as CategoryModel;
+        return MaterialPageRoute(
+            builder: (context) =>
+                CouponsByCategoryIdScreen(category: category));
     }
   }
 }

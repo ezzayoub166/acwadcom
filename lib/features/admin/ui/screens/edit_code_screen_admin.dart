@@ -20,6 +20,8 @@ class EditCouponScreen extends StatefulWidget {
 class _EditCouponScreenState extends State<EditCouponScreen> {
   DateTime? pickedDate;
   bool isDateSelected = false;
+    CategoryModel? newValue;
+
 
   @override
   void initState() {
@@ -35,6 +37,7 @@ class _EditCouponScreenState extends State<EditCouponScreen> {
 
     final translatedExDateTitle = AText.exDate.tr(context);
     final translatedchoseTheCategory = AText.choseTheCategory.tr(context);
+
    var locale = getIt<CacheHelper>().getValueWithKey("LOCAL");
 
 
@@ -161,41 +164,115 @@ class _EditCouponScreenState extends State<EditCouponScreen> {
                               ),
                               buildSpacerH(10),
                               BlocBuilder<EditCouponCubit, EditCouponState>(
-                                buildWhen: (previous, current) =>
-                                    current is CategoriesLoadedEditCoupon ||
-                                    current is CategorySelectedEditCoupon,
-                                builder: (context, state) {
-                                  if (state is CategoriesLoadedEditCoupon) {
-                               
-                                    return SelectDropList(
-                                      itemSelected: OptionItem(
-                                          id: widget.coupon.categoryID, title: widget.coupon.category?.title["en"]),
-                                      dropListModel:
-                                          state.listOfCategoriesOption,
-                                      onOptionSelected:
-                                          (OptionItem optionItem) {
-                                        context
-                                            .read<EditCouponCubit>()
-                                            .selectCategory(optionItem);
-                                      },
-                                    );
-                                  }else if (state is CategorySelectedEditCoupon){
-                                    return SelectDropList(
-                                      itemSelected: state.optionItemSelected,
-                                      dropListModel:
-                                          context.read<EditCouponCubit>().listOfCategoriesOption,
-                                      onOptionSelected:
-                                          (OptionItem optionItem) {
-                                        context
-                                            .read<EditCouponCubit>()
-                                            .selectCategory(optionItem);
-                                      },
-                                    );
-                                  }
-                                  return Center(
-                                      child: CircularProgressIndicator());
-                                },
-                              ),
+      buildWhen: (previous, current) =>
+          current is CategorySelectedEditCoupon,
+      builder: (context, state) {
+        return state.maybeWhen(
+          categorySelectedEditCoupon: (optionItemSelected) {
+            return Container(
+              padding: EdgeInsets.all(10),
+              margin: EdgeInsets.only(bottom: 5),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.white),
+              height: 50,
+              width: double.infinity,
+              child: DropdownButton<CategoryModel>(
+                  alignment:
+                      AlignmentDirectional.topCenter,
+                  focusColor: ManagerColors.kCustomColor,
+                  underline: SizedBox(
+                    height: 0,
+                  ),
+                  dropdownColor: Colors.white,
+                  isExpanded: true,
+                  borderRadius: BorderRadius.circular(30),
+                  itemHeight: 50,
+                  hint: myText(translatedchoseTheCategory,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500),
+                  onChanged:
+                      (CategoryModel? changedValue) {
+                    //  setState(() {
+                    //    newValue;
+                    //    print(newValue);
+                    //  });
+                    context
+                        .read<EditCouponCubit>()
+                        .selectCategory(changedValue!);
+                  },
+                  value: optionItemSelected,
+                  items: bLISTOFCATEGORY
+                      .map((CategoryModel value) {
+                    return DropdownMenuItem<
+                        CategoryModel>(
+                      value: value,
+                      child: myText(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          getIt<CacheHelper>()
+                                      .getChacedLanguageCode() ==
+                                  "en"
+                              ? value.title["en"]
+                              : value.title["ar"]),
+                    );
+                  }).toList()),
+            );
+          },
+          orElse: () {
+            return Container(
+              padding: EdgeInsets.all(10),
+              margin: EdgeInsets.only(bottom: 5),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.white),
+              height: 50,
+              width: double.infinity,
+              child: DropdownButton<CategoryModel>(
+                  alignment:
+                      AlignmentDirectional.topCenter,
+                  focusColor: ManagerColors.kCustomColor,
+                  underline: SizedBox(
+                    height: 0,
+                  ),
+                  dropdownColor: Colors.white,
+                  isExpanded: true,
+                  borderRadius: BorderRadius.circular(30),
+                  itemHeight: 50,
+                  hint: myText(translatedchoseTheCategory,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500),
+                  onChanged:
+                      (CategoryModel? changedValue) {
+                    //  setState(() {
+                    //    newValue;
+                    //    print(newValue);
+                    //  });
+                    context
+                        .read<EditCouponCubit>()
+                        .selectCategory(changedValue!);
+                  },
+                  value: newValue,
+                  items: bLISTOFCATEGORY
+                      .map((CategoryModel value) {
+                    return DropdownMenuItem<
+                        CategoryModel>(
+                      value: value,
+                      child: myText(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          getIt<CacheHelper>()
+                                      .getChacedLanguageCode() ==
+                                  "en"
+                              ? value.title["en"]
+                              : value.title["ar"]),
+                    );
+                  }).toList()),
+            );
+          },
+        );
+      },
+    ),
                               buildSpacerH(10.0),
                               buildExpireDataWidget(context, selectedDate),
                               buildSpacerH(10.0),

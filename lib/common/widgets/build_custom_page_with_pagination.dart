@@ -7,9 +7,10 @@ class BuildCustomPageWithPagination extends StatelessWidget {
   final int pageSize ; 
   final bool shrinkWrap;
   final Query query;
+  final Widget emptyBuilder;
   final FirestoreItemBuilder itemBuilder;
   const BuildCustomPageWithPagination({
-    super.key, required this.pageSize, required this.shrinkWrap, required this.query, required this.itemBuilder,
+    super.key, required this.pageSize, required this.shrinkWrap, required this.query, required this.itemBuilder,  required this.emptyBuilder,
   });
 
   @override
@@ -19,6 +20,7 @@ class BuildCustomPageWithPagination extends StatelessWidget {
         loadingBuilder: (context) => buildShimmerListOfCoupons(),
         showFetchingIndicator: true,
         pageSize: pageSize,
+        emptyBuilder: (context) =>  emptyBuilder,
         scrollDirection: Axis.vertical,
         fetchingIndicatorBuilder:(context) => Center(child: BuildCustomLoader()),
         shrinkWrap: shrinkWrap,

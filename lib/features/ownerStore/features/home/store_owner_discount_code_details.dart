@@ -3,7 +3,6 @@
 import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/user/coupons/ui/widgets/build_app_bar_with_back_button.dart';
 import 'package:acwadcom/features/user/settings/ui/widgets/build_disabled_textfiled.dart';
-import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/helpers/util/language_cache_helper.dart';
 import 'package:acwadcom/models/coupon_model.dart';
 
@@ -27,14 +26,20 @@ class StoreOwnerDiscountCodeDetails extends StatelessWidget {
           child: ListView(
                 children: [      
           buildSpacerH(10.0),
-          ClipOval(
-            child: CachedNetworkImage(
-              imageUrl: getIt<CacheHelper>().getValueWithKey("IMAGEURL"),
-              width: 100,
-              height: 100,
-              fit: BoxFit.contain, // Ensures the image fits within the circle
-            ),
-          ),
+        Container(
+  width: 100,
+  height: 100,
+  decoration: BoxDecoration(
+    shape: BoxShape.circle,
+    border: Border.all(color: Colors.grey, width: 2), // Optional border
+    image: DecorationImage(
+      image: CachedNetworkImageProvider(
+        coupon.storeLogoURL!,
+      ),
+      fit: BoxFit.contain,
+    ),
+  ),
+),
           buildSpacerH(10.0),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -46,15 +51,15 @@ class StoreOwnerDiscountCodeDetails extends StatelessWidget {
 
               buildDisabledTextField(text:coupon.code),
               buildSpacerH(10.0),
-              buildDisabledTextField(text: "${coupon.discountRate}${AText.discontrate.tr(context)}"),
+              buildDisabledTextField(text: "${coupon.discountRate} %"),
               buildSpacerH(10.0),
               buildDisabledTextField(text: coupon.storeLink),
               buildSpacerH(10.0),
               buildDisabledTextField(text: locale == "en" ? coupon.category?.title["en"] : coupon.category?.title["ar"]),
               buildSpacerH(10.0),
-              buildDisabledTextField(text: "${coupon.numberOfUse}${AText.numberOfuse.tr(context)}"),
+              buildDisabledTextField(text: "${coupon.numberOfUse} ${AText.numberOfuse.tr(context)}"),
               buildSpacerH(10.0),
-              AdditionalTermsCardWidget(text: coupon.additionalTerms , )
+              AdditionalTermsCardWidget(text: coupon.additionalTerms)
               
               
             ],

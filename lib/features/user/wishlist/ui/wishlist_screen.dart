@@ -138,9 +138,9 @@ class _WishlistScreenState extends State<WishlistScreen>
             mainAxisSize: MainAxisSize.min, children: [
             // Icon at the top
             SizedBox(
-              width: 100,
-              height: 100,
-              child: svgImage("icBuildLogo", fit: BoxFit.fill),
+              width: 200,
+              height: 200,
+              child: svgImage("logo svg", fit: BoxFit.fill),
             ),
             SizedBox(height: 16),
       

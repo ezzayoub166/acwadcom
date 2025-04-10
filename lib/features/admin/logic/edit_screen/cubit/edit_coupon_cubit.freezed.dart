@@ -23,7 +23,7 @@ mixin _$EditCouponState {
     required TResult Function() successEditCoupon,
     required TResult Function(String error) faluireEditCoupon,
     required TResult Function(DateTime selectedDate) dateSelectedEditCoupon,
-    required TResult Function(OptionItem optionItemSelected)
+    required TResult Function(CategoryModel optionItemSelected)
         categorySelectedEditCoupon,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoadedEditCoupon,
@@ -42,7 +42,7 @@ mixin _$EditCouponState {
     TResult? Function()? successEditCoupon,
     TResult? Function(String error)? faluireEditCoupon,
     TResult? Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult? Function(OptionItem optionItemSelected)?
+    TResult? Function(CategoryModel optionItemSelected)?
         categorySelectedEditCoupon,
     TResult? Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
@@ -61,7 +61,8 @@ mixin _$EditCouponState {
     TResult Function()? successEditCoupon,
     TResult Function(String error)? faluireEditCoupon,
     TResult Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult Function(OptionItem optionItemSelected)? categorySelectedEditCoupon,
+    TResult Function(CategoryModel optionItemSelected)?
+        categorySelectedEditCoupon,
     TResult Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
     TResult Function()? loadingSetLogoStoreEditCoupon,
@@ -209,7 +210,7 @@ class _$InitialEditCouponImpl implements _InitialEditCoupon {
     required TResult Function() successEditCoupon,
     required TResult Function(String error) faluireEditCoupon,
     required TResult Function(DateTime selectedDate) dateSelectedEditCoupon,
-    required TResult Function(OptionItem optionItemSelected)
+    required TResult Function(CategoryModel optionItemSelected)
         categorySelectedEditCoupon,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoadedEditCoupon,
@@ -231,7 +232,7 @@ class _$InitialEditCouponImpl implements _InitialEditCoupon {
     TResult? Function()? successEditCoupon,
     TResult? Function(String error)? faluireEditCoupon,
     TResult? Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult? Function(OptionItem optionItemSelected)?
+    TResult? Function(CategoryModel optionItemSelected)?
         categorySelectedEditCoupon,
     TResult? Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
@@ -253,7 +254,8 @@ class _$InitialEditCouponImpl implements _InitialEditCoupon {
     TResult Function()? successEditCoupon,
     TResult Function(String error)? faluireEditCoupon,
     TResult Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult Function(OptionItem optionItemSelected)? categorySelectedEditCoupon,
+    TResult Function(CategoryModel optionItemSelected)?
+        categorySelectedEditCoupon,
     TResult Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
     TResult Function()? loadingSetLogoStoreEditCoupon,
@@ -403,7 +405,7 @@ class _$LoadingEditCouponImpl implements LoadingEditCoupon {
     required TResult Function() successEditCoupon,
     required TResult Function(String error) faluireEditCoupon,
     required TResult Function(DateTime selectedDate) dateSelectedEditCoupon,
-    required TResult Function(OptionItem optionItemSelected)
+    required TResult Function(CategoryModel optionItemSelected)
         categorySelectedEditCoupon,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoadedEditCoupon,
@@ -425,7 +427,7 @@ class _$LoadingEditCouponImpl implements LoadingEditCoupon {
     TResult? Function()? successEditCoupon,
     TResult? Function(String error)? faluireEditCoupon,
     TResult? Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult? Function(OptionItem optionItemSelected)?
+    TResult? Function(CategoryModel optionItemSelected)?
         categorySelectedEditCoupon,
     TResult? Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
@@ -447,7 +449,8 @@ class _$LoadingEditCouponImpl implements LoadingEditCoupon {
     TResult Function()? successEditCoupon,
     TResult Function(String error)? faluireEditCoupon,
     TResult Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult Function(OptionItem optionItemSelected)? categorySelectedEditCoupon,
+    TResult Function(CategoryModel optionItemSelected)?
+        categorySelectedEditCoupon,
     TResult Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
     TResult Function()? loadingSetLogoStoreEditCoupon,
@@ -597,7 +600,7 @@ class _$SuccessEditCouponImpl implements SuccessEditCoupon {
     required TResult Function() successEditCoupon,
     required TResult Function(String error) faluireEditCoupon,
     required TResult Function(DateTime selectedDate) dateSelectedEditCoupon,
-    required TResult Function(OptionItem optionItemSelected)
+    required TResult Function(CategoryModel optionItemSelected)
         categorySelectedEditCoupon,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoadedEditCoupon,
@@ -619,7 +622,7 @@ class _$SuccessEditCouponImpl implements SuccessEditCoupon {
     TResult? Function()? successEditCoupon,
     TResult? Function(String error)? faluireEditCoupon,
     TResult? Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult? Function(OptionItem optionItemSelected)?
+    TResult? Function(CategoryModel optionItemSelected)?
         categorySelectedEditCoupon,
     TResult? Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
@@ -641,7 +644,8 @@ class _$SuccessEditCouponImpl implements SuccessEditCoupon {
     TResult Function()? successEditCoupon,
     TResult Function(String error)? faluireEditCoupon,
     TResult Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult Function(OptionItem optionItemSelected)? categorySelectedEditCoupon,
+    TResult Function(CategoryModel optionItemSelected)?
+        categorySelectedEditCoupon,
     TResult Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
     TResult Function()? loadingSetLogoStoreEditCoupon,
@@ -818,7 +822,7 @@ class _$FaluireEditCouponImpl implements FaluireEditCoupon {
     required TResult Function() successEditCoupon,
     required TResult Function(String error) faluireEditCoupon,
     required TResult Function(DateTime selectedDate) dateSelectedEditCoupon,
-    required TResult Function(OptionItem optionItemSelected)
+    required TResult Function(CategoryModel optionItemSelected)
         categorySelectedEditCoupon,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoadedEditCoupon,
@@ -840,7 +844,7 @@ class _$FaluireEditCouponImpl implements FaluireEditCoupon {
     TResult? Function()? successEditCoupon,
     TResult? Function(String error)? faluireEditCoupon,
     TResult? Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult? Function(OptionItem optionItemSelected)?
+    TResult? Function(CategoryModel optionItemSelected)?
         categorySelectedEditCoupon,
     TResult? Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
@@ -862,7 +866,8 @@ class _$FaluireEditCouponImpl implements FaluireEditCoupon {
     TResult Function()? successEditCoupon,
     TResult Function(String error)? faluireEditCoupon,
     TResult Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult Function(OptionItem optionItemSelected)? categorySelectedEditCoupon,
+    TResult Function(CategoryModel optionItemSelected)?
+        categorySelectedEditCoupon,
     TResult Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
     TResult Function()? loadingSetLogoStoreEditCoupon,
@@ -1048,7 +1053,7 @@ class _$DateSelectedEditCouponImpl implements DateSelectedEditCoupon {
     required TResult Function() successEditCoupon,
     required TResult Function(String error) faluireEditCoupon,
     required TResult Function(DateTime selectedDate) dateSelectedEditCoupon,
-    required TResult Function(OptionItem optionItemSelected)
+    required TResult Function(CategoryModel optionItemSelected)
         categorySelectedEditCoupon,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoadedEditCoupon,
@@ -1070,7 +1075,7 @@ class _$DateSelectedEditCouponImpl implements DateSelectedEditCoupon {
     TResult? Function()? successEditCoupon,
     TResult? Function(String error)? faluireEditCoupon,
     TResult? Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult? Function(OptionItem optionItemSelected)?
+    TResult? Function(CategoryModel optionItemSelected)?
         categorySelectedEditCoupon,
     TResult? Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
@@ -1092,7 +1097,8 @@ class _$DateSelectedEditCouponImpl implements DateSelectedEditCoupon {
     TResult Function()? successEditCoupon,
     TResult Function(String error)? faluireEditCoupon,
     TResult Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult Function(OptionItem optionItemSelected)? categorySelectedEditCoupon,
+    TResult Function(CategoryModel optionItemSelected)?
+        categorySelectedEditCoupon,
     TResult Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
     TResult Function()? loadingSetLogoStoreEditCoupon,
@@ -1212,7 +1218,7 @@ abstract class _$$CategorySelectedEditCouponImplCopyWith<$Res> {
           $Res Function(_$CategorySelectedEditCouponImpl) then) =
       __$$CategorySelectedEditCouponImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({OptionItem optionItemSelected});
+  $Res call({CategoryModel optionItemSelected});
 }
 
 /// @nodoc
@@ -1234,7 +1240,7 @@ class __$$CategorySelectedEditCouponImplCopyWithImpl<$Res>
       optionItemSelected: null == optionItemSelected
           ? _value.optionItemSelected
           : optionItemSelected // ignore: cast_nullable_to_non_nullable
-              as OptionItem,
+              as CategoryModel,
     ));
   }
 }
@@ -1245,7 +1251,7 @@ class _$CategorySelectedEditCouponImpl implements CategorySelectedEditCoupon {
   const _$CategorySelectedEditCouponImpl({required this.optionItemSelected});
 
   @override
-  final OptionItem optionItemSelected;
+  final CategoryModel optionItemSelected;
 
   @override
   String toString() {
@@ -1279,7 +1285,7 @@ class _$CategorySelectedEditCouponImpl implements CategorySelectedEditCoupon {
     required TResult Function() successEditCoupon,
     required TResult Function(String error) faluireEditCoupon,
     required TResult Function(DateTime selectedDate) dateSelectedEditCoupon,
-    required TResult Function(OptionItem optionItemSelected)
+    required TResult Function(CategoryModel optionItemSelected)
         categorySelectedEditCoupon,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoadedEditCoupon,
@@ -1301,7 +1307,7 @@ class _$CategorySelectedEditCouponImpl implements CategorySelectedEditCoupon {
     TResult? Function()? successEditCoupon,
     TResult? Function(String error)? faluireEditCoupon,
     TResult? Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult? Function(OptionItem optionItemSelected)?
+    TResult? Function(CategoryModel optionItemSelected)?
         categorySelectedEditCoupon,
     TResult? Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
@@ -1323,7 +1329,8 @@ class _$CategorySelectedEditCouponImpl implements CategorySelectedEditCoupon {
     TResult Function()? successEditCoupon,
     TResult Function(String error)? faluireEditCoupon,
     TResult Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult Function(OptionItem optionItemSelected)? categorySelectedEditCoupon,
+    TResult Function(CategoryModel optionItemSelected)?
+        categorySelectedEditCoupon,
     TResult Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
     TResult Function()? loadingSetLogoStoreEditCoupon,
@@ -1428,10 +1435,10 @@ class _$CategorySelectedEditCouponImpl implements CategorySelectedEditCoupon {
 
 abstract class CategorySelectedEditCoupon implements EditCouponState {
   const factory CategorySelectedEditCoupon(
-          {required final OptionItem optionItemSelected}) =
+          {required final CategoryModel optionItemSelected}) =
       _$CategorySelectedEditCouponImpl;
 
-  OptionItem get optionItemSelected;
+  CategoryModel get optionItemSelected;
   @JsonKey(ignore: true)
   _$$CategorySelectedEditCouponImplCopyWith<_$CategorySelectedEditCouponImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -1512,7 +1519,7 @@ class _$CategoriesLoadedEditCouponImpl implements CategoriesLoadedEditCoupon {
     required TResult Function() successEditCoupon,
     required TResult Function(String error) faluireEditCoupon,
     required TResult Function(DateTime selectedDate) dateSelectedEditCoupon,
-    required TResult Function(OptionItem optionItemSelected)
+    required TResult Function(CategoryModel optionItemSelected)
         categorySelectedEditCoupon,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoadedEditCoupon,
@@ -1534,7 +1541,7 @@ class _$CategoriesLoadedEditCouponImpl implements CategoriesLoadedEditCoupon {
     TResult? Function()? successEditCoupon,
     TResult? Function(String error)? faluireEditCoupon,
     TResult? Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult? Function(OptionItem optionItemSelected)?
+    TResult? Function(CategoryModel optionItemSelected)?
         categorySelectedEditCoupon,
     TResult? Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
@@ -1556,7 +1563,8 @@ class _$CategoriesLoadedEditCouponImpl implements CategoriesLoadedEditCoupon {
     TResult Function()? successEditCoupon,
     TResult Function(String error)? faluireEditCoupon,
     TResult Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult Function(OptionItem optionItemSelected)? categorySelectedEditCoupon,
+    TResult Function(CategoryModel optionItemSelected)?
+        categorySelectedEditCoupon,
     TResult Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
     TResult Function()? loadingSetLogoStoreEditCoupon,
@@ -1718,7 +1726,7 @@ class _$LoadingSetLogoStoreEditCouponImpl
     required TResult Function() successEditCoupon,
     required TResult Function(String error) faluireEditCoupon,
     required TResult Function(DateTime selectedDate) dateSelectedEditCoupon,
-    required TResult Function(OptionItem optionItemSelected)
+    required TResult Function(CategoryModel optionItemSelected)
         categorySelectedEditCoupon,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoadedEditCoupon,
@@ -1740,7 +1748,7 @@ class _$LoadingSetLogoStoreEditCouponImpl
     TResult? Function()? successEditCoupon,
     TResult? Function(String error)? faluireEditCoupon,
     TResult? Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult? Function(OptionItem optionItemSelected)?
+    TResult? Function(CategoryModel optionItemSelected)?
         categorySelectedEditCoupon,
     TResult? Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
@@ -1762,7 +1770,8 @@ class _$LoadingSetLogoStoreEditCouponImpl
     TResult Function()? successEditCoupon,
     TResult Function(String error)? faluireEditCoupon,
     TResult Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult Function(OptionItem optionItemSelected)? categorySelectedEditCoupon,
+    TResult Function(CategoryModel optionItemSelected)?
+        categorySelectedEditCoupon,
     TResult Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
     TResult Function()? loadingSetLogoStoreEditCoupon,
@@ -1946,7 +1955,7 @@ class _$LoadedSetLogoStoreEditCouponImpl
     required TResult Function() successEditCoupon,
     required TResult Function(String error) faluireEditCoupon,
     required TResult Function(DateTime selectedDate) dateSelectedEditCoupon,
-    required TResult Function(OptionItem optionItemSelected)
+    required TResult Function(CategoryModel optionItemSelected)
         categorySelectedEditCoupon,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoadedEditCoupon,
@@ -1968,7 +1977,7 @@ class _$LoadedSetLogoStoreEditCouponImpl
     TResult? Function()? successEditCoupon,
     TResult? Function(String error)? faluireEditCoupon,
     TResult? Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult? Function(OptionItem optionItemSelected)?
+    TResult? Function(CategoryModel optionItemSelected)?
         categorySelectedEditCoupon,
     TResult? Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
@@ -1990,7 +1999,8 @@ class _$LoadedSetLogoStoreEditCouponImpl
     TResult Function()? successEditCoupon,
     TResult Function(String error)? faluireEditCoupon,
     TResult Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult Function(OptionItem optionItemSelected)? categorySelectedEditCoupon,
+    TResult Function(CategoryModel optionItemSelected)?
+        categorySelectedEditCoupon,
     TResult Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
     TResult Function()? loadingSetLogoStoreEditCoupon,
@@ -2152,7 +2162,7 @@ class _$NotSelectedLogoStoreEditCouponImpl
     required TResult Function() successEditCoupon,
     required TResult Function(String error) faluireEditCoupon,
     required TResult Function(DateTime selectedDate) dateSelectedEditCoupon,
-    required TResult Function(OptionItem optionItemSelected)
+    required TResult Function(CategoryModel optionItemSelected)
         categorySelectedEditCoupon,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoadedEditCoupon,
@@ -2174,7 +2184,7 @@ class _$NotSelectedLogoStoreEditCouponImpl
     TResult? Function()? successEditCoupon,
     TResult? Function(String error)? faluireEditCoupon,
     TResult? Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult? Function(OptionItem optionItemSelected)?
+    TResult? Function(CategoryModel optionItemSelected)?
         categorySelectedEditCoupon,
     TResult? Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
@@ -2196,7 +2206,8 @@ class _$NotSelectedLogoStoreEditCouponImpl
     TResult Function()? successEditCoupon,
     TResult Function(String error)? faluireEditCoupon,
     TResult Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult Function(OptionItem optionItemSelected)? categorySelectedEditCoupon,
+    TResult Function(CategoryModel optionItemSelected)?
+        categorySelectedEditCoupon,
     TResult Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
     TResult Function()? loadingSetLogoStoreEditCoupon,
@@ -2350,7 +2361,7 @@ class _$EmptyLogoStoreEditCouponImpl implements EmptyLogoStoreEditCoupon {
     required TResult Function() successEditCoupon,
     required TResult Function(String error) faluireEditCoupon,
     required TResult Function(DateTime selectedDate) dateSelectedEditCoupon,
-    required TResult Function(OptionItem optionItemSelected)
+    required TResult Function(CategoryModel optionItemSelected)
         categorySelectedEditCoupon,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoadedEditCoupon,
@@ -2372,7 +2383,7 @@ class _$EmptyLogoStoreEditCouponImpl implements EmptyLogoStoreEditCoupon {
     TResult? Function()? successEditCoupon,
     TResult? Function(String error)? faluireEditCoupon,
     TResult? Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult? Function(OptionItem optionItemSelected)?
+    TResult? Function(CategoryModel optionItemSelected)?
         categorySelectedEditCoupon,
     TResult? Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
@@ -2394,7 +2405,8 @@ class _$EmptyLogoStoreEditCouponImpl implements EmptyLogoStoreEditCoupon {
     TResult Function()? successEditCoupon,
     TResult Function(String error)? faluireEditCoupon,
     TResult Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult Function(OptionItem optionItemSelected)? categorySelectedEditCoupon,
+    TResult Function(CategoryModel optionItemSelected)?
+        categorySelectedEditCoupon,
     TResult Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
     TResult Function()? loadingSetLogoStoreEditCoupon,
@@ -2573,7 +2585,7 @@ class _$CouponLoadedEditCouponImpl implements CouponLoadedEditCoupon {
     required TResult Function() successEditCoupon,
     required TResult Function(String error) faluireEditCoupon,
     required TResult Function(DateTime selectedDate) dateSelectedEditCoupon,
-    required TResult Function(OptionItem optionItemSelected)
+    required TResult Function(CategoryModel optionItemSelected)
         categorySelectedEditCoupon,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoadedEditCoupon,
@@ -2595,7 +2607,7 @@ class _$CouponLoadedEditCouponImpl implements CouponLoadedEditCoupon {
     TResult? Function()? successEditCoupon,
     TResult? Function(String error)? faluireEditCoupon,
     TResult? Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult? Function(OptionItem optionItemSelected)?
+    TResult? Function(CategoryModel optionItemSelected)?
         categorySelectedEditCoupon,
     TResult? Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
@@ -2617,7 +2629,8 @@ class _$CouponLoadedEditCouponImpl implements CouponLoadedEditCoupon {
     TResult Function()? successEditCoupon,
     TResult Function(String error)? faluireEditCoupon,
     TResult Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult Function(OptionItem optionItemSelected)? categorySelectedEditCoupon,
+    TResult Function(CategoryModel optionItemSelected)?
+        categorySelectedEditCoupon,
     TResult Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
     TResult Function()? loadingSetLogoStoreEditCoupon,
@@ -2777,7 +2790,7 @@ class _$StopLoadingImageEditCouponImpl implements StopLoadingImageEditCoupon {
     required TResult Function() successEditCoupon,
     required TResult Function(String error) faluireEditCoupon,
     required TResult Function(DateTime selectedDate) dateSelectedEditCoupon,
-    required TResult Function(OptionItem optionItemSelected)
+    required TResult Function(CategoryModel optionItemSelected)
         categorySelectedEditCoupon,
     required TResult Function(DropListModel listOfCategoriesOption)
         categoriesLoadedEditCoupon,
@@ -2799,7 +2812,7 @@ class _$StopLoadingImageEditCouponImpl implements StopLoadingImageEditCoupon {
     TResult? Function()? successEditCoupon,
     TResult? Function(String error)? faluireEditCoupon,
     TResult? Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult? Function(OptionItem optionItemSelected)?
+    TResult? Function(CategoryModel optionItemSelected)?
         categorySelectedEditCoupon,
     TResult? Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
@@ -2821,7 +2834,8 @@ class _$StopLoadingImageEditCouponImpl implements StopLoadingImageEditCoupon {
     TResult Function()? successEditCoupon,
     TResult Function(String error)? faluireEditCoupon,
     TResult Function(DateTime selectedDate)? dateSelectedEditCoupon,
-    TResult Function(OptionItem optionItemSelected)? categorySelectedEditCoupon,
+    TResult Function(CategoryModel optionItemSelected)?
+        categorySelectedEditCoupon,
     TResult Function(DropListModel listOfCategoriesOption)?
         categoriesLoadedEditCoupon,
     TResult Function()? loadingSetLogoStoreEditCoupon,

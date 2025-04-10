@@ -2,11 +2,9 @@ import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/common/widgets/custom_phone_number_filed.dart';
 import 'package:acwadcom/features/user/authtication/UI/widgets/build_terms_and_condtions.dart';
 import 'package:acwadcom/features/user/authtication/logic/register/cubit/register_cubit.dart';
-import 'package:acwadcom/features/user/settings/ui/screens/terms_condions.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 import 'package:acwadcom/helpers/loader/laoders.dart';
 import 'package:acwadcom/helpers/popups/animation_loader.dart';
-import 'package:flutter/gestures.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key, required this.selectStatus});
@@ -137,12 +135,13 @@ class RegisterScreen extends StatelessWidget {
                     ),
                     buildSpacerH(20.0),
                     //** Phone Number */
+                 
                     CustomPhoneNumberInput(
                       controller: context.read<RegisterCubit>().phoneController,
                       selectorTextStyle:  GoogleFonts.cairo(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,),
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,),
                     ),
                     //  buildSpacerH(20.0),
 

@@ -145,7 +145,7 @@ class CouponRepository {
           .collection(couponsConstant)
           .where('EndDate', isGreaterThan: currentTimestamp)
           .where("CategoryID",isEqualTo: categoryID)
-          .limit(10)
+          .limit(7)
           .get();
       final coupons =
           ref.docs.map((document) => Coupon.fromSnapshot(document)).toList();

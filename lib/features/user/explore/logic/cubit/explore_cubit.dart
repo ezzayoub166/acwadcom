@@ -81,7 +81,6 @@ class ExploreCubit extends Cubit<ExploreState> {
     emit(const ExploreState.loadingGetCoupons());
     try {
       final coupons = await storeRepository.fetchCouponForSelectStore(ownerID);
-
       // Ensure you're not emitting an empty success state if coupons are empty.
       if (coupons.isEmpty) {
         emit(const ExploreState.emptyListCoupons());

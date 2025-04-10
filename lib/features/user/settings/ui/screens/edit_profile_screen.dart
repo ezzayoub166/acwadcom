@@ -72,7 +72,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               // Set initial values for controllers
               context.read<ProfileCubit>().nameC.text = user.userName;
               context.read<ProfileCubit>().mobileNumberC.text =
-                  user.phoneNumber;
+                  user.phoneNumber ?? "";
               return SingleChildScrollView(
                 child: Padding(
                     padding:

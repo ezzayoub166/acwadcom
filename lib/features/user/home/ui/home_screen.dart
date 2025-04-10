@@ -39,7 +39,8 @@ class _HomeScreenState extends State<HomeScreen> {
         body: BlocProvider(
           create: (context) => getIt<HomeCubit>()
             ..emitGetCategories()
-            ..emitGetOffers(),
+            ..emitGetOffers()
+            ,
           child: SafeArea(
             child: SingleChildScrollView(
               child: Padding(
@@ -70,6 +71,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   ///MARK: Discover Coupons
+  ///
+  ///
 
   Widget blocBuilderCoupons(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;

@@ -69,7 +69,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         buildSpacerH(10.0),
                         buildDisabledTextField(
-                          text: user.phoneNumber,
+                          text: user.phoneNumber ?? "",
                         ),
                         buildSpacerH(10.0),
                         RoundedButtonWgt(

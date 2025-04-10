@@ -4,6 +4,8 @@ import 'package:acwadcom/acwadcom_packges.dart';
 import 'package:acwadcom/features/admin/logic/request/cubit/control_coupons_cubit.dart';
 import 'package:acwadcom/features/admin/ui/widgets/build_coupon_request_item.dart';
 import 'package:acwadcom/common/widgets/build_custom_loader.dart';
+import 'package:acwadcom/features/admin/ui/widgets/build_shimmer_list_of_coupons.dart';
+import 'package:acwadcom/features/user/home/ui/widgets/build_empty_list.dart';
 import 'package:acwadcom/helpers/di/dependency_injection.dart';
 
 
@@ -59,6 +61,8 @@ class buildBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
 
 
     return BlocListener<ControlCouponsCubit, ControlCouponsState>(
@@ -75,10 +79,17 @@ class buildBlocBuilder extends StatelessWidget {
             current is FaluiregetRequestAdded ||
             current is ApproveCouponRequest ||
             current is RejectCouponRequest || 
-            current is FaluireRejectCouponRequest,
+            current is FaluireRejectCouponRequest ||
+            current is EmptyListCoupons,
         builder: (context, state) {
           return state.maybeWhen(
-              lodingGetRequestAdded: () => Center(child: BuildCustomLoader()),
+              lodingGetRequestAdded: () => buildShimmerListOfCoupons(),
+              emptyListCoupons: ()=>buildEmptyListCoupons(
+                    screenWidth,
+                    screenHeight,
+                    context,
+                  "No requests to add coupons".tr(context)
+                  ),
               sucessgetRequestAdded: (coupons , couponsRequests) {
                 return ListView.builder(
                   itemCount: coupons.length,

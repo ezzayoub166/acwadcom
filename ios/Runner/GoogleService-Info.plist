@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>242503319267-unuovj1jh4ge3cnoninj2jhm0qi220ho.apps.googleusercontent.com</string>
+	<string>242503319267-elpu8h1evrbmtm4kp58c60ui8m31aeh3.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.242503319267-unuovj1jh4ge3cnoninj2jhm0qi220ho</string>
+	<string>com.googleusercontent.apps.242503319267-elpu8h1evrbmtm4kp58c60ui8m31aeh3</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>242503319267-443aadnl6tfji290de80ruug1i37o0ef.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,22 +15,22 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.izzdine.acwdcomapp</string>
+	<string>com.mohamed.acwdcoom</string>
 	<key>PROJECT_ID</key>
 	<string>acwadcom-8ab26</string>
 	<key>STORAGE_BUCKET</key>
 	<string>acwadcom-8ab26.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:242503319267:ios:1644c586dce795e23e4fd6</string>
+	<string>1:242503319267:ios:aed1ab1a984d50993e4fd6</string>
 </dict>
 </plist>
